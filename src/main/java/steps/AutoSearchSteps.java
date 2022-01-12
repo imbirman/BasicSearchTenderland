@@ -8,6 +8,11 @@ public class AutoSearchSteps extends AutoSearchPage {
 
     AutoSearchPage page;
 
+    @Step("Ожидание")
+    public void wait_a_bit(){
+        waitFor();
+    }
+
     @Step("Открытие страницы")
     public void open_login_main_page() {page.open();}
 
@@ -34,5 +39,10 @@ public class AutoSearchSteps extends AutoSearchPage {
     @Step("Проверка реестрового номера для автопоиска 'Проверка поиска по реестровому номеру и региону'")
     public void check_registry_number(){
         Assertions.assertThat(page.getTextRegistryNumber()).as("").isEqualTo("200741742119000018");
+    }
+
+    @Step("Проверка количества результата поиска после добавления значения региона")
+    public void check_registry_number_after_adding_region_value(){
+        Assertions.assertThat(page.isEqualNumberOfRowResultSearch(1)).as("Результат поиска некорректен").isFalse();
     }
 }

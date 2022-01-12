@@ -47,4 +47,24 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.check_number_result_search();
         steps.check_registry_number();
     }
+
+    @Test
+    @Title("Проверка увеличения количества результатов поиска при добавлении значения региона")
+    public void checkNumberResultSearchAfterAddingRegionValue(){
+
+        steps.open_login_main_page();
+        steps.clickButton(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.clickButton(signInButton);
+        steps.clickButton(tabListAutoSearch);
+        steps.clickButton(buttonAutoSearchRegistryNumberAndRegion);
+        steps.clickButton(filterRegionRoot);
+        steps.typeSearch("Москва");
+        steps.waitFor();
+        steps.clickButton(getCheckboxByNumber(3));
+        steps.clickButton(buttonApply);
+        steps.clickButton(buttonSearch);
+        steps.check_registry_number_after_adding_region_value();
+    }
 }
