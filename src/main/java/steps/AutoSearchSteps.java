@@ -25,4 +25,14 @@ public class AutoSearchSteps extends AutoSearchPage {
     public void check_text_login(){
         Assertions.assertThat(page.getTextLogin()).as("Логин некорректен, вход ошибочен").isEqualTo("AdminTestit");
     }
+
+    @Step("Проверка количества результата поиска")
+    public void check_number_result_search(){
+        Assertions.assertThat(page.getNumberOfRowResultSearch()).as("Количество строк в результатах поиска не соответствует значению 1").isEqualTo(1);
+    }
+
+    @Step("Проверка реестрового номера для автопоиска 'Проверка поиска по реестровому номеру и региону'")
+    public void check_registry_number(){
+        Assertions.assertThat(page.getTextRegistryNumber()).as("").isEqualTo("200741742119000018");
+    }
 }

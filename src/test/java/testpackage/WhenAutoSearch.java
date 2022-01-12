@@ -32,4 +32,19 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.clickButton(signInButton);
         steps.check_text_login();
     }
+
+    @Test
+    @Title("Проверка результатов поиска для автопоиска 'Проверка поиска по реестровому номеру и региону'")
+    public void checkRegistryNumber(){
+
+        steps.open_login_main_page();
+        steps.clickButton(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.clickButton(signInButton);
+        steps.clickButton(tabListAutoSearch);
+        steps.clickButton(buttonAutoSearchRegistryNumberAndRegion);
+        steps.check_number_result_search();
+        steps.check_registry_number();
+    }
 }
