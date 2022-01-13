@@ -45,4 +45,14 @@ public class AutoSearchSteps extends AutoSearchPage {
     public void check_registry_number_after_adding_region_value(){
         Assertions.assertThat(page.isEqualNumberOfRowResultSearch(1)).as("Результат поиска некорректен").isFalse();
     }
+
+    @Step("Проверка названия тендера на включение в него ключевого слова")
+    public void check_name_tender_to_include_keyword(){
+        Assertions.assertThat(page.isContainNameTender()).as("Не во всех названиях тендеров есть ключевое слово").isTrue();
+    }
+
+    @Step("Проверка исключения тендеров с ключевым словом")
+    public void check_deletion_name_tender_to_include_keyword(){
+        Assertions.assertThat(page.isContainNameTender()).as("Минимум у одного тендера в названии есть исключенное слово").isTrue();
+    }
 }

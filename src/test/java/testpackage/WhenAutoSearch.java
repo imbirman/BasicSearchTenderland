@@ -67,4 +67,38 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.clickButton(buttonSearch);
         steps.check_registry_number_after_adding_region_value();
     }
+
+    @Test
+    @Title("Проверка названия тендера на включение в него ключевого слова")
+    public void checkNameTenderToIncludeKeyword(){
+
+        steps.open_login_main_page();
+        steps.clickButton(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.clickButton(signInButton);
+        steps.clickButton(tabListAutoSearch);
+        steps.clickButton(buttonCheckTenderNameAndNameDeletion);
+        steps.waitFor();
+        steps.check_name_tender_to_include_keyword();
+    }
+
+    @Test
+    @Title("Проверка исключения из названия тендера ключевого слова")
+    public void checkDeletionNameTenderToIncludeKeyword(){
+
+        steps.open_login_main_page();
+        steps.clickButton(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.clickButton(signInButton);
+        steps.clickButton(tabListAutoSearch);
+        steps.clickButton(buttonCheckTenderNameAndNameDeletion);
+        steps.waitFor();
+        steps.clickButton(filterNameTender);
+        steps.typeDeletion("Мусоровоз");
+        steps.clickButton(buttonSearch);
+        steps.waitFor();
+        steps.check_deletion_name_tender_to_include_keyword();
+    }
 }
