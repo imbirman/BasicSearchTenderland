@@ -101,4 +101,25 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.waitFor();
         steps.check_deletion_name_tender_to_include_keyword();
     }
+
+    @Test
+    @Title("Проверка транслитерации при поиске по названию тендера")
+    public void checkTransliterationNameTender(){
+
+        steps.open_login_main_page();
+        steps.clickButton(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.clickButton(signInButton);
+        steps.clickButton(tabListAutoSearch);
+        steps.clickButton(buttonCheckTenderNameAndNameDeletion);
+        steps.waitFor();
+        steps.clickButton(filterNameTender);
+        steps.clearField(fieldNameTender);
+        steps.typeNameTender("Муcор");
+        steps.clickButton(checkBoxTransliteration);
+        steps.clickButton(buttonSearch);
+        steps.waitFor();
+        steps.check_name_tender_to_include_keyword();
+    }
 }

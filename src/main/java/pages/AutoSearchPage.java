@@ -23,6 +23,7 @@ public class AutoSearchPage extends PageObject {
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
+    protected By fieldNameTender = By.xpath("//div[@id='filter-editor-compact-1-include']//textarea"); // Поле для ввода названия тендера для поиска
 
     private By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
@@ -34,9 +35,12 @@ public class AutoSearchPage extends PageObject {
     private By fieldNameTenderDeletion = By.xpath("//div[@id='filter-editor-compact-1-exclude']//textarea"); // Поле для ввода параметра, исключаемого из поиска
 
 
+
     public void waitFor(){
         waitABit(2000);
     } // Ожидание
+
+    public void clearField(By field){find(field).clear();} // Очистить поле
 
     public void clickButton(By button){ // Клик по кнопке
         find(button).click();
@@ -65,6 +69,11 @@ public class AutoSearchPage extends PageObject {
         find(fieldNameTenderDeletion).sendKeys(name);
         return this;
     } // Ввести значение, исключаемое из поиска
+
+    public AutoSearchPage typeNameTender(String name){ // Поиск поля логина и ввод значения
+        find(fieldNameTender).sendKeys(name);
+        return this;
+    } // Ввести ключевое слово для поиска по названию тендера
 
     public String getTextLogin(){
         return find(checkLogin).getText();
