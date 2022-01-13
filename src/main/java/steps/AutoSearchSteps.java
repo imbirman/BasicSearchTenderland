@@ -53,6 +53,6 @@ public class AutoSearchSteps extends AutoSearchPage {
 
     @Step("Проверка исключения тендеров с ключевым словом")
     public void check_deletion_name_tender_to_include_keyword(){
-        Assertions.assertThat(page.isContainNameTender()).as("Минимум у одного тендера в названии есть исключенное слово").isTrue();
+        Assertions.assertThat(page.isContainDeletionNameTender()).as("Минимум у одного тендера в названии есть исключенное слово").isTrue();
     }
 }
