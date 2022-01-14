@@ -60,6 +60,7 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.clickButton(tabListAutoSearch);
         steps.clickButton(buttonAutoSearchRegistryNumberAndRegion);
         steps.clickButton(filterRegionRoot);
+        steps.waitFor();
         steps.typeSearch("Москва");
         steps.waitFor();
         steps.clickButton(getCheckboxByNumber(3));

@@ -29,8 +29,8 @@ public class AutoSearchPage extends PageObject {
     private By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private By checkLogin = By.xpath("//ul[@class='navbar-nav']//a"); // объект для проверки логина после входа
     private By rowResultSearch = By.xpath("//div[@class='dx-datagrid-content']//table[@role='presentation']//tr[@role='row']"); // Строка таблицы поиска
-    private By cellOfRegistryNumber = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска с реестровым номером для первой строки
-    private By cellOfRegistryName = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[5]"); // Ячейка таблицы в результатах поиска с названием тендера
+    private By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска с реестровым номером для первой строки
+//    private By cellOfRegistryName = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[5]"); // Ячейка таблицы в результатах поиска с названием тендера
     private By fieldSearchInFilterEditor = By.xpath("//div[@id='filter-editor-3-search-panel']//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
     private By fieldNameTenderDeletion = By.xpath("//div[@id='filter-editor-compact-1-exclude']//textarea"); // Поле для ввода параметра, исключаемого из поиска
 
@@ -80,7 +80,7 @@ public class AutoSearchPage extends PageObject {
     } // Получение названия логина после входа
 
     public String getTextRegistryNumber(){
-        return find(cellOfRegistryNumber).getText();
+        return find(tableCellToCheck).getText();
     }
 
     public Integer getNumberOfRowResultSearch(){
@@ -98,7 +98,7 @@ public class AutoSearchPage extends PageObject {
     } // Проверка, соответствует ли количество строк в таблице результата поиска заданному
 
     public boolean isContainNameTender(){
-        List<WebElementFacade> nameTender = findAll(cellOfRegistryName);
+        List<WebElementFacade> nameTender = findAll(tableCellToCheck);
         nameTender.remove(nameTender.size()-1);
         boolean check = true;
         for(WebElementFacade name : nameTender){
@@ -112,7 +112,7 @@ public class AutoSearchPage extends PageObject {
     } // Проверка включения в название тендеров ключевого слова
 
     public boolean isContainDeletionNameTender(){
-        List<WebElementFacade> nameTender = findAll(cellOfRegistryName);
+        List<WebElementFacade> nameTender = findAll(tableCellToCheck);
         nameTender.remove(nameTender.size()-1);
         boolean check = false;
         for(WebElementFacade name : nameTender){
