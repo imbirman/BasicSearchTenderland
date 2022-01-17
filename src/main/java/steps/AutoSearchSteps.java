@@ -2,7 +2,10 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.Assertions;
+import org.openqa.selenium.By;
 import pages.AutoSearchPage;
+
+import java.text.ParseException;
 
 public class AutoSearchSteps extends AutoSearchPage {
 
@@ -16,6 +19,16 @@ public class AutoSearchSteps extends AutoSearchPage {
     @Step("Открытие страницы")
     public void open_login_main_page() {page.open();}
 
+    @Step("Нажать кнопку")
+    public void click_button(By button){
+        page.clickButton(button);
+    } // Нажать на кнопку
+
+    @Step("Очистить поле")
+    public void click_field(By field){
+        page.clearField(field);
+    } // Нажать на кнопку
+
     @Step("Ввод логина")
     public void type_login(String mail){
         page.typeLogin(mail);
@@ -24,6 +37,11 @@ public class AutoSearchSteps extends AutoSearchPage {
     @Step("Ввод пароля")
     public void type_password(String password){
         page.typePassword(password);
+    } // Ввести данные пароля
+
+    @Step("Ввести ключевое слово для поиска")
+    public void type_name_tender(String name){
+        page.typeNameTender(name);
     } // Ввести данные пароля
 
     @Step("Проверка логина после входа")
@@ -54,5 +72,11 @@ public class AutoSearchSteps extends AutoSearchPage {
     @Step("Проверка исключения тендеров с ключевым словом")
     public void check_deletion_name_tender_to_include_keyword(){
         Assertions.assertThat(page.isContainDeletionNameTender()).as("Минимум у одного тендера в названии есть исключенное слово").isTrue();
+    }
+
+    @Step()
+    public void check_publication_date_of_tender(String startDate, String endDate) throws ParseException {
+        Assertions.assertThat(page.getTextPublicationDate(startDate, endDate))
+                .as("Есть тендеры с датой публикации не входящей в заданный промежуток").isTrue();
     }
 }

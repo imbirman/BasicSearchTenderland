@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import pages.AutoSearchPage;
 import steps.AutoSearchSteps;
 
+import java.text.ParseException;
+
 @RunWith(SerenityRunner.class)
 public class WhenAutoSearch extends AutoSearchPage {
 
@@ -26,10 +28,10 @@ public class WhenAutoSearch extends AutoSearchPage {
     public void checkSignIn(){
 
         steps.open_login_main_page();
-        steps.clickButton(logInButton);
+        steps.click_button(logInButton);
         steps.type_login("AdminTestit");
         steps.type_password("Hyqpmaz0");
-        steps.clickButton(signInButton);
+        steps.click_button(signInButton);
         steps.check_text_login();
     }
 
@@ -38,12 +40,12 @@ public class WhenAutoSearch extends AutoSearchPage {
     public void checkRegistryNumber(){
 
         steps.open_login_main_page();
-        steps.clickButton(logInButton);
+        steps.click_button(logInButton);
         steps.type_login("AdminTestit");
         steps.type_password("Hyqpmaz0");
-        steps.clickButton(signInButton);
-        steps.clickButton(tabListAutoSearch);
-        steps.clickButton(buttonAutoSearchRegistryNumberAndRegion);
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.check_number_result_search();
         steps.check_registry_number();
     }
@@ -53,19 +55,19 @@ public class WhenAutoSearch extends AutoSearchPage {
     public void checkNumberResultSearchAfterAddingRegionValue(){
 
         steps.open_login_main_page();
-        steps.clickButton(logInButton);
+        steps.click_button(logInButton);
         steps.type_login("AdminTestit");
         steps.type_password("Hyqpmaz0");
-        steps.clickButton(signInButton);
-        steps.clickButton(tabListAutoSearch);
-        steps.clickButton(buttonAutoSearchRegistryNumberAndRegion);
-        steps.clickButton(filterRegionRoot);
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
+        steps.click_button(filterRegionRoot);
         steps.waitFor();
         steps.typeSearch("Москва");
         steps.waitFor();
         steps.clickButton(getCheckboxByNumber(3));
-        steps.clickButton(buttonApply);
-        steps.clickButton(buttonSearch);
+        steps.click_button(buttonApply);
+        steps.click_button(buttonSearch);
         steps.check_registry_number_after_adding_region_value();
     }
 
@@ -74,12 +76,12 @@ public class WhenAutoSearch extends AutoSearchPage {
     public void checkNameTenderToIncludeKeyword(){
 
         steps.open_login_main_page();
-        steps.clickButton(logInButton);
+        steps.click_button(logInButton);
         steps.type_login("AdminTestit");
         steps.type_password("Hyqpmaz0");
-        steps.clickButton(signInButton);
-        steps.clickButton(tabListAutoSearch);
-        steps.clickButton(buttonCheckTenderNameAndNameDeletion);
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.waitFor();
         steps.check_name_tender_to_include_keyword();
     }
@@ -89,16 +91,16 @@ public class WhenAutoSearch extends AutoSearchPage {
     public void checkDeletionNameTenderToIncludeKeyword(){
 
         steps.open_login_main_page();
-        steps.clickButton(logInButton);
+        steps.click_button(logInButton);
         steps.type_login("AdminTestit");
         steps.type_password("Hyqpmaz0");
-        steps.clickButton(signInButton);
-        steps.clickButton(tabListAutoSearch);
-        steps.clickButton(buttonCheckTenderNameAndNameDeletion);
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.waitFor();
-        steps.clickButton(filterNameTender);
+        steps.click_button(filterNameTender);
         steps.typeDeletion("Мусоровоз");
-        steps.clickButton(buttonSearch);
+        steps.click_button(buttonSearch);
         steps.waitFor();
         steps.check_deletion_name_tender_to_include_keyword();
     }
@@ -108,19 +110,42 @@ public class WhenAutoSearch extends AutoSearchPage {
     public void checkTransliterationNameTender(){
 
         steps.open_login_main_page();
-        steps.clickButton(logInButton);
+        steps.click_button(logInButton);
         steps.type_login("AdminTestit");
         steps.type_password("Hyqpmaz0");
-        steps.clickButton(signInButton);
-        steps.clickButton(tabListAutoSearch);
-        steps.clickButton(buttonCheckTenderNameAndNameDeletion);
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.waitFor();
-        steps.clickButton(filterNameTender);
-        steps.clearField(fieldNameTender);
-        steps.typeNameTender("Муcор");
-        steps.clickButton(checkBoxTransliteration);
-        steps.clickButton(buttonSearch);
+        steps.click_button(filterNameTender);
+        steps.click_field(fieldNameTender);
+        steps.type_name_tender("Муcор");
+        steps.click_button(checkBoxTransliteration);
+        steps.click_button(buttonSearch);
         steps.waitFor();
         steps.check_name_tender_to_include_keyword();
     }
+
+//    @Test
+//    @Title("Проверка даты публикации тендера")
+//    public void checkPublicationDateOfTender() throws ParseException {
+//
+//        steps.open_login_main_page();
+//        steps.click_button(logInButton);
+//        steps.type_login("AdminTestit");
+//        steps.type_password("Hyqpmaz0");
+//        steps.click_button(signInButton);
+//        steps.click_button(tabListAutoSearch);
+//        steps.click_button(buttonCheckPublicationDate);
+//        steps.waitFor();
+//        steps.click_button(filterPublicationDate);
+//        steps.click_field(fieldPublicationDateFrom);
+//        steps.click_field(fieldPublicationDateTo);
+////        steps.typePublicationDateFrom("09.01.2021");
+////        steps.typePublicationDateTo("09.01.2021");
+////        steps.clickButton(buttonSearch);
+////        steps.waitFor();
+////        steps.check_publication_date_of_tender("09.01.2021 00:00","09.01.2021 23:59");
+//
+//    }
 }
