@@ -19,7 +19,6 @@ public class WhenAutoSearch extends AutoSearchPage {
     @Managed(driver = "chrome", uniqueSession=true)
     WebDriver driver;
 
-
     @Steps
     AutoSearchSteps steps;
 
@@ -118,7 +117,7 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.waitFor();
         steps.click_button(filterNameTender);
-        steps.click_field(fieldNameTender);
+        steps.clear_field(fieldNameTender);
         steps.type_name_tender("Муcор");
         steps.click_button(checkBoxTransliteration);
         steps.click_button(buttonSearch);
@@ -126,26 +125,26 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.check_name_tender_to_include_keyword();
     }
 
-//    @Test
-//    @Title("Проверка даты публикации тендера")
-//    public void checkPublicationDateOfTender() throws ParseException {
-//
-//        steps.open_login_main_page();
-//        steps.click_button(logInButton);
-//        steps.type_login("AdminTestit");
-//        steps.type_password("Hyqpmaz0");
-//        steps.click_button(signInButton);
-//        steps.click_button(tabListAutoSearch);
-//        steps.click_button(buttonCheckPublicationDate);
-//        steps.waitFor();
-//        steps.click_button(filterPublicationDate);
-//        steps.click_field(fieldPublicationDateFrom);
-//        steps.click_field(fieldPublicationDateTo);
-////        steps.typePublicationDateFrom("09.01.2021");
-////        steps.typePublicationDateTo("09.01.2021");
-////        steps.clickButton(buttonSearch);
-////        steps.waitFor();
-////        steps.check_publication_date_of_tender("09.01.2021 00:00","09.01.2021 23:59");
-//
-//    }
+    @Test
+    @Title("Проверка даты публикации тендера")
+    public void checkPublicationDateOfTender() throws ParseException {
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckPublicationDate);
+        steps.waitFor();
+        steps.click_button(filterPublicationDate);
+        steps.click_button(buttonClearFieldDateFrom);
+        steps.type_date_from("09.01.2021");
+        steps.click_button(buttonClearFieldDateTo);
+        steps.type_date_to("09.01.2021");
+        steps.click_button(tableCellToCheck);
+        steps.click_button(buttonSearch);
+        steps.waitFor();
+        steps.check_publication_date_of_tender("09.01.2021 00:00","09.01.2021 23:59");
+    }
 }

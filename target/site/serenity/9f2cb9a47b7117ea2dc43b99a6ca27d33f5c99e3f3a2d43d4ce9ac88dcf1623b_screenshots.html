@@ -151,7 +151,7 @@
             <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 14-01-2022 16:03</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 17-01-2022 10:49</span>
     <br style="clear:left"/>
 </div>
 
@@ -186,9 +186,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-exclamation-triangle error-icon fa-2x' title='ERROR'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-times-circle failure-icon fa-2x' title='FAILURE'></i></a></span>
                             <span class="test-case-title">
-                                <span class="error-color">Проверка даты публикации тендера
+                                <span class="failing-color">Проверка даты публикации тендера
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -211,7 +211,7 @@
         <div class="table">
             <div class="row">
                 <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
-                    <span class="error-message error-message-title">element click intercepted: Element (div id='search-button' class='dx-widget dx-button dx-button-mode-contained dx-button-normal dx-button-has-text dx-button-has-icon tl-normal-green-button' role='button' aria-label='Поиск' tabindex='0')...(/div) is not clickable at point (843, 419). Other element would receive the click: (div class='col-lg-6 d-flex')...(/div)<br>  (Session info: chrome=96.0.4664.110)<br>Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'<br>System info: host: 'DESKTOP-I8U9460', ip: '192.168.1.143', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.12'<br>Driver info: org.openqa.selenium.chrome.ChromeDriver<br>Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 96.0.4664.110, chrome: {chromedriverVersion: 96.0.4664.45 (76e4c1bb2ab46..., userDataDir: C:\Users\prog\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50820}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}<br>Session ID: 936eebf40ac148627a73b80910ab9687</span>
+                    <span class="error-message error-message-title">Comparison failure: [Есть тендеры с датой публикации не входящей в заданный промежуток] expected:([tru]e) but was:([fals]e)</span>
                 </div>
                 <div class="col-sm-2">
                     <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall""
@@ -227,11 +227,11 @@
         <div class="collapse multi-collapse" id="stacktraceModal-overall">
             <div class="card">
                 <div class="card-header">
-                    <h4>org.openqa.selenium.ElementClickInterceptedException </h4>
+                    <h4>org.junit.ComparisonFailure </h4>
                 </div>
                 <div class="card-body">
                     <div>
-                        <pre>pages.AutoSearchPage.clickButton(AutoSearchPage.java:54)<br />testpackage.WhenAutoSearch.checkPublicationDateOfTender(WhenAutoSearch.java:146)<br /></pre>
+                        <pre>steps.AutoSearchSteps.check_publication_date_of_tender(AutoSearchSteps.java:90)<br />testpackage.WhenAutoSearch.checkPublicationDateOfTender(WhenAutoSearch.java:148)<br /></pre>
                     </div>
 
                 </div>
@@ -241,15 +241,28 @@
 
 
                 <div class="panel-body">
-                    <a href="#" target="_blank" class="btn btn-info">HTML Source</a>
+                    <a href="pagesource6417158951347492915.html.txt" target="_blank" class="btn btn-info">HTML Source</a>
                 </div>
             </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
                 <img src="c501bf7cb9efc7458a3a986ddfcd2102865ea8cb7ff8f098b3936835fab9aa94.png" title=" Открытие страницы" width="929"/>
-                <img src="1ed5cbbad30e7b0f0e0180f3f5842e736c347ab90f7699aa4e1c36ba3ddcee20.png" title=" Ввод логина" width="929"/>
-                <img src="75e7a216946aa05e4e06fa1bc693b3416c7c26f740cfa591be6632ee92bb5a97.png" title=" Ввод логина (completed)" width="929"/>
-                <img src="4bef247f8725fb5b7cda0175884cc7608dac5eb73657c44d2d1861dc91c9d10c.png" title=" Ввод пароля: <span class='error-color'>ERROR</span>" width="929"/>
+                <img src="2d01885f7c6f5d48243c3b2b52735f530242d4f9a33e6d29aa6873e812c8603a.png" title=" Нажать кнопку" width="929"/>
+                <img src="795a88e3af1fb8f65919f8076ee244e1124731a00ee466b1c3e870c6dc87948a.png" title=" Ввод логина" width="929"/>
+                <img src="b6f6b68540bae45b3c758e4bfbd465732ecd0bfe06a40752d9779209ea16cb3f.png" title=" Ввод пароля" width="929"/>
+                <img src="d705699153b2ec2d96feb0b6374a0abaaf7039e2831fcd24e276a788cb821050.png" title=" Нажать кнопку" width="929"/>
+                <img src="c59931387f1cd6e209cec4c6223b6be085887326e5d64fcf40b366737fe6139e.png" title=" Нажать кнопку" width="929"/>
+                <img src="37d78670ff4d30efda325e62b2514c970a16fbf00a36f739cf3a3906b30957d3.png" title=" Нажать кнопку" width="929"/>
+                <img src="97973d91274a2f2b06fb15199d24ae803992dc6f9758e0b482edb07dbfc77df8.png" title=" Нажать кнопку" width="929"/>
+                <img src="a8e6ae41512495ba7a3d4aeff379623d4ae62c02b2c68022185e5434c71cdbd0.png" title=" Нажать кнопку (completed)" width="929"/>
+                <img src="126dc03b2e0ec526e8022fbd32cff65efbdbf4a2ffd80fd096eb04f40c7afca5.png" title=" Нажать кнопку" width="929"/>
+                <img src="f0c860ae63d33a345d2cd984b803a40f3a41e2237adbdac7c355b5bad3f510d2.png" title=" Ввести дату 'от'" width="929"/>
+                <img src="c5044577e682edcd27e278786919ef20fd003cf5d3591cfa431cecfdca0b055d.png" title=" Нажать кнопку" width="929"/>
+                <img src="40d3516945b31ea314ef03b3951cd8db55f452def11e888b38a3fd4221df8276.png" title=" Ввести дату 'до'" width="929"/>
+                <img src="1f1f854b18b0675cb66429102e493252e57f9fccbdeb741c811b8f6d08a41468.png" title=" Нажать кнопку" width="929"/>
+                <img src="b6f64cb95217b6e933fc74c6bb9fa9649b793cb12f5bca5a292e7bbeff519d45.png" title=" Нажать кнопку" width="929"/>
+                <img src="180ed467ea12550965b116e17573f05c7fc32fab81759959345d1c02aa4aae8c.png" title=" Check publication date of tender: 09.01.2021 00:00, 09.01.2021 23:59" width="929"/>
+                <img src="180ed467ea12550965b116e17573f05c7fc32fab81759959345d1c02aa4aae8c.png" title=" Check publication date of tender: 09.01.2021 00:00, 09.01.2021 23:59 (completed): <span class='failing-color'>FAILURE</span>" width="929"/>
             </div>
         </div>
 

@@ -25,9 +25,9 @@ public class AutoSearchSteps extends AutoSearchPage {
     } // Нажать на кнопку
 
     @Step("Очистить поле")
-    public void click_field(By field){
+    public void clear_field(By field){
         page.clearField(field);
-    } // Нажать на кнопку
+    } // Очистить поле
 
     @Step("Ввод логина")
     public void type_login(String mail){
@@ -43,6 +43,16 @@ public class AutoSearchSteps extends AutoSearchPage {
     public void type_name_tender(String name){
         page.typeNameTender(name);
     } // Ввести данные пароля
+
+    @Step("Ввести дату 'от'")
+    public void type_date_from(String date){
+        page.typeDateFrom(date);
+    }
+
+    @Step("Ввести дату 'до'")
+    public void type_date_to(String date){
+        page.typeDateTo(date);
+    }
 
     @Step("Проверка логина после входа")
     public void check_text_login(){

@@ -30,13 +30,16 @@ public class AutoSearchPage extends PageObject {
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
     protected By fieldNameTender = By.xpath("//div[@id='filter-editor-compact-1-include']//textarea"); // Поле для ввода названия тендера для поиска
     protected By fieldPublicationDateFrom = By.xpath("//div[@id='textbox-filter-editor-compact-5-from']//input[@role='textbox']"); // Поле для ввода даты публикации "от"
+    protected By buttonClearFieldDateFrom = By.xpath("//div[@id='textbox-filter-editor-compact-5-from']//span[@class='dx-icon dx-icon-clear']"); // Кнопка для очистки поля даты "от"
     protected By fieldPublicationDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//input[@role='textbox']"); // Поле для ввода даты публикации "до"
+    protected By buttonClearFieldDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//span[@class='dx-icon dx-icon-clear']"); // Кнопка для очистки поля даты "до"
+    protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
 
     private By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private By checkLogin = By.xpath("//ul[@class='navbar-nav']//a"); // объект для проверки логина после входа
     private By rowResultSearch = By.xpath("//div[@class='dx-datagrid-content']//table[@role='presentation']//tr[@role='row']"); // Строка таблицы поиска
-    private By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска с реестровым номером для первой строки
+
 //    private By cellOfRegistryName = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[5]"); // Ячейка таблицы в результатах поиска с названием тендера
     private By fieldSearchInFilterEditor = By.xpath("//div[@id='filter-editor-3-search-panel']//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
     private By fieldNameTenderDeletion = By.xpath("//div[@id='filter-editor-compact-1-exclude']//textarea"); // Поле для ввода параметра, исключаемого из поиска
@@ -83,12 +86,12 @@ public class AutoSearchPage extends PageObject {
         return this;
     } // Ввести ключевое слово для поиска по названию тендера
 
-    public AutoSearchPage typePublicationDateFrom(String date){
+    public AutoSearchPage typeDateFrom(String date){
         find(fieldPublicationDateFrom).sendKeys(date);
         return this;
     } // Ввести дату публикации "от"
 
-    public AutoSearchPage typePublicationDateTo(String date){
+    public AutoSearchPage typeDateTo(String date){
         find(fieldPublicationDateTo).sendKeys(date);
         return this;
     } // Ввести дату публикации "до"
