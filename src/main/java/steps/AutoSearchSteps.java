@@ -85,8 +85,8 @@ public class AutoSearchSteps extends AutoSearchPage {
     }
 
     @Step()
-    public void check_publication_date_of_tender(String startDate, String endDate) throws ParseException {
-        Assertions.assertThat(page.getTextPublicationDate(startDate, endDate))
-                .as("Есть тендеры с датой публикации не входящей в заданный промежуток").isTrue();
+    public void check_date(String startDate, String endDate) throws ParseException {
+        Assertions.assertThat(page.checkDate(startDate, endDate))
+                .as("Есть тендеры с датой, не входящей в заданный промежуток").isTrue();
     }
 }

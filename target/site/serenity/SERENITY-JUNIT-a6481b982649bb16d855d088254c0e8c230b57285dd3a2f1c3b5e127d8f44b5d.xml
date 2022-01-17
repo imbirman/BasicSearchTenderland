@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="testpackage.WhenAutoSearch" skipped="0" tests="1" time="34.84" timestamp="2022-01-17 04:38:39"><testcase classname="testpackage.WhenAutoSearch" name="Проверка даты окончания подачи заявок"><failure message="[Есть тендеры с датой публикации не входящей в заданный промежуток] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;" type="org.junit.ComparisonFailure">[Есть тендеры с датой публикации не входящей в заданный промежуток] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</failure><system-err>[Есть тендеры с датой публикации не входящей в заданный промежуток] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;&#13;
+steps.AutoSearchSteps.check_date(AutoSearchSteps.java:90)&#13;
+testpackage.WhenAutoSearch.checkEndSubmissionOfApplication(WhenAutoSearch.java:205)&#13;
+</system-err></testcase></testsuite>

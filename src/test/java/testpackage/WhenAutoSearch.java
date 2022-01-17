@@ -5,6 +5,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -16,11 +17,21 @@ import java.text.ParseException;
 @RunWith(SerenityRunner.class)
 public class WhenAutoSearch extends AutoSearchPage {
 
+//    WebDriver driver;
+
     @Managed(driver = "chrome", uniqueSession=true)
     WebDriver driver;
 
+
+
     @Steps
     AutoSearchSteps steps;
+
+    @Before
+    public void beforeMethod(){
+        driver.manage().window().maximize();
+    }
+
 
     @Test
     @Title("Проверка входа")
@@ -145,6 +156,75 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.click_button(tableCellToCheck);
         steps.click_button(buttonSearch);
         steps.waitFor();
-        steps.check_publication_date_of_tender("09.01.2021 00:00","09.01.2021 23:59");
+        steps.check_date("09.01.2021 00:00","09.01.2021 23:59");
+    }
+
+    @Test
+    @Title("Проверка даты начала подачи заявок")
+    public void checkStartSubmissionOfApplication() throws ParseException {
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckStartSubmissionOfApplicationDate);
+        steps.waitFor();
+        steps.click_button(filterStartSubmissionOfApplication);
+        steps.click_button(buttonClearFieldDateFrom);
+        steps.type_date_from("04.01.2021");
+        steps.click_button(buttonClearFieldDateTo);
+        steps.type_date_to("04.01.2021");
+        steps.click_button(tableCellToCheck);
+        steps.click_button(buttonSearch);
+        steps.waitFor();
+        steps.check_date("04.01.2021 00:00","04.01.2021 23:59");
+    }
+
+    @Test
+    @Title("Проверка даты окончания подачи заявок")
+    public void checkEndSubmissionOfApplication() throws ParseException {
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckEndSubmissionOfApplicationDate);
+        steps.waitFor();
+        steps.click_button(filterEndSubmissionOfApplication);
+        steps.click_button(buttonClearFieldDateFrom);
+        steps.type_date_from("03.01.2021");
+        steps.click_button(buttonClearFieldDateTo);
+        steps.type_date_to("03.01.2021");
+        steps.click_button(tableCellToCheck);
+        steps.click_button(buttonSearch);
+        steps.waitFor();
+        steps.check_date("03.01.2021 00:00","03.01.2021 23:59");
+    }
+
+    @Test
+    @Title("Проверка даты проведения тендера")
+    public void checkValidateSearchByTenderDate() throws ParseException {
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonValidateSearchByTenderDate);
+        steps.waitFor();
+        steps.click_button(filterValidateSearchByTenderDate);
+        steps.click_button(buttonClearFieldDateFrom);
+        steps.type_date_from("12.01.2021");
+        steps.click_button(buttonClearFieldDateTo);
+        steps.type_date_to("12.01.2021");
+        steps.click_button(tableCellToCheck);
+        steps.click_button(buttonSearch);
+        steps.waitFor();
+        steps.check_date("12.01.2021 00:00","12.01.2021 23:59");
     }
 }

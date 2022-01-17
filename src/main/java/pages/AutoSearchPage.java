@@ -19,11 +19,17 @@ public class AutoSearchPage extends PageObject {
     protected By signInButton = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
     protected By buttonAutoSearchRegistryNumberAndRegion = By.xpath("//span[text()='Проверка поиска по реестровому номеру и региону']"); // Кнопка автопоиска "Проверка поиска по реестровому номеру и региону"
-    protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//span[text()='Проверка по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка по названию тендера и исключению из названия"
+    protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//span[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка по названию тендера и исключению из названия"
     protected By buttonCheckPublicationDate = By.xpath("//span[text()='Проверка поиска по дате публикации']"); // Кнопка автопоиска "Проверка поиска по дате публикации"
+    protected By buttonCheckStartSubmissionOfApplicationDate = By.xpath("//span[text()='Проверка поиска по дате начала подачи заявок']"); // Кнопка автопоиска "Проверка поиска по дате начала подачи заявок"
+    protected By buttonCheckEndSubmissionOfApplicationDate = By.xpath("//span[text()='Проверка поиска по дате окончания подачи заявок']"); // Кнопка автопоиска "Проверка поиска по дате окончания подачи заявок"
+    protected By buttonValidateSearchByTenderDate = By.xpath("//span[text()='Проверка поиска по дате проведения тендера']"); // Кнопка автопоиска "Проверка поиска по дате проведения тендера"
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка по названию тендера и исключению из названия"
     protected By filterPublicationDate = By.xpath("//span[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
+    protected By filterStartSubmissionOfApplication = By.xpath("//span[text()='04.01.2021 — 04.01.2021']"); // Фильтр "Дата начала подачи заявок" в автопоиске "Проверка поиска по дате начала подачи заявок"
+    protected By filterEndSubmissionOfApplication = By.xpath("//span[text()='03.01.2021 — 03.01.2021']"); // Фильтр "Дата окончания подачи заявок" в автопоиске "Проверка поиска по дате окончания подачи заявок"
+    protected By filterValidateSearchByTenderDate = By.xpath("//span[text()='12.01.2021 — 12.01.2021']"); // Фильтр "Дата проведения тендера" в автопоиске "Проверка поиска по дате проведения тендера"
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
@@ -104,10 +110,11 @@ public class AutoSearchPage extends PageObject {
         return find(tableCellToCheck).getText();
     } // Получение реестрового номера
 
-    public boolean getTextPublicationDate(String startDate, String endDate) throws ParseException {
+    public boolean checkDate(String startDate, String endDate) throws ParseException {
         boolean check = true;
-        List<WebElementFacade> datePublication = findAll(tableCellToCheck);
-        for(WebElementFacade date : datePublication) {
+        List<WebElementFacade> dateForCheck = findAll(tableCellToCheck);
+        dateForCheck.remove(dateForCheck.size()-1);
+        for(WebElementFacade date : dateForCheck) {
             String dateStr = date.getText();
             dateStr = dateStr.replace("\n" + "(UTC+03:00)", "");
             dateStr = dateStr.replace("\n", " ");
@@ -119,7 +126,7 @@ public class AutoSearchPage extends PageObject {
                 check = false;
                 break;
             }
-            System.out.println(date);
+//            System.out.println(date.getText());
         }
         return check;
     } // Проверка, что дата публикации находится в заданном диапазоне
