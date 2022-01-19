@@ -24,12 +24,14 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckStartSubmissionOfApplicationDate = By.xpath("//span[text()='Проверка поиска по дате начала подачи заявок']"); // Кнопка автопоиска "Проверка поиска по дате начала подачи заявок"
     protected By buttonCheckEndSubmissionOfApplicationDate = By.xpath("//span[text()='Проверка поиска по дате окончания подачи заявок']"); // Кнопка автопоиска "Проверка поиска по дате окончания подачи заявок"
     protected By buttonValidateSearchByTenderDate = By.xpath("//span[text()='Проверка поиска по дате проведения тендера']"); // Кнопка автопоиска "Проверка поиска по дате проведения тендера"
+    protected By buttonValidateSearchByCategory = By.xpath("//span[text()='Проверка поиска по категории']"); // Кнопка автопоиска "Проверка поиска по дате проведения тендера"
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
-    protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка по названию тендера и исключению из названия"
+    protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By filterPublicationDate = By.xpath("//span[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
     protected By filterStartSubmissionOfApplication = By.xpath("//span[text()='04.01.2021 — 04.01.2021']"); // Фильтр "Дата начала подачи заявок" в автопоиске "Проверка поиска по дате начала подачи заявок"
     protected By filterEndSubmissionOfApplication = By.xpath("//span[text()='03.01.2021 — 03.01.2021']"); // Фильтр "Дата окончания подачи заявок" в автопоиске "Проверка поиска по дате окончания подачи заявок"
     protected By filterValidateSearchByTenderDate = By.xpath("//span[text()='12.01.2021 — 12.01.2021']"); // Фильтр "Дата проведения тендера" в автопоиске "Проверка поиска по дате проведения тендера"
+    protected By filterCategoryName = By.xpath("//span[text()='Коммунальные услуги']"); // Фильтр "Категория" в поле построения дерева фильтров для автопоиска "Проверка поиска по категории"
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
@@ -40,6 +42,8 @@ public class AutoSearchPage extends PageObject {
     protected By fieldPublicationDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//input[@role='textbox']"); // Поле для ввода даты публикации "до"
     protected By buttonClearFieldDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//span[@class='dx-icon dx-icon-clear']"); // Кнопка для очистки поля даты "до"
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
+    protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]//td"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
+    protected By CheckboxOKPD = By.xpath("//div[text()='Покупка ПО']/preceding-sibling::div[@role='checkbox']"); // чекбокс ОКПД при поиске по слову "семга"
 
     private By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
@@ -47,14 +51,15 @@ public class AutoSearchPage extends PageObject {
     private By rowResultSearch = By.xpath("//div[@class='dx-datagrid-content']//table[@role='presentation']//tr[@role='row']"); // Строка таблицы поиска
 
 //    private By cellOfRegistryName = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[5]"); // Ячейка таблицы в результатах поиска с названием тендера
-    private By fieldSearchInFilterEditor = By.xpath("//div[@id='filter-editor-3-search-panel']//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
+// //div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))][not(@hidden)]//input[@class='dx-texteditor-input'][not(@hidden)]
+    private By fieldSearchInFilterEditor = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
     private By fieldNameTenderDeletion = By.xpath("//div[@id='filter-editor-compact-1-exclude']//textarea"); // Поле для ввода параметра, исключаемого из поиска
 
 
 
 
-    public void waitFor(){
-        waitABit(2000);
+    public void waitFor(long number){
+        waitABit(number);
     } // Ожидание
 
     public void clearField(By field){find(field).clear();} // Очистить поле
@@ -172,6 +177,20 @@ public class AutoSearchPage extends PageObject {
         }
         return check;
     } // Проверка включения в название тендеров ключевого слова
+
+    public boolean isContainCategoryName(){
+        List<WebElementFacade> nameCategory = findAll(tableCellToCheckForCategory);
+        nameCategory.remove(nameCategory.size()-1);
+        boolean check = true;
+        for(WebElementFacade name : nameCategory){
+            if(!(name.getText().contains("Коммунальные услуги"))){
+//                System.out.println("Услуги: " + name.getText());
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по категории
 
 
 

@@ -72,9 +72,9 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(filterRegionRoot);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.typeSearch("Москва");
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.clickButton(getCheckboxByNumber(3));
         steps.click_button(buttonApply);
         steps.click_button(buttonSearch);
@@ -92,7 +92,7 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.check_name_tender_to_include_keyword();
     }
 
@@ -107,11 +107,11 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.click_button(filterNameTender);
         steps.typeDeletion("Мусоровоз");
         steps.click_button(buttonSearch);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.check_deletion_name_tender_to_include_keyword();
     }
 
@@ -126,13 +126,13 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.click_button(filterNameTender);
         steps.clear_field(fieldNameTender);
         steps.type_name_tender("Муcор");
         steps.click_button(checkBoxTransliteration);
         steps.click_button(buttonSearch);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.check_name_tender_to_include_keyword();
     }
 
@@ -147,7 +147,7 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckPublicationDate);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.click_button(filterPublicationDate);
         steps.click_button(buttonClearFieldDateFrom);
         steps.type_date_from("09.01.2021");
@@ -155,7 +155,7 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.type_date_to("09.01.2021");
         steps.click_button(tableCellToCheck);
         steps.click_button(buttonSearch);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.check_date("09.01.2021 00:00","09.01.2021 23:59");
     }
 
@@ -170,7 +170,7 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckStartSubmissionOfApplicationDate);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.click_button(filterStartSubmissionOfApplication);
         steps.click_button(buttonClearFieldDateFrom);
         steps.type_date_from("04.01.2021");
@@ -178,7 +178,7 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.type_date_to("04.01.2021");
         steps.click_button(tableCellToCheck);
         steps.click_button(buttonSearch);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.check_date("04.01.2021 00:00","04.01.2021 23:59");
     }
 
@@ -193,7 +193,7 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckEndSubmissionOfApplicationDate);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.click_button(filterEndSubmissionOfApplication);
         steps.click_button(buttonClearFieldDateFrom);
         steps.type_date_from("03.01.2021");
@@ -201,7 +201,7 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.type_date_to("03.01.2021");
         steps.click_button(tableCellToCheck);
         steps.click_button(buttonSearch);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.check_date("03.01.2021 00:00","03.01.2021 23:59");
     }
 
@@ -216,7 +216,7 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonValidateSearchByTenderDate);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.click_button(filterValidateSearchByTenderDate);
         steps.click_button(buttonClearFieldDateFrom);
         steps.type_date_from("12.01.2021");
@@ -224,7 +224,22 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.type_date_to("12.01.2021");
         steps.click_button(tableCellToCheck);
         steps.click_button(buttonSearch);
-        steps.waitFor();
+        steps.wait_a_bit(2000);
         steps.check_date("12.01.2021 00:00","12.01.2021 23:59");
+    }
+
+    @Test
+    @Title("Проверка поиска по категории")
+    public void checkSearchByCategoryName(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonValidateSearchByCategory);
+        steps.wait_a_bit(2000);
+        steps.check_category_name();
     }
 }

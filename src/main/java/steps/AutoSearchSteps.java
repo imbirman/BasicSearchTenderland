@@ -12,8 +12,8 @@ public class AutoSearchSteps extends AutoSearchPage {
     AutoSearchPage page;
 
     @Step("Ожидание")
-    public void wait_a_bit(){
-        waitFor();
+    public void wait_a_bit(long number){
+        waitFor(number);
     }
 
     @Step("Открытие страницы")
@@ -84,9 +84,14 @@ public class AutoSearchSteps extends AutoSearchPage {
         Assertions.assertThat(page.isContainDeletionNameTender()).as("Минимум у одного тендера в названии есть исключенное слово").isTrue();
     }
 
-    @Step()
+    @Step("Проверка даты")
     public void check_date(String startDate, String endDate) throws ParseException {
         Assertions.assertThat(page.checkDate(startDate, endDate))
                 .as("Есть тендеры с датой, не входящей в заданный промежуток").isTrue();
+    }
+
+    @Step("Проверка поиска по категории")
+    public void check_category_name(){
+        Assertions.assertThat(page.isContainCategoryName()).as("Минимум у одного тендера указана неправильная категория").isTrue();
     }
 }
