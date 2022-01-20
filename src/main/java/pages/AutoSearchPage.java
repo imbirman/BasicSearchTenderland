@@ -158,7 +158,8 @@ public class AutoSearchPage extends PageObject {
             String priceCheck = price.getText();
             priceCheck = priceCheck.replace(" ₽", "");
             priceCheck = priceCheck.replace(" ", "");
-            if(!(Float.valueOf(priceCheck) < priceFrom || Float.valueOf(priceCheck) > priceTo)){
+            float floatPriceForCheck = Float.valueOf(priceCheck);
+            if(!(floatPriceForCheck < priceFrom || floatPriceForCheck > priceTo)){
                 check = false;
                 break;
             }
