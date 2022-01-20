@@ -22,36 +22,44 @@ public class AutoSearchSteps extends AutoSearchPage {
     @Step("Нажать кнопку")
     public void click_button(By button){
         page.clickButton(button);
-    } // Нажать на кнопку
+    }
 
     @Step("Очистить поле")
     public void clear_field(By field){
         page.clearField(field);
-    } // Очистить поле
+    }
 
     @Step("Ввод логина")
     public void type_login(String mail){
         page.typeLogin(mail);
-    } // Ввести данные логина
+    }
 
     @Step("Ввод пароля")
     public void type_password(String password){
         page.typePassword(password);
-    } // Ввести данные пароля
+    }
 
     @Step("Ввести ключевое слово для поиска")
     public void type_name_tender(String name){
         page.typeNameTender(name);
-    } // Ввести данные пароля
+    }
 
     @Step("Ввести дату 'от'")
-    public void type_date_from(String date){
-        page.typeDateFrom(date);
-    }
+    public void type_date_from(String date){ page.typeDateFrom(date); }
 
     @Step("Ввести дату 'до'")
     public void type_date_to(String date){
         page.typeDateTo(date);
+    }
+
+    @Step("Ввести цену 'от'")
+    public void type_price_from(String price){
+        page.typePriceFrom(price);
+    }
+
+    @Step("Ввести цену 'до'")
+    public void type_price_to(String price){
+        page.typePriceTo(price);
     }
 
     @Step("Проверка логина после входа")
@@ -93,5 +101,11 @@ public class AutoSearchSteps extends AutoSearchPage {
     @Step("Проверка поиска по категории")
     public void check_category_name(){
         Assertions.assertThat(page.isContainCategoryName()).as("Минимум у одного тендера указана неправильная категория").isTrue();
+    }
+
+    @Step("Проверка цены")
+    public void check_price(float priceFrom, float priceTo){
+        Assertions.assertThat(page.checkPrice(priceFrom, priceTo))
+                .as("Есть тендеры с ценой, не входящей в заданный промежуток").isFalse();
     }
 }

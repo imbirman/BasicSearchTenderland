@@ -242,4 +242,26 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.wait_a_bit(2000);
         steps.check_category_name();
     }
+
+    @Test
+    @Title("Проверка цены тендера")
+    public void checkPriceTender(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByPrice);
+        steps.wait_a_bit(2000);
+        steps.click_button(filterValidateSearchByTenderPrice);
+        steps.clear_field(fieldPriceFrom);
+        steps.type_price_from("10000");
+        steps.clear_field(fieldPriceTo);
+        steps.type_price_to("100000");
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(2000);
+        steps.check_price(10000,100000);
+    }
 }
