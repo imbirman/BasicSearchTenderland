@@ -26,6 +26,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonValidateSearchByTenderDate = By.xpath("//span[text()='Проверка поиска по дате проведения тендера']"); // Кнопка автопоиска "Проверка поиска по дате проведения тендера"
     protected By buttonValidateSearchByCategory = By.xpath("//span[text()='Проверка поиска по категории']"); // Кнопка автопоиска "Проверка поиска по категории"
     protected By buttonCheckSearchByPrice = By.xpath("//span[text()='Проверка поиска по цене']"); // Кнопка автопоиска "Проверка поиска по цене"
+    protected By buttonCheckSearchByTenderType = By.xpath("//span[text()='Проверка поиска по типу тендера']"); // Кнопка автопоиска "Проверка поиска по типу тендера"
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By filterPublicationDate = By.xpath("//span[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
@@ -158,7 +159,7 @@ public class AutoSearchPage extends PageObject {
             String priceCheck = price.getText();
             priceCheck = priceCheck.replace(" ₽", "");
             priceCheck = priceCheck.replace(" ", "");
-            float floatPriceForCheck = Float.valueOf(priceCheck);
+            float floatPriceForCheck = Float.parseFloat(priceCheck);
             if(!(floatPriceForCheck < priceFrom || floatPriceForCheck > priceTo)){
                 check = false;
                 break;
@@ -222,6 +223,20 @@ public class AutoSearchPage extends PageObject {
         }
         return check;
     } // Проверка поиска по категории
+
+    public boolean isContainTenderType(){
+        List<WebElementFacade> tenderType = findAll(tableCellToCheck);
+        tenderType.remove(tenderType.size()-1);
+        boolean check = true;
+        for(WebElementFacade type : tenderType){
+            if(!(type.getText().contains("Закупка малого объема"))){
+//                System.out.println("Услуги: " + name.getText());
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по типу тендера
 
 
 

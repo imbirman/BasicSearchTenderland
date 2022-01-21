@@ -108,4 +108,9 @@ public class AutoSearchSteps extends AutoSearchPage {
         Assertions.assertThat(page.checkPrice(priceFrom, priceTo))
                 .as("Есть тендеры с ценой, не входящей в заданный промежуток").isFalse();
     }
+
+    @Step("Проверка поиска по типу тендера")
+    public void check_search_by_tender_type(){
+        Assertions.assertThat(page.isContainTenderType()).as("Минимум у одного тендера указан неправильный тип").isTrue();
+    }
 }
