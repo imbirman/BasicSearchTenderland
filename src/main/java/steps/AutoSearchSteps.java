@@ -118,4 +118,27 @@ public class AutoSearchSteps extends AutoSearchPage {
     public void check_search_by_tender_stand(){
         Assertions.assertThat(page.isContainTenderStand()).as("Минимум у одного тендера указана неправильная площадка").isTrue();
     }
+
+    @Step("Проверка поиска по модулю 'Государственные тендеры'")
+    public void check_search_by_only_government_tenders(){
+        Assertions.assertThat(page.isContainOnlyGovernmentTenders()).as("Минимум у одного тендера указан модуль не 'Государственные тендеры'").isTrue();
+    }
+
+    @Step("Проверка поиска по модулям 'Государственные тендеры' и 'Коммерческие тендеры'")
+    public void check_search_by_only_government_and_commercial_tenders(){
+        Assertions.assertThat(page.isContainOnlyGovernmentAndCommercialTenders())
+                .as("Минимум у одного тендера указан модуль не 'Государственные тендеры' и не 'Коммерческие тендеры'").isTrue();
+    }
+
+    @Step("Проверка поиска по модулям 'Государственные тендеры' и 'Коммерческие тендеры' и 'СНГ'")
+    public void check_search_by_only_government_and_commercial_and_cis_tenders(){
+        Assertions.assertThat(page.isContainOnlyGovernmentAndCommercialAndCISTenders())
+                .as("Минимум у одного тендера указан модуль не 'Государственные тендеры' и не 'Коммерческие тендеры' и не 'СНГ'").isTrue();
+    }
+
+    @Step("Проверка поиска по всем модулям")
+    public void check_search_by_all_modules_tender(){
+        Assertions.assertThat(page.isContainAllModulesTenders())
+                .as("Минимум у одного тендера указан модуль не входящий в список модулей").isTrue();
+    }
 }

@@ -15,7 +15,7 @@ import steps.AutoSearchSteps;
 import java.text.ParseException;
 
 @RunWith(SerenityRunner.class)
-public class WhenAutoSearch extends AutoSearchPage {
+public class WhenAutoSearchTest extends AutoSearchPage {
 
 //    WebDriver driver;
 
@@ -293,5 +293,77 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByTenderStand);
         steps.wait_a_bit(2000);
         steps.check_search_by_tender_stand();
+    }
+
+    @Test
+    @Title("Проверка поиска по модулю 'Государственные тендеры'")
+    public void checkSearchOnlyGovernmentTenders(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByTenderModule);
+        steps.wait_a_bit(2000);
+        steps.check_search_by_only_government_tenders();
+    }
+
+    @Test
+    @Title("Проверка поиска по модулям 'Государственные тендеры' и 'Коммерческие тендеры'")
+    public void checkSearchOnlyGovernmentAndCommercialTenders(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByTenderModule);
+        steps.click_button(filterSearchByTenderModule);
+        steps.click_button(checkBoxModule);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(2000);
+        steps.check_search_by_only_government_and_commercial_tenders();
+    }
+
+    @Test
+    @Title("Проверка поиска по модулям 'Государственные тендеры' и 'Коммерческие тендеры' и 'СНГ'")
+    public void checkSearchOnlyGovernmentAndCommercialAndCISTenders(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByTenderModule);
+        steps.click_button(filterSearchByTenderModule);
+        steps.click_button(checkBoxModule);
+        steps.click_button(checkBoxModule);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(2000);
+        steps.check_search_by_only_government_and_commercial_and_cis_tenders();
+    }
+
+    @Test
+    @Title("Проверка поиска по всем модулям")
+    public void checkSearchAllModulesTender(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByTenderModule);
+        steps.click_button(filterSearchByTenderModule);
+        steps.click_button(checkBoxModule);
+        steps.click_button(checkBoxModule);
+        steps.click_button(checkBoxModule);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(2000);
+        steps.check_search_by_all_modules_tender();
     }
 }

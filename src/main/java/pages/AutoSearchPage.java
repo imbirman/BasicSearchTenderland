@@ -28,6 +28,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByPrice = By.xpath("//span[text()='Проверка поиска по цене']"); // Кнопка автопоиска "Проверка поиска по цене"
     protected By buttonCheckSearchByTenderType = By.xpath("//span[text()='Проверка поиска по типу тендера']"); // Кнопка автопоиска "Проверка поиска по типу тендера"
     protected By buttonCheckSearchByTenderStand = By.xpath("//span[text()='Проверка поиска по площадке']"); // Кнопка автопоиска "Проверка поиска по площадке"
+    protected By buttonCheckSearchByTenderModule = By.xpath("//span[text()='Проверка поиска по модулю']"); // Кнопка автопоиска "Проверка поиска по модулю"
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By filterPublicationDate = By.xpath("//span[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
@@ -36,8 +37,10 @@ public class AutoSearchPage extends PageObject {
     protected By filterValidateSearchByTenderDate = By.xpath("//span[text()='12.01.2021 — 12.01.2021']"); // Фильтр "Дата проведения тендера" в автопоиске "Проверка поиска по дате проведения тендера"
     protected By filterValidateSearchByTenderPrice = By.xpath("//span[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
     protected By filterCategoryName = By.xpath("//span[text()='Коммунальные услуги']"); // Фильтр "Категория" в поле построения дерева фильтров для автопоиска "Проверка поиска по категории"
+    protected By filterSearchByTenderModule = By.xpath("//span[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
+    protected By checkBoxModule = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль"
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
     protected By fieldNameTender = By.xpath("//div[@id='filter-editor-compact-1-include']//textarea"); // Поле для ввода названия тендера для поиска
@@ -254,6 +257,61 @@ public class AutoSearchPage extends PageObject {
         return check;
     } // Проверка поиска по площадке
 
+    public boolean isContainOnlyGovernmentTenders(){
+        List<WebElementFacade> governmentTenders = findAll(tableCellToCheck);
+        governmentTenders.remove(governmentTenders.size()-1);
+        boolean check = true;
+        for(WebElementFacade type : governmentTenders){
+            if(!(type.getText().contains("Государственные тендеры"))){
+//                System.out.println("Услуги: " + name.getText());
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по модулю "Государственные тендеры"
 
+    public boolean isContainOnlyGovernmentAndCommercialTenders(){
+        List<WebElementFacade> governmentTenders = findAll(tableCellToCheck);
+        governmentTenders.remove(governmentTenders.size()-1);
+        boolean check = true;
+        for(WebElementFacade type : governmentTenders){
+            if(!(type.getText().contains("Государственные тендеры")) && !(type.getText().contains("Коммерческие тендеры"))){
+//                System.out.println("Услуги: " + name.getText());
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по модулю "Государственные тендеры" и "Коммерческие тендеры"
+
+    public boolean isContainOnlyGovernmentAndCommercialAndCISTenders(){
+        List<WebElementFacade> governmentTenders = findAll(tableCellToCheck);
+        governmentTenders.remove(governmentTenders.size()-1);
+        boolean check = true;
+        for(WebElementFacade type : governmentTenders){
+            if(!(type.getText().contains("Государственные тендеры")) && !(type.getText().contains("Коммерческие тендеры")) && !(type.getText().contains("СНГ"))){
+//                System.out.println("Услуги: " + name.getText());
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по модулю "Государственные тендеры" и "Коммерческие тендеры" и "СНГ"
+
+    public boolean isContainAllModulesTenders(){
+        List<WebElementFacade> governmentTenders = findAll(tableCellToCheck);
+        governmentTenders.remove(governmentTenders.size()-1);
+        boolean check = true;
+        for(WebElementFacade type : governmentTenders){
+            if(!(type.getText().contains("Государственные тендеры")) && !(type.getText().contains("Коммерческие тендеры"))
+                    && !(type.getText().contains("СНГ")) && !(type.getText().contains("Реализация имущества"))){
+//                System.out.println("Услуги: " + name.getText());
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по всем модулям
 
 }
