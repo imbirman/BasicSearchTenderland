@@ -113,4 +113,9 @@ public class AutoSearchSteps extends AutoSearchPage {
     public void check_search_by_tender_type(){
         Assertions.assertThat(page.isContainTenderType()).as("Минимум у одного тендера указан неправильный тип").isTrue();
     }
+
+    @Step("Проверка поиска по типу тендера")
+    public void check_search_by_tender_stand(){
+        Assertions.assertThat(page.isContainTenderStand()).as("Минимум у одного тендера указана неправильная площадка").isTrue();
+    }
 }

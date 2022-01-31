@@ -279,4 +279,19 @@ public class WhenAutoSearch extends AutoSearchPage {
         steps.wait_a_bit(2000);
         steps.check_search_by_tender_type();
     }
+
+    @Test
+    @Title("Проверка поиска по площадке")
+    public void checkSearchByTenderStand(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByTenderStand);
+        steps.wait_a_bit(2000);
+        steps.check_search_by_tender_stand();
+    }
 }
