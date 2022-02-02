@@ -141,4 +141,10 @@ public class AutoSearchSteps extends AutoSearchPage {
         Assertions.assertThat(page.isContainAllModulesTenders())
                 .as("Минимум у одного тендера указан модуль не входящий в список модулей").isTrue();
     }
+
+    @Step("Проверка поиска по участнику")
+    public void check_search_by_participant(){
+        Assertions.assertThat(page.isContainParticipant())
+                .as("Минимум у одного тендера отсутствует выбранный участник").isTrue();
+    }
 }

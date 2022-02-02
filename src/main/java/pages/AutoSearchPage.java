@@ -29,6 +29,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByTenderType = By.xpath("//span[text()='Проверка поиска по типу тендера']"); // Кнопка автопоиска "Проверка поиска по типу тендера"
     protected By buttonCheckSearchByTenderStand = By.xpath("//span[text()='Проверка поиска по площадке']"); // Кнопка автопоиска "Проверка поиска по площадке"
     protected By buttonCheckSearchByTenderModule = By.xpath("//span[text()='Проверка поиска по модулю']"); // Кнопка автопоиска "Проверка поиска по модулю"
+    protected By buttonCheckSearchByParticipant = By.xpath("//span[text()='Проверка поиска по участнику']"); // Кнопка автопоиска "Проверка поиска по участнику"
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By filterPublicationDate = By.xpath("//span[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
@@ -313,5 +314,19 @@ public class AutoSearchPage extends PageObject {
         }
         return check;
     } // Проверка поиска по всем модулям
+
+    public boolean isContainParticipant(){
+        List<WebElementFacade> participantType = findAll(tableCellToCheck);
+        participantType.remove(participantType.size()-1);
+        boolean check = true;
+        for(WebElementFacade type : participantType){
+            if(!(type.getText().contains("ООО \"ТРАНСЭКОСЕРВИС\""))){
+//                System.out.println("Услуги: " + name.getText());
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по типу тендера
 
 }
