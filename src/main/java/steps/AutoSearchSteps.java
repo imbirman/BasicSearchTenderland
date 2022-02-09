@@ -1,5 +1,6 @@
 package steps;
 
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
@@ -21,6 +22,11 @@ public class AutoSearchSteps extends AutoSearchPage {
 
     @Step("Нажать кнопку")
     public void click_button(By button){
+        page.clickButton(button);
+    }
+
+    @Step("Нажать кнопку")
+    public void click_button(WebElementFacade button){
         page.clickButton(button);
     }
 
@@ -146,5 +152,47 @@ public class AutoSearchSteps extends AutoSearchPage {
     public void check_search_by_participant(){
         Assertions.assertThat(page.isContainParticipant())
                 .as("Минимум у одного тендера отсутствует выбранный участник").isTrue();
+    }
+
+    @Step("Проверка поиска по новым тендерам")
+    public void check_search_by_new_tenders(){
+        Assertions.assertThat(page.isContainNewTenders())
+                .as("В списке отсутствует тендер 400022118701, находящийся во вкладке 'Новые тендеры'").isTrue();
+    }
+
+    @Step("Проверка поиска по подготовке заявки")
+    public void check_search_by_application_preparation(){
+        Assertions.assertThat(page.isContainApplicationPreparation())
+                .as("В списке отсутствует тендер 0130300010421000001, находящийся во вкладке 'Подготовка заявки'").isTrue();
+    }
+
+    @Step("Проверка поиска по определению победителя")
+    public void check_search_by_determination_winner(){
+        Assertions.assertThat(page.isContainDeterminationOfWinner())
+                .as("В списке отсутствует тендер 8976791, находящийся во вкладке 'Определения победителя'").isTrue();
+    }
+
+    @Step("Проверка поиска по заключению контракта")
+    public void check_search_by_conclusion_contract(){
+        Assertions.assertThat(page.isContainConclusionOfContract())
+                .as("В списке отсутствует тендер 0126200000421000268, находящийся во вкладке 'Заключение контракта'").isTrue();
+    }
+
+    @Step("Проверка поиска по исполнению контракта")
+    public void check_search_by_execution_contract(){
+        Assertions.assertThat(page.isContainExecutionOfContract())
+                .as("В списке отсутствует тендер 0306200004521000009, находящийся во вкладке 'Исполнение контракта'").isTrue();
+    }
+
+    @Step("Проверка поиска по архиву")
+    public void check_search_by_archive_tenders(){
+        Assertions.assertThat(page.isContainArchiveTenders())
+                .as("В списке отсутствует тендер 0848300064121000009, находящийся во вкладке 'Архив'").isTrue();
+    }
+
+    @Step("Проверка поиска по архиву")
+    public void check_search_by_all_mine_tenders(){
+        Assertions.assertThat(page.isContainAllMineTenders())
+                .as("В списке присутствует тендер, не входящий в мои тендеры").isTrue();
     }
 }

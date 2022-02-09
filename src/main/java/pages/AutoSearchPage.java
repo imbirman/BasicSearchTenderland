@@ -30,6 +30,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByTenderStand = By.xpath("//span[text()='Проверка поиска по площадке']"); // Кнопка автопоиска "Проверка поиска по площадке"
     protected By buttonCheckSearchByTenderModule = By.xpath("//span[text()='Проверка поиска по модулю']"); // Кнопка автопоиска "Проверка поиска по модулю"
     protected By buttonCheckSearchByParticipant = By.xpath("//span[text()='Проверка поиска по участнику']"); // Кнопка автопоиска "Проверка поиска по участнику"
+    protected By buttonCheckSearchByMineTenders = By.xpath("//span[text()='Проверка поиска по моим тендерам']"); // Кнопка автопоиска "Проверка поиска по моим тендерам"
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By filterPublicationDate = By.xpath("//span[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
@@ -39,9 +40,10 @@ public class AutoSearchPage extends PageObject {
     protected By filterValidateSearchByTenderPrice = By.xpath("//span[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
     protected By filterCategoryName = By.xpath("//span[text()='Коммунальные услуги']"); // Фильтр "Категория" в поле построения дерева фильтров для автопоиска "Проверка поиска по категории"
     protected By filterSearchByTenderModule = By.xpath("//span[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
-    protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс
+    protected By filterSearchByMineTenders = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по мои тендерам"
+    protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс в таблице результата поиска
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
-    protected By checkBoxModule = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль"
+    protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль"
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
     protected By fieldNameTender = By.xpath("//div[@id='filter-editor-compact-1-include']//textarea"); // Поле для ввода названия тендера для поиска
@@ -327,6 +329,111 @@ public class AutoSearchPage extends PageObject {
             }
         }
         return check;
-    } // Проверка поиска по типу тендера
+    } // Проверка поиска по участнику
+
+    public WebElementFacade getCheckboxMineTenders(int numberCheckbox){
+        List<WebElementFacade> checkboxMineTenders = findAll(checkBoxFilter);
+        return checkboxMineTenders.get(numberCheckbox);
+    } // Получить чекбокс по его порядковому номеру в фильтре "Мои тендеры"
+
+    public boolean isContainNewTenders(){
+        List<WebElementFacade> checkboxMineTenders = findAll(tableCellToCheck);
+        checkboxMineTenders.remove(checkboxMineTenders.size()-1);
+        boolean check = false;
+        for(WebElementFacade type : checkboxMineTenders){
+            if(type.getText().contains("400022118701")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по новым тендерам фильтра "Мои тендеры"
+
+    public boolean isContainApplicationPreparation(){
+        List<WebElementFacade> checkboxMineTenders = findAll(tableCellToCheck);
+        checkboxMineTenders.remove(checkboxMineTenders.size()-1);
+        boolean check = false;
+        for(WebElementFacade type : checkboxMineTenders){
+            if(type.getText().contains("0130300010421000001")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по подготовке заявки фильтра "Мои тендеры"
+
+    public boolean isContainDeterminationOfWinner(){
+        List<WebElementFacade> checkboxMineTenders = findAll(tableCellToCheck);
+        checkboxMineTenders.remove(checkboxMineTenders.size()-1);
+        boolean check = false;
+        for(WebElementFacade type : checkboxMineTenders){
+            if(type.getText().contains("8976791")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по определению победителя фильтра "Мои тендеры"
+
+    public boolean isContainConclusionOfContract(){
+        List<WebElementFacade> checkboxMineTenders = findAll(tableCellToCheck);
+        checkboxMineTenders.remove(checkboxMineTenders.size()-1);
+        boolean check = false;
+        for(WebElementFacade type : checkboxMineTenders){
+            if(type.getText().contains("0126200000421000268")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по заключению контракта фильтра "Мои тендеры"
+
+    public boolean isContainExecutionOfContract(){
+        List<WebElementFacade> checkboxMineTenders = findAll(tableCellToCheck);
+        checkboxMineTenders.remove(checkboxMineTenders.size()-1);
+        boolean check = false;
+        for(WebElementFacade type : checkboxMineTenders){
+            if(type.getText().contains("0306200004521000009")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по исполнению контракта фильтра "Мои тендеры"
+
+    public boolean isContainArchiveTenders(){
+        List<WebElementFacade> checkboxMineTenders = findAll(tableCellToCheck);
+        checkboxMineTenders.remove(checkboxMineTenders.size()-1);
+        boolean check = false;
+        for(WebElementFacade type : checkboxMineTenders){
+            if(type.getText().contains("0848300064121000009")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по архиву фильтра "Мои тендеры"
+
+    public boolean isContainAllMineTenders(){
+        List<WebElementFacade> checkboxMineTenders = findAll(tableCellToCheck);
+        checkboxMineTenders.remove(checkboxMineTenders.size()-1);
+        boolean check = true;
+        for(WebElementFacade type : checkboxMineTenders){
+            if(!(type.getText().contains("0130300010421000001")) && !(type.getText().contains("0848300064121000009"))
+                    && !(type.getText().contains("0126200000421000268")) && !(type.getText().contains("400022118701"))
+                    && !(type.getText().contains("0306200004521000009")) && !(type.getText().contains("8976791"))){
+//                System.out.println("Услуги: " + name.getText());
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по всем тендерам из "Мои тендеры"
 
 }

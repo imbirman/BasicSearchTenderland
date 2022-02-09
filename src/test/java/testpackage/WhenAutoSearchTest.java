@@ -322,7 +322,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.click_button(filterSearchByTenderModule);
-        steps.click_button(checkBoxModule);
+        steps.click_button(checkBoxFilter);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_search_by_only_government_and_commercial_tenders();
@@ -340,8 +340,8 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.click_button(filterSearchByTenderModule);
-        steps.click_button(checkBoxModule);
-        steps.click_button(checkBoxModule);
+        steps.click_button(checkBoxFilter);
+        steps.click_button(checkBoxFilter);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_search_by_only_government_and_commercial_and_cis_tenders();
@@ -359,9 +359,9 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.click_button(filterSearchByTenderModule);
-        steps.click_button(checkBoxModule);
-        steps.click_button(checkBoxModule);
-        steps.click_button(checkBoxModule);
+        steps.click_button(checkBoxFilter);
+        steps.click_button(checkBoxFilter);
+        steps.click_button(checkBoxFilter);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_search_by_all_modules_tender();
@@ -380,5 +380,131 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByParticipant);
         steps.wait_a_bit(2000);
         steps.check_search_by_participant();
+    }
+
+    @Test
+    @Title("Проверка поиска по новым тендерам")
+    public void checkSearchByNewTenders(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByMineTenders);
+        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(getCheckboxMineTenders(1));
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(3000);
+        steps.check_search_by_new_tenders();
+    }
+
+    @Test
+    @Title("Проверка поиска по подготовке заявки")
+    public void checkSearchByApplicationPreparation(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByMineTenders);
+        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(getCheckboxMineTenders(2));
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(3000);
+        steps.check_search_by_application_preparation();
+    }
+
+    @Test
+    @Title("Проверка поиска по определению победителя")
+    public void checkSearchByDeterminationWinner(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByMineTenders);
+        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(getCheckboxMineTenders(3));
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(3000);
+        steps.check_search_by_determination_winner();
+    }
+
+    @Test
+    @Title("Проверка поиска по заключению контракта")
+    public void checkSearchByConclusionContract(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByMineTenders);
+        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(getCheckboxMineTenders(4));
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(3000);
+        steps.check_search_by_conclusion_contract();
+    }
+
+    @Test
+    @Title("Проверка поиска по исполнению контракта")
+    public void checkSearchByExecutionContract(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByMineTenders);
+        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(getCheckboxMineTenders(5));
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(3000);
+        steps.check_search_by_execution_contract();
+    }
+
+    @Test
+    @Title("Проверка поиска по архиву")
+    public void checkSearchByArchiveTenders(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByMineTenders);
+        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(getCheckboxMineTenders(6));
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(3000);
+        steps.check_search_by_archive_tenders();
+    }
+
+    @Test
+    @Title("Проверка поиска по всем тендерам фильтра 'Мои тендеры'")
+    public void checkSearchByAllMineTenders(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByMineTenders);
+        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(getCheckboxMineTenders(0));
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(3000);
+        steps.check_search_by_all_mine_tenders();
     }
 }
