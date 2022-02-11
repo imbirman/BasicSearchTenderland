@@ -77,11 +77,11 @@ public class AutoSearchPage extends PageObject {
 
     public void clearField(By field){find(field).clear();} // Очистить поле
 
-    public void clickButton(By button){ // Клик по кнопке
+    public void clickButton(By button){
         find(button).click();
     } // Кликнуть по кнопке / выбрать radiobutton или checkbox
 
-    public void clickButton(WebElementFacade button){ // Клик по кнопке
+    public void clickButton(WebElementFacade button){
         button.click();
     } // Кликнуть по кнопке / выбрать radiobutton или checkbox
 
@@ -185,6 +185,11 @@ public class AutoSearchPage extends PageObject {
         List<WebElementFacade> checkBoxResult = findAll(checkbox);
         return checkBoxResult.get(number);
     } // Получение чекбокса по его порядковому номеру
+
+    public WebElementFacade getCheckboxMineTenders(int numberCheckbox){
+        List<WebElementFacade> checkboxMineTenders = findAll(checkBoxFilter);
+        return checkboxMineTenders.get(numberCheckbox);
+    } // Получить чекбокс по его порядковому номеру в фильтре "Мои тендеры"
 
     public boolean isEqualNumberOfRowResultSearch(int number){
         return getNumberOfRowResultSearch()==number;
@@ -330,11 +335,6 @@ public class AutoSearchPage extends PageObject {
         }
         return check;
     } // Проверка поиска по участнику
-
-    public WebElementFacade getCheckboxMineTenders(int numberCheckbox){
-        List<WebElementFacade> checkboxMineTenders = findAll(checkBoxFilter);
-        return checkboxMineTenders.get(numberCheckbox);
-    } // Получить чекбокс по его порядковому номеру в фильтре "Мои тендеры"
 
     public boolean isContainNewTenders(){
         List<WebElementFacade> checkboxMineTenders = findAll(tableCellToCheck);
