@@ -25,6 +25,16 @@ public class AutoSearchSteps extends AutoSearchPage {
         page.clickButton(button);
     }
 
+    @Step("Двойной клик")
+    public void double_click_button(By button){
+        page.doubleClickButton(button);
+    }
+
+    @Step("Переключиться на следующую вкладку")
+    public void switch_to_tab(){
+        page.switchToTab();
+    }
+
     @Step("Нажать кнопку")
     public void click_button(WebElementFacade button){
         page.clickButton(button);
@@ -194,5 +204,11 @@ public class AutoSearchSteps extends AutoSearchPage {
     public void check_search_by_all_mine_tenders(){
         Assertions.assertThat(page.isContainAllMineTenders())
                 .as("В списке присутствует тендер, не входящий в мои тендеры").isTrue();
+    }
+
+    @Step("Проверка даты")
+    public void check_text_documentation() {
+        Assertions.assertThat(page.isContainSearchDocumentation())
+                .as("В документации отсутствует поисковое слово").isTrue();
     }
 }

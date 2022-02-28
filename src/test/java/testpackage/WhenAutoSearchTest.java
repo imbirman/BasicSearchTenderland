@@ -507,4 +507,25 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.wait_a_bit(3000);
         steps.check_search_by_all_mine_tenders();
     }
+
+    @Test
+    @Title("Проверка поиска по документации")
+    public void checkSearchByTextDocumentation(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByDocumentation);
+        steps.wait_a_bit(2000);
+        steps.click_button(cellTableToOpenDocumentation);
+        steps.wait_a_bit(1000);
+        steps.switch_to_tab();
+//        steps.click_button(buttonOpenDocumentation);
+//        steps.switch_to_tab();
+//        steps.wait_a_bit(2000);
+        steps.check_text_documentation();
+    }
 }

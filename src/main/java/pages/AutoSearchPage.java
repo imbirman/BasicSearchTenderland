@@ -3,6 +3,8 @@ package pages;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
+import net.thucydides.core.pages.Pages;
+import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
 
 import java.text.ParseException;
@@ -31,6 +33,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByTenderModule = By.xpath("//span[text()='Проверка поиска по модулю']"); // Кнопка автопоиска "Проверка поиска по модулю"
     protected By buttonCheckSearchByParticipant = By.xpath("//span[text()='Проверка поиска по участнику']"); // Кнопка автопоиска "Проверка поиска по участнику"
     protected By buttonCheckSearchByMineTenders = By.xpath("//span[text()='Проверка поиска по моим тендерам']"); // Кнопка автопоиска "Проверка поиска по моим тендерам"
+    protected By buttonCheckSearchByDocumentation = By.xpath("//span[text()='Проверка поиска по документации']"); // Кнопка автопоиска "Проверка поиска по документации"
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By filterPublicationDate = By.xpath("//span[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
@@ -54,8 +57,11 @@ public class AutoSearchPage extends PageObject {
     protected By buttonClearFieldDateFrom = By.xpath("//div[@id='textbox-filter-editor-compact-5-from']//span[@class='dx-icon dx-icon-clear']"); // Кнопка для очистки поля даты "от"
     protected By buttonClearFieldDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//span[@class='dx-icon dx-icon-clear']"); // Кнопка для очистки поля даты "до"
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
-    protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]//td"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
+    protected By cellTableToOpenDocumentation = By.xpath("(//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a)[1]"); // Строка для открытия карточки тендера
+    protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]//td"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки для фильтра "Категория"
     protected By CheckboxOKPD = By.xpath("//div[text()='Покупка ПО']/preceding-sibling::div[@role='checkbox']"); // чекбокс ОКПД при поиске по слову "семга"
+    protected By tabDocumentation = By.xpath("//div[@id='entity-card-menu-div']//div[text()='Документация']"); // вкладка "Документация" в карточке тендера
+    protected By buttonOpenDocumentation = By.xpath("//i[@class='mdi mdi-24px mdi-folder-search-outline tl-icon']"); // кнопка "Открыть документацию"
 
 
     private By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
@@ -64,11 +70,10 @@ public class AutoSearchPage extends PageObject {
     private By rowResultSearch = By.xpath("//div[@class='dx-datagrid-content']//table[@role='presentation']//tr[@role='row']"); // Строка таблицы поиска
 
 //    private By cellOfRegistryName = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[5]"); // Ячейка таблицы в результатах поиска с названием тендера
-// //div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))][not(@hidden)]//input[@class='dx-texteditor-input'][not(@hidden)]
+// div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))][not(@hidden)]//input[@class='dx-texteditor-input'][not(@hidden)]
     private By fieldSearchInFilterEditor = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
     private By fieldNameTenderDeletion = By.xpath("//div[@id='filter-editor-compact-1-exclude']//textarea"); // Поле для ввода параметра, исключаемого из поиска
-
-
+    private By fieldDocumentation = By.id("gethtml_file_content"); // Содержимое документации
 
 
     public void waitFor(long number){
@@ -80,6 +85,22 @@ public class AutoSearchPage extends PageObject {
     public void clickButton(By button){
         find(button).click();
     } // Кликнуть по кнопке / выбрать radiobutton или checkbox
+
+    public void doubleClickButton(By button){
+//        find(button).click();
+        try {
+            withAction().doubleClick(find(button));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    } // Двойной клик
+
+    public void switchToTab(){
+
+        for(String windowHandle : getDriver().getWindowHandles()) {
+            getDriver().switchTo().window(windowHandle);
+        }
+    } // Переключиться на следующую вкладку
 
     public void clickButton(WebElementFacade button){
         button.click();
@@ -435,5 +456,17 @@ public class AutoSearchPage extends PageObject {
         }
         return check;
     } // Проверка поиска по всем тендерам из "Мои тендеры"
+
+    public boolean isContainSearchDocumentation(){
+        String textDocumentation = find(fieldDocumentation).getText();
+        boolean check = false;
+
+            if(textDocumentation.contains("мусор") || textDocumentation.contains("Мусор") || textDocumentation.contains("МУСОР")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+            }
+
+        return check;
+    } // Проверка поиска по архиву фильтра "Мои тендеры"
 
 }
