@@ -206,9 +206,15 @@ public class AutoSearchSteps extends AutoSearchPage {
                 .as("В списке присутствует тендер, не входящий в мои тендеры").isTrue();
     }
 
-    @Step("Проверка даты")
+    @Step("Проверка поиска по документации")
     public void check_text_documentation() {
         Assertions.assertThat(page.isContainSearchDocumentation())
                 .as("В документации отсутствует поисковое слово").isTrue();
+    }
+
+    @Step("Проверка поиска по извещению")
+    public void check_text_notice() {
+        Assertions.assertThat(page.isContainSearchWordIntoNoticeDocumentation())
+                .as("В извещении отсутствует поисковое слово").isTrue();
     }
 }

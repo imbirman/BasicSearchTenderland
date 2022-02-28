@@ -34,6 +34,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByParticipant = By.xpath("//span[text()='Проверка поиска по участнику']"); // Кнопка автопоиска "Проверка поиска по участнику"
     protected By buttonCheckSearchByMineTenders = By.xpath("//span[text()='Проверка поиска по моим тендерам']"); // Кнопка автопоиска "Проверка поиска по моим тендерам"
     protected By buttonCheckSearchByDocumentation = By.xpath("//span[text()='Проверка поиска по документации']"); // Кнопка автопоиска "Проверка поиска по документации"
+    protected By buttonCheckSearchByNotice = By.xpath("//span[text()='Проверка поиска по извещению']"); // Кнопка автопоиска "Проверка поиска по извещению"
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By filterPublicationDate = By.xpath("//span[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
@@ -74,6 +75,7 @@ public class AutoSearchPage extends PageObject {
     private By fieldSearchInFilterEditor = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
     private By fieldNameTenderDeletion = By.xpath("//div[@id='filter-editor-compact-1-exclude']//textarea"); // Поле для ввода параметра, исключаемого из поиска
     private By fieldDocumentation = By.id("gethtml_file_content"); // Содержимое документации
+    private By searchWordIntoNoticeDocumentation = By.xpath("//em"); // Поисковое слово в извещении (выделенное)
 
 
     public void waitFor(long number){
@@ -468,5 +470,18 @@ public class AutoSearchPage extends PageObject {
 
         return check;
     } // Проверка поиска по архиву фильтра "Мои тендеры"
+
+    public boolean isContainSearchWordIntoNoticeDocumentation(){
+        List<WebElementFacade> notice = findAll(searchWordIntoNoticeDocumentation);
+        boolean check = false;
+        for(WebElementFacade type : notice){
+            if(type.getText().contains("мусор") || type.getText().contains("Мусор") || type.getText().contains("МУСОР")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по извещению
 
 }
