@@ -35,6 +35,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByMineTenders = By.xpath("//span[text()='Проверка поиска по моим тендерам']"); // Кнопка автопоиска "Проверка поиска по моим тендерам"
     protected By buttonCheckSearchByDocumentation = By.xpath("//span[text()='Проверка поиска по документации']"); // Кнопка автопоиска "Проверка поиска по документации"
     protected By buttonCheckSearchByNotice = By.xpath("//span[text()='Проверка поиска по извещению']"); // Кнопка автопоиска "Проверка поиска по извещению"
+
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By filterPublicationDate = By.xpath("//span[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
@@ -45,6 +46,7 @@ public class AutoSearchPage extends PageObject {
     protected By filterCategoryName = By.xpath("//span[text()='Коммунальные услуги']"); // Фильтр "Категория" в поле построения дерева фильтров для автопоиска "Проверка поиска по категории"
     protected By filterSearchByTenderModule = By.xpath("//span[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
     protected By filterSearchByMineTenders = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по мои тендерам"
+
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс в таблице результата поиска
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
     protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль"
@@ -69,6 +71,8 @@ public class AutoSearchPage extends PageObject {
     private By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private By checkLogin = By.xpath("//ul[@class='navbar-nav']//a"); // объект для проверки логина после входа
     private By rowResultSearch = By.xpath("//div[@class='dx-datagrid-content']//table[@role='presentation']//tr[@role='row']"); // Строка таблицы поиска
+    private By fieldSearchFilters = By.xpath("//div[@id='tl-search-filters-textbox']//input"); // Поле поиска фильтров в блоке фильтров
+    private By resultSearchFilters = By.xpath("//div[@id='list-tenders']//div[not(@style='display: none;')]"); // Результат поиска в блоке фильтров
 
 //    private By cellOfRegistryName = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[5]"); // Ячейка таблицы в результатах поиска с названием тендера
 // div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))][not(@hidden)]//input[@class='dx-texteditor-input'][not(@hidden)]
@@ -120,6 +124,11 @@ public class AutoSearchPage extends PageObject {
 
     public AutoSearchPage typeSearch(String search){
         find(fieldSearchInFilterEditor).sendKeys(search);
+        return this;
+    } // Ввести значение в поле поиска фильтров
+
+    public AutoSearchPage typeSearchFilters(String search){
+        find(fieldSearchFilters).sendKeys(search);
         return this;
     } // Ввести значение в поле поиска
 
@@ -483,5 +492,18 @@ public class AutoSearchPage extends PageObject {
         }
         return check;
     } // Проверка поиска по извещению
+
+    public boolean isContainFiltersFromSearchField(){
+        List<WebElementFacade> filters = findAll(resultSearchFilters);
+        boolean check = false;
+        for(WebElementFacade type : filters){
+            if(type.getText().contains("Название тендера")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска в блоке фильтров
 
 }

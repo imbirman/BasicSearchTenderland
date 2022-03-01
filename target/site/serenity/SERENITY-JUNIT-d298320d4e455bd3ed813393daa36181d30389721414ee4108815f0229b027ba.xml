@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="testpackage.WhenAutoSearchTest" skipped="0" tests="1" time="43.91" timestamp="2022-03-01 01:46:12"><testcase classname="testpackage.WhenAutoSearchTest" name="Проверка поиска по документации"><failure message="[В результатах поиска фильтров отсутствует заданное значение] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;" type="org.junit.ComparisonFailure">[В результатах поиска фильтров отсутствует заданное значение] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</failure><system-err>[В результатах поиска фильтров отсутствует заданное значение] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;&#13;
+steps.AutoSearchSteps.check_search_in_list_tenders(AutoSearchSteps.java:229)&#13;
+testpackage.WhenAutoSearchTest.checkSearchInListTenders(WhenAutoSearchTest.java:557)&#13;
+</system-err></testcase></testsuite>

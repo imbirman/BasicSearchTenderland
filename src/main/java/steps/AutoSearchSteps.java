@@ -60,6 +60,11 @@ public class AutoSearchSteps extends AutoSearchPage {
         page.typeNameTender(name);
     }
 
+    @Step("Ввести ключевое слово для поиска фильтров")
+    public void type_search_filters(String search){
+        page.typeSearchFilters(search);
+    }
+
     @Step("Ввести дату 'от'")
     public void type_date_from(String date){ page.typeDateFrom(date); }
 
@@ -216,5 +221,11 @@ public class AutoSearchSteps extends AutoSearchPage {
     public void check_text_notice() {
         Assertions.assertThat(page.isContainSearchWordIntoNoticeDocumentation())
                 .as("В извещении отсутствует поисковое слово").isTrue();
+    }
+
+    @Step("Проверка поиска в блоке фильтров")
+    public void check_search_in_list_tenders() {
+        Assertions.assertThat(page.isContainFiltersFromSearchField())
+                .as("В результатах поиска фильтров отсутствует заданное значение").isTrue();
     }
 }

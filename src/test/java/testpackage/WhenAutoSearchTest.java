@@ -543,4 +543,17 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.switch_to_tab();
         steps.check_text_notice();
     }
+
+    @Test
+    @Title("Проверка поиска по документации")
+    public void checkSearchInListTenders(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestit");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.type_search_filters("Название тендера");
+        steps.check_search_in_list_tenders();
+    }
 }
