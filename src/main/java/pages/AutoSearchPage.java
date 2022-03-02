@@ -230,11 +230,11 @@ public class AutoSearchPage extends PageObject {
     public boolean isContainNameTender(){
         List<WebElementFacade> nameTender = findAll(tableCellToCheck);
         nameTender.remove(nameTender.size()-1);
-        boolean check = true;
+        boolean check = false;
         for(WebElementFacade name : nameTender){
-            if(!(name.getText().contains("мусор")||name.getText().contains("МУСОР"))){
+            if(name.getText().contains("мусор")||name.getText().contains("МУСОР")||name.getText().contains("муcор")||name.getText().contains("МУCОР")){
 //                System.out.println(name.getText());
-                check = false;
+                check = true;
                 break;
             }
         }
