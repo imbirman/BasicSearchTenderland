@@ -545,7 +545,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     }
 
     @Test
-    @Title("Проверка поиска по документации")
+    @Title("Проверка поиска в блоке списка фильтров")
     public void checkSearchInListTenders(){
 
         steps.open_login_main_page();
