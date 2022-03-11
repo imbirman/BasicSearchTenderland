@@ -39,7 +39,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.check_text_login();
@@ -51,7 +51,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -66,7 +66,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -87,7 +87,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -102,7 +102,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -121,7 +121,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -142,7 +142,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -165,7 +165,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -188,7 +188,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -211,7 +211,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -234,7 +234,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -249,7 +249,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -271,7 +271,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -286,7 +286,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -301,7 +301,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -316,7 +316,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -334,7 +334,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -353,7 +353,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -373,7 +373,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -388,7 +388,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -406,7 +406,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -424,7 +424,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -442,7 +442,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -460,7 +460,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -478,7 +478,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -496,7 +496,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -514,7 +514,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -532,7 +532,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
@@ -550,7 +550,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         steps.open_login_main_page();
         steps.click_button(logInButton);
-        steps.type_login("AdminTestit");
+        steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.type_search_filters("Название тендера");
