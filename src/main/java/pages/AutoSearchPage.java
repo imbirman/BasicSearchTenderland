@@ -33,6 +33,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByTenderModule = By.xpath("//span[text()='Проверка поиска по модулю']"); // Кнопка автопоиска "Проверка поиска по модулю"
     protected By buttonCheckSearchByParticipant = By.xpath("//span[text()='Проверка поиска по участнику']"); // Кнопка автопоиска "Проверка поиска по участнику"
     protected By buttonCheckSearchByMineTenders = By.xpath("//span[text()='Проверка поиска по моим тендерам']"); // Кнопка автопоиска "Проверка поиска по моим тендерам"
+    protected By buttonCheckSearchByStatusContracts = By.xpath("//span[text()='Проверка поиска по статусу']"); // Кнопка автопоиска "Проверка поиска по статусу"
     protected By buttonCheckSearchByDocumentation = By.xpath("//span[text()='Проверка поиска по документации']"); // Кнопка автопоиска "Проверка поиска по документации"
     protected By buttonCheckSearchByNotice = By.xpath("//span[text()='Проверка поиска по извещению']"); // Кнопка автопоиска "Проверка поиска по извещению"
     protected By buttonCheckSearchByProduct = By.xpath("//span[text()='Проверка поиска по продуктам']"); // Кнопка автопоиска "Проверка поиска по продуктам"
@@ -50,7 +51,7 @@ public class AutoSearchPage extends PageObject {
 
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс в таблице результата поиска
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
-    protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль"
+    protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль" у тендера или "Статус" у контракта
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
     protected By fieldNameTender = By.xpath("//div[@id='filter-editor-compact-1-include']//textarea"); // Поле для ввода названия тендера для поиска
@@ -156,12 +157,12 @@ public class AutoSearchPage extends PageObject {
     public AutoSearchPage typePriceFrom(String price){
         find(fieldPriceFrom).sendKeys(price);
         return this;
-    } // Ввести дату публикации "от"
+    } // Ввести цену "от"
 
     public AutoSearchPage typePriceTo(String price){
         find(fieldPriceTo).sendKeys(price);
         return this;
-    } // Ввести дату публикации "до"
+    } // Ввести цену "до"
 
     public String getTextLogin(){
         return find(checkLogin).getText();
@@ -201,13 +202,13 @@ public class AutoSearchPage extends PageObject {
             priceCheck = priceCheck.replace(" ₽", "");
             priceCheck = priceCheck.replace(" ", "");
             float floatPriceForCheck = Float.parseFloat(priceCheck);
-            if(!(floatPriceForCheck < priceFrom || floatPriceForCheck > priceTo)){
+            if(floatPriceForCheck < priceFrom || floatPriceForCheck > priceTo){
                 check = false;
                 break;
             }
         }
         return check;
-    }
+    } // Проверка цены тендера
 
     public Integer getNumberOfRowResultSearch(){
         List<WebElementFacade> rowResult = findAll(rowResultSearch);
@@ -219,10 +220,10 @@ public class AutoSearchPage extends PageObject {
         return checkBoxResult.get(number);
     } // Получение чекбокса по его порядковому номеру
 
-    public WebElementFacade getCheckboxMineTenders(int numberCheckbox){
+    public WebElementFacade getCheckboxMineTendersOrStatusContracts(int numberCheckbox){
         List<WebElementFacade> checkboxMineTenders = findAll(checkBoxFilter);
         return checkboxMineTenders.get(numberCheckbox);
-    } // Получить чекбокс по его порядковому номеру в фильтре "Мои тендеры"
+    } // Получить чекбокс по его порядковому номеру в фильтре "Мои тендеры" у тендера или "Статус" у контракта
 
     public boolean isEqualNumberOfRowResultSearch(int number){
         return getNumberOfRowResultSearch()==number;
@@ -471,14 +472,14 @@ public class AutoSearchPage extends PageObject {
 
     public boolean isContainSearchDocumentation(){
         String textDocumentation = find(fieldDocumentation).getText();
-        boolean check = false;
+//        boolean check = false;
+//
+//            if(){
+////                System.out.println("Услуги: " + name.getText());
+//                check = true;
+//            }
 
-            if(textDocumentation.contains("мусор") || textDocumentation.contains("Мусор") || textDocumentation.contains("МУСОР")){
-//                System.out.println("Услуги: " + name.getText());
-                check = true;
-            }
-
-        return check;
+        return textDocumentation.contains("мусор") || textDocumentation.contains("Мусор") || textDocumentation.contains("МУСОР");
     } // Проверка поиска по архиву фильтра "Мои тендеры"
 
     public boolean isContainSearchWordIntoNoticeDocumentation(){
@@ -519,5 +520,47 @@ public class AutoSearchPage extends PageObject {
         }
         return check;
     } // Проверка включает ли карточка контракта искомое слово
+
+    public boolean isContainBeingExecuted(){
+        List<WebElementFacade> checkboxMineTenders = findAll(tableCellToCheck);
+        checkboxMineTenders.remove(checkboxMineTenders.size()-1);
+        boolean check = true;
+        for(WebElementFacade type : checkboxMineTenders){
+            if(!type.getText().contains("Исполнение")){
+//                System.out.println("Услуги: " + name.getText());
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по статусу контракта "Исполнение"
+
+    public boolean isContainExecutionTerminated(){
+        List<WebElementFacade> checkboxMineTenders = findAll(tableCellToCheck);
+        checkboxMineTenders.remove(checkboxMineTenders.size()-1);
+        boolean check = true;
+        for(WebElementFacade type : checkboxMineTenders){
+            if(!type.getText().contains("Исполнение прекращено")){
+//                System.out.println("Услуги: " + name.getText());
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по статусу контракта "Исполнение прекращено"
+
+    public boolean isContainExecutionCompleted(){
+        List<WebElementFacade> checkboxMineTenders = findAll(tableCellToCheck);
+        checkboxMineTenders.remove(checkboxMineTenders.size()-1);
+        boolean check = true;
+        for(WebElementFacade type : checkboxMineTenders){
+            if(!type.getText().contains("Исполнение завершено")){
+//                System.out.println("Услуги: " + name.getText());
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по статусу контракта "Исполнение завершено"
 
 }

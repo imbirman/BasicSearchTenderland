@@ -127,7 +127,7 @@ public class AutoSearchSteps extends AutoSearchPage {
     @Step("Проверка цены")
     public void check_price(float priceFrom, float priceTo){
         Assertions.assertThat(page.checkPrice(priceFrom, priceTo))
-                .as("Есть тендеры с ценой, не входящей в заданный промежуток").isFalse();
+                .as("Есть тендеры с ценой, не входящей в заданный промежуток: " + priceFrom + " - " + priceTo).isTrue();
     }
 
     @Step("Проверка поиска по типу тендера")
@@ -233,5 +233,23 @@ public class AutoSearchSteps extends AutoSearchPage {
     public void check_search_contract_by_product() {
         Assertions.assertThat(page.isContainCardContractSearchWord())
                 .as("В результатах поиска контракта по продуктам отсутствует заданное значение").isTrue();
+    }
+
+    @Step("Проверка поиска по статусу 'Исполнение'")
+    public void check_search_by_being_executed(){
+        Assertions.assertThat(page.isContainBeingExecuted())
+                .as("В списке присутствует тендер, не имеющий статуса 'Исполнение'").isTrue();
+    }
+
+    @Step("Проверка поиска по статусу 'Исполнение прекращено'")
+    public void check_search_by_execution_terminated(){
+        Assertions.assertThat(page.isContainExecutionTerminated())
+                .as("В списке присутствует тендер, не имеющий статуса 'Исполнение прекращено'").isTrue();
+    }
+
+    @Step("Проверка поиска по статусу 'Исполнение завершено'")
+    public void check_search_by_execution_completed(){
+        Assertions.assertThat(page.isContainExecutionCompleted())
+                .as("В списке присутствует тендер, не имеющий статуса 'Исполнение завершено'").isTrue();
     }
 }

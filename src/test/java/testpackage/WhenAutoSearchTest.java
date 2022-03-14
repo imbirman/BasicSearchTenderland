@@ -394,7 +394,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTenders);
-        steps.click_button(getCheckboxMineTenders(1));
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(1));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_new_tenders();
@@ -412,7 +412,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTenders);
-        steps.click_button(getCheckboxMineTenders(2));
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(2));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_application_preparation();
@@ -430,7 +430,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTenders);
-        steps.click_button(getCheckboxMineTenders(3));
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(3));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_determination_winner();
@@ -448,7 +448,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTenders);
-        steps.click_button(getCheckboxMineTenders(4));
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(4));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_conclusion_contract();
@@ -466,7 +466,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTenders);
-        steps.click_button(getCheckboxMineTenders(5));
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(5));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_execution_contract();
@@ -484,7 +484,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTenders);
-        steps.click_button(getCheckboxMineTenders(6));
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(6));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_archive_tenders();
@@ -502,7 +502,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTenders);
-        steps.click_button(getCheckboxMineTenders(0));
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(0));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_all_mine_tenders();
@@ -573,4 +573,80 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListProductsInCardContract);
         steps.check_search_contract_by_product();
     }
+
+    @Test
+    @Title("Проверка поиска по цене контракта")
+    public void checkPriceContract(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByPrice);
+        steps.wait_a_bit(2000);
+        steps.click_button(filterValidateSearchByTenderPrice);
+        steps.clear_field(fieldPriceFrom);
+        steps.type_price_from("10000");
+        steps.clear_field(fieldPriceTo);
+        steps.type_price_to("50000");
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(2000);
+        steps.check_price(10000,50000);
+    }
+
+    @Test
+    @Title("Проверка поиска по статусу контракта 'Исполнение'")
+    public void checkSearchByBeingExecuted(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByStatusContracts);
+        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(0));
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(3000);
+        steps.check_search_by_being_executed();
+    }
+
+    @Test
+    @Title("Проверка поиска по статусу контракта 'Исполнение прекращено'")
+    public void checkSearchByExecutionTerminated(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByStatusContracts);
+        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(1));
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(1000);
+        steps.check_search_by_execution_terminated();
+    }
+    @Test
+    @Title("Проверка поиска по статусу контракта 'Исполнение завершено'")
+    public void checkSearchByExecutionCompleted(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByStatusContracts);
+        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(2));
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(1000);
+        steps.check_search_by_execution_completed();
+    }
+
 }
