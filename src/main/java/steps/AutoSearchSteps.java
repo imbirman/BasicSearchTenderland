@@ -228,4 +228,10 @@ public class AutoSearchSteps extends AutoSearchPage {
         Assertions.assertThat(page.isContainFiltersFromSearchField())
                 .as("В результатах поиска фильтров отсутствует заданное значение").isTrue();
     }
+
+    @Step("Проверка результата поиска контракта по продуктам")
+    public void check_search_contract_by_product() {
+        Assertions.assertThat(page.isContainCardContractSearchWord())
+                .as("В результатах поиска контракта по продуктам отсутствует заданное значение").isTrue();
+    }
 }

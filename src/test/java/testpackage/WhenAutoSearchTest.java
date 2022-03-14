@@ -556,4 +556,21 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.type_search_filters("Название тендера");
         steps.check_search_in_list_tenders();
     }
+
+    @Test
+    @Title("Проверка результата поиска контракта по продуктам")
+    public void checkSearchContractByProduct(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByProduct);
+        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.switch_to_tab();
+        steps.click_button(tabListProductsInCardContract);
+        steps.check_search_contract_by_product();
+    }
 }

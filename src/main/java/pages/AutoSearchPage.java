@@ -35,6 +35,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByMineTenders = By.xpath("//span[text()='Проверка поиска по моим тендерам']"); // Кнопка автопоиска "Проверка поиска по моим тендерам"
     protected By buttonCheckSearchByDocumentation = By.xpath("//span[text()='Проверка поиска по документации']"); // Кнопка автопоиска "Проверка поиска по документации"
     protected By buttonCheckSearchByNotice = By.xpath("//span[text()='Проверка поиска по извещению']"); // Кнопка автопоиска "Проверка поиска по извещению"
+    protected By buttonCheckSearchByProduct = By.xpath("//span[text()='Проверка поиска по продуктам']"); // Кнопка автопоиска "Проверка поиска по продуктам"
 
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
@@ -61,10 +62,13 @@ public class AutoSearchPage extends PageObject {
     protected By buttonClearFieldDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//span[@class='dx-icon dx-icon-clear']"); // Кнопка для очистки поля даты "до"
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
     protected By cellTableToOpenDocumentation = By.xpath("(//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a)[1]"); // Строка для открытия карточки тендера
-    protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]//td"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки для фильтра "Категория"
+    protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]//td"); // Ячейка таблицы в результатах поиска тендеров для первого столбца для первой строки для фильтра "Категория"
+    protected By cellTableToCheckSearchContract = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[3]"); //Ячейка таблицы в результатах поиска контрактов для первого столбца для первой строки
     protected By CheckboxOKPD = By.xpath("//div[text()='Покупка ПО']/preceding-sibling::div[@role='checkbox']"); // чекбокс ОКПД при поиске по слову "семга"
     protected By tabDocumentation = By.xpath("//div[@id='entity-card-menu-div']//div[text()='Документация']"); // вкладка "Документация" в карточке тендера
     protected By buttonOpenDocumentation = By.xpath("//i[@class='mdi mdi-24px mdi-folder-search-outline tl-icon']"); // кнопка "Открыть документацию"
+    protected By tabListProductsInCardContract = By.id("tl-card-2"); // Вкладка "Список продуктов" в карточке контракта
+
 
 
     private By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
@@ -80,6 +84,7 @@ public class AutoSearchPage extends PageObject {
     private By fieldNameTenderDeletion = By.xpath("//div[@id='filter-editor-compact-1-exclude']//textarea"); // Поле для ввода параметра, исключаемого из поиска
     private By fieldDocumentation = By.id("gethtml_file_content"); // Содержимое документации
     private By searchWordIntoNoticeDocumentation = By.xpath("//em"); // Поисковое слово в извещении (выделенное)
+    private By listProductInCardContract = By.xpath("//div[@id='entity-card-items']//table//tr/following::td[1]"); // Название продукта в списке продуктов карточки контракта
 
 
     public void waitFor(long number){
@@ -94,11 +99,7 @@ public class AutoSearchPage extends PageObject {
 
     public void doubleClickButton(By button){
 //        find(button).click();
-        try {
-            withAction().doubleClick(find(button));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            withAction().doubleClick(find(button)).build().perform();
     } // Двойной клик
 
     public void switchToTab(){
@@ -505,5 +506,18 @@ public class AutoSearchPage extends PageObject {
         }
         return check;
     } // Проверка поиска в блоке фильтров
+
+    public boolean isContainCardContractSearchWord(){
+        List<WebElementFacade> listCheck = findAll(listProductInCardContract);
+        boolean check = false;
+        for(WebElementFacade type : listCheck){
+            if(type.getText().contains("Мусор") || type.getText().contains("МУСОР") || type.getText().contains("мусор")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка включает ли карточка контракта искомое слово
 
 }
