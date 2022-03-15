@@ -393,7 +393,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
-        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxMineTendersOrStatusContracts(1));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
@@ -411,7 +411,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
-        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxMineTendersOrStatusContracts(2));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
@@ -429,7 +429,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
-        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxMineTendersOrStatusContracts(3));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
@@ -447,7 +447,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
-        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxMineTendersOrStatusContracts(4));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
@@ -465,7 +465,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
-        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxMineTendersOrStatusContracts(5));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
@@ -483,7 +483,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
-        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxMineTendersOrStatusContracts(6));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
@@ -501,7 +501,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
-        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxMineTendersOrStatusContracts(0));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
@@ -607,7 +607,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByStatusContracts);
-        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxMineTendersOrStatusContracts(0));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
@@ -625,7 +625,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByStatusContracts);
-        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxMineTendersOrStatusContracts(1));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
@@ -642,7 +642,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByStatusContracts);
-        steps.click_button(filterSearchByMineTenders);
+        steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxMineTendersOrStatusContracts(2));
         steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
@@ -727,6 +727,94 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonValidateSearchByContractDateOfSigning);
         steps.wait_a_bit(2000);
         steps.check_date("13.01.2021 00:00","14.01.2021 23:59");
+    }
+
+    @Test
+    @Title("Проверка поиска по штрафу 'Просрочка исполнения поставщиком'")
+    public void checkSearchByDelayInPerformanceBySupplier(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByMulct);
+        steps.wait_a_bit(2000);
+        steps.click_button(filterSearchByMulct);
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(0));
+        steps.click_button(buttonSearch);
+        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.wait_a_bit(1000);
+        steps.switch_to_tab();
+        steps.click_button(tabMulctContracts);
+        steps.check_search_delay_in_performance_by_supplier();
+    }
+
+    @Test
+    @Title("Проверка поиска по штрафу 'Просрочка исполнения заказчиком обязательств'")
+    public void checkSearchByDelayInFulfillmentOfObligationsByCustomer(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByMulct);
+        steps.wait_a_bit(2000);
+        steps.click_button(filterSearchByMulct);
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(1));
+        steps.click_button(buttonSearch);
+        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.wait_a_bit(1000);
+        steps.switch_to_tab();
+        steps.click_button(tabMulctContracts);
+        steps.check_search_delay_in_fulfillment_of_obligations_by_customer();
+    }
+
+    @Test
+    @Title("Проверка поиска по штрафу 'Ненадлежащее исполнение поставщиком'")
+    public void checkSearchByInadequateExecutionBySupplier(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByMulct);
+        steps.wait_a_bit(2000);
+        steps.click_button(filterSearchByMulct);
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(2));
+        steps.click_button(buttonSearch);
+        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.wait_a_bit(1000);
+        steps.switch_to_tab();
+        steps.click_button(tabMulctContracts);
+        steps.check_search_inadequate_execution_by_supplier();
+    }
+
+    @Test
+    @Title("Проверка поиска по штрафу 'Ненадлежащее исполнение заказчиком обязательств'")
+    public void checkSearchByInadequateExecutionByCustomer(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByMulct);
+        steps.wait_a_bit(2000);
+        steps.click_button(filterSearchByMulct);
+        steps.click_button(getCheckboxMineTendersOrStatusContracts(3));
+        steps.click_button(buttonSearch);
+        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.wait_a_bit(1000);
+        steps.switch_to_tab();
+        steps.click_button(tabMulctContracts);
+        steps.check_search_inadequate_execution_by_customer();
     }
 
 }

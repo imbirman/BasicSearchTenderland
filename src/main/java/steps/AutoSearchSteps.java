@@ -252,4 +252,28 @@ public class AutoSearchSteps extends AutoSearchPage {
         Assertions.assertThat(page.isContainExecutionCompleted())
                 .as("В списке присутствует тендер, не имеющий статуса 'Исполнение завершено'").isTrue();
     }
+
+    @Step("Проверка поиска по штрафу")
+    public void check_search_delay_in_performance_by_supplier() {
+        Assertions.assertThat(page.isContainCardContractSearchByDelayInPerformanceBySupplier())
+                .as("В карточке тендера отсутствует штраф, по которому производился поиск").isTrue();
+    }
+
+    @Step("Проверка поиска по штрафу")
+    public void check_search_delay_in_fulfillment_of_obligations_by_customer() {
+        Assertions.assertThat(page.isContainCardContractSearchByDelayInFulfillmentOfObligationsByCustomer())
+                .as("В карточке тендера отсутствует штраф, по которому производился поиск").isTrue();
+    }
+
+    @Step("Проверка поиска по штрафу")
+    public void check_search_inadequate_execution_by_supplier() {
+        Assertions.assertThat(page.isContainCardContractSearchByInadequateExecutionBySupplier())
+                .as("В карточке тендера отсутствует штраф, по которому производился поиск").isTrue();
+    }
+
+    @Step("Проверка поиска по штрафу")
+    public void check_search_inadequate_execution_by_customer() {
+        Assertions.assertThat(page.isContainCardContractSearchByInadequateExecutionByCustomer())
+                .as("В карточке тендера отсутствует штраф, по которому производился поиск").isTrue();
+    }
 }

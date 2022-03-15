@@ -41,6 +41,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByDocumentation = By.xpath("//span[text()='Проверка поиска по документации']"); // Кнопка автопоиска "Проверка поиска по документации"
     protected By buttonCheckSearchByNotice = By.xpath("//span[text()='Проверка поиска по извещению']"); // Кнопка автопоиска "Проверка поиска по извещению"
     protected By buttonCheckSearchByProduct = By.xpath("//span[text()='Проверка поиска по продуктам']"); // Кнопка автопоиска "Проверка поиска по продуктам"
+    protected By buttonCheckSearchByMulct = By.xpath("//span[text()='Проверка поиска по штрафу']"); // Кнопка автопоиска "Проверка поиска по штрафу"
 
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
@@ -51,8 +52,8 @@ public class AutoSearchPage extends PageObject {
     protected By filterValidateSearchByTenderPrice = By.xpath("//span[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
     protected By filterCategoryName = By.xpath("//span[text()='Коммунальные услуги']"); // Фильтр "Категория" в поле построения дерева фильтров для автопоиска "Проверка поиска по категории"
     protected By filterSearchByTenderModule = By.xpath("//span[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
-    protected By filterSearchByMineTenders = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по мои тендерам"
-
+    protected By filterSearchByMineTendersOrContractsStatus = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
+    protected By filterSearchByMulct = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Штраф" в автопоиске "Проверка поиска по штрафу"
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс в таблице результата поиска
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
     protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль" у тендера или "Статус" у контракта
@@ -73,6 +74,7 @@ public class AutoSearchPage extends PageObject {
     protected By tabDocumentation = By.xpath("//div[@id='entity-card-menu-div']//div[text()='Документация']"); // вкладка "Документация" в карточке тендера
     protected By buttonOpenDocumentation = By.xpath("//i[@class='mdi mdi-24px mdi-folder-search-outline tl-icon']"); // кнопка "Открыть документацию"
     protected By tabListProductsInCardContract = By.id("tl-card-2"); // Вкладка "Список продуктов" в карточке контракта
+    protected By tabMulctContracts = By.id("tl-card-5"); // Вкладка "Штрафы" в карточке контракта
 
 
 
@@ -90,6 +92,7 @@ public class AutoSearchPage extends PageObject {
     private By fieldDocumentation = By.id("gethtml_file_content"); // Содержимое документации
     private By searchWordIntoNoticeDocumentation = By.xpath("//em"); // Поисковое слово в извещении (выделенное)
     private By listProductInCardContract = By.xpath("//div[@id='entity-card-items']//table//tr/following::td[1]"); // Название продукта в списке продуктов карточки контракта
+    private By listMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[4]"); // Причина штрафа в списке штрафов карточки контракта
 
 
     public void waitFor(long number){
@@ -523,7 +526,7 @@ public class AutoSearchPage extends PageObject {
             }
         }
         return check;
-    } // Проверка включает ли карточка контракта искомое слово
+    } // Проверка включает ли карточка контракта искомый продукт
 
     public boolean isContainBeingExecuted(){
         List<WebElementFacade> checkboxMineTenders = findAll(tableCellToCheck);
@@ -566,5 +569,57 @@ public class AutoSearchPage extends PageObject {
         }
         return check;
     } // Проверка поиска по статусу контракта "Исполнение завершено"
+
+    public boolean isContainCardContractSearchByDelayInPerformanceBySupplier(){
+        List<WebElementFacade> listCheck = findAll(listMulctInCardContract);
+        boolean check = false;
+        for(WebElementFacade type : listCheck){
+            if(type.getText().contains("Просрочка исполнения поставщиком (подрядчиком, исполнителем) обязательств, предусмотренных контрактом (в том числе гарантийного обязательства)")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка включает ли карточка контракта искомый штраф
+
+    public boolean isContainCardContractSearchByDelayInFulfillmentOfObligationsByCustomer(){
+        List<WebElementFacade> listCheck = findAll(listMulctInCardContract);
+        boolean check = false;
+        for(WebElementFacade type : listCheck){
+            if(type.getText().contains("Просрочка исполнения заказчиком обязательств")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка включает ли карточка контракта искомый штраф
+
+    public boolean isContainCardContractSearchByInadequateExecutionBySupplier(){
+        List<WebElementFacade> listCheck = findAll(listMulctInCardContract);
+        boolean check = false;
+        for(WebElementFacade type : listCheck){
+            if(type.getText().contains("Ненадлежащее исполнение поставщиком")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка включает ли карточка контракта искомый штраф
+
+    public boolean isContainCardContractSearchByInadequateExecutionByCustomer(){
+        List<WebElementFacade> listCheck = findAll(listMulctInCardContract);
+        boolean check = false;
+        for(WebElementFacade type : listCheck){
+            if(type.getText().contains("Ненадлежащее исполнение заказчиком обязательств")){
+//                System.out.println("Услуги: " + name.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка включает ли карточка контракта искомый штраф
 
 }
