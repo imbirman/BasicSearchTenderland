@@ -649,4 +649,84 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.check_search_by_execution_completed();
     }
 
+    @Test
+    @Title("Проверка даты публикации контракта")
+    public void checkPublicationDateOfContract() throws ParseException {
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckPublicationDate);
+        steps.wait_a_bit(2000);
+        steps.click_button(filterPublicationDate);
+        steps.click_button(buttonClearFieldDateFrom);
+        steps.type_date_from("01.01.2021");
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(2000);
+        steps.check_date("01.01.2021 00:00","09.01.2021 23:59");
+    }
+
+    @Test
+    @Title("Проверка даты начала исполнения контракта")
+    public void checkContractExecutionStartDate() throws ParseException {
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonValidateSearchByContractExecutionStartDate);
+        steps.wait_a_bit(2000);
+        steps.check_date("13.01.2021 00:00","14.01.2021 23:59");
+    }
+
+    @Test
+    @Title("Проверка даты окончания исполнения контракта")
+    public void checkContractExecutionEndDate() throws ParseException {
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonValidateSearchByContractExecutionEndDate);
+        steps.wait_a_bit(2000);
+        steps.check_date("13.01.2021 00:00","14.01.2021 23:59");
+    }
+
+    @Test
+    @Title("Проверка фактической даты исполнения контракта")
+    public void checkContractActualExecutionDate() throws ParseException {
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonValidateSearchByContractActualExecutionDate);
+        steps.wait_a_bit(2000);
+        steps.check_date("13.01.2021 00:00","14.01.2021 23:59");
+    }
+
+    @Test
+    @Title("Проверка даты подписания контракта")
+    public void checkContractDateOfSigning() throws ParseException {
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonValidateSearchByContractDateOfSigning);
+        steps.wait_a_bit(2000);
+        steps.check_date("13.01.2021 00:00","14.01.2021 23:59");
+    }
+
 }
