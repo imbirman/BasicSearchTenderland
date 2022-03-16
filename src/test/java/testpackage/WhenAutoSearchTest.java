@@ -817,4 +817,22 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.check_search_inadequate_execution_by_customer();
     }
 
+    @Test
+    @Title("Проверка суммы  штрафов контракта")
+    public void checkSumMulctContract(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchBySumMulct);
+        steps.wait_a_bit(2000);
+        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.switchToTab();
+        steps.click_button(tabMulctContracts);
+        steps.check_sum_mulct(10000,100000);
+    }
+
 }

@@ -42,6 +42,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByNotice = By.xpath("//span[text()='Проверка поиска по извещению']"); // Кнопка автопоиска "Проверка поиска по извещению"
     protected By buttonCheckSearchByProduct = By.xpath("//span[text()='Проверка поиска по продуктам']"); // Кнопка автопоиска "Проверка поиска по продуктам"
     protected By buttonCheckSearchByMulct = By.xpath("//span[text()='Проверка поиска по штрафу']"); // Кнопка автопоиска "Проверка поиска по штрафу"
+    protected By buttonCheckSearchBySumMulct = By.xpath("//span[text()='Проверка поиска по сумме штрафов']"); // Кнопка автопоиска "Проверка поиска по сумме штрафов"
 
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
@@ -93,7 +94,7 @@ public class AutoSearchPage extends PageObject {
     private By searchWordIntoNoticeDocumentation = By.xpath("//em"); // Поисковое слово в извещении (выделенное)
     private By listProductInCardContract = By.xpath("//div[@id='entity-card-items']//table//tr/following::td[1]"); // Название продукта в списке продуктов карточки контракта
     private By listMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[4]"); // Причина штрафа в списке штрафов карточки контракта
-
+    private By listSumMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[5]"); // Сумма штрафа в списке штрафов карточки контракта
 
     public void waitFor(long number){
         waitABit(number);
@@ -621,5 +622,21 @@ public class AutoSearchPage extends PageObject {
         }
         return check;
     } // Проверка включает ли карточка контракта искомый штраф
+
+    public boolean checkSumMulct(float sumMulctFrom, float sumMulctTo){
+        boolean check = true;
+        List<WebElementFacade> sumMulctForCheck = findAll(listSumMulctInCardContract);
+        for(WebElementFacade sumMulct : sumMulctForCheck){
+//            System.out.println("Сумма: " + sumMulct.getText());
+            String sumMulctCheck = sumMulct.getText();
+
+            float floatSumMulctCheckForCheck = Float.parseFloat(sumMulctCheck);
+            if(floatSumMulctCheckForCheck < sumMulctFrom || floatSumMulctCheckForCheck > sumMulctTo){
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка суммы штрафов тендера
 
 }

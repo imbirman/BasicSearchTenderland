@@ -276,4 +276,10 @@ public class AutoSearchSteps extends AutoSearchPage {
         Assertions.assertThat(page.isContainCardContractSearchByInadequateExecutionByCustomer())
                 .as("В карточке тендера отсутствует штраф, по которому производился поиск").isTrue();
     }
+
+    @Step("Проверка суммы штрафов")
+    public void check_sum_mulct(float sumMulctFrom, float sumMulctTo){
+        Assertions.assertThat(page.checkSumMulct(sumMulctFrom, sumMulctTo))
+                .as("Есть контракты с суммой штрафов, не входящей в заданный промежуток: " + sumMulctFrom + " - " + sumMulctTo).isTrue();
+    }
 }
