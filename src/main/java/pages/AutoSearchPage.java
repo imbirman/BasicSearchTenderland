@@ -44,6 +44,8 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByMulct = By.xpath("//span[text()='Проверка поиска по штрафу']"); // Кнопка автопоиска "Проверка поиска по штрафу"
     protected By buttonCheckSearchBySumMulct = By.xpath("//span[text()='Проверка поиска по сумме штрафов']"); // Кнопка автопоиска "Проверка поиска по сумме штрафов"
     protected By buttonCheckSearchByUnpaidMulct = By.xpath("//span[text()='Проверка поиска по наличию неоплаченных штрафов']"); // Кнопка автопоиска "Проверка поиска по наличию неоплаченных штрафов"
+    protected By buttonCheckSearchByNamePlan = By.xpath("//span[text()='Проверка поиска по названию плана']"); // Кнопка автопоиска "Проверка поиска по названию плана"
+    protected By buttonCheckSearchByTypePlan = By.xpath("//span[text()='Проверка поиска по типу плана']"); // Кнопка автопоиска "Проверка поиска по типу плана"
 
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
@@ -56,10 +58,11 @@ public class AutoSearchPage extends PageObject {
     protected By filterSearchByTenderModule = By.xpath("//span[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
     protected By filterSearchByMineTendersOrContractsStatus = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
     protected By filterSearchByMulct = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Штраф" в автопоиске "Проверка поиска по штрафу"
+    protected By filterSearchByTypePlan = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Тип" в автопоиске "Проверка поиска по типу плана"
     protected By filterSearchByUnpaidMulct = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Наличие неоплаченных штраф" в автопоиске "Проверка поиска по наличию неоплаченных штрафов"
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс в таблице результата поиска
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
-    protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль" у тендера или "Статус" у контракта
+    protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль" у тендера или "Статус" у контракта или "Тип" у плана
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
     protected By fieldNameTender = By.xpath("//div[@id='filter-editor-compact-1-include']//textarea"); // Поле для ввода названия тендера для поиска
@@ -233,7 +236,7 @@ public class AutoSearchPage extends PageObject {
         return checkBoxResult.get(number);
     } // Получение чекбокса по его порядковому номеру
 
-    public WebElementFacade getCheckboxMineTendersOrStatusContracts(int numberCheckbox){
+    public WebElementFacade getCheckboxInFilter(int numberCheckbox){
         List<WebElementFacade> checkboxMineTenders = findAll(checkBoxFilter);
         return checkboxMineTenders.get(numberCheckbox);
     } // Получить чекбокс по его порядковому номеру в фильтре "Мои тендеры" у тендера или "Статус" у контракта
@@ -658,7 +661,7 @@ public class AutoSearchPage extends PageObject {
             }
         }
         return check;
-    } // Проверка оплаты штрафов
+    } // Проверка оплаты штрафов контракта
 
     public boolean isPaidMulct(){
         boolean check = true;
@@ -674,6 +677,62 @@ public class AutoSearchPage extends PageObject {
             }
         }
         return check;
-    } // Проверка суммы штрафов тендера
+    } // Проверка оплаты штрафов контракта
+
+    public boolean isContainNamePlan(){
+        boolean check = true;
+        List<WebElementFacade> namePlanForCheck = findAll(tableCellToCheck);
+        namePlanForCheck.remove(namePlanForCheck.size()-1);
+        for(WebElementFacade namePlan : namePlanForCheck){
+//            System.out.println("Сумма: " + sumMulct.getText());
+            if(!(namePlan.getText().contains("мусор") || namePlan.getText().contains("Мусор") || namePlan.getText().contains("МУСОР"))){
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка результатов поиска по названию плана
+
+    public boolean isContainTypePlan(){
+        boolean check = true;
+        List<WebElementFacade> typePlanForCheck = findAll(tableCellToCheck);
+        typePlanForCheck.remove(typePlanForCheck.size()-1);
+        for(WebElementFacade typePlan : typePlanForCheck){
+//            System.out.println("Сумма: " + sumMulct.getText());
+            if(!typePlan.getText().contains("План")){
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по типу плана
+
+    public boolean isContainTypePlanSchedule(){
+        boolean check = true;
+        List<WebElementFacade> typePlanForCheck = findAll(tableCellToCheck);
+        typePlanForCheck.remove(typePlanForCheck.size()-1);
+        for(WebElementFacade typePlan : typePlanForCheck){
+//            System.out.println("Сумма: " + sumMulct.getText());
+            if(!typePlan.getText().contains("План-график")){
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по типу плана
+
+    public boolean isContainTypePlanSchedule2017(){
+        boolean check = true;
+        List<WebElementFacade> typePlanForCheck = findAll(tableCellToCheck);
+        typePlanForCheck.remove(typePlanForCheck.size()-1);
+        for(WebElementFacade typePlan : typePlanForCheck){
+//            System.out.println("Сумма: " + sumMulct.getText());
+            if(!typePlan.getText().contains("План-график 2017")){
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска по типу плана
 
 }

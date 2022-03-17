@@ -294,4 +294,28 @@ public class AutoSearchSteps extends AutoSearchPage {
         Assertions.assertThat(page.isPaidMulct())
                 .as("Есть контракты с неоплаченными штрафами").isTrue();
     }
+
+    @Step("Проверка поиска по названию плана")
+    public void check_search_by_name_plan(){
+        Assertions.assertThat(page.isContainNamePlan())
+                .as("Есть план без ключевого слова").isTrue();
+    }
+
+    @Step("Проверка поиска по типу плана плана")
+    public void check_search_by_type_plan(){
+        Assertions.assertThat(page.isContainTypePlan())
+                .as("В результатах поиска есть тип плана отличный от 'План'").isTrue();
+    }
+
+    @Step("Проверка поиска по типу плана плана план-график")
+    public void check_search_by_type_plan_schedule(){
+        Assertions.assertThat(page.isContainTypePlanSchedule())
+                .as("В результатах поиска есть тип плана отличный от 'План-график'").isTrue();
+    }
+
+    @Step("Проверка поиска по типу плана плана план-график 2017")
+    public void check_search_by_type_plan_schedule_2017(){
+        Assertions.assertThat(page.isContainTypePlanSchedule())
+                .as("В результатах поиска есть тип плана отличный от 'План-график 2017'").isTrue();
+    }
 }

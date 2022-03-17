@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenAutoSearchTest" skipped="0" tests="1" time="58.37" timestamp="2022-03-17 08:48:03"><testcase classname="testpackage.WhenAutoSearchTest" name="Проверка отсутствия неоплаченных  штрафов контракта"/></testsuite>
