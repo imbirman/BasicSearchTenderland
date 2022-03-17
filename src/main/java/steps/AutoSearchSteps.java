@@ -279,7 +279,19 @@ public class AutoSearchSteps extends AutoSearchPage {
 
     @Step("Проверка суммы штрафов")
     public void check_sum_mulct(float sumMulctFrom, float sumMulctTo){
-        Assertions.assertThat(page.checkSumMulct(sumMulctFrom, sumMulctTo))
+        Assertions.assertThat(page.isSumMulct(sumMulctFrom, sumMulctTo))
                 .as("Есть контракты с суммой штрафов, не входящей в заданный промежуток: " + sumMulctFrom + " - " + sumMulctTo).isTrue();
+    }
+
+    @Step("Проверка наличия неоплаченных штрафов")
+    public void check_unpaid_mulct(){
+        Assertions.assertThat(page.isUnpaidMulct())
+                .as("Есть контракты без неоплаченных штрафов").isTrue();
+    }
+
+    @Step("Проверка отсутствия неоплаченных штрафов")
+    public void check_paid_mulct(){
+        Assertions.assertThat(page.isPaidMulct())
+                .as("Есть контракты с неоплаченными штрафами").isTrue();
     }
 }

@@ -835,4 +835,48 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.check_sum_mulct(10000,100000);
     }
 
+    @Test
+    @Title("Проверка наличия неоплаченных  штрафов контракта")
+    public void checkUnpaidMulctContract(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByUnpaidMulct);
+        steps.wait_a_bit(2000);
+        steps.click_button(filterSearchByUnpaidMulct);
+        steps.click_button(radiobuttonYesUnpaidMulct);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(1000);
+        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.switchToTab();
+        steps.click_button(tabMulctContracts);
+        steps.check_unpaid_mulct();
+    }
+
+    @Test
+    @Title("Проверка отсутствия неоплаченных  штрафов контракта")
+    public void checkPaidMulctContract(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckSearchByUnpaidMulct);
+        steps.wait_a_bit(2000);
+        steps.click_button(filterSearchByUnpaidMulct);
+        steps.click_button(radiobuttonNoUnpaidMulct);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(1000);
+        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.switchToTab();
+        steps.click_button(tabMulctContracts);
+        steps.check_paid_mulct();
+    }
+
 }

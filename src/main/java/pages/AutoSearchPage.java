@@ -43,6 +43,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByProduct = By.xpath("//span[text()='Проверка поиска по продуктам']"); // Кнопка автопоиска "Проверка поиска по продуктам"
     protected By buttonCheckSearchByMulct = By.xpath("//span[text()='Проверка поиска по штрафу']"); // Кнопка автопоиска "Проверка поиска по штрафу"
     protected By buttonCheckSearchBySumMulct = By.xpath("//span[text()='Проверка поиска по сумме штрафов']"); // Кнопка автопоиска "Проверка поиска по сумме штрафов"
+    protected By buttonCheckSearchByUnpaidMulct = By.xpath("//span[text()='Проверка поиска по наличию неоплаченных штрафов']"); // Кнопка автопоиска "Проверка поиска по наличию неоплаченных штрафов"
 
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
@@ -55,6 +56,7 @@ public class AutoSearchPage extends PageObject {
     protected By filterSearchByTenderModule = By.xpath("//span[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
     protected By filterSearchByMineTendersOrContractsStatus = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
     protected By filterSearchByMulct = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Штраф" в автопоиске "Проверка поиска по штрафу"
+    protected By filterSearchByUnpaidMulct = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Наличие неоплаченных штраф" в автопоиске "Проверка поиска по наличию неоплаченных штрафов"
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс в таблице результата поиска
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
     protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль" у тендера или "Статус" у контракта
@@ -76,6 +78,8 @@ public class AutoSearchPage extends PageObject {
     protected By buttonOpenDocumentation = By.xpath("//i[@class='mdi mdi-24px mdi-folder-search-outline tl-icon']"); // кнопка "Открыть документацию"
     protected By tabListProductsInCardContract = By.id("tl-card-2"); // Вкладка "Список продуктов" в карточке контракта
     protected By tabMulctContracts = By.id("tl-card-5"); // Вкладка "Штрафы" в карточке контракта
+    protected By radiobuttonYesUnpaidMulct = By.xpath("(//div[@class='dx-radiobutton-icon'])[1]"); // чекбокс "Да" в фильтре "Наличие неоплаченных штрафов"
+    protected By radiobuttonNoUnpaidMulct = By.xpath("(//div[@class='dx-radiobutton-icon'])[2]"); // чекбокс "Нет" в фильтре "Наличие неоплаченных штрафов"
 
 
 
@@ -95,6 +99,7 @@ public class AutoSearchPage extends PageObject {
     private By listProductInCardContract = By.xpath("//div[@id='entity-card-items']//table//tr/following::td[1]"); // Название продукта в списке продуктов карточки контракта
     private By listMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[4]"); // Причина штрафа в списке штрафов карточки контракта
     private By listSumMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[5]"); // Сумма штрафа в списке штрафов карточки контракта
+    private By listPaidMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[6]"); // Оплата штрафа в списке штрафов карточки контракта
 
     public void waitFor(long number){
         waitABit(number);
@@ -623,7 +628,7 @@ public class AutoSearchPage extends PageObject {
         return check;
     } // Проверка включает ли карточка контракта искомый штраф
 
-    public boolean checkSumMulct(float sumMulctFrom, float sumMulctTo){
+    public boolean isSumMulct(float sumMulctFrom, float sumMulctTo){
         boolean check = true;
         List<WebElementFacade> sumMulctForCheck = findAll(listSumMulctInCardContract);
         for(WebElementFacade sumMulct : sumMulctForCheck){
@@ -632,6 +637,38 @@ public class AutoSearchPage extends PageObject {
 
             float floatSumMulctCheckForCheck = Float.parseFloat(sumMulctCheck);
             if(floatSumMulctCheckForCheck < sumMulctFrom || floatSumMulctCheckForCheck > sumMulctTo){
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка суммы штрафов контракта
+
+    public boolean isUnpaidMulct(){
+        boolean check = false;
+        List<WebElementFacade> paidMulctForCheck = findAll(listPaidMulctInCardContract);
+        for(WebElementFacade paidMulct : paidMulctForCheck){
+//            System.out.println("Сумма: " + sumMulct.getText());
+            String sumMulctCheck = paidMulct.getText();
+
+            float floatSumMulctCheckForCheck = Float.parseFloat(sumMulctCheck);
+            if(floatSumMulctCheckForCheck == 0){
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка оплаты штрафов
+
+    public boolean isPaidMulct(){
+        boolean check = true;
+        List<WebElementFacade> paidMulctForCheck = findAll(listPaidMulctInCardContract);
+        for(WebElementFacade paidMulct : paidMulctForCheck){
+//            System.out.println("Сумма: " + sumMulct.getText());
+            String sumMulctCheck = paidMulct.getText();
+
+            float floatSumMulctCheckForCheck = Float.parseFloat(sumMulctCheck);
+            if(floatSumMulctCheckForCheck == 0){
                 check = false;
                 break;
             }
