@@ -31,6 +31,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonValidateSearchByContractActualExecutionDate = By.xpath("//span[text()='Проверка поиска по фактической дате исполнения']"); // Кнопка автопоиска "Проверка поиска по фактической дате исполнения"
     protected By buttonValidateSearchByContractDateOfSigning = By.xpath("//span[text()='Проверка поиска по дате подписания']"); // Кнопка автопоиска "Проверка поиска по дате подписания"
     protected By buttonValidateSearchByCategory = By.xpath("//span[text()='Проверка поиска по категории']"); // Кнопка автопоиска "Проверка поиска по категории"
+    protected By buttonAutoSearchTestCustomView = By.xpath("//span[text()='Тестирование пользовательского вида']"); // Кнопка автопоиска "Тестирование пользовательского вида"
     protected By buttonCheckSearchByPrice = By.xpath("//span[text()='Проверка поиска по цене']"); // Кнопка автопоиска "Проверка поиска по цене"
     protected By buttonCheckSearchByTenderType = By.xpath("//span[text()='Проверка поиска по типу тендера']"); // Кнопка автопоиска "Проверка поиска по типу тендера"
     protected By buttonCheckSearchByTenderStand = By.xpath("//span[text()='Проверка поиска по площадке']"); // Кнопка автопоиска "Проверка поиска по площадке"
@@ -46,6 +47,17 @@ public class AutoSearchPage extends PageObject {
     protected By buttonCheckSearchByUnpaidMulct = By.xpath("//span[text()='Проверка поиска по наличию неоплаченных штрафов']"); // Кнопка автопоиска "Проверка поиска по наличию неоплаченных штрафов"
     protected By buttonCheckSearchByNamePlan = By.xpath("//span[text()='Проверка поиска по названию плана']"); // Кнопка автопоиска "Проверка поиска по названию плана"
     protected By buttonCheckSearchByTypePlan = By.xpath("//span[text()='Проверка поиска по типу плана']"); // Кнопка автопоиска "Проверка поиска по типу плана"
+    protected By buttonCustomView = By.id("change-custom-view-button"); // Кнопка "Пользовательский вид"
+    protected By buttonSaveSettings = By.id("search-view-save-button"); // Кнопка "Сохранить настройки"
+    protected By buttonDeleteCustomView = By.id("search-view-delete-button"); // Кнопка "Удалить" пользовательский вид
+    protected By buttonClearFieldNameCustomView = By.xpath("//div[@id='search-view-name']//span[@class='dx-icon dx-icon-clear']"); // Очистить поле ввода названия пользовательского вида
+    protected By buttonRemoveColumnFromListSelectedColumns = By.xpath("//div[@id='search-view-field-selector-values']//i[@class='dx-icon dx-icon-remove']"); // Кнопка удаления элемента из списка выбранных столбцов
+    protected By buttonCloseWindowCustomView = By.xpath("//div[@role='toolbar']//i"); // Кнопка закрытия окна пользовательского вида
+    protected By buttonExpandListCustomView = By.xpath("//div[@id='change-view-button']//i[@class='dx-icon dx-icon-spindown']"); // Раскрыть список пользовательских видов
+    protected By buttonAddNewCustomView = By.id("search-view-manager-newitem"); // Кнопка добавления нового пользовательского вида
+    protected By elementOfListCustomView = By.xpath("//div[@id='search-view-manager-viewlist']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка сохраненных пользовательских видов
+    protected By elementOfListSelectedColomns = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка выбранных столбцов
+    protected By elementExpandedListCustomView = By.xpath("//div[@class='dx-popup-content dx-dropdownbutton-content']//div[@class='dx-item-content dx-list-item-content']"); // элемент раскрывающегося списка пользовательских видов
 
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
@@ -54,7 +66,7 @@ public class AutoSearchPage extends PageObject {
     protected By filterEndSubmissionOfApplication = By.xpath("//span[text()='03.01.2021 — 03.01.2021']"); // Фильтр "Дата окончания подачи заявок" в автопоиске "Проверка поиска по дате окончания подачи заявок"
     protected By filterValidateSearchByTenderDate = By.xpath("//span[text()='12.01.2021 — 12.01.2021']"); // Фильтр "Дата проведения тендера" в автопоиске "Проверка поиска по дате проведения тендера"
     protected By filterValidateSearchByTenderPrice = By.xpath("//span[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
-    protected By filterCategoryName = By.xpath("//span[text()='Коммунальные услуги']"); // Фильтр "Категория" в поле построения дерева фильтров для автопоиска "Проверка поиска по категории"
+//    protected By filterCategoryName = By.xpath("//span[text()='Коммунальные услуги']"); // Фильтр "Категория" в поле построения дерева фильтров для автопоиска "Проверка поиска по категории"
     protected By filterSearchByTenderModule = By.xpath("//span[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
     protected By filterSearchByMineTendersOrContractsStatus = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
     protected By filterSearchByMulct = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Штраф" в автопоиске "Проверка поиска по штрафу"
@@ -64,20 +76,22 @@ public class AutoSearchPage extends PageObject {
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
     protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль" у тендера или "Статус" у контракта или "Тип" у плана
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
+    protected By buttonApplyCustomView = By.id("search-view-apply-button"); // Кнопка "Применить" пользовательского вида
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
     protected By fieldNameTender = By.xpath("//div[@id='filter-editor-compact-1-include']//textarea"); // Поле для ввода названия тендера для поиска
     protected By fieldPublicationDateFrom = By.xpath("//div[@id='textbox-filter-editor-compact-5-from']//input[@role='textbox']"); // Поле для ввода даты публикации "от"
     protected By fieldPublicationDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//input[@role='textbox']"); // Поле для ввода даты публикации "до"
     protected By fieldPriceFrom = By.xpath("//div[@id='filter-editor-compact-4-from']//input[@role='spinbutton']"); // Поле для ввода цены "от"
     protected By fieldPriceTo = By.xpath("//div[@id='filter-editor-compact-4-to']//input[@role='spinbutton']"); // Поле для ввода цены "до"
+    protected By fieldNameCustomView = By.xpath("//div[@id='search-view-name']//input"); // Поле для ввода названия пользовательского вида
     protected By buttonClearFieldDateFrom = By.xpath("//div[@id='textbox-filter-editor-compact-5-from']//span[@class='dx-icon dx-icon-clear']"); // Кнопка для очистки поля даты "от"
     protected By buttonClearFieldDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//span[@class='dx-icon dx-icon-clear']"); // Кнопка для очистки поля даты "до"
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
     protected By cellTableToOpenDocumentation = By.xpath("(//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a)[1]"); // Строка для открытия карточки тендера
     protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]//td"); // Ячейка таблицы в результатах поиска тендеров для первого столбца для первой строки для фильтра "Категория"
     protected By cellTableToCheckSearchContract = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[3]"); //Ячейка таблицы в результатах поиска контрактов для первого столбца для первой строки
-    protected By CheckboxOKPD = By.xpath("//div[text()='Покупка ПО']/preceding-sibling::div[@role='checkbox']"); // чекбокс ОКПД при поиске по слову "семга"
-    protected By tabDocumentation = By.xpath("//div[@id='entity-card-menu-div']//div[text()='Документация']"); // вкладка "Документация" в карточке тендера
+//    protected By CheckboxOKPD = By.xpath("//div[text()='Покупка ПО']/preceding-sibling::div[@role='checkbox']"); // чекбокс ОКПД при поиске по слову "семга"
+//    protected By tabDocumentation = By.xpath("//div[@id='entity-card-menu-div']//div[text()='Документация']"); // вкладка "Документация" в карточке тендера
     protected By buttonOpenDocumentation = By.xpath("//i[@class='mdi mdi-24px mdi-folder-search-outline tl-icon']"); // кнопка "Открыть документацию"
     protected By tabListProductsInCardContract = By.id("tl-card-2"); // Вкладка "Список продуктов" в карточке контракта
     protected By tabMulctContracts = By.id("tl-card-5"); // Вкладка "Штрафы" в карточке контракта
@@ -103,6 +117,10 @@ public class AutoSearchPage extends PageObject {
     private By listMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[4]"); // Причина штрафа в списке штрафов карточки контракта
     private By listSumMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[5]"); // Сумма штрафа в списке штрафов карточки контракта
     private By listPaidMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[6]"); // Оплата штрафа в списке штрафов карточки контракта
+    private By errorMessageEmptyFieldNameCustomView = By.xpath("//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Сообщение об ошибке поля "Название" пользовательского вида
+    private By errorMessageWithoutSelectedColumn = By.xpath("//div[@role='alert']"); // Алерт - ошибка при сохранении пользовательского вида без выбранных столбцов
+
+
 
     public void waitFor(long number){
         waitABit(number);
@@ -180,6 +198,11 @@ public class AutoSearchPage extends PageObject {
         return this;
     } // Ввести цену "до"
 
+    public AutoSearchPage typeNameCustomView(String name){
+        find(fieldNameCustomView).sendKeys(name);
+        return this;
+    } // Ввести название пользовательского вида
+
     public String getTextLogin(){
         return find(checkLogin).getText();
     } // Получение названия логина после входа
@@ -240,6 +263,14 @@ public class AutoSearchPage extends PageObject {
         List<WebElementFacade> checkboxMineTenders = findAll(checkBoxFilter);
         return checkboxMineTenders.get(numberCheckbox);
     } // Получить чекбокс по его порядковому номеру в фильтре "Мои тендеры" у тендера или "Статус" у контракта
+
+    public Integer getNumberListOfCustomView(){
+        return findAll(elementOfListCustomView).size();
+    } // Получение количества элементов в списке пользовательских видов
+
+    public Integer getNumberExpandedListOfCustomView(){
+        return findAll(elementExpandedListCustomView).size();
+    } // Получение количества элементов в раскрывающемся списке пользовательских видов
 
     public boolean isEqualNumberOfRowResultSearch(int number){
         return getNumberOfRowResultSearch()==number;
@@ -734,5 +765,47 @@ public class AutoSearchPage extends PageObject {
         }
         return check;
     } // Проверка поиска по типу плана
+
+    public void checkListNameCustomView(){
+        if(!findAll(elementOfListCustomView).isEmpty()){
+            clickButton(elementOfListCustomView);
+            clickButton(buttonDeleteCustomView);
+        }
+    } // Проверка и очистка списка пользовательских видов
+
+    public boolean isErrorMessageEmptyNameFieldCustomView(){
+        WebElementFacade checkError = find(errorMessageEmptyFieldNameCustomView);
+        return checkError.getText().contains("Название не должно быть пустым") && checkError.isVisible();
+    } // Проверка сообщения об ошибке при сохранении пользовательского вида при пустом названии
+
+    public boolean isErrorMessageDuplicationNameFieldCustomView(){
+        WebElementFacade checkError = find(errorMessageEmptyFieldNameCustomView);
+        return checkError.getText().contains("Название должно быть уникальным.") && checkError.isVisible();
+    } // Проверка сообщения об ошибке при сохранении пользовательского вида с дублированием названия
+
+    public boolean isErrorMessageWithoutSelectedColumn(){
+        WebElementFacade checkError = find(errorMessageWithoutSelectedColumn);
+        return checkError.getText().contains("Вы должны выбрать хотя бы одно поле в таблице с результатами поиска.") && checkError.isVisible();
+    } // Проверка сообщения об ошибке при сохранении пользовательского вида при пустом названии
+
+    public boolean isContainNameSavedCustomView(){
+        return find(elementOfListCustomView).getText().contains("Тестовый вид");
+    } // Проверка названия сохраненного пользовательского вида
+
+    public boolean isClickableDeleteButton(){
+        return find(buttonDeleteCustomView).isDisabled();
+    } // Проверка кликабельности кнопки "Удалить" после сохранения пользовательского вида
+
+    public boolean isClickableButtonSaveSettings(){
+        return find(buttonSaveSettings).isDisabled();
+    } // Проверка кликабельности кнопки "Сохранить настройки" после сохранения пользовательского вида
+
+    public boolean isContainListColumn(){
+        return findAll(elementOfListSelectedColomns).isEmpty();
+    } // Проверка списка выбранных столбцов
+
+    public boolean isContainAddedCustomView(){
+        return findAll(elementExpandedListCustomView).get(1).getText().contains("Тестовый вид");
+    } // Проверка списка выбранных столбцов
 
 }
