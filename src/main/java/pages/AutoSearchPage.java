@@ -56,7 +56,8 @@ public class AutoSearchPage extends PageObject {
     protected By buttonExpandListCustomView = By.xpath("//div[@id='change-view-button']//i[@class='dx-icon dx-icon-spindown']"); // Раскрыть список пользовательских видов
     protected By buttonAddNewCustomView = By.id("search-view-manager-newitem"); // Кнопка добавления нового пользовательского вида
     protected By elementOfListCustomView = By.xpath("//div[@id='search-view-manager-viewlist']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка сохраненных пользовательских видов
-    protected By elementOfListSelectedColomns = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка выбранных столбцов
+    protected By elementOfListSelectedColomns = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-item dx-list-item']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка выбранных столбцов
+    protected By elementOfListColumns = By.xpath("//div[@id='search-view-manager-tab-panel']//div[@class='dx-scrollview-content']//div[@class='dx-item dx-list-item']"); // Элемент списка столбцов
     protected By elementExpandedListCustomView = By.xpath("//div[@class='dx-popup-content dx-dropdownbutton-content']//div[@class='dx-item-content dx-list-item-content']"); // элемент раскрывающегося списка пользовательских видов
 
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
@@ -84,6 +85,7 @@ public class AutoSearchPage extends PageObject {
     protected By fieldPriceFrom = By.xpath("//div[@id='filter-editor-compact-4-from']//input[@role='spinbutton']"); // Поле для ввода цены "от"
     protected By fieldPriceTo = By.xpath("//div[@id='filter-editor-compact-4-to']//input[@role='spinbutton']"); // Поле для ввода цены "до"
     protected By fieldNameCustomView = By.xpath("//div[@id='search-view-name']//input"); // Поле для ввода названия пользовательского вида
+    protected By fieldSearchColumnCustomView = By.xpath("//div[@id='search-view-field-selector-search-panel']//input"); // Поле поиска столбцов в пользовательском виде
     protected By buttonClearFieldDateFrom = By.xpath("//div[@id='textbox-filter-editor-compact-5-from']//span[@class='dx-icon dx-icon-clear']"); // Кнопка для очистки поля даты "от"
     protected By buttonClearFieldDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//span[@class='dx-icon dx-icon-clear']"); // Кнопка для очистки поля даты "до"
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
@@ -92,7 +94,7 @@ public class AutoSearchPage extends PageObject {
     protected By cellTableToCheckSearchContract = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[3]"); //Ячейка таблицы в результатах поиска контрактов для первого столбца для первой строки
 //    protected By CheckboxOKPD = By.xpath("//div[text()='Покупка ПО']/preceding-sibling::div[@role='checkbox']"); // чекбокс ОКПД при поиске по слову "семга"
 //    protected By tabDocumentation = By.xpath("//div[@id='entity-card-menu-div']//div[text()='Документация']"); // вкладка "Документация" в карточке тендера
-    protected By buttonOpenDocumentation = By.xpath("//i[@class='mdi mdi-24px mdi-folder-search-outline tl-icon']"); // кнопка "Открыть документацию"
+//    protected By buttonOpenDocumentation = By.xpath("//i[@class='mdi mdi-24px mdi-folder-search-outline tl-icon']"); // кнопка "Открыть документацию"
     protected By tabListProductsInCardContract = By.id("tl-card-2"); // Вкладка "Список продуктов" в карточке контракта
     protected By tabMulctContracts = By.id("tl-card-5"); // Вкладка "Штрафы" в карточке контракта
     protected By radiobuttonYesUnpaidMulct = By.xpath("(//div[@class='dx-radiobutton-icon'])[1]"); // чекбокс "Да" в фильтре "Наличие неоплаченных штрафов"
@@ -201,6 +203,11 @@ public class AutoSearchPage extends PageObject {
 
     public AutoSearchPage typeNameCustomView(String name){
         find(fieldNameCustomView).sendKeys(name);
+        return this;
+    } // Ввести название пользовательского вида
+
+    public AutoSearchPage typeSearchColumnCustomView(String search){
+        find(fieldSearchColumnCustomView).sendKeys(search);
         return this;
     } // Ввести название пользовательского вида
 
@@ -813,5 +820,26 @@ public class AutoSearchPage extends PageObject {
         List<String> checkColumn = findAll(elementOfDatagridNameColumns).texts();
         return checkColumn.size()==12 && !checkColumn.contains("Реестровый номер");
     } // Проверка столбцов в таблице результата поиска после удаления столбца из пользовательского вида
+
+    public boolean isContainResultSearchColumnCustomView(){
+        List<String> checkColumn = findAll(elementOfListColumns).texts();
+        List<String> checkSelectedColumn = findAll(elementOfListSelectedColomns).texts();
+        boolean checkIsContainColumn = true;
+        boolean checkISContainSelectedColumn = true;
+
+        for(String type : checkColumn){
+            if(!type.contains("Реестровый")){
+                checkIsContainColumn = false;
+                break;
+            }
+        }
+        for(String type : checkSelectedColumn){
+            if(!type.contains("Реестровый")){
+                checkISContainSelectedColumn = false;
+                break;
+            }
+        }
+        return checkIsContainColumn && checkISContainSelectedColumn;
+    } // Проверка поиска в окне пользовательского вида
 
 }

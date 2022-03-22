@@ -88,6 +88,11 @@ public class AutoSearchSteps extends AutoSearchPage {
         page.typeNameCustomView(name);
     }
 
+    @Step("Ввести в поле поиска пользовательского вида")
+    public void type_search_column_custom_view(String search){
+        page.typeSearchColumnCustomView(search);
+    }
+
     @Step("Проверка логина после входа")
     public void check_text_login(){
         Assertions.assertThat(page.getTextLogin()).as("Логин некорректен, вход ошибочен").isEqualTo("AdminTestit");
@@ -393,5 +398,11 @@ public class AutoSearchSteps extends AutoSearchPage {
     public void check_not_contain_deleted_column(){
         Assertions.assertThat(page.isNotContainDeletedColumn())
                 .as("В таблице результата поиска присутствует удаленный столбец из пользовательского вида").isTrue();
+    }
+
+    @Step("Проверка поиска в окне пользовательского вида")
+    public void check_contain_result_search_column_custom_view(){
+        Assertions.assertThat(page.isContainResultSearchColumnCustomView())
+                .as("В результатах поиска присутствуют лишние элементы").isTrue();
     }
 }
