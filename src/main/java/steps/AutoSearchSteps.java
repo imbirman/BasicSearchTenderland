@@ -388,4 +388,10 @@ public class AutoSearchSteps extends AutoSearchPage {
         Assertions.assertThat(page.isContainAddedCustomView())
                 .as("В раскрывающемся списке пользовательских видов наименование добавленного вида неверно").isTrue();
     }
+
+    @Step("Проверка столбцов в таблице результата поиска после удаления столбца из пользовательского вида")
+    public void check_not_contain_deleted_column(){
+        Assertions.assertThat(page.isNotContainDeletedColumn())
+                .as("В таблице результата поиска присутствует удаленный столбец из пользовательского вида").isTrue();
+    }
 }

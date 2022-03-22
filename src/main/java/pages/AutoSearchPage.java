@@ -119,6 +119,7 @@ public class AutoSearchPage extends PageObject {
     private By listPaidMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[6]"); // Оплата штрафа в списке штрафов карточки контракта
     private By errorMessageEmptyFieldNameCustomView = By.xpath("//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Сообщение об ошибке поля "Название" пользовательского вида
     private By errorMessageWithoutSelectedColumn = By.xpath("//div[@role='alert']"); // Алерт - ошибка при сохранении пользовательского вида без выбранных столбцов
+    private By elementOfDatagridNameColumns = By.xpath("//div[@class='dx-datagrid-headers']//div[@class='dx-datagrid-text-content'or@class='dx-datagrid-text-content dx-text-content-alignment-left'or@class='dx-datagrid-text-content dx-text-content-alignment-left dx-sort-indicator']//td[2]"); // Название столбца таблицы результата поиска
 
 
 
@@ -807,5 +808,10 @@ public class AutoSearchPage extends PageObject {
     public boolean isContainAddedCustomView(){
         return findAll(elementExpandedListCustomView).get(1).getText().contains("Тестовый вид");
     } // Проверка списка выбранных столбцов
+
+    public boolean isNotContainDeletedColumn(){
+        List<String> checkColumn = findAll(elementOfDatagridNameColumns).texts();
+        return checkColumn.size()==12 && !checkColumn.contains("Реестровый номер");
+    } // Проверка столбцов в таблице результата поиска после удаления столбца из пользовательского вида
 
 }

@@ -1006,4 +1006,22 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.check_number_element_of_list_selected_column();
     }
 
+    @Test
+    @Title("Проверка столбцов таблицы результата поиска после удаления столбца из пользовательского вида")
+    public void checkNotContainDeletedColumn(){
+
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitTender");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+        steps.click_button(buttonCustomView);
+        steps.check_list_name_custom_view();
+        steps.click_button(buttonCloseWindowCustomView);
+        steps.click_button(buttonCustomView);
+        steps.click_button(buttonRemoveColumnFromListSelectedColumns);
+        steps.click_button(buttonApplyCustomView);
+        steps.check_not_contain_deleted_column();
+    }
+
 }

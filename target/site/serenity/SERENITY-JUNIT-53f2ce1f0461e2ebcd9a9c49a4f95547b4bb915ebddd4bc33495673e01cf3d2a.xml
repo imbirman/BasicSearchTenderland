@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenAutoSearchTest" skipped="0" tests="1" time="45.72" timestamp="2022-03-22 11:50:19"><testcase classname="testpackage.WhenAutoSearchTest" name="Проверка столбцов таблицы результата поиска после удаления столбца из пользовательского вида"/></testsuite>
