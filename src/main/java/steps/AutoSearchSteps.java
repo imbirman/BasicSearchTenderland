@@ -35,6 +35,11 @@ public class AutoSearchSteps extends AutoSearchPage {
         page.switchToTab();
     }
 
+    @Step("Прокрутить содержимое элемента вниз")
+    public void scroll_down_to(By scroll){
+        page.scrollDownTo(scroll);
+    }
+
     @Step("Нажать кнопку")
     public void click_button(WebElementFacade button){
         page.clickButton(button);

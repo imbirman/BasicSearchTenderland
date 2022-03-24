@@ -55,6 +55,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
+        steps.scrollDownTo(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.check_number_result_search();
         steps.check_registry_number();
@@ -91,6 +92,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
+        steps.scrollDownTo(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.wait_a_bit(2000);
         steps.check_name_tender_to_include_keyword();
@@ -106,6 +108,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
+        steps.scrollDownTo(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.wait_a_bit(2000);
         steps.click_button(filterNameTender);
@@ -125,6 +128,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
         steps.click_button(tabListAutoSearch);
+        steps.scrollDownTo(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.wait_a_bit(2000);
         steps.click_button(filterNameTender);

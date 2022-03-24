@@ -6,6 +6,7 @@ import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,6 +32,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonValidateSearchByContractActualExecutionDate = By.xpath("//span[text()='Проверка поиска по фактической дате исполнения']"); // Кнопка автопоиска "Проверка поиска по фактической дате исполнения"
     protected By buttonValidateSearchByContractDateOfSigning = By.xpath("//span[text()='Проверка поиска по дате подписания']"); // Кнопка автопоиска "Проверка поиска по дате подписания"
     protected By buttonValidateSearchByCategory = By.xpath("//span[text()='Проверка поиска по категории']"); // Кнопка автопоиска "Проверка поиска по категории"
+    protected By listAutoSearchToScroll = By.xpath("//div[@id='tl-scroll-tabs']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки list-autosearches
 
     protected By buttonCheckSearchByPrice = By.xpath("//span[text()='Проверка поиска по цене']"); // Кнопка автопоиска "Проверка поиска по цене"
     protected By buttonCheckSearchByTenderType = By.xpath("//span[text()='Проверка поиска по типу тендера']"); // Кнопка автопоиска "Проверка поиска по типу тендера"
@@ -133,6 +135,12 @@ public class AutoSearchPage extends PageObject {
             getDriver().switchTo().window(windowHandle);
         }
     } // Переключиться на следующую вкладку
+
+    public AutoSearchPage scrollDownTo(By scroll){
+        ((JavascriptExecutor)getDriver()).executeScript(
+                "arguments[0].scrollTop = -1 >>> 1", find(scroll));
+        return this;
+    } // Прокрутить содержимое элемента вниз
 
     public void clickButton(WebElementFacade button){
         button.click();
