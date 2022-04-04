@@ -113,6 +113,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.wait_a_bit(2000);
         steps.click_button(filterNameTender);
         steps.typeDeletion("Мусоровоз");
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_deletion_name_tender_to_include_keyword();
@@ -135,6 +136,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.clear_field(fieldNameTender);
         steps.type_name_tender("Муcор");
         steps.click_button(checkBoxTransliteration);
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_name_tender_to_include_keyword();
@@ -157,7 +159,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.type_date_from("09.01.2021");
         steps.click_button(buttonClearFieldDateTo);
         steps.type_date_to("09.01.2021");
-        steps.click_button(tableCellToCheck);
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_date("09.01.2021 00:00","09.01.2021 23:59");
@@ -180,7 +182,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.type_date_from("04.01.2021");
         steps.click_button(buttonClearFieldDateTo);
         steps.type_date_to("04.01.2021");
-        steps.click_button(tableCellToCheck);
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_date("04.01.2021 00:00","04.01.2021 23:59");
@@ -203,7 +205,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.type_date_from("03.01.2021");
         steps.click_button(buttonClearFieldDateTo);
         steps.type_date_to("03.01.2021");
-        steps.click_button(tableCellToCheck);
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_date("03.01.2021 00:00","03.01.2021 23:59");
@@ -226,7 +228,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.type_date_from("12.01.2021");
         steps.click_button(buttonClearFieldDateTo);
         steps.type_date_to("12.01.2021");
-        steps.click_button(tableCellToCheck);
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_date("12.01.2021 00:00","12.01.2021 23:59");
@@ -264,6 +266,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.type_price_from("10000");
         steps.clear_field(fieldPriceTo);
         steps.type_price_to("100000");
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_price(10000,100000);
@@ -327,6 +330,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.click_button(filterSearchByTenderModule);
         steps.click_button(checkBoxFilter);
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_search_by_only_government_and_commercial_tenders();
@@ -346,6 +350,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(filterSearchByTenderModule);
         steps.click_button(checkBoxFilter);
         steps.click_button(checkBoxFilter);
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_search_by_only_government_and_commercial_and_cis_tenders();
@@ -366,6 +371,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(checkBoxFilter);
         steps.click_button(checkBoxFilter);
         steps.click_button(checkBoxFilter);
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_search_by_all_modules_tender();
@@ -399,6 +405,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(1));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_new_tenders();
@@ -417,6 +424,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(2));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_application_preparation();
@@ -435,6 +443,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(3));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_determination_winner();
@@ -453,6 +462,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(4));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_conclusion_contract();
@@ -471,6 +481,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(5));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_execution_contract();
@@ -489,6 +500,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(6));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_archive_tenders();
@@ -507,6 +519,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(0));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_all_mine_tenders();
@@ -595,6 +608,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.type_price_from("10000");
         steps.clear_field(fieldPriceTo);
         steps.type_price_to("50000");
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_price(10000,50000);
@@ -613,6 +627,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByStatusContracts);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(0));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_being_executed();
@@ -631,6 +646,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByStatusContracts);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(1));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
         steps.check_search_by_execution_terminated();
@@ -648,6 +664,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchByStatusContracts);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(2));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
         steps.check_search_by_execution_completed();
@@ -668,6 +685,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(filterPublicationDate);
         steps.click_button(buttonClearFieldDateFrom);
         steps.type_date_from("01.01.2021");
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_date("01.01.2021 00:00","09.01.2021 23:59");
@@ -747,6 +765,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByMulct);
         steps.click_button(getCheckboxInFilter(0));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.doubleClickButton(cellTableToCheckSearchContract);
         steps.wait_a_bit(1000);
@@ -769,6 +788,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByMulct);
         steps.click_button(getCheckboxInFilter(1));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.doubleClickButton(cellTableToCheckSearchContract);
         steps.wait_a_bit(1000);
@@ -791,6 +811,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByMulct);
         steps.click_button(getCheckboxInFilter(2));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.doubleClickButton(cellTableToCheckSearchContract);
         steps.wait_a_bit(1000);
@@ -813,6 +834,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByMulct);
         steps.click_button(getCheckboxInFilter(3));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.doubleClickButton(cellTableToCheckSearchContract);
         steps.wait_a_bit(1000);
@@ -853,6 +875,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByUnpaidMulct);
         steps.click_button(radiobuttonYesUnpaidMulct);
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
         steps.doubleClickButton(cellTableToCheckSearchContract);
@@ -875,6 +898,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByUnpaidMulct);
         steps.click_button(radiobuttonNoUnpaidMulct);
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
         steps.doubleClickButton(cellTableToCheckSearchContract);
@@ -912,6 +936,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByTypePlan);
         steps.click_button(getCheckboxInFilter(0));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.check_search_by_type_plan();
     }
@@ -930,6 +955,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByTypePlan);
         steps.click_button(getCheckboxInFilter(1));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.check_search_by_type_plan_schedule();
     }
@@ -948,6 +974,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByTypePlan);
         steps.click_button(getCheckboxInFilter(1));
+        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.check_search_by_type_plan_schedule_2017();
     }

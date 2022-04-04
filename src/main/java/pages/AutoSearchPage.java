@@ -17,7 +17,7 @@ import java.util.List;
 public class AutoSearchPage extends PageObject {
 
 
-
+    protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
     protected By logInButton = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By signInButton = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
