@@ -32,16 +32,36 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         driver.manage().window().maximize();
     }
 
-
-    @Test
-    @Title("Проверка входа")
-    public void checkSignIn(){
-
+    public void signInAdminTestitTender(){
         steps.open_login_main_page();
         steps.click_button(logInButton);
         steps.type_login("AdminTestitTender");
         steps.type_password("Hyqpmaz0");
         steps.click_button(signInButton);
+    }
+
+    public void signInAdminTestitContract(){
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitContract");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(signInButton);
+    }
+
+    public void signInAdminTestitPlan(){
+        steps.open_login_main_page();
+        steps.click_button(logInButton);
+        steps.type_login("AdminTestitPlan");
+        steps.type_password("Hyqpmaz0/");
+        steps.click_button(signInButton);
+    }
+
+
+    @Test
+    @Title("Проверка входа")
+    public void checkSignIn(){
+
+        signInAdminTestitTender();
         steps.check_text_login();
     }
 
@@ -49,11 +69,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка результатов поиска для автопоиска 'Проверка поиска по реестровому номеру и региону'")
     public void checkRegistryNumber(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.scrollDownTo(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
@@ -65,11 +81,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка увеличения количества результатов поиска при добавлении значения региона")
     public void checkNumberResultSearchAfterAddingRegionValue(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(filterRegionRoot);
@@ -86,11 +98,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка названия тендера на включение в него ключевого слова")
     public void checkNameTenderToIncludeKeyword(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.scrollDownTo(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
@@ -102,11 +110,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка исключения из названия тендера ключевого слова")
     public void checkDeletionNameTenderToIncludeKeyword(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.scrollDownTo(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
@@ -123,11 +127,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка транслитерации при поиске по названию тендера")
     public void checkTransliterationNameTender(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.scrollDownTo(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
@@ -146,11 +146,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка даты публикации тендера")
     public void checkPublicationDateOfTender() throws ParseException {
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckPublicationDate);
         steps.wait_a_bit(2000);
@@ -169,11 +165,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка даты начала подачи заявок")
     public void checkStartSubmissionOfApplication() throws ParseException {
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckStartSubmissionOfApplicationDate);
         steps.wait_a_bit(2000);
@@ -192,11 +184,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка даты окончания подачи заявок")
     public void checkEndSubmissionOfApplication() throws ParseException {
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckEndSubmissionOfApplicationDate);
         steps.wait_a_bit(2000);
@@ -215,11 +203,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка даты проведения тендера")
     public void checkValidateSearchByTenderDate() throws ParseException {
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonValidateSearchByTenderDate);
         steps.wait_a_bit(2000);
@@ -238,11 +222,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по категории")
     public void checkSearchByCategoryName(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonValidateSearchByCategory);
         steps.wait_a_bit(2000);
@@ -253,11 +233,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка цены тендера")
     public void checkPriceTender(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByPrice);
         steps.wait_a_bit(2000);
@@ -276,11 +252,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по типу тендера")
     public void checkSearchByTenderType(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderType);
         steps.wait_a_bit(2000);
@@ -291,11 +263,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по площадке")
     public void checkSearchByTenderStand(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderStand);
         steps.wait_a_bit(2000);
@@ -306,11 +274,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по модулю 'Государственные тендеры'")
     public void checkSearchOnlyGovernmentTenders(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.wait_a_bit(2000);
@@ -321,11 +285,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по модулям 'Государственные тендеры' и 'Коммерческие тендеры'")
     public void checkSearchOnlyGovernmentAndCommercialTenders(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.click_button(filterSearchByTenderModule);
@@ -340,11 +300,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по модулям 'Государственные тендеры' и 'Коммерческие тендеры' и 'СНГ'")
     public void checkSearchOnlyGovernmentAndCommercialAndCISTenders(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.click_button(filterSearchByTenderModule);
@@ -360,11 +316,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по всем модулям")
     public void checkSearchAllModulesTender(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.click_button(filterSearchByTenderModule);
@@ -381,11 +333,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по участнику")
     public void checkSearchParticipant(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByParticipant);
         steps.wait_a_bit(2000);
@@ -396,11 +344,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по новым тендерам")
     public void checkSearchByNewTenders(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -415,11 +359,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по подготовке заявки")
     public void checkSearchByApplicationPreparation(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -434,11 +374,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по определению победителя")
     public void checkSearchByDeterminationWinner(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -453,11 +389,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по заключению контракта")
     public void checkSearchByConclusionContract(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -472,11 +404,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по исполнению контракта")
     public void checkSearchByExecutionContract(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -491,11 +419,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по архиву")
     public void checkSearchByArchiveTenders(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -510,11 +434,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по всем тендерам фильтра 'Мои тендеры'")
     public void checkSearchByAllMineTenders(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -529,11 +449,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по документации")
     public void checkSearchByTextDocumentation(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByDocumentation);
         steps.wait_a_bit(2000);
@@ -547,11 +463,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по документации")
     public void checkSearchByTextNotice(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByNotice);
         steps.wait_a_bit(2000);
@@ -565,11 +477,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска в блоке списка фильтров")
     public void checkSearchInListTenders(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitTender");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitTender();
         steps.type_search_filters("Название тендера");
         steps.check_search_in_list_tenders();
     }
@@ -578,11 +486,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка результата поиска контракта по продуктам")
     public void checkSearchContractByProduct(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByProduct);
         steps.doubleClickButton(cellTableToCheckSearchContract);
@@ -595,11 +499,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по цене контракта")
     public void checkPriceContract(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByPrice);
         steps.wait_a_bit(2000);
@@ -618,11 +518,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по статусу контракта 'Исполнение'")
     public void checkSearchByBeingExecuted(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByStatusContracts);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -637,11 +533,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по статусу контракта 'Исполнение прекращено'")
     public void checkSearchByExecutionTerminated(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByStatusContracts);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -655,11 +547,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по статусу контракта 'Исполнение завершено'")
     public void checkSearchByExecutionCompleted(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByStatusContracts);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -674,11 +562,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка даты публикации контракта")
     public void checkPublicationDateOfContract() throws ParseException {
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckPublicationDate);
         steps.wait_a_bit(2000);
@@ -695,11 +579,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка даты начала исполнения контракта")
     public void checkContractExecutionStartDate() throws ParseException {
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonValidateSearchByContractExecutionStartDate);
         steps.wait_a_bit(2000);
@@ -710,11 +590,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка даты окончания исполнения контракта")
     public void checkContractExecutionEndDate() throws ParseException {
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonValidateSearchByContractExecutionEndDate);
         steps.wait_a_bit(2000);
@@ -725,11 +601,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка фактической даты исполнения контракта")
     public void checkContractActualExecutionDate() throws ParseException {
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonValidateSearchByContractActualExecutionDate);
         steps.wait_a_bit(2000);
@@ -740,11 +612,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка даты подписания контракта")
     public void checkContractDateOfSigning() throws ParseException {
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonValidateSearchByContractDateOfSigning);
         steps.wait_a_bit(2000);
@@ -755,11 +623,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по штрафу 'Просрочка исполнения поставщиком'")
     public void checkSearchByDelayInPerformanceBySupplier(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMulct);
         steps.wait_a_bit(2000);
@@ -778,11 +642,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по штрафу 'Просрочка исполнения заказчиком обязательств'")
     public void checkSearchByDelayInFulfillmentOfObligationsByCustomer(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMulct);
         steps.wait_a_bit(2000);
@@ -801,11 +661,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по штрафу 'Ненадлежащее исполнение поставщиком'")
     public void checkSearchByInadequateExecutionBySupplier(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMulct);
         steps.wait_a_bit(2000);
@@ -824,11 +680,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по штрафу 'Ненадлежащее исполнение заказчиком обязательств'")
     public void checkSearchByInadequateExecutionByCustomer(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMulct);
         steps.wait_a_bit(2000);
@@ -847,11 +699,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка суммы  штрафов контракта")
     public void checkSumMulctContract(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchBySumMulct);
         steps.wait_a_bit(2000);
@@ -865,11 +713,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка наличия неоплаченных  штрафов контракта")
     public void checkUnpaidMulctContract(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByUnpaidMulct);
         steps.wait_a_bit(2000);
@@ -888,11 +732,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка отсутствия неоплаченных  штрафов контракта")
     public void checkPaidMulctContract(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
+        signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByUnpaidMulct);
         steps.wait_a_bit(2000);
@@ -911,11 +751,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка результатов поиска планов по названию")
     public void checkSearchByNamePlan(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitPlan");
-        steps.type_password("Hyqpmaz0/");
-        steps.click_button(signInButton);
+        signInAdminTestitPlan();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByNamePlan);
         steps.wait_a_bit(1000);
@@ -926,11 +762,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по типу плана")
     public void checkSearchByTypePlan(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitPlan");
-        steps.type_password("Hyqpmaz0/");
-        steps.click_button(signInButton);
+        signInAdminTestitPlan();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTypePlan);
         steps.wait_a_bit(2000);
@@ -945,11 +777,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по типу плана")
     public void checkSearchByTypePlanSchedule(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitPlan");
-        steps.type_password("Hyqpmaz0/");
-        steps.click_button(signInButton);
+        signInAdminTestitPlan();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTypePlan);
         steps.wait_a_bit(2000);
@@ -964,11 +792,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Title("Проверка поиска по типу плана")
     public void checkSearchByTypePlanSchedule2017(){
 
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitPlan");
-        steps.type_password("Hyqpmaz0/");
-        steps.click_button(signInButton);
+        signInAdminTestitPlan();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTypePlan);
         steps.wait_a_bit(2000);

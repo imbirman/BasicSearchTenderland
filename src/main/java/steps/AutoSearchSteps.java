@@ -92,7 +92,7 @@ public class AutoSearchSteps extends AutoSearchPage {
 
     @Step("Проверка логина после входа")
     public void check_text_login(){
-        Assertions.assertThat(page.getTextLogin()).as("Логин некорректен, вход ошибочен").isEqualTo("AdminTestit");
+        Assertions.assertThat(page.getTextLogin()).as("Логин некорректен, вход ошибочен").isEqualTo("AdminTestitTender");
     }
 
     @Step("Проверка количества результата поиска")

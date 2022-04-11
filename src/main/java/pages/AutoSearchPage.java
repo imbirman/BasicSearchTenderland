@@ -114,6 +114,7 @@ public class AutoSearchPage extends PageObject {
 
 
 
+
     public void waitFor(long number){
         waitABit(number);
     } // Ожидание
