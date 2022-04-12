@@ -83,6 +83,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
+        steps.wait_a_bit(500);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(filterRegionRoot);
         steps.wait_a_bit(2000);
@@ -460,7 +461,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     }
 
     @Test
-    @Title("Проверка поиска по документации")
+    @Title("Проверка поиска по извещению")
     public void checkSearchByTextNotice(){
 
         signInAdminTestitTender();
@@ -488,6 +489,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
+        steps.wait_a_bit(500);
         steps.click_button(buttonCheckSearchByProduct);
         steps.doubleClickButton(cellTableToCheckSearchContract);
         steps.switch_to_tab();

@@ -80,7 +80,7 @@ public class AutoSearchPage extends PageObject {
     protected By buttonClearFieldDateFrom = By.xpath("//div[@id='textbox-filter-editor-compact-5-from']//span[@class='dx-icon dx-icon-clear']"); // Кнопка для очистки поля даты "от"
     protected By buttonClearFieldDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//span[@class='dx-icon dx-icon-clear']"); // Кнопка для очистки поля даты "до"
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
-    protected By cellTableToOpenDocumentation = By.xpath("(//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a)[1]"); // Строка для открытия карточки тендера
+    protected By cellTableToOpenDocumentation = By.xpath("(//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a)[2]"); // Ячейка таблицы для открытия документации тендера
     protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]//td"); // Ячейка таблицы в результатах поиска тендеров для первого столбца для первой строки для фильтра "Категория"
     protected By cellTableToCheckSearchContract = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[3]"); //Ячейка таблицы в результатах поиска контрактов для первого столбца для первой строки
 //    protected By CheckboxOKPD = By.xpath("//div[text()='Покупка ПО']/preceding-sibling::div[@role='checkbox']"); // чекбокс ОКПД при поиске по слову "семга"
@@ -655,7 +655,7 @@ public class AutoSearchPage extends PageObject {
         for(WebElementFacade sumMulct : sumMulctForCheck){
 //            System.out.println("Сумма: " + sumMulct.getText());
             String sumMulctCheck = sumMulct.getText();
-
+            sumMulctCheck = sumMulctCheck.replace(",", ".");
             float floatSumMulctCheckForCheck = Float.parseFloat(sumMulctCheck);
             if(floatSumMulctCheckForCheck < sumMulctFrom || floatSumMulctCheckForCheck > sumMulctTo){
                 check = false;
@@ -671,7 +671,7 @@ public class AutoSearchPage extends PageObject {
         for(WebElementFacade paidMulct : paidMulctForCheck){
 //            System.out.println("Сумма: " + sumMulct.getText());
             String sumMulctCheck = paidMulct.getText();
-
+            sumMulctCheck = sumMulctCheck.replace(",", ".");
             float floatSumMulctCheckForCheck = Float.parseFloat(sumMulctCheck);
             if(floatSumMulctCheckForCheck == 0){
                 check = true;
