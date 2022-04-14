@@ -84,6 +84,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.wait_a_bit(500);
+        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(filterRegionRoot);
         steps.wait_a_bit(2000);
@@ -698,12 +699,13 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     }
 
     @Test
-    @Title("Проверка суммы  штрафов контракта")
+    @Title("Проверка суммы штрафов контракта")
     public void checkSumMulctContract(){
 
         signInAdminTestitContract();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchBySumMulct);
+        steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.doubleClickButton(cellTableToCheckSearchContract);
         steps.switchToTab();
@@ -731,7 +733,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     }
 
     @Test
-    @Title("Проверка отсутствия неоплаченных  штрафов контракта")
+    @Title("Проверка отсутствия неоплаченных штрафов контракта")
     public void checkPaidMulctContract(){
 
         signInAdminTestitContract();
