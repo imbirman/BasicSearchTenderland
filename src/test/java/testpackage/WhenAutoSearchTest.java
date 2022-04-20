@@ -152,14 +152,6 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckPublicationDate);
         steps.wait_a_bit(2000);
-        steps.click_button(filterPublicationDate);
-        steps.click_button(buttonClearFieldDateFrom);
-        steps.type_date_from("09.01.2021");
-        steps.click_button(buttonClearFieldDateTo);
-        steps.type_date_to("09.01.2021");
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(2000);
         steps.check_date("09.01.2021 00:00","09.01.2021 23:59");
     }
 
@@ -171,14 +163,6 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckStartSubmissionOfApplicationDate);
         steps.wait_a_bit(2000);
-        steps.click_button(filterStartSubmissionOfApplication);
-        steps.click_button(buttonClearFieldDateFrom);
-        steps.type_date_from("04.01.2021");
-        steps.click_button(buttonClearFieldDateTo);
-        steps.type_date_to("04.01.2021");
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(2000);
         steps.check_date("04.01.2021 00:00","04.01.2021 23:59");
     }
 
@@ -189,14 +173,14 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckEndSubmissionOfApplicationDate);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterEndSubmissionOfApplication);
-        steps.click_button(buttonClearFieldDateFrom);
-        steps.type_date_from("03.01.2021");
-        steps.click_button(buttonClearFieldDateTo);
-        steps.type_date_to("03.01.2021");
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
+//        steps.wait_a_bit(2000);
+//        steps.click_button(filterEndSubmissionOfApplication);
+//        steps.click_button(buttonClearFieldDateFrom);
+//        steps.type_date_from("03.01.2021");
+//        steps.click_button(buttonClearFieldDateTo);
+//        steps.type_date_to("03.01.2021");
+//        steps.click_button(openTabMenu);
+//        steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_date("03.01.2021 00:00","03.01.2021 23:59");
     }
@@ -208,14 +192,6 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonValidateSearchByTenderDate);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterValidateSearchByTenderDate);
-        steps.click_button(buttonClearFieldDateFrom);
-        steps.type_date_from("12.01.2021");
-        steps.click_button(buttonClearFieldDateTo);
-        steps.type_date_to("12.01.2021");
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_date("12.01.2021 00:00","12.01.2021 23:59");
     }
