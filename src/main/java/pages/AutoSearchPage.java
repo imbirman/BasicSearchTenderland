@@ -82,7 +82,7 @@ public class AutoSearchPage extends PageObject {
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
     protected By cellTableToOpenDocumentation = By.xpath("(//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a)[2]"); // Ячейка таблицы для открытия документации тендера
     protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]//td"); // Ячейка таблицы в результатах поиска тендеров для первого столбца для первой строки для фильтра "Категория"
-    protected By cellTableToCheckSearchContract = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[3]"); //Ячейка таблицы в результатах поиска контрактов для первого столбца для первой строки
+//    protected By cellTableToCheckSearchContract = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[3]"); //Ячейка таблицы в результатах поиска контрактов для первого столбца для первой строки
 //    protected By CheckboxOKPD = By.xpath("//div[text()='Покупка ПО']/preceding-sibling::div[@role='checkbox']"); // чекбокс ОКПД при поиске по слову "семга"
 //    protected By tabDocumentation = By.xpath("//div[@id='entity-card-menu-div']//div[text()='Документация']"); // вкладка "Документация" в карточке тендера
 //    protected By buttonOpenDocumentation = By.xpath("//i[@class='mdi mdi-24px mdi-folder-search-outline tl-icon']"); // кнопка "Открыть документацию"

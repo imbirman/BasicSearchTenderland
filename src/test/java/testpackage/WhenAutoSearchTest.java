@@ -73,6 +73,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.scrollDownTo(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
+        steps.wait_a_bit(2000);
         steps.check_number_result_search();
         steps.check_registry_number();
     }
@@ -430,7 +431,9 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByDocumentation);
-        steps.wait_a_bit(2000);
+        steps.wait_a_bit(1000);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(1000);
         steps.click_button(cellTableToOpenDocumentation);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
@@ -468,7 +471,10 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(tabListAutoSearch);
         steps.wait_a_bit(500);
         steps.click_button(buttonCheckSearchByProduct);
-        steps.double_click_button(cellTableToCheckSearchContract);
+        steps.wait_a_bit(500);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(1000);
+        steps.double_click_button(tableCellToCheck);
         steps.switch_to_tab();
         steps.click_button(tabListProductsInCardContract);
         steps.check_search_contract_by_product();
