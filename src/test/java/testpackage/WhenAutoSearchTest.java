@@ -684,7 +684,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonCheckSearchBySumMulct);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
-        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.doubleClickButton(tableCellToCheck);
         steps.switchToTab();
         steps.click_button(tabMulctContracts);
         steps.check_sum_mulct(10000,100000);
@@ -703,7 +703,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
-        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.doubleClickButton(tableCellToCheck);
         steps.switchToTab();
         steps.click_button(tabMulctContracts);
         steps.check_unpaid_mulct();
@@ -722,7 +722,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
-        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.doubleClickButton(tableCellToCheck);
         steps.switchToTab();
         steps.click_button(tabMulctContracts);
         steps.check_paid_mulct();
