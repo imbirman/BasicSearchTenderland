@@ -610,7 +610,8 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(getCheckboxInFilter(0));
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.wait_a_bit(1000);
+        steps.doubleClickButton(tableCellToCheck);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
         steps.click_button(tabMulctContracts);
@@ -629,7 +630,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(getCheckboxInFilter(1));
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.doubleClickButton(tableCellToCheck);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
         steps.click_button(tabMulctContracts);
@@ -648,7 +649,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(getCheckboxInFilter(2));
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.doubleClickButton(tableCellToCheck);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
         steps.click_button(tabMulctContracts);
@@ -667,7 +668,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(getCheckboxInFilter(3));
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.doubleClickButton(cellTableToCheckSearchContract);
+        steps.doubleClickButton(tableCellToCheck);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
         steps.click_button(tabMulctContracts);
