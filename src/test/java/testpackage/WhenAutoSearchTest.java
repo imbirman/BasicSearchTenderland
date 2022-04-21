@@ -618,7 +618,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(getCheckboxInFilter(0));
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.wait_a_bit(1000);
+        steps.wait_a_bit(2000);
         steps.double_click_button(tableCellToCheck);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
@@ -638,7 +638,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(getCheckboxInFilter(1));
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.wait_a_bit(1000);
+        steps.wait_a_bit(2000);
         steps.double_click_button(tableCellToCheck);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
@@ -658,7 +658,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(getCheckboxInFilter(2));
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.wait_a_bit(1000);
+        steps.wait_a_bit(2000);
         steps.double_click_button(tableCellToCheck);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
@@ -678,7 +678,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(getCheckboxInFilter(3));
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.wait_a_bit(1000);
+        steps.wait_a_bit(2000);
         steps.double_click_button(tableCellToCheck);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
@@ -702,7 +702,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     }
 
     @Test
-    @Title("Проверка наличия неоплаченных  штрафов контракта")
+    @Title("Проверка наличия неоплаченных штрафов контракта")
     public void checkUnpaidMulctContract(){
 
         signInAdminTestitContract();
@@ -713,7 +713,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(radiobuttonYesUnpaidMulct);
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.wait_a_bit(1000);
+        steps.wait_a_bit(2000);
         steps.double_click_button(tableCellToCheck);
         steps.switchToTab();
         steps.click_button(tabMulctContracts);
@@ -732,7 +732,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(radiobuttonNoUnpaidMulct);
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.wait_a_bit(1000);
+        steps.wait_a_bit(2000);
         steps.double_click_button(tableCellToCheck);
         steps.switchToTab();
         steps.click_button(tabMulctContracts);
