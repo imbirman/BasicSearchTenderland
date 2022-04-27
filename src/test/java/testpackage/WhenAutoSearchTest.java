@@ -22,7 +22,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     @Managed(driver = "chrome", uniqueSession=true)
     WebDriver driver;
 
-
+// Проверка подтягивания коммитов дженкинсом
 
     @Steps
     AutoSearchSteps steps;

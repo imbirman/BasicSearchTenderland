@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-@DefaultUrl("https://test1.v2.tenderland.ru/Home/Landing")
+@DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
 public class AutoSearchPage extends PageObject {
 
 
