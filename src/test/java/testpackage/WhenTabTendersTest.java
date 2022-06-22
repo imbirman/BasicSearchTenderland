@@ -9,23 +9,19 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import pages.AutoSearchPage;
-import steps.AutoSearchSteps;
+import pages.TabTendersPage;
+import steps.TabTendersSteps;
 
 import java.text.ParseException;
 
 @RunWith(SerenityRunner.class)
-public class WhenAutoSearchTest extends AutoSearchPage {
-
-//    WebDriver driver;
+public class WhenTabTendersTest extends TabTendersPage {
 
     @Managed(driver = "chrome", uniqueSession=true)
     WebDriver driver;
 
-// Проверка подтягивания коммитов дженкинсом
-
     @Steps
-    AutoSearchSteps steps;
+    TabTendersSteps steps;
 
     @Before
     public void beforeMethod(){
@@ -71,7 +67,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
-        steps.scrollDownTo(listAutoSearchToScroll);
+        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.wait_a_bit(2000);
         steps.check_number_result_search();
@@ -89,9 +85,9 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(filterRegionRoot);
         steps.wait_a_bit(2000);
-        steps.typeSearch("Москва");
+        steps.type_search("Москва");
         steps.wait_a_bit(2000);
-        steps.clickButton(getCheckboxByNumber(3));
+        steps.type_deletion(getCheckboxByNumber(3));
         steps.click_button(buttonApply);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
@@ -104,7 +100,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
-        steps.scrollDownTo(listAutoSearchToScroll);
+        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.wait_a_bit(2000);
         steps.check_name_tender_to_include_keyword();
@@ -116,11 +112,11 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
-        steps.scrollDownTo(listAutoSearchToScroll);
+        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.wait_a_bit(2000);
         steps.click_button(filterNameTender);
-        steps.typeDeletion("Мусоровоз");
+        steps.type_deletion("Мусоровоз");
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
@@ -133,7 +129,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
 
         signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
-        steps.scrollDownTo(listAutoSearchToScroll);
+        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.wait_a_bit(2000);
         steps.click_button(filterNameTender);
@@ -464,280 +460,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
         steps.check_search_in_list_tenders();
     }
 
-    @Test
-    @Title("Проверка результата поиска контракта по продуктам")
-    public void checkSearchContractByProduct(){
 
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.wait_a_bit(500);
-        steps.click_button(buttonCheckSearchByProduct);
-        steps.wait_a_bit(500);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(1000);
-        steps.double_click_button(tableCellToCheck);
-        steps.wait_a_bit(2000);
-        steps.switch_to_tab();
-        steps.click_button(tabListProductsInCardContract);
-        steps.check_search_contract_by_product();
-    }
-
-    @Test
-    @Title("Проверка поиска по цене контракта")
-    public void checkPriceContract(){
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByPrice);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterValidateSearchByTenderPrice);
-        steps.clear_field(fieldPriceFrom);
-        steps.type_price_from("10000");
-        steps.clear_field(fieldPriceTo);
-        steps.type_price_to("50000");
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(2000);
-        steps.check_price(10000,50000);
-    }
-
-    @Test
-    @Title("Проверка поиска по статусу контракта 'Исполнение'")
-    public void checkSearchByBeingExecuted(){
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByStatusContracts);
-        steps.click_button(filterSearchByMineTendersOrContractsStatus);
-        steps.click_button(getCheckboxInFilter(0));
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(3000);
-        steps.check_search_by_being_executed();
-    }
-
-    @Test
-    @Title("Проверка поиска по статусу контракта 'Исполнение прекращено'")
-    public void checkSearchByExecutionTerminated(){
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByStatusContracts);
-        steps.click_button(filterSearchByMineTendersOrContractsStatus);
-        steps.click_button(getCheckboxInFilter(1));
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(1000);
-        steps.check_search_by_execution_terminated();
-    }
-    @Test
-    @Title("Проверка поиска по статусу контракта 'Исполнение завершено'")
-    public void checkSearchByExecutionCompleted(){
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByStatusContracts);
-        steps.click_button(filterSearchByMineTendersOrContractsStatus);
-        steps.click_button(getCheckboxInFilter(2));
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(1000);
-        steps.check_search_by_execution_completed();
-    }
-
-    @Test
-    @Title("Проверка даты публикации контракта")
-    public void checkPublicationDateOfContract() throws ParseException {
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckPublicationDate);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterPublicationDate);
-        steps.click_button(buttonClearFieldDateFrom);
-        steps.type_date_from("01.01.2021");
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(2000);
-        steps.check_date("01.01.2021 00:00","09.01.2021 23:59");
-    }
-
-    @Test
-    @Title("Проверка даты начала исполнения контракта")
-    public void checkContractExecutionStartDate() throws ParseException {
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonValidateSearchByContractExecutionStartDate);
-        steps.wait_a_bit(2000);
-        steps.check_date("13.01.2021 00:00","14.01.2021 23:59");
-    }
-
-    @Test
-    @Title("Проверка даты окончания исполнения контракта")
-    public void checkContractExecutionEndDate() throws ParseException {
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonValidateSearchByContractExecutionEndDate);
-        steps.wait_a_bit(2000);
-        steps.check_date("13.01.2021 00:00","14.01.2021 23:59");
-    }
-
-    @Test
-    @Title("Проверка фактической даты исполнения контракта")
-    public void checkContractActualExecutionDate() throws ParseException {
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonValidateSearchByContractActualExecutionDate);
-        steps.wait_a_bit(2000);
-        steps.check_date("13.01.2021 00:00","14.01.2021 23:59");
-    }
-
-    @Test
-    @Title("Проверка даты подписания контракта")
-    public void checkContractDateOfSigning() throws ParseException {
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonValidateSearchByContractDateOfSigning);
-        steps.wait_a_bit(2000);
-        steps.check_date("13.01.2021 00:00","14.01.2021 23:59");
-    }
-
-    @Test
-    @Title("Проверка поиска по штрафу 'Просрочка исполнения поставщиком'")
-    public void checkSearchByDelayInPerformanceBySupplier(){
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByMulct);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterSearchByMulct);
-        steps.click_button(getCheckboxInFilter(0));
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheck);
-        steps.wait_a_bit(1000);
-        steps.switch_to_tab();
-        steps.click_button(tabMulctContracts);
-        steps.check_search_delay_in_performance_by_supplier();
-    }
-
-    @Test
-    @Title("Проверка поиска по штрафу 'Просрочка исполнения заказчиком обязательств'")
-    public void checkSearchByDelayInFulfillmentOfObligationsByCustomer(){
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByMulct);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterSearchByMulct);
-        steps.click_button(getCheckboxInFilter(1));
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheck);
-        steps.wait_a_bit(1000);
-        steps.switch_to_tab();
-        steps.click_button(tabMulctContracts);
-        steps.check_search_delay_in_fulfillment_of_obligations_by_customer();
-    }
-
-    @Test
-    @Title("Проверка поиска по штрафу 'Ненадлежащее исполнение поставщиком'")
-    public void checkSearchByInadequateExecutionBySupplier(){
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByMulct);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterSearchByMulct);
-        steps.click_button(getCheckboxInFilter(2));
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheck);
-        steps.wait_a_bit(1000);
-        steps.switch_to_tab();
-        steps.click_button(tabMulctContracts);
-        steps.check_search_inadequate_execution_by_supplier();
-    }
-
-    @Test
-    @Title("Проверка поиска по штрафу 'Ненадлежащее исполнение заказчиком обязательств'")
-    public void checkSearchByInadequateExecutionByCustomer(){
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByMulct);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterSearchByMulct);
-        steps.click_button(getCheckboxInFilter(3));
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheck);
-        steps.wait_a_bit(1000);
-        steps.switch_to_tab();
-        steps.click_button(tabMulctContracts);
-        steps.check_search_inadequate_execution_by_customer();
-    }
-
-    @Test
-    @Title("Проверка суммы штрафов контракта")
-    public void checkSumMulctContract(){
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchBySumMulct);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheck);
-        steps.switchToTab();
-        steps.click_button(tabMulctContracts);
-        steps.check_sum_mulct(10000,100000);
-    }
-
-    @Test
-    @Title("Проверка наличия неоплаченных штрафов контракта")
-    public void checkUnpaidMulctContract(){
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByUnpaidMulct);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterSearchByUnpaidMulct);
-        steps.click_button(radiobuttonYesUnpaidMulct);
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheck);
-        steps.switchToTab();
-        steps.click_button(tabMulctContracts);
-        steps.check_unpaid_mulct();
-    }
-
-    @Test
-    @Title("Проверка отсутствия неоплаченных штрафов контракта")
-    public void checkPaidMulctContract(){
-
-        signInAdminTestitContract();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByUnpaidMulct);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterSearchByUnpaidMulct);
-        steps.click_button(radiobuttonNoUnpaidMulct);
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheck);
-        steps.switchToTab();
-        steps.click_button(tabMulctContracts);
-        steps.check_paid_mulct();
-    }
 
     @Test
     @Title("Проверка результатов поиска планов по названию")
@@ -766,7 +489,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     }
 
     @Test
-    @Title("Проверка поиска по типу плана")
+    @Title("Проверка поиска по типу плана план-график")
     public void checkSearchByTypePlanSchedule(){
 
         signInAdminTestitPlan();
@@ -781,7 +504,7 @@ public class WhenAutoSearchTest extends AutoSearchPage {
     }
 
     @Test
-    @Title("Проверка поиска по типу плана")
+    @Title("Проверка поиска по типу плана план2017")
     public void checkSearchByTypePlanSchedule2017(){
 
         signInAdminTestitPlan();

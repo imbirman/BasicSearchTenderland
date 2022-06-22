@@ -1,1 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenAutoSearchTest" skipped="0" tests="1" time="46.73" timestamp="2022-03-14 03:32:24"><testcase classname="testpackage.WhenAutoSearchTest" name="Проверка поиска по статусу контракта 'Исполнение завершено'"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="testpackage.WhenAutoSearchTest" skipped="0" tests="1" time="31.34" timestamp="2022-05-12 11:32:11"><testcase classname="testpackage.WhenAutoSearchTest" name="Проверка поиска по статусу контракта 'Исполнение завершено'"><error message="Expected enabled element was not enabled" type="net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException">Expected enabled element was not enabled</error><system-err>Expected enabled element was not enabled&#13;
+pages.AutoSearchPage.clickButton(AutoSearchPage.java:126)&#13;
+steps.AutoSearchSteps.click_button(AutoSearchSteps.java:25)&#13;
+testpackage.WhenAutoSearchTest.checkSearchByExecutionCompleted(WhenAutoSearchTest.java:540)&#13;
+</system-err></testcase></testsuite>

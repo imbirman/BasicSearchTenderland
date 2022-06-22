@@ -4,17 +4,17 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
-import pages.AutoSearchPage;
+import pages.TabTendersPage;
 
 import java.text.ParseException;
 
-public class AutoSearchSteps extends AutoSearchPage {
+public class TabTendersSteps {
 
-    AutoSearchPage page;
+    TabTendersPage page;
 
     @Step("Ожидание")
     public void wait_a_bit(long number){
-        waitFor(number);
+        page.waitFor(number);
     }
 
     @Step("Открытие страницы")
@@ -70,14 +70,6 @@ public class AutoSearchSteps extends AutoSearchPage {
         page.typeSearchFilters(search);
     }
 
-    @Step("Ввести дату 'от'")
-    public void type_date_from(String date){ page.typeDateFrom(date); }
-
-    @Step("Ввести дату 'до'")
-    public void type_date_to(String date){
-        page.typeDateTo(date);
-    }
-
     @Step("Ввести цену 'от'")
     public void type_price_from(String price){
         page.typePriceFrom(price);
@@ -88,7 +80,15 @@ public class AutoSearchSteps extends AutoSearchPage {
         page.typePriceTo(price);
     }
 
+    @Step("Ввести значение, исключаемое из поиска")
+    public void type_deletion(String name){
+        page.typeDeletion(name);
+    }
 
+    @Step("Ввести значение в поле поиска")
+    public void type_search(String search){
+        page.typeSearch(search);
+    }
 
     @Step("Проверка логина после входа")
     public void check_text_login(){
@@ -234,72 +234,6 @@ public class AutoSearchSteps extends AutoSearchPage {
     public void check_search_in_list_tenders() {
         Assertions.assertThat(page.isContainFiltersFromSearchField())
                 .as("В результатах поиска фильтров отсутствует заданное значение").isTrue();
-    }
-
-    @Step("Проверка результата поиска контракта по продуктам")
-    public void check_search_contract_by_product() {
-        Assertions.assertThat(page.isContainCardContractSearchWord())
-                .as("В результатах поиска контракта по продуктам отсутствует заданное значение").isTrue();
-    }
-
-    @Step("Проверка поиска по статусу 'Исполнение'")
-    public void check_search_by_being_executed(){
-        Assertions.assertThat(page.isContainBeingExecuted())
-                .as("В списке присутствует тендер, не имеющий статуса 'Исполнение'").isTrue();
-    }
-
-    @Step("Проверка поиска по статусу 'Исполнение прекращено'")
-    public void check_search_by_execution_terminated(){
-        Assertions.assertThat(page.isContainExecutionTerminated())
-                .as("В списке присутствует тендер, не имеющий статуса 'Исполнение прекращено'").isTrue();
-    }
-
-    @Step("Проверка поиска по статусу 'Исполнение завершено'")
-    public void check_search_by_execution_completed(){
-        Assertions.assertThat(page.isContainExecutionCompleted())
-                .as("В списке присутствует тендер, не имеющий статуса 'Исполнение завершено'").isTrue();
-    }
-
-    @Step("Проверка поиска по штрафу")
-    public void check_search_delay_in_performance_by_supplier() {
-        Assertions.assertThat(page.isContainCardContractSearchByDelayInPerformanceBySupplier())
-                .as("В карточке тендера отсутствует штраф, по которому производился поиск").isTrue();
-    }
-
-    @Step("Проверка поиска по штрафу")
-    public void check_search_delay_in_fulfillment_of_obligations_by_customer() {
-        Assertions.assertThat(page.isContainCardContractSearchByDelayInFulfillmentOfObligationsByCustomer())
-                .as("В карточке тендера отсутствует штраф, по которому производился поиск").isTrue();
-    }
-
-    @Step("Проверка поиска по штрафу")
-    public void check_search_inadequate_execution_by_supplier() {
-        Assertions.assertThat(page.isContainCardContractSearchByInadequateExecutionBySupplier())
-                .as("В карточке тендера отсутствует штраф, по которому производился поиск").isTrue();
-    }
-
-    @Step("Проверка поиска по штрафу")
-    public void check_search_inadequate_execution_by_customer() {
-        Assertions.assertThat(page.isContainCardContractSearchByInadequateExecutionByCustomer())
-                .as("В карточке тендера отсутствует штраф, по которому производился поиск").isTrue();
-    }
-
-    @Step("Проверка суммы штрафов")
-    public void check_sum_mulct(float sumMulctFrom, float sumMulctTo){
-        Assertions.assertThat(page.isSumMulct(sumMulctFrom, sumMulctTo))
-                .as("Сумма штрафов в карточке контракту отсутствует либо есть контракты с суммой штрафов, не входящей в заданный промежуток: " + sumMulctFrom + " - " + sumMulctTo).isTrue();
-    }
-
-    @Step("Проверка наличия неоплаченных штрафов")
-    public void check_unpaid_mulct(){
-        Assertions.assertThat(page.isUnpaidMulct())
-                .as("Есть контракты без неоплаченных штрафов").isTrue();
-    }
-
-    @Step("Проверка отсутствия неоплаченных штрафов")
-    public void check_paid_mulct(){
-        Assertions.assertThat(page.isPaidMulct())
-                .as("Есть контракты с неоплаченными штрафами").isTrue();
     }
 
     @Step("Проверка поиска по названию плана")
