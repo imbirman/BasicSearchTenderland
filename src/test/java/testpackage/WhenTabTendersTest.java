@@ -26,9 +26,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Before
     public void beforeMethod(){
         driver.manage().window().maximize();
-    }
-
-    public void signInAdminTestitTender(){
         steps.open_login_main_page();
         steps.click_button(logInButton);
         steps.type_login("AdminTestitTender");
@@ -36,28 +33,10 @@ public class WhenTabTendersTest extends TabTendersPage {
         steps.click_button(signInButton);
     }
 
-    public void signInAdminTestitContract(){
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitContract");
-        steps.type_password("Hyqpmaz0");
-        steps.click_button(signInButton);
-    }
-
-    public void signInAdminTestitPlan(){
-        steps.open_login_main_page();
-        steps.click_button(logInButton);
-        steps.type_login("AdminTestitPlan");
-        steps.type_password("Hyqpmaz0/");
-        steps.click_button(signInButton);
-    }
-
-
     @Test
     @Title("Проверка входа")
     public void checkSignIn(){
 
-        signInAdminTestitTender();
         steps.check_text_login();
     }
 
@@ -65,7 +44,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка результатов поиска для автопоиска 'Проверка поиска по реестровому номеру и региону'")
     public void checkRegistryNumber(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
@@ -78,7 +56,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка увеличения количества результатов поиска при добавлении значения региона")
     public void checkNumberResultSearchAfterAddingRegionValue(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.wait_a_bit(500);
         steps.scroll_down_to(listAutoSearchToScroll);
@@ -98,7 +75,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка названия тендера на включение в него ключевого слова")
     public void checkNameTenderToIncludeKeyword(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
@@ -110,7 +86,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка исключения из названия тендера ключевого слова")
     public void checkDeletionNameTenderToIncludeKeyword(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
@@ -127,7 +102,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка транслитерации при поиске по названию тендера")
     public void checkTransliterationNameTender(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
@@ -146,7 +120,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка даты публикации тендера")
     public void checkPublicationDateOfTender() throws ParseException {
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckPublicationDate);
         steps.wait_a_bit(2000);
@@ -157,7 +130,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка даты начала подачи заявок")
     public void checkStartSubmissionOfApplication() throws ParseException {
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckStartSubmissionOfApplicationDate);
         steps.wait_a_bit(2000);
@@ -168,17 +140,8 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка даты окончания подачи заявок")
     public void checkEndSubmissionOfApplication() throws ParseException {
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckEndSubmissionOfApplicationDate);
-//        steps.wait_a_bit(2000);
-//        steps.click_button(filterEndSubmissionOfApplication);
-//        steps.click_button(buttonClearFieldDateFrom);
-//        steps.type_date_from("03.01.2021");
-//        steps.click_button(buttonClearFieldDateTo);
-//        steps.type_date_to("03.01.2021");
-//        steps.click_button(openTabMenu);
-//        steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_date("03.01.2021 00:00","03.01.2021 23:59");
     }
@@ -187,7 +150,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка даты проведения тендера")
     public void checkValidateSearchByTenderDate() throws ParseException {
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonValidateSearchByTenderDate);
         steps.wait_a_bit(2000);
@@ -198,7 +160,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по категории")
     public void checkSearchByCategoryName(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonValidateSearchByCategory);
         steps.wait_a_bit(2000);
@@ -209,7 +170,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка цены тендера")
     public void checkPriceTender(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByPrice);
         steps.wait_a_bit(2000);
@@ -228,7 +188,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по типу тендера")
     public void checkSearchByTenderType(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderType);
         steps.wait_a_bit(2000);
@@ -239,7 +198,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по площадке")
     public void checkSearchByTenderStand(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderStand);
         steps.wait_a_bit(2000);
@@ -250,7 +208,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по модулю 'Государственные тендеры'")
     public void checkSearchOnlyGovernmentTenders(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.wait_a_bit(2000);
@@ -261,7 +218,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по модулям 'Государственные тендеры' и 'Коммерческие тендеры'")
     public void checkSearchOnlyGovernmentAndCommercialTenders(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.click_button(filterSearchByTenderModule);
@@ -276,7 +232,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по модулям 'Государственные тендеры' и 'Коммерческие тендеры' и 'СНГ'")
     public void checkSearchOnlyGovernmentAndCommercialAndCISTenders(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.click_button(filterSearchByTenderModule);
@@ -292,7 +247,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по всем модулям")
     public void checkSearchAllModulesTender(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.click_button(filterSearchByTenderModule);
@@ -309,7 +263,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по участнику")
     public void checkSearchParticipant(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByParticipant);
         steps.wait_a_bit(2000);
@@ -320,7 +273,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по новым тендерам")
     public void checkSearchByNewTenders(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -335,7 +287,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по подготовке заявки")
     public void checkSearchByApplicationPreparation(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -350,7 +301,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по определению победителя")
     public void checkSearchByDeterminationWinner(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -365,7 +315,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по заключению контракта")
     public void checkSearchByConclusionContract(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -380,7 +329,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по исполнению контракта")
     public void checkSearchByExecutionContract(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -395,7 +343,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по архиву")
     public void checkSearchByArchiveTenders(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -410,7 +357,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по всем тендерам фильтра 'Мои тендеры'")
     public void checkSearchByAllMineTenders(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
@@ -425,7 +371,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по документации")
     public void checkSearchByTextDocumentation(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByDocumentation);
         steps.wait_a_bit(1000);
@@ -441,7 +386,6 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска по извещению")
     public void checkSearchByTextNotice(){
 
-        signInAdminTestitTender();
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByNotice);
         steps.wait_a_bit(2000);
@@ -455,69 +399,7 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка поиска в блоке списка фильтров")
     public void checkSearchInListTenders(){
 
-        signInAdminTestitTender();
         steps.type_search_filters("Название тендера");
         steps.check_search_in_list_tenders();
     }
-
-
-
-    @Test
-    @Title("Проверка результатов поиска планов по названию")
-    public void checkSearchByNamePlan(){
-
-        signInAdminTestitPlan();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByNamePlan);
-        steps.wait_a_bit(1000);
-        steps.check_search_by_name_plan();
-    }
-
-    @Test
-    @Title("Проверка поиска по типу плана")
-    public void checkSearchByTypePlan(){
-
-        signInAdminTestitPlan();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByTypePlan);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterSearchByTypePlan);
-        steps.click_button(getCheckboxInFilter(0));
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.check_search_by_type_plan();
-    }
-
-    @Test
-    @Title("Проверка поиска по типу плана план-график")
-    public void checkSearchByTypePlanSchedule(){
-
-        signInAdminTestitPlan();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByTypePlan);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterSearchByTypePlan);
-        steps.click_button(getCheckboxInFilter(1));
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.check_search_by_type_plan_schedule();
-    }
-
-    @Test
-    @Title("Проверка поиска по типу плана план2017")
-    public void checkSearchByTypePlanSchedule2017(){
-
-        signInAdminTestitPlan();
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonCheckSearchByTypePlan);
-        steps.wait_a_bit(2000);
-        steps.click_button(filterSearchByTypePlan);
-        steps.click_button(getCheckboxInFilter(1));
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonSearch);
-        steps.check_search_by_type_plan_schedule_2017();
-    }
-
-
-
 }

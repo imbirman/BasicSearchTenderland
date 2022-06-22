@@ -36,9 +36,6 @@ public class TabTendersPage extends PageObject {
     protected By buttonCheckSearchByMineTenders = By.xpath("//span[text()='Проверка поиска по моим тендерам']"); // Кнопка автопоиска "Проверка поиска по моим тендерам"
     protected By buttonCheckSearchByDocumentation = By.xpath("//span[text()='Проверка поиска по документации']"); // Кнопка автопоиска "Проверка поиска по документации"
     protected By buttonCheckSearchByNotice = By.xpath("//span[text()='Проверка поиска по извещению']"); // Кнопка автопоиска "Проверка поиска по извещению"
-    protected By buttonCheckSearchByNamePlan = By.xpath("//span[text()='Проверка поиска по названию плана']"); // Кнопка автопоиска "Проверка поиска по названию плана"
-    protected By buttonCheckSearchByTypePlan = By.xpath("//span[text()='Проверка поиска по типу плана']"); // Кнопка автопоиска "Проверка поиска по типу плана"
-
 
 
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
@@ -46,7 +43,6 @@ public class TabTendersPage extends PageObject {
     protected By filterValidateSearchByTenderPrice = By.xpath("//span[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
     protected By filterSearchByTenderModule = By.xpath("//span[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
     protected By filterSearchByMineTendersOrContractsStatus = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
-    protected By filterSearchByTypePlan = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Тип" в автопоиске "Проверка поиска по типу плана"
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс в таблице результата поиска
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
     protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль" у тендера или "Статус" у контракта или "Тип" у плана
@@ -483,63 +479,5 @@ public class TabTendersPage extends PageObject {
         }
         return check;
     } // Проверка поиска в блоке фильтров
-
-    public boolean isContainNamePlan(){
-        boolean check = true;
-        List<WebElementFacade> namePlanForCheck = findAll(tableCellToCheck);
-        namePlanForCheck.remove(namePlanForCheck.size()-1);
-        for(WebElementFacade namePlan : namePlanForCheck){
-//            System.out.println("Сумма: " + sumMulct.getText());
-            if(!(namePlan.getText().contains("мусор") || namePlan.getText().contains("Мусор") || namePlan.getText().contains("МУСОР"))){
-                check = false;
-                break;
-            }
-        }
-        return check;
-    } // Проверка результатов поиска по названию плана
-
-    public boolean isContainTypePlan(){
-        boolean check = true;
-        List<WebElementFacade> typePlanForCheck = findAll(tableCellToCheck);
-        typePlanForCheck.remove(typePlanForCheck.size()-1);
-        for(WebElementFacade typePlan : typePlanForCheck){
-//            System.out.println("Сумма: " + sumMulct.getText());
-            if(!typePlan.getText().contains("План")){
-                check = false;
-                break;
-            }
-        }
-        return check;
-    } // Проверка поиска по типу плана
-
-    public boolean isContainTypePlanSchedule(){
-        boolean check = true;
-        List<WebElementFacade> typePlanForCheck = findAll(tableCellToCheck);
-        typePlanForCheck.remove(typePlanForCheck.size()-1);
-        for(WebElementFacade typePlan : typePlanForCheck){
-//            System.out.println("Сумма: " + sumMulct.getText());
-            if(!typePlan.getText().contains("План-график")){
-                check = false;
-                break;
-            }
-        }
-        return check;
-    } // Проверка поиска по типу плана
-
-    public boolean isContainTypePlanSchedule2017(){
-        boolean check = true;
-        List<WebElementFacade> typePlanForCheck = findAll(tableCellToCheck);
-        typePlanForCheck.remove(typePlanForCheck.size()-1);
-        for(WebElementFacade typePlan : typePlanForCheck){
-//            System.out.println("Сумма: " + sumMulct.getText());
-            if(!typePlan.getText().contains("План-график 2017")){
-                check = false;
-                break;
-            }
-        }
-        return check;
-    } // Проверка поиска по типу плана
-
-
 
 }
