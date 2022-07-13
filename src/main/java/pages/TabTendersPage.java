@@ -78,7 +78,6 @@ public class TabTendersPage extends PageObject {
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
-    private final By checkLogin = By.xpath("//ul[@class='navbar-nav']//a"); // объект для проверки логина после входа
     private final By rowResultSearch = By.xpath("//div[@class='dx-datagrid-content']//table[@role='presentation']//tr[@role='row']"); // Строка таблицы поиска
     private final By fieldSearchFilters = By.xpath("//div[@id='tl-search-filters-textbox']//input"); // Поле поиска фильтров в блоке фильтров
     private final By resultSearchFilters = By.xpath("//div[@id='list-tenders']//div[not(@style='display: none;')]"); // Результат поиска в блоке фильтров
@@ -172,10 +171,6 @@ public class TabTendersPage extends PageObject {
     public void typeDateTo(String date){
         find(fieldPublicationDateTo).sendKeys(date);
     } // Ввести дату публикации "до"
-
-    public String getTextLogin(){
-        return find(checkLogin).getText();
-    } // Получение названия логина после входа
 
     public String getTextRegistryNumber(){
         return find(tableCellToCheck).getText();

@@ -108,11 +108,6 @@ public class TabTendersSteps {
         page.typeSearch(search);
     }
 
-    @Step("Проверка логина после входа")
-    public void check_text_login(){
-        Assertions.assertThat(page.getTextLogin()).as("Логин некорректен, вход ошибочен").isEqualTo("AdminTestitTender");
-    }
-
     @Step("Проверка количества результата поиска")
     public void check_number_result_search(){
         Assertions.assertThat(page.getNumberOfRowResultSearch()).as("Количество строк в результатах поиска не соответствует значению 1").isEqualTo(1);

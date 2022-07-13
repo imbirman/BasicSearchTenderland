@@ -33,12 +33,7 @@ public class WhenTabTendersTest extends TabTendersPage {
         steps.click_button(signInButton);
     }
 
-    @Test
-    @Title("Проверка входа")
-    public void checkSignIn(){
 
-        steps.check_text_login();
-    }
 
     @Test
     @Title("Проверка результатов поиска для автопоиска 'Проверка поиска по реестровому номеру и региону'")
