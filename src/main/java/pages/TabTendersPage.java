@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,6 +20,9 @@ public class TabTendersPage extends PageObject {
     protected By logInButton = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By signInButton = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
+    protected By listAutoSearchToScroll = By.xpath("//div[@id='tl-scroll-tabs']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки list-autosearches
+    protected By excludedElementCustomer = By.xpath("//span[text()='Проверка результата поиска на исключенный элемент фильтр Заказчик']"); // Кнопка автопоиска "Проверка результата поиска на исключенный элемент фильтр Заказчик"
+
     protected By buttonAutoSearchRegistryNumberAndRegion = By.xpath("//span[text()='Проверка поиска по реестровому номеру и региону']"); // Кнопка автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//span[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка по названию тендера и исключению из названия"
     protected By buttonCheckPublicationDate = By.xpath("//span[text()='Проверка поиска по дате публикации']"); // Кнопка автопоиска "Проверка поиска по дате публикации"
@@ -26,8 +30,6 @@ public class TabTendersPage extends PageObject {
     protected By buttonCheckEndSubmissionOfApplicationDate = By.xpath("//span[text()='Проверка поиска по дате окончания подачи заявок']"); // Кнопка автопоиска "Проверка поиска по дате окончания подачи заявок"
     protected By buttonValidateSearchByTenderDate = By.xpath("//span[text()='Проверка поиска по дате проведения тендера']"); // Кнопка автопоиска "Проверка поиска по дате проведения тендера"
     protected By buttonValidateSearchByCategory = By.xpath("//span[text()='Проверка поиска по категории']"); // Кнопка автопоиска "Проверка поиска по категории"
-    protected By listAutoSearchToScroll = By.xpath("//div[@id='tl-scroll-tabs']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки list-autosearches
-
     protected By buttonCheckSearchByPrice = By.xpath("//span[text()='Проверка поиска по цене']"); // Кнопка автопоиска "Проверка поиска по цене"
     protected By buttonCheckSearchByTenderType = By.xpath("//span[text()='Проверка поиска по типу тендера']"); // Кнопка автопоиска "Проверка поиска по типу тендера"
     protected By buttonCheckSearchByTenderStand = By.xpath("//span[text()='Проверка поиска по площадке']"); // Кнопка автопоиска "Проверка поиска по площадке"
@@ -36,6 +38,8 @@ public class TabTendersPage extends PageObject {
     protected By buttonCheckSearchByMineTenders = By.xpath("//span[text()='Проверка поиска по моим тендерам']"); // Кнопка автопоиска "Проверка поиска по моим тендерам"
     protected By buttonCheckSearchByDocumentation = By.xpath("//span[text()='Проверка поиска по документации']"); // Кнопка автопоиска "Проверка поиска по документации"
     protected By buttonCheckSearchByNotice = By.xpath("//span[text()='Проверка поиска по извещению']"); // Кнопка автопоиска "Проверка поиска по извещению"
+    protected By buttonHideFilter = By.xpath("(//i[@class='mdi mdi-filter-off-outline'])[2]"); // Кнопка скрытия фильтра
+    protected By buttonOpenTreeList = By.xpath("(//div[@class='dx-treelist-icon-container'])[1]"); // Кнопка раскрытия подкотегории
 
 
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
@@ -43,20 +47,34 @@ public class TabTendersPage extends PageObject {
     protected By filterValidateSearchByTenderPrice = By.xpath("//span[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
     protected By filterSearchByTenderModule = By.xpath("//span[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
     protected By filterSearchByMineTendersOrContractsStatus = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
+    protected By filterDatePublication = By.xpath("//span[text()='Дата публикации']"); // Фильтр "Дата публикации" в блоке фильтров
+    protected By filterInTreeFilters = By.xpath("//span[@class='tl-filter-description']"); // фильтр в дереве фильтров
+    protected By filterCategory = By.xpath("//span[text()='Категория']"); // Фильтр "Категория" в блоке фильтров
+
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс в таблице результата поиска
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
     protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль" у тендера или "Статус" у контракта или "Тип" у плана
-    protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
+    protected By checkboxFirstInFilter = By.xpath("(//div[@id='filter-editor-2']//span[@class='dx-checkbox-icon'])[1]"); // Чекбокс первого пункта фильтра
+    protected By textCheckboxSelected = By.xpath("//div[@class='dx-widget dx-checkbox dx-state-hover dx-checkbox-checked']//following-sibling::div[@style='margin-left: 25px;']"); // Текст выбранного чекбокса внутри фильтра
 
+    protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
     protected By fieldNameTender = By.xpath("//div[@id='filter-editor-compact-1-include']//textarea"); // Поле для ввода названия тендера для поиска
     protected By fieldPriceFrom = By.xpath("//div[@id='filter-editor-compact-4-from']//input[@role='spinbutton']"); // Поле для ввода цены "от"
     protected By fieldPriceTo = By.xpath("//div[@id='filter-editor-compact-4-to']//input[@role='spinbutton']"); // Поле для ввода цены "до"
+    protected By fieldPublicationDateFrom = By.xpath("//div[@id='textbox-filter-editor-compact-5-from']//input[@role='textbox']"); // Поле для ввода даты публикации "от"
+    protected By fieldPublicationDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//input[@role='textbox']"); // Поле для ввода даты публикации "до"
 
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
     protected By cellTableToOpenDocumentationNotice = By.xpath("(//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a)[2]"); // Ячейка таблицы для открытия документации извещения тендера
     protected By cellTableToOpenDocumentation = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a"); // Ячейка таблицы для открытия документации тендера
     protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]//td"); // Ячейка таблицы в результатах поиска тендеров для первого столбца для первой строки для фильтра "Категория"
+    protected By cellTableForCheckRegion = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[5]"); // Ячейка таблицы результатов поиска для проверки региона
+
+    protected By contextMenuResultSearch = By.xpath("//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Кнопка контекстного меню для строки результата поиска
+    protected By markContextMenu = By.xpath("//div[text()='Метка тендера']"); // пункт контекстного меню "Метка тендера"
+    protected By redMarkContextMenu = By.xpath("//div[text()='Красный']"); // Метка "Красный" в контекстном меню
+    protected By deleteMark = By.xpath("//div[text()='Удалить метку']"); // Кнопка "Удалить метку"
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
@@ -68,6 +86,10 @@ public class TabTendersPage extends PageObject {
     private final By fieldNameTenderDeletion = By.xpath("//div[@id='filter-editor-compact-1-exclude']//textarea"); // Поле для ввода параметра, исключаемого из поиска
     private final By fieldDocumentation = By.id("gethtml_file_content"); // Содержимое документации
     private final By searchWordIntoNoticeDocumentation = By.xpath("//em"); // Поисковое слово в извещении (выделенное)
+    private final By markTender = By.xpath("//div[@class='tl-tag-tender']"); // Метка тендера
+    private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
+    private final By cellTableForCheckCustomer = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[8]"); // Ячейка таблицы результатов поиска для проверки заказчика
+
 
 
 
@@ -93,6 +115,14 @@ public class TabTendersPage extends PageObject {
             getDriver().switchTo().window(windowHandle);
         }
     } // Переключиться на следующую вкладку
+
+    public void moveToElement(By element){
+        moveTo(element);
+    } // Навести курсор на элемент
+
+    public void dragAndDropFilter(By filter){
+        withAction().dragAndDrop(find(filter), find(filterRoot)).build().perform();
+    } // Перетащить фильтр в область построения дерева фильтров
 
     public void scrollDownTo(By scroll){
         ((JavascriptExecutor)getDriver()).executeScript(
@@ -134,6 +164,14 @@ public class TabTendersPage extends PageObject {
     public void typePriceTo(String price){
         find(fieldPriceTo).sendKeys(price);
     } // Ввести цену "до"
+
+    public void typeDateFrom(String date){
+        find(fieldPublicationDateFrom).sendKeys(date);
+    } // Ввести дату публикации "от"
+
+    public void typeDateTo(String date){
+        find(fieldPublicationDateTo).sendKeys(date);
+    } // Ввести дату публикации "до"
 
     public String getTextLogin(){
         return find(checkLogin).getText();
@@ -480,4 +518,60 @@ public class TabTendersPage extends PageObject {
         return check;
     } // Проверка поиска в блоке фильтров
 
+    public boolean isContainWithoutHideFilter(){
+        List<WebElementFacade> checkRegion = findAll(cellTableForCheckRegion);
+        boolean check = false;
+        for(WebElementFacade type : checkRegion){
+            if(!type.getText().contains("Санкт-Петербург город")){
+//                System.out.println("Название: " + type.getText());
+                check = true;
+                break;
+            }
+        }
+        return check;
+    } // Проверка поиска со скрытым фильтром
+
+    public boolean isMarkOfTender(){
+        return find(markTender).getAttribute("style").contains("background: rgb(235, 9, 16); height: 100%;");
+    } // Проверка, что метка красная
+
+    public boolean isDeletionMarkOfTender(){
+        return find(markTender).getAttribute("style").contains("height: 0%;");
+    } // Проверка, что метки нет
+
+    public boolean isEmptyFieldPublicationDateTo(){
+        return find(fieldPublicationDateTo).getText().isEmpty();
+    } // Проверка поля "Дата до" фильтра "Дата публикации"
+
+    public Integer getNumberSelectedCategories(){
+        List<String> textCheckbox = findAll(textCheckboxSelected).texts();
+        return textCheckbox.size();
+    } // Получить количество выбранных элементов фильтра "Категории"
+
+    public boolean isContainSelectedCategory(){
+        List<String> textCheckbox = findAll(textCheckboxSelected).texts();
+        textCheckbox.remove(0);
+        List<String> checkArray = new ArrayList<>();
+        checkArray.add("Банковские услуги");
+        checkArray.add("Бухгалтерский учет, аудит");
+        checkArray.add("Кадровые услуги");
+        checkArray.add("Консультационные услуги");
+        checkArray.add("Медицинское страхование");
+        checkArray.add("Оценка, экспертиза");
+        checkArray.add("Реализация имущества");
+        checkArray.add("Страхование");
+        checkArray.add("Услуги по лицензированию, сертификации и аттестации");
+        checkArray.add("Юридические услуги");
+
+        return checkArray.equals(textCheckbox);
+    } // Проверка на соответствие списка выбранных элементов фильтра "Категории"
+
+    public boolean isNotIncludeExcludedElement(){
+        List<String> textCheck = findAll(cellTableForCheckCustomer).texts();
+        boolean check = true;
+        for(String type : textCheck) {
+            if(type.contains("КГКУ \"АЛТАЙАВТОДОР\"")){check = false; break;}
+        }
+        return check;
+    } // Проверка результата поиска на исключенный элемент из фильтра "Заказчик"
 }

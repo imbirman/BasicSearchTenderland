@@ -45,6 +45,16 @@ public class TabTendersSteps {
         page.clickButton(button);
     }
 
+    @Step("Навести курсор")
+    public void move_to_element(By element){
+        page.moveToElement(element);
+    }
+
+    @Step("Перетаскивание фильтра")
+    public void drag_and_drop_filter(By filter){
+        page.dragAndDropFilter(filter);
+    }
+
     @Step("Очистить поле")
     public void clear_field(By field){
         page.clearField(field);
@@ -78,6 +88,14 @@ public class TabTendersSteps {
     @Step("Ввести цену 'до'")
     public void type_price_to(String price){
         page.typePriceTo(price);
+    }
+
+    @Step("Ввести дату 'от'")
+    public void type_date_from(String date){ page.typeDateFrom(date); }
+
+    @Step("Ввести дату 'до'")
+    public void type_date_to(String date){
+        page.typeDateTo(date);
     }
 
     @Step("Ввести значение, исключаемое из поиска")
@@ -236,5 +254,44 @@ public class TabTendersSteps {
                 .as("В результатах поиска фильтров отсутствует заданное значение").isTrue();
     }
 
+    @Step("Проверка результата поиска после скрытия фильтра 'Регион'")
+    public void check_search_with_hide_filter(){
+        Assertions.assertThat(page.isContainWithoutHideFilter()).as("В результатах поиска отсутствуют тендеры с регионом отличным от 'Санкт-Петербург город'").isTrue();
+    }
+
+    @Step("Проверка метки тендера")
+    public void check_mark_of_tender(){
+        Assertions.assertThat(page.isMarkOfTender()).as("Цвет метки не соответствует выбранному").isTrue();
+    }
+
+    @Step("Проверка удаления метки тендера")
+    public void check_deletion_mark_of_tender(){
+        Assertions.assertThat(page.isDeletionMarkOfTender()).as("Метка не была удалена").isTrue();
+    }
+
+    @Step("Проверка поля даты публикации до")
+    public void check_empty_publication_date_to(){
+        Assertions.assertThat(page.isEmptyFieldPublicationDateTo()).as("Поле 'Дата до' не пустое").isTrue();
+    }
+
+    @Step("Проверка количества выбранных подкатегорий фильтра 'Категория'")
+    public void check_number_selected_categories_with_close_main_category(){
+        Assertions.assertThat(page.getNumberSelectedCategories()).as("Количество выбранных категорий не равно 11").isEqualTo(11);
+    }
+
+    @Step("Проверка количества выбранных подкатегорий фильтра 'Категория'")
+    public void check_number_selected_categories_with_open_main_category(){
+        Assertions.assertThat(page.getNumberSelectedCategories()).as("Количество выбранных категорий не равно 1").isEqualTo(1);
+    }
+
+    @Step("Проверка выбранных подкатегорий фильтра 'Категория'")
+    public void check_contain_selected_category(){
+        Assertions.assertThat(page.isContainSelectedCategory()).as("Выбранные категории не соответствуют заданному списку").isTrue();
+    }
+
+    @Step("Проверка исключения из фильтра Заказчик")
+    public void check_excluded_from_filter_customer(){
+        Assertions.assertThat(page.isNotIncludeExcludedElement()).as("В результатах поиска есть исключенный элемент фильтра 'Заказчик'").isTrue();
+    }
 
 }

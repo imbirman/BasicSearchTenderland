@@ -402,4 +402,87 @@ public class WhenTabTendersTest extends TabTendersPage {
         steps.type_search_filters("Название тендера");
         steps.check_search_in_list_tenders();
     }
+
+
+
+
+    @Test
+    @Title("Проверка результата поиска после скрытия фильтра 'Регион'")
+    public void checkSearchWithHideFilter(){
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
+        steps.click_button(buttonHideFilter);
+        steps.click_button(buttonSearch);
+        steps.check_search_with_hide_filter();
+    }
+
+    @Test
+    @Title("Проверка метки тендера")
+    public void checkMarkOfTender(){
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
+        steps.click_button(contextMenuResultSearch);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(redMarkContextMenu);
+        steps.check_mark_of_tender();
+    }
+
+    @Test
+    @Title("Проверка удаления метки тендера")
+    public void checkDeletionMarkOfTender(){
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
+        steps.click_button(contextMenuResultSearch);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(redMarkContextMenu);
+        steps.click_button(contextMenuResultSearch);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(deleteMark);
+        steps.check_deletion_mark_of_tender();
+    }
+
+    @Test
+    @Title("Проверка на пустое поле даты публикации до")
+    public void checkEmptyFieldPublicationDateTo(){
+        steps.drag_and_drop_filter(filterDatePublication);
+        steps.type_date_from("01.01.2021");
+        steps.type_date_to("31.12.2020");
+        steps.click_button(filterInTreeFilters);
+        steps.check_empty_publication_date_to();
+    }
+
+    @Test
+    @Title("Проверка количества выбранных подкатегорий фильтра 'Категория' с закрытой главной категорией")
+    public void checkNumberSelectedCategoriesWithCloseMainCategory(){
+        steps.drag_and_drop_filter(filterCategory);
+        steps.click_button(checkboxFirstInFilter);
+        steps.click_button(buttonOpenTreeList);
+        steps.check_number_selected_categories_with_close_main_category();
+    }
+
+    @Test
+    @Title("Проверка количества выбранных подкатегорий фильтра 'Категория' с открытой главной категорией")
+    public void checkNumberSelectedCategoriesWithOpenMainCategory(){
+        steps.drag_and_drop_filter(filterCategory);
+        steps.click_button(buttonOpenTreeList);
+        steps.click_button(checkboxFirstInFilter);
+        steps.check_number_selected_categories_with_open_main_category();
+    }
+
+    @Test
+    @Title("Проверка выбранных подкатегорий фильтра 'Категория'")
+    public void checkContainSelectedCategory(){
+        steps.drag_and_drop_filter(filterCategory);
+        steps.click_button(checkboxFirstInFilter);
+        steps.click_button(buttonOpenTreeList);
+        steps.check_contain_selected_category();
+    }
+
+    @Test
+    @Title("Проверка исключения из фильтра Заказчик")
+    public void checkExcludedFromFilterCustomer(){
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(excludedElementCustomer);
+        steps.check_excluded_from_filter_customer();
+    }
 }
