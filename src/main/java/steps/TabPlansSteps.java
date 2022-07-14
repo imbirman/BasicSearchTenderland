@@ -4,11 +4,11 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
-import pages.TabPlansPage;
+import pages.TabPlans;
 
 public class TabPlansSteps {
 
-    TabPlansPage page;
+    TabPlans page;
     @Step("Ожидание")
     public void wait_a_bit(long number){
         page.waitFor(number);

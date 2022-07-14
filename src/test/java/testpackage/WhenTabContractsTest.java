@@ -8,13 +8,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import pages.TabContractsPage;
+import pages.TabContracts;
 import steps.TabContractsSteps;
 
 import java.text.ParseException;
 
 @RunWith(SerenityRunner.class)
-public class WhenTabContractsTest extends TabContractsPage{
+public class WhenTabContractsTest extends TabContracts {
 
     @Managed(driver = "chrome", uniqueSession=true)
     WebDriver driver;

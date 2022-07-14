@@ -9,13 +9,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import pages.TabTendersPage;
+import pages.TabTenders;
 import steps.TabTendersSteps;
 
 import java.text.ParseException;
 
 @RunWith(SerenityRunner.class)
-public class WhenTabTendersTest extends TabTendersPage {
+public class WhenTabTendersTest extends TabTenders {
 
     @Managed(driver = "chrome", uniqueSession=true)
     WebDriver driver;
@@ -415,6 +415,7 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка метки тендера")
     public void checkMarkOfTender(){
         steps.click_button(tabListAutoSearch);
+        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);
@@ -426,6 +427,7 @@ public class WhenTabTendersTest extends TabTendersPage {
     @Title("Проверка удаления метки тендера")
     public void checkDeletionMarkOfTender(){
         steps.click_button(tabListAutoSearch);
+        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);

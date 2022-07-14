@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 @DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
-public class TabContractsPage extends PageObject {
+public class TabContracts extends PageObject {
 
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
     protected By logInButton = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему

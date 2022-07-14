@@ -8,12 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import pages.GeneralChecksPage;
+import pages.GeneralChecks;
 import steps.GeneralChecksSteps;
-import steps.TabTendersSteps;
 
 @RunWith(SerenityRunner.class)
-public class WhenGeneralChecksTest extends GeneralChecksPage {
+public class WhenGeneralChecksTest extends GeneralChecks {
 
     @Managed(driver = "chrome", uniqueSession=true)
     WebDriver driver;

@@ -10,7 +10,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import java.util.List;
 
 @DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
-public class GeneralChecksPage extends PageObject {
+public class GeneralChecks extends PageObject {
 
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
     protected By logInButton = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему

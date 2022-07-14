@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import java.util.List;
 
 @DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
-public class TabPlansPage extends PageObject {
+public class TabPlans extends PageObject {
 
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
     protected By logInButton = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему

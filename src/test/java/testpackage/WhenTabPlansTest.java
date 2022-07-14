@@ -8,11 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import pages.TabPlansPage;
+import pages.TabPlans;
 import steps.TabPlansSteps;
 
 @RunWith(SerenityRunner.class)
-public class WhenTabPlansTest extends TabPlansPage {
+public class WhenTabPlansTest extends TabPlans {
 
     @Managed(driver = "chrome", uniqueSession=true)
     WebDriver driver;
