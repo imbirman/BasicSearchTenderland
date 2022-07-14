@@ -18,10 +18,16 @@ public class MarkSetting extends PageObject {
     protected By buttonAutoSearchRegistryNumberAndRegion = By.xpath("//span[text()='Проверка поиска по реестровому номеру и региону']"); // Кнопка автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By contextMenuResultSearch = By.xpath("//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Кнопка контекстного меню для строки результата поиска
     protected By markContextMenu = By.xpath("//div[text()='Метка тендера']"); // пункт контекстного меню "Метка тендера"
+
     protected By buttonSettingMark = By.xpath("//div[text()='Настройка']"); // Кнопка "Настройки" в контекстном меню
+    protected By buttonSaveMark = By.id("tl-save-user-tag-button"); // Кнопка сохранения метки
+    protected By buttonDeleteMark = By.id("tl-delete-user-tag-button"); // Кнопка удаления метки
+    protected By buttonAddMark = By.id("tl-add-new-user-tag-button"); // Кнопка добавления метки
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
+    private final By fieldNameMark = By.xpath("//div[@id='tl-manage-user-tags-name']//input"); // Поле для ввода названия метки
+    private final By errorMessageEmptyFieldNameMark = By.xpath("//div[@id='tl-manage-user-tags-name']//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Текст ошибки при сохранении метки без названия
 
     public void waitFor(long number){
         waitABit(number);
@@ -65,4 +71,8 @@ public class MarkSetting extends PageObject {
         ((JavascriptExecutor)getDriver()).executeScript(
                 "arguments[0].scrollTop = -1 >>> 1", find(scroll));
     } // Прокрутить содержимое элемента вниз
+
+    public boolean isDisabledButtonDeleteMark(){
+        return find(buttonDeleteMark).getAttribute("aria-disabled").contains("true");
+    } // Проверка заблокированности кнопки удаления метки
 }

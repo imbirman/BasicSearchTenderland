@@ -31,7 +31,7 @@ public class WhenMarkSettingTest extends MarkSetting{
     }
 
     @Test
-    @Title("Проверка метки тендера")
+    @Title("Проверка заблокированности кнопки удаления метки")
     public void checkMarkOfTender(){
         steps.click_button(tabListAutoSearch);
         steps.scroll_down_to(listAutoSearchToScroll);
@@ -39,5 +39,6 @@ public class WhenMarkSettingTest extends MarkSetting{
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);
         steps.click_button(buttonSettingMark);
+        steps.check_disabled_button_delete_mark();
     }
 }

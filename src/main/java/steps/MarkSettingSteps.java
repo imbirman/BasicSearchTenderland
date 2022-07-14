@@ -2,6 +2,7 @@ package steps;
 
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import pages.MarkSetting;
 
@@ -55,5 +56,10 @@ public class MarkSettingSteps {
     @Step("Прокрутить содержимое элемента вниз")
     public void scroll_down_to(By scroll){
         page.scrollDownTo(scroll);
+    }
+
+    @Step("Проверка заблокированности кнопки удаления метки")
+    public void check_disabled_button_delete_mark(){
+        Assertions.assertThat(page.isDisabledButtonDeleteMark()).as("Кнопка удаления метки не заблокирована").isTrue();
     }
 }
