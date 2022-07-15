@@ -53,6 +53,11 @@ public class MarkSettingSteps {
         page.typePassword(password);
     }
 
+    @Step("Ввод названия метки")
+    public void type_name_mark(String name){
+        page.typeNameMark(name);
+    }
+
     @Step("Прокрутить содержимое элемента вниз")
     public void scroll_down_to(By scroll){
         page.scrollDownTo(scroll);
@@ -76,5 +81,25 @@ public class MarkSettingSteps {
     @Step("Проверка текста ошибки при сохранении метки с пустым названием")
     public void check_correct_base_list_mark(){
         Assertions.assertThat(page.isCorrectBaseListMark()).as("Базовый список меток некорректен").isTrue();
+    }
+
+    @Step("Проверка списка меток после добавления новой метки")
+    public void check_correct_list_mark_after_add_new_mark(){
+        Assertions.assertThat(page.isCorrectListMarkAfterAddNewMark()).as("Список меток некорректен").isTrue();
+    }
+
+    @Step("Проверка названия новой метки")
+    public void check_correct_name_new_mark(){
+        Assertions.assertThat(page.isCorrectNameNewMark()).as("Название добавленной метки некорректно").isTrue();
+    }
+
+    @Step("Проверка появления новой метки")
+    public void check_visible_new_mark(){
+        Assertions.assertThat(page.isVisibleNewMark()).as("Метка не добавилась").isTrue();
+    }
+
+    @Step("Проверка отсутствия новой метки после удаления")
+    public void check_not_visible_new_mark(){
+        Assertions.assertThat(page.isNotVisibleNewMark()).as("Метка не удалилась").isTrue();
     }
 }

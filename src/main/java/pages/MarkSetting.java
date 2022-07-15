@@ -21,6 +21,7 @@ public class MarkSetting extends PageObject {
     protected By buttonAutoSearchRegistryNumberAndRegion = By.xpath("//span[text()='Проверка поиска по реестровому номеру и региону']"); // Кнопка автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By contextMenuResultSearch = By.xpath("//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Кнопка контекстного меню для строки результата поиска
     protected By markContextMenu = By.xpath("//div[text()='Метка тендера']"); // пункт контекстного меню "Метка тендера"
+    protected By newElementListMark = By.xpath("//div[text()='Тестовая метка']"); // Новая метка
 
     protected By buttonSettingMark = By.xpath("//div[text()='Настройка']"); // Кнопка "Настройки" в контекстном меню
     protected By buttonSaveMark = By.id("tl-save-user-tag-button"); // Кнопка сохранения метки
@@ -32,7 +33,8 @@ public class MarkSetting extends PageObject {
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By fieldNameMark = By.xpath("//div[@id='tl-manage-user-tags-name']//input"); // Поле для ввода названия метки
     private final By errorMessageEmptyFieldNameMark = By.xpath("//div[@id='tl-manage-user-tags-name']//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Текст ошибки при сохранении метки без названия
-    private final By elementListMark = By.xpath("//div[@id='tl-user-tag-list']//div[@class='dx-item dx-list-item']//div[not(@*)]"); //
+    private final By elementListMark = By.xpath("//div[@id='tl-user-tag-list']//div[@class='dx-item dx-list-item']//div[not(@*)]"); // Элемент списка меток
+
 
     public void waitFor(long number){
         waitABit(number);
@@ -72,10 +74,20 @@ public class MarkSetting extends PageObject {
         find(passwordField).sendKeys(password);
     } // Ввести пароль для входа
 
+    public void typeNameMark(String name){
+        find(fieldNameMark).sendKeys(name);
+    } // Ввести название метки
+
     public void scrollDownTo(By scroll){
         ((JavascriptExecutor)getDriver()).executeScript(
                 "arguments[0].scrollTop = -1 >>> 1", find(scroll));
     } // Прокрутить содержимое элемента вниз
+
+    public void deleteNewMark(){
+        clickButton(newElementListMark);
+        clickButton(buttonDeleteMark);
+        clickButton(buttonApproveDeleteMark);
+    } // Удаление новой метки
 
     public boolean isDisabledButtonDeleteMark(){
         return find(buttonDeleteMark).getAttribute("aria-disabled").contains("true");
@@ -103,5 +115,38 @@ public class MarkSetting extends PageObject {
         return baseListMark.equals(checkBaseListMark);
     } // Проверка базового списка меток
 
+    public boolean isCorrectListMarkAfterAddNewMark(){
+        List<String> listMark = findAll(elementListMark).texts();
 
+        List<String> checkListMark = new ArrayList<>();
+        checkListMark.add("Красный");
+        checkListMark.add("Сиреневый");
+        checkListMark.add("Голубой");
+        checkListMark.add("Оранжевый");
+        checkListMark.add("Зеленый");
+        checkListMark.add("Синий");
+        checkListMark.add("Тестовая метка");
+
+        return listMark.equals(checkListMark);
+    } // Проверка списка меток после добавления новой метки
+
+    public boolean isCorrectNameNewMark(){
+        return find(newElementListMark).getText().equals("Тестовая метка");
+    } // Проверка названия новой метки
+
+    public boolean isVisibleNewMark(){
+        List<String> listMark = findAll(elementListMark).texts();
+        for(String type:listMark){
+            if(type.equals("Тестовая метка")){return  true;}
+        }
+        return false;
+    } // Проверка появления новой метки
+
+    public boolean isNotVisibleNewMark(){
+        List<String> listMark = findAll(elementListMark).texts();
+        for(String type:listMark){
+            if(type.equals("Тестовая метка")){return  false;}
+        }
+        return true;
+    } // Проверка отсутствия новой метки после удаления
 }

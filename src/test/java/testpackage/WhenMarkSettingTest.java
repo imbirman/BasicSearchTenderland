@@ -79,4 +79,24 @@ public class WhenMarkSettingTest extends MarkSetting{
         steps.click_button(buttonSettingMark);
         steps.check_correct_base_list_mark();
     }
+
+    @Test
+    @Title("Проверка добавления и удаления новой метки")
+    public void checkAddAndDeleteNewMark(){
+        steps.click_button(tabListAutoSearch);
+        steps.scroll_down_to(listAutoSearchToScroll);
+        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
+        steps.click_button(contextMenuResultSearch);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(buttonSettingMark);
+        steps.type_name_mark("Тестовая метка");
+        steps.click_button(buttonSaveMark);
+        steps.check_visible_new_mark();
+        steps.check_correct_name_new_mark();
+        steps.check_correct_list_mark_after_add_new_mark();
+        steps.click_button(newElementListMark);
+        steps.click_button(buttonDeleteMark);
+        steps.click_button(buttonApproveDeleteMark);
+        steps.check_not_visible_new_mark();
+    }
 }
