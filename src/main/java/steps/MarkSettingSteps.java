@@ -62,4 +62,14 @@ public class MarkSettingSteps {
     public void check_disabled_button_delete_mark(){
         Assertions.assertThat(page.isDisabledButtonDeleteMark()).as("Кнопка удаления метки не заблокирована").isTrue();
     }
+
+    @Step("Проверка появления текста ошибки при сохранении метки с пустым названием")
+    public void check_visible_error_message_empty_name_mark(){
+        Assertions.assertThat(page.isVisibleErrorMessageEmptyNameMark()).as("Ошибка при сохранении метки с пустым названием не отобразилась").isTrue();
+    }
+
+    @Step("Проверка текста ошибки при сохранении метки с пустым названием")
+    public void check_correct_error_message_empty_name_mark(){
+        Assertions.assertThat(page.isCorrectErrorMessageEmptyNameMark()).as("Текст ошибки при сохранении метки с пустым названием некорректен").isTrue();
+    }
 }

@@ -41,4 +41,30 @@ public class WhenMarkSettingTest extends MarkSetting{
         steps.click_button(buttonSettingMark);
         steps.check_disabled_button_delete_mark();
     }
+
+    @Test
+    @Title("Проверка видимости ошибки при сохранении метки с пустым названием")
+    public void checkVisibleErrorMessageEmptyNameMark(){
+        steps.click_button(tabListAutoSearch);
+        steps.scroll_down_to(listAutoSearchToScroll);
+        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
+        steps.click_button(contextMenuResultSearch);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(buttonSettingMark);
+        steps.click_button(buttonSaveMark);
+        steps.check_visible_error_message_empty_name_mark();
+    }
+
+    @Test
+    @Title("Проверка текста ошибки при сохранении метки с пустым названием")
+    public void checkCorrectErrorMessageEmptyNameMark(){
+        steps.click_button(tabListAutoSearch);
+        steps.scroll_down_to(listAutoSearchToScroll);
+        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
+        steps.click_button(contextMenuResultSearch);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(buttonSettingMark);
+        steps.click_button(buttonSaveMark);
+        steps.check_correct_error_message_empty_name_mark();
+    }
 }

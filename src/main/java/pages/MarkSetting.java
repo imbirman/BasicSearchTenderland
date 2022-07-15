@@ -75,4 +75,12 @@ public class MarkSetting extends PageObject {
     public boolean isDisabledButtonDeleteMark(){
         return find(buttonDeleteMark).getAttribute("aria-disabled").contains("true");
     } // Проверка заблокированности кнопки удаления метки
+
+    public boolean isVisibleErrorMessageEmptyNameMark(){
+        return find(errorMessageEmptyFieldNameMark).isVisible();
+    } // Проверка появления текста ошибки при сохранении метки с пустым названием
+
+    public boolean isCorrectErrorMessageEmptyNameMark(){
+        return find(errorMessageEmptyFieldNameMark).getText().equals("Введите название метки.");
+    } // Проверка текста ошибки при сохранении метки с пустым названием
 }
