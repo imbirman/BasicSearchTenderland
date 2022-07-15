@@ -98,13 +98,17 @@ public class MarkSetting extends PageObject {
         return find(buttonDeleteMark).getAttribute("aria-disabled").contains("true");
     } // Проверка заблокированности кнопки удаления метки
 
-    public boolean isVisibleErrorMessageEmptyNameMark(){
+    public boolean isVisibleErrorMessage(){
         return find(errorMessageEmptyFieldNameMark).isVisible();
     } // Проверка появления текста ошибки при сохранении метки с пустым названием
 
     public boolean isCorrectErrorMessageEmptyNameMark(){
         return find(errorMessageEmptyFieldNameMark).getText().equals("Введите название метки.");
     } // Проверка текста ошибки при сохранении метки с пустым названием
+
+    public boolean isCorrectErrorMessageDuplicateNameMark(){
+        return find(errorMessageEmptyFieldNameMark).getText().equals("Такая метка уже существует.");
+    } // Проверка текста ошибки при сохранении метки с дублированным названием
 
     public boolean isCorrectBaseListMark(){
         List<String> baseListMark = findAll(elementListMark).texts();

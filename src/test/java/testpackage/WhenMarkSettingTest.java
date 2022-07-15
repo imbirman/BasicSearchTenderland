@@ -52,7 +52,21 @@ public class WhenMarkSettingTest extends MarkSetting{
         steps.move_to_element(markContextMenu);
         steps.click_button(buttonSettingMark);
         steps.click_button(buttonSaveMark);
-        steps.check_visible_error_message_empty_name_mark();
+        steps.check_visible_error_message();
+    }
+
+    @Test
+    @Title("Проверка видимости ошибки при сохранении метки с дублирующим названием названием")
+    public void checkVisibleErrorMessageDuplicateNameMark(){
+        steps.click_button(tabListAutoSearch);
+        steps.scroll_down_to(listAutoSearchToScroll);
+        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
+        steps.click_button(contextMenuResultSearch);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(buttonSettingMark);
+        steps.type_name_mark("красный");
+        steps.click_button(buttonSaveMark);
+        steps.check_visible_error_message();
     }
 
     @Test
@@ -66,6 +80,20 @@ public class WhenMarkSettingTest extends MarkSetting{
         steps.click_button(buttonSettingMark);
         steps.click_button(buttonSaveMark);
         steps.check_correct_error_message_empty_name_mark();
+    }
+
+    @Test
+    @Title("Проверка текста ошибки при сохранении метки с дублирующим названием")
+    public void checkCorrectErrorMessageDuplicateNameMark(){
+        steps.click_button(tabListAutoSearch);
+        steps.scroll_down_to(listAutoSearchToScroll);
+        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
+        steps.click_button(contextMenuResultSearch);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(buttonSettingMark);
+        steps.type_name_mark("красный");
+        steps.click_button(buttonSaveMark);
+        steps.check_correct_error_message_duplicate_name_mark();
     }
 
     @Test

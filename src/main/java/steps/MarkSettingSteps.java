@@ -73,14 +73,19 @@ public class MarkSettingSteps {
         Assertions.assertThat(page.isDisabledButtonDeleteMark()).as("Кнопка удаления метки не заблокирована").isTrue();
     }
 
-    @Step("Проверка появления текста ошибки при сохранении метки с пустым названием")
-    public void check_visible_error_message_empty_name_mark(){
-        Assertions.assertThat(page.isVisibleErrorMessageEmptyNameMark()).as("Ошибка при сохранении метки с пустым названием не отобразилась").isTrue();
+    @Step("Проверка появления текста ошибки")
+    public void check_visible_error_message(){
+        Assertions.assertThat(page.isVisibleErrorMessage()).as("Ошибка не отобразилась").isTrue();
     }
 
     @Step("Проверка текста ошибки при сохранении метки с пустым названием")
     public void check_correct_error_message_empty_name_mark(){
         Assertions.assertThat(page.isCorrectErrorMessageEmptyNameMark()).as("Текст ошибки при сохранении метки с пустым названием некорректен").isTrue();
+    }
+
+    @Step("Проверка текста ошибки при сохранении метки с дублированным названием")
+    public void check_correct_error_message_duplicate_name_mark(){
+        Assertions.assertThat(page.isCorrectErrorMessageDuplicateNameMark()).as("Текст ошибки при сохранении метки с дублирующим названием некорректен").isTrue();
     }
 
     @Step("Проверка текста ошибки при сохранении метки с пустым названием")
