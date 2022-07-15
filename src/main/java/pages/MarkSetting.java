@@ -6,6 +6,9 @@ import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
 public class MarkSetting extends PageObject {
 
@@ -23,11 +26,13 @@ public class MarkSetting extends PageObject {
     protected By buttonSaveMark = By.id("tl-save-user-tag-button"); // Кнопка сохранения метки
     protected By buttonDeleteMark = By.id("tl-delete-user-tag-button"); // Кнопка удаления метки
     protected By buttonAddMark = By.id("tl-add-new-user-tag-button"); // Кнопка добавления метки
+    protected By buttonApproveDeleteMark = By.id("tl-popup-approve-button"); // Кнопка подтверждения удаления метки
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By fieldNameMark = By.xpath("//div[@id='tl-manage-user-tags-name']//input"); // Поле для ввода названия метки
     private final By errorMessageEmptyFieldNameMark = By.xpath("//div[@id='tl-manage-user-tags-name']//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Текст ошибки при сохранении метки без названия
+    private final By elementListMark = By.xpath("//div[@id='tl-user-tag-list']//div[@class='dx-item dx-list-item']//div[not(@*)]"); //
 
     public void waitFor(long number){
         waitABit(number);
@@ -83,4 +88,20 @@ public class MarkSetting extends PageObject {
     public boolean isCorrectErrorMessageEmptyNameMark(){
         return find(errorMessageEmptyFieldNameMark).getText().equals("Введите название метки.");
     } // Проверка текста ошибки при сохранении метки с пустым названием
+
+    public boolean isCorrectBaseListMark(){
+        List<String> baseListMark = findAll(elementListMark).texts();
+
+        List<String> checkBaseListMark = new ArrayList<>();
+        checkBaseListMark.add("Красный");
+        checkBaseListMark.add("Сиреневый");
+        checkBaseListMark.add("Голубой");
+        checkBaseListMark.add("Оранжевый");
+        checkBaseListMark.add("Зеленый");
+        checkBaseListMark.add("Синий");
+
+        return baseListMark.equals(checkBaseListMark);
+    } // Проверка базового списка меток
+
+
 }

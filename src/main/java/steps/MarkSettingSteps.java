@@ -72,4 +72,9 @@ public class MarkSettingSteps {
     public void check_correct_error_message_empty_name_mark(){
         Assertions.assertThat(page.isCorrectErrorMessageEmptyNameMark()).as("Текст ошибки при сохранении метки с пустым названием некорректен").isTrue();
     }
+
+    @Step("Проверка текста ошибки при сохранении метки с пустым названием")
+    public void check_correct_base_list_mark(){
+        Assertions.assertThat(page.isCorrectBaseListMark()).as("Базовый список меток некорректен").isTrue();
+    }
 }
