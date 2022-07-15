@@ -85,7 +85,7 @@ public class MarkSettingSteps {
 
     @Step("Проверка текста ошибки при сохранении метки с пустым названием")
     public void check_correct_base_list_mark(){
-        Assertions.assertThat(page.isCorrectBaseListMark()).as("Базовый список меток некорректен").isTrue();
+        Assertions.assertThat(page.isCorrectBaseListMark()).as("Базовый список меток некорректен (либо состав, либо порядок)").isTrue();
     }
 
     @Step("Проверка списка меток после добавления новой метки")

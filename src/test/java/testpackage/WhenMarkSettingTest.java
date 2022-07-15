@@ -32,7 +32,7 @@ public class WhenMarkSettingTest extends MarkSetting{
 
     @Test
     @Title("Проверка заблокированности кнопки удаления метки")
-    public void checkMarkOfTender(){
+    public void checkDisableButtonDeleteMark(){
         steps.click_button(tabListAutoSearch);
         steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
@@ -70,7 +70,7 @@ public class WhenMarkSettingTest extends MarkSetting{
 
     @Test
     @Title("Проверка базового списка меток")
-    public void checkCorrectBaseListMark(){
+    public void checkCorrectBaseListMarks(){
         steps.click_button(tabListAutoSearch);
         steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
@@ -99,5 +99,19 @@ public class WhenMarkSettingTest extends MarkSetting{
         steps.click_button(buttonDeleteMark);
         steps.click_button(buttonApproveDeleteMark);
         steps.check_not_visible_new_mark();
+    }
+
+    @Test
+    @Title("Проверка базового списка меток после обновления метки")
+    public void checkCorrectBaseListMarksAfterUpdateMark(){
+        steps.click_button(tabListAutoSearch);
+        steps.scroll_down_to(listAutoSearchToScroll);
+        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
+        steps.click_button(contextMenuResultSearch);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(buttonSettingMark);
+        steps.click_button(elementListMark);
+        steps.click_button(buttonSaveMark);
+        steps.check_correct_base_list_mark();
     }
 }
