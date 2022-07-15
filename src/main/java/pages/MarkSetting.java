@@ -84,9 +84,13 @@ public class MarkSetting extends PageObject {
     } // Прокрутить содержимое элемента вниз
 
     public void deleteNewMark(){
-        clickButton(newElementListMark);
-        clickButton(buttonDeleteMark);
-        clickButton(buttonApproveDeleteMark);
+        try {
+            clickButton(newElementListMark);
+            clickButton(buttonDeleteMark);
+            clickButton(buttonApproveDeleteMark);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     } // Удаление новой метки
 
     public boolean isDisabledButtonDeleteMark(){

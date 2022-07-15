@@ -63,6 +63,11 @@ public class MarkSettingSteps {
         page.scrollDownTo(scroll);
     }
 
+    @Step("Удалить новую метку")
+    public void delete_new_mark(){
+        page.deleteNewMark();
+    }
+
     @Step("Проверка заблокированности кнопки удаления метки")
     public void check_disabled_button_delete_mark(){
         Assertions.assertThat(page.isDisabledButtonDeleteMark()).as("Кнопка удаления метки не заблокирована").isTrue();

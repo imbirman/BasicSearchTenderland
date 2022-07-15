@@ -89,6 +89,7 @@ public class WhenMarkSettingTest extends MarkSetting{
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);
         steps.click_button(buttonSettingMark);
+        steps.delete_new_mark();
         steps.type_name_mark("Тестовая метка");
         steps.click_button(buttonSaveMark);
         steps.check_visible_new_mark();
