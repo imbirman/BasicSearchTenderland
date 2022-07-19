@@ -59,8 +59,8 @@ public class AutoSearchSteps {
     }
 
     @Step("Проверка наличия тестового автопоиска и его удаление")
-    public void check_test_autosearch(){
-        page.checkTestAutoSearch();
+    public void check_test_autosearch_and_delete(){
+        page.checkTestAutoSearchAndDelete();
     }
 
     @Step("Проверка сообщения об ошибке при сохранении автопоиска без названия")

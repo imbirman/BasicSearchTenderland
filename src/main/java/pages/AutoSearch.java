@@ -79,7 +79,7 @@ public class AutoSearch extends PageObject{
         find(fieldSearchByNameTender).sendKeys(search);
     } // Ввести значение в поле название тендера
 
-    public void checkTestAutoSearch(){
+    public void checkTestAutoSearchAndDelete(){
         try {
             if(find(elementListAutoSearch).getText().equals("Тестовый автопоиск")){
                 clickButton(buttonDeleteAutoSearchInListAutoSearch);
