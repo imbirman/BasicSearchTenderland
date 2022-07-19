@@ -17,7 +17,7 @@ public class MyTenders extends PageObject {
 
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
-    protected By contextMenuResultSearchForTestAddingAndDeleteTender = By.xpath("(//a[@class='dx-link dx-icon-overflow dx-link-icon'])[3]"); // Кнопка контекстного меню для строки результата поиска для добавления в мои тендеры
+    protected By contextMenuResultSearchForTestAddingAndDeleteTender = By.xpath("(//a[@class='dx-link dx-icon-overflow dx-link-icon'])[5]"); // Кнопка контекстного меню для строки результата поиска для добавления в мои тендеры
 
     protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
@@ -27,7 +27,7 @@ public class MyTenders extends PageObject {
     protected By buttonContextMenuAddInMyTenders = By.xpath("//div[text()='Добавить в Мои тендеры']"); // Кнопка контекстного меню "Добавить в Мои тендеры"
     protected By buttonSelectResponsible = By.xpath("//div[text()='Админ']"); // Выбор ответственного для тендера при добавлении в Мои тендеры
     protected By buttonOpenResponsibleInWindowTender = By.xpath("//div[@id='tl-tender-task-select-responsible']//input"); // Открыть список ответственных в карточке тендера
-    protected By buttonDeleteNewAddingTenderInListMyTenders = By.xpath("//div[contains(text(),'0372200015221000002')]//following::a[@class='dx-link dx-icon-trash dx-link-icon'][1]"); // Кнопка удаления для нового добавленного тендера
+    protected By buttonDeleteNewAddingTenderInListMyTenders = By.xpath("//div[contains(text(),'0372200015221000002')]//following::i[@class='dx-icon-trash dx-link-icon'][1]"); // Кнопка удаления для нового добавленного тендера
     protected By buttonAddNewTaskInWindowTender = By.xpath("//i[@class='mdi mdi-18px mdi-plus']"); // Кнопка добавления новой задачи в окне тендера
     protected By buttonAddNewTaskInList = By.xpath("(//a[@class='dx-link dx-icon-add dx-link-icon'])[1]"); // Кнопка добавления новой задачи в списке тендеров для первого тендера
     protected By buttonDeleteTaskInList = By.xpath("(//a[@class='dx-link dx-icon-minus dx-link-icon'])[1]"); // Кнопка удаления задачи в списке тендеров для первого тендера
