@@ -33,7 +33,7 @@ public class MarkSetting extends PageObject {
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By fieldNameMark = By.xpath("//div[@id='tl-manage-user-tags-name']//input"); // Поле для ввода названия метки
-    private final By errorMessageEmptyFieldNameMark = By.xpath("//div[@id='tl-manage-user-tags-name']//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Текст ошибки при сохранении метки без названия
+    private final By errorMessageEmptyFieldNameMark = By.xpath("//div[@id='tl-manage-user-tags-name']//div[@class='dx-overlay-content dx-invalid-message-content']"); // Текст ошибки при сохранении метки без названия
 
 
 
