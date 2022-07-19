@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenGeneralChecksTest" skipped="0" tests="1" time="29.49" timestamp="2022-07-19 03:35:40"><testcase classname="testpackage.WhenGeneralChecksTest" name="Проверка контекстного меню на второй странице после выбора всех элементов на первой странице в результатах поиска"/></testsuite>

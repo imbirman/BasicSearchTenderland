@@ -53,6 +53,7 @@ public class GeneralChecksSteps {
         page.dragAndDropFilter(filter);
     }
 
+
     @Step("Очистить поле")
     public void clear_field(By field){
         page.clearField(field);

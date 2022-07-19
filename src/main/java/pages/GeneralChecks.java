@@ -16,6 +16,7 @@ public class GeneralChecks extends PageObject {
     protected By logInButton = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By signInButton = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
+    protected By listAutoSearchToScroll = By.xpath("//div[@id='tl-scroll-tabs']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки list-autosearches
 
     protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//span[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By buttonCheckHideResultSearch = By.xpath("//span[text()='Проверка скрытия результатов поиска']"); // Кнопка автопоиска "Проверка скрытия результатов поиска"

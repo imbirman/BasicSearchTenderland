@@ -55,9 +55,12 @@ public class WhenGeneralChecksTest extends GeneralChecks {
     @Title("Проверка контекстного меню на второй странице после выбора всех элементов на первой странице в результатах поиска")
     public void checkNameElementsContextMenu(){
         steps.click_button(tabListAutoSearch);
+        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
+        steps.wait_a_bit(1000);
         steps.click_button(checkboxSelectAllSearchResult);
         steps.click_button(secondPageSearch);
+        steps.wait_a_bit(1000);
         steps.click_button(contextMenuResultSearch);
         steps.check_name_elements_context_menu();
     }
