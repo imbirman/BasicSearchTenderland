@@ -210,6 +210,7 @@ public class WhenAutoSearchTest extends AutoSearch {
         steps.wait_a_bit(3000);
         steps.check_test_autosearch_and_delete();
         steps.click_button(buttonSaveAutoSearch);
+        steps.wait_a_bit(1000);
         steps.type_name_autosearch("Тестовый автопоиск");
         steps.check_clickable_button_switch_pin_code();
         steps.click_button(buttonAcceptSaveAutoSearch);
