@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="testpackage.WhenMyTendersTest" skipped="0" tests="1" time="29.59" timestamp="2022-07-19 01:22:36"><testcase classname="testpackage.WhenMyTendersTest" name="Проверка сортировки тендеров после поиска"><failure message="[Некорректная сортировка тендеров] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;" type="org.junit.ComparisonFailure">[Некорректная сортировка тендеров] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</failure><system-err>[Некорректная сортировка тендеров] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;&#13;
+steps.MyTendersSteps.check_correct_sort_list_tenders_after_search(MyTendersSteps.java:163)&#13;
+testpackage.WhenMyTendersTest.checkCorrectSortListTendersAfterSearch(WhenMyTendersTest.java:283)&#13;
+</system-err></testcase></testsuite>

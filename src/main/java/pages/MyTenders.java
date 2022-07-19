@@ -271,6 +271,7 @@ public class MyTenders extends PageObject {
     } // Проверка статуса выполненной задачи в списке тендеров
 
     public boolean isCorrectSortListTendersAfterSearch(){
+
         List<String> listTypesSort = findAll(elementListMyTendersRegistryNumber).texts();
 
         List<String> checkListTendersSort = new ArrayList<>();

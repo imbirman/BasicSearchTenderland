@@ -279,7 +279,7 @@ public class WhenMyTendersTest extends MyTenders {
         steps.click_button(openTabMenu);
         steps.click_button(buttonMyTenders);
         steps.type_search_tenders("мус");
-        steps.wait_a_bit(1000);
+        steps.wait_a_bit(5000);
         steps.check_correct_sort_list_tenders_after_search();
     }
 
