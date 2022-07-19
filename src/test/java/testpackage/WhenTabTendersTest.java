@@ -59,7 +59,8 @@ public class WhenTabTendersTest extends TabTenders {
         steps.wait_a_bit(2000);
         steps.type_search("Москва");
         steps.wait_a_bit(2000);
-        steps.type_deletion(getCheckboxByNumber(3));
+        //steps.type_deletion(getCheckboxByNumber(3));
+        steps.click_button(getCheckboxInFilterRegion(3));
         steps.click_button(buttonApply);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
@@ -405,6 +406,7 @@ public class WhenTabTendersTest extends TabTenders {
     @Title("Проверка результата поиска после скрытия фильтра 'Регион'")
     public void checkSearchWithHideFilter(){
         steps.click_button(tabListAutoSearch);
+        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(buttonHideFilter);
         steps.click_button(buttonSearch);

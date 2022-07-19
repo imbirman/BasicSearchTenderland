@@ -222,11 +222,16 @@ public class TabTenders extends PageObject {
     public String getCheckboxByNumber(int number){
         List<WebElementFacade> checkBoxResult = findAll(checkbox);
         return checkBoxResult.get(number).getText();
-    } // Получение чекбокса по его порядковому номеру
+    } // Получение названия чекбокса по его порядковому номеру
 
     public WebElementFacade getCheckboxInFilter(int numberCheckbox){
-        List<WebElementFacade> checkboxMineTenders = findAll(checkBoxFilter);
-        return checkboxMineTenders.get(numberCheckbox);
+        List<WebElementFacade> checkboxMineTendersOrStatusContract = findAll(checkBoxFilter);
+        return checkboxMineTendersOrStatusContract.get(numberCheckbox);
+    } // Получить чекбокс по его порядковому номеру в фильтре "Мои тендеры" у тендера или "Статус" у контракта
+
+    public WebElementFacade getCheckboxInFilterRegion(int numberCheckbox){
+        List<WebElementFacade> checkboxRegion = findAll(checkbox);
+        return checkboxRegion.get(numberCheckbox);
     } // Получить чекбокс по его порядковому номеру в фильтре "Мои тендеры" у тендера или "Статус" у контракта
 
 
