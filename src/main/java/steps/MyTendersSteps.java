@@ -73,6 +73,11 @@ public class MyTendersSteps {
         page.moveToElement(element);
     }
 
+    @Step("Прокрутить содержимое элемента вниз")
+    public void scroll_down_to(By scroll){
+        page.scrollDownTo(scroll);
+    }
+
     @Step("Проверка наличия задачи у тендера и её удаление")
     public void check_task_for_delete(){
         page.checkTaskInListForDelete();

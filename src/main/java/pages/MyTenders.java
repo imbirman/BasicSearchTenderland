@@ -7,6 +7,7 @@ import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.webdriver.exceptions.ElementNotFoundAfterTimeoutError;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class MyTenders extends PageObject {
     protected By buttonDeleteNewAddingTenderInListMyTenders = By.xpath("//div[contains(text(),'0372200015221000002')]//following::i[@class='dx-icon-trash dx-link-icon'][1]"); // Кнопка удаления для нового добавленного тендера
     protected By buttonAddNewTaskInWindowTender = By.xpath("//i[@class='mdi mdi-18px mdi-plus']"); // Кнопка добавления новой задачи в окне тендера
     protected By buttonAddNewTaskInList = By.xpath("(//a[@class='dx-link dx-icon-add dx-link-icon'])[1]"); // Кнопка добавления новой задачи в списке тендеров для первого тендера
-    protected By buttonDeleteTaskInList = By.xpath("(//a[@class='dx-link dx-icon-minus dx-link-icon'])[1]"); // Кнопка удаления задачи в списке тендеров для первого тендера
+    protected By buttonDeleteTaskInList = By.xpath("//i[@class='dx-icon-minus dx-link-icon']"); // Кнопка удаления задачи в списке тендеров для первого тендера
     protected By buttonCloseWindowTender = By.xpath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//i[@class='mdi mdi-18px mdi-close']"); // Кнопка закрытия окна тендера
     protected By buttonOpenListStatusTender = By.xpath("//div[@id='tl-tender-task-select-status']//input[@class='dx-texteditor-input']"); // Кнопка открытия списка статусов тендера
     protected By buttonOpenListTypesSort = By.xpath("//div[@id='tl-gantt-sort-div']//i[@class='mdi mdi-18px mdi-menu-down']"); // Открыть список типов сортировки
@@ -54,6 +55,7 @@ public class MyTenders extends PageObject {
     protected By elementSwitch = By.xpath("//tbody[@role='presentation']//div[@class='tl-gantt-entity-number']"); // Перенесенный в другую вкладку тендер
     protected By firstElementListResponsibleInWindowTender = By.xpath("(//div[@class='tl-tag-fullname'])[1]"); // Первый элемент списка ответственных в окне тендера
     protected By secondElementListResponsibleInWindowTender = By.xpath("(//div[@class='tl-tag-fullname'])[2]"); // Второй элемент списка ответственных в окне тендера
+    protected By blockWindowTenderForScroll = By.xpath("//div[@id='tender-task-scroll']//div[@class='dx-scrollable-container']"); // Блок окна тендера для пролистывания
 
     protected By checkboxInWindowTenderTaskCompleted = By.xpath("//div[@id='tender-tasks']//span"); // Чекбокс в окне тендера "Задача выполнена"
 
@@ -62,7 +64,7 @@ public class MyTenders extends PageObject {
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By elementListMyTendersName = By.xpath("//tr[@class='dx-row dx-data-row']//div[@class='tl-gantt-subtitle']"); // Элемент списка тендеров в Мои тендеры (название тендера)
     private final By nameTenderInWindow = By.xpath("//div[@class='tl-tender-task-title']//a"); // Реестровый номер тендера в его окне
-    private final By fieldNameTaskInWindowTender = By.xpath("//div[@id='tender-tasks']//input"); // Поле ввода названия задачи в окне тендера
+    private final By fieldNameTaskInWindowTender = By.xpath("//div[@id='tender-tasks']//div[@class='dx-texteditor-container']//input"); // Поле ввода названия задачи в окне тендера
     private final By fieldNameTaskInList = By.xpath("//div[@id='tl-gantt-textbox-input']//input[@class='dx-texteditor-input']"); // Поле ввода названия задачи в списке тендеров
     private final By fieldNameTaskInWindowTask = By.xpath("//div[@id='tl-textbox-task-name']//input"); // Название задачи в окне задачи
     private final By fieldSearchTenders = By.xpath("//div[@id='tl-gantt-search-textbox']//input"); // Поле поиска в списке тендеров
@@ -102,6 +104,11 @@ public class MyTenders extends PageObject {
         }
     } // Переключиться на следующую вкладку
 
+    public void scrollDownTo(By scroll){
+        ((JavascriptExecutor)getDriver()).executeScript(
+                "arguments[0].scrollTop = -1 >>> 1", find(scroll));
+    } // Прокрутить содержимое элемента вниз
+
     public void clearField(By field){find(field).clear();} // Очистить поле
 
     public void typeLogin(String login){
@@ -118,7 +125,7 @@ public class MyTenders extends PageObject {
     } // Ввести название задачи в списке тендеров
 
     public void typeNameTaskInWindowTender(String name){
-        find(fieldNameTaskInWindowTender).sendKeys(name);
+        find(fieldNameTaskInWindowTender).waitUntilClickable().sendKeys(name);
         find(fieldNameTaskInWindowTender).sendKeys(Keys.ENTER);
     } // Ввести название задачи в окне тендера
 

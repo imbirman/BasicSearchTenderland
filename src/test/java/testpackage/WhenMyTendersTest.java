@@ -247,6 +247,8 @@ public class WhenMyTendersTest extends MyTenders {
         steps.click_button(elementListMyTendersRegistryNumber);
         steps.wait_a_bit(1000);
         steps.click_button(buttonAddNewTaskInWindowTender);
+        steps.wait_a_bit(1000);
+        steps.scroll_down_to(blockWindowTenderForScroll);
         steps.type_name_task_in_window_tender("Тест");
         steps.check_visible_and_contain_name_task_by_window_tender();
         steps.click_button(buttonCloseWindowTender);
