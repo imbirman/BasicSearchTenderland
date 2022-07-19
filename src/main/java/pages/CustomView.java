@@ -37,7 +37,7 @@ public class CustomView extends PageObject {
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
-    private final By errorMessageEmptyFieldNameCustomView = By.xpath("//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Сообщение об ошибке поля "Название" пользовательского вида
+    private final By errorMessageEmptyFieldNameCustomView = By.xpath("//div[@class='dx-overlay-content dx-invalid-message-content']"); // Сообщение об ошибке поля "Название" пользовательского вида
     private final By errorMessageWithoutSelectedColumnCustomView = By.xpath("//div[@role='alert']"); // Алерт - ошибка при сохранении пользовательского вида без выбранных столбцов
     private final By elementOfDatagridNameColumns = By.xpath("//div[@class='dx-datagrid-headers']//div[@class='dx-datagrid-text-content'or@class='dx-datagrid-text-content dx-text-content-alignment-left'or@class='dx-datagrid-text-content dx-text-content-alignment-left dx-sort-indicator']//td[2]"); // Название столбца таблицы результата поиска
     private final By resultSearchingColumns = By.xpath("(//div[@id='search-view-field-selector']//div[@class='dx-list-group'])[3]//div[@class='dx-item dx-list-item']/div"); // результат поиска полей таблицы (столбцов)

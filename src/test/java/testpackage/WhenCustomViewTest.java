@@ -56,7 +56,7 @@ public class WhenCustomViewTest extends CustomView {
         steps.check_clickable_button_save_settings_custom_view();
         steps.click_button(buttonCloseWindowCustomView);
         steps.click_button(buttonExpandListCustomView);
-        steps.check_number_element_of_expanded_list_custom_view_after_duplication();
+        steps.check_number_element_of_expanded_list_custom_view();
         steps.check_name_added_element_of_expanded_list_custom_view();
         steps.click_button(buttonCustomView);
         steps.click_button(buttonAddNewCustomView);
@@ -64,7 +64,7 @@ public class WhenCustomViewTest extends CustomView {
         steps.click_button(buttonSaveSettings);
         steps.wait_a_bit(500);
         steps.check_error_message_save_custom_view_with_duplication_name();
-        steps.check_number_element_of_list_custom_view_after_duplication();
+        steps.check_number_element_of_list_custom_view();
         steps.click_button(buttonAddNewCustomView);
         steps.type_name_custom_view("Тестовый вид1");
         steps.click_button(buttonSaveSettings);

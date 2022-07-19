@@ -100,7 +100,7 @@ public class CustomViewSteps {
     }
 
     @Step("Проверка количества элементов в списке пользовательских видов")
-    public void check_number_element_of_list_custom_view_after_duplication(){
+    public void check_number_element_of_list_custom_view(){
         Assertions.assertThat(page.getNumberListOfCustomView())
                 .as("Количество элементов в списке пользовательских видов неверно").isEqualTo(1);
     }
@@ -112,12 +112,12 @@ public class CustomViewSteps {
     }
 
     @Step("Проверка количества элементов в раскрывающемся списке пользовательских видов")
-    public void check_number_element_of_expanded_list_custom_view_after_duplication(){
+    public void check_number_element_of_expanded_list_custom_view(){
         Assertions.assertThat(page.getNumberExpandedListOfCustomView())
                 .as("Количество элементов в раскрывающемся списке пользовательских видов неверно").isEqualTo(2);
     }
 
-    @Step("Проверка количества элементов в списке выбранных столбцов")
+    @Step("Проверка названия добавленного вида")
     public void check_name_added_element_of_expanded_list_custom_view(){
         Assertions.assertThat(page.isContainAddedCustomView())
                 .as("В раскрывающемся списке пользовательских видов наименование добавленного вида неверно").isTrue();
