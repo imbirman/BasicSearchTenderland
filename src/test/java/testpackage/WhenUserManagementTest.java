@@ -111,10 +111,6 @@ public class WhenUserManagementTest extends UserManagement {
         steps.wait_a_bit(1000);
         steps.click_button(buttonUserManagement);
         steps.wait_a_bit(500);
-//        steps.check_test_user_for_delete();
-
-        steps.wait_a_bit(500);
-        steps.click_button(buttonAddUser);
         steps.type_last_name_user("Тестовый2");
         steps.wait_a_bit(1000);
         steps.type_name_user("Тест2");
@@ -157,8 +153,6 @@ public class WhenUserManagementTest extends UserManagement {
         steps.wait_a_bit(1000);
         steps.click_button(buttonUserManagement);
         steps.wait_a_bit(500);
-//        steps.check_test_user_for_delete();
-
         steps.type_last_name_user("Тестовый2");
         steps.wait_a_bit(1000);
         steps.type_name_user("Тест2");
