@@ -158,9 +158,10 @@ public class WhenDistributionFromAutoSearchTest extends DistributionFromAutoSear
         steps.type_search_inside_filter_name_tender("мусор");
         steps.wait_a_bit(1000);
         steps.click_button(tabListAutoSearch);
-        steps.wait_a_bit(3000);
+        steps.wait_a_bit(1000);
         steps.check_test_autosearch();
         steps.click_button(buttonSaveAutoSearch);
+        steps.wait_a_bit(1000);
         steps.type_name_autosearch("Тестовый автопоиск");
         steps.click_button(buttonSwitchPinCode);
         steps.wait_a_bit(1000);

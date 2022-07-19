@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle"></span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="856015eff2b1d266600ba94c4befb917b8d289a109f9886cc18d4777fc7c3ca4.html">When Distribution From Auto Search Test</a></span>
+                > <span class="truncate-60"><a
+                    href="dd6b4294a7ab4f512e416ca117ed6cde635a956da430a2d80569a84f95aff38a.html">Проверка отображения ошибки при некорректном вводе пинкода </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 19-07-2022 15:45</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fa fa-2x fa-comments-o"></i>
+                                    <span class="story-header-title">When Distribution From Auto Search Test</span>
+                                    <span class="badge tag-badge" style="">Story</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">Проверка отображения ошибки при некорректном вводе пинкода
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="b33a2716edefc3d9446a69ab9978ff5d93c7843a6a630fbaf299c28aaeea7ad8.png" title=" Открытие страницы" width="1920"/>
+                <img src="4d54132982c2e42890fe195bc43c0dd9ed1118eaaef0758a6d59ac0de17b8f5c.png" title=" Открытие страницы (completed)" width="1920"/>
+                <img src="439a26107e024c74506ee56a3f90565fdfef7946b987c5d855849fe1535e0cbd.png" title=" Нажать кнопку" width="1920"/>
+                <img src="bea94b293d8d32f9794809397f31a440e0b922b13c134706bc78280fd36b13f1.png" title=" Ввод логина" width="1920"/>
+                <img src="2e8ff1bfe2eeaaf9d519130a28998fc7df974ffd2fe26c801d9ac4ebdb48d26b.png" title=" Ввод пароля" width="1920"/>
+                <img src="c7a087f5f2bd0125c89309968bedd17aa1539becbc7d8134e197d5d6d29478d2.png" title=" Нажать кнопку" width="1920"/>
+                <img src="5ae5c17be086c60e0dd9143e97a67cf5eb336863e0a12b06f05d69b521cd3c48.png" title=" Перетаскивание фильтра" width="1920"/>
+                <img src="a29e2ad0f414159209d82b320327e199304d2325563370ada141f035b2f5cc84.png" title=" Ввод значения в поле поиска в фильтре 'Название тендера'" width="1920"/>
+                <img src="533ed67f0833adaaa66d9d5c39e7d7226bbca9bef6c511897ca0ec40683f2553.png" title=" Ожидание" width="1920"/>
+                <img src="e496bc0d525616c752144b167172c9d9ea42ee9eded5be8b45c943f5ee647931.png" title=" Нажать кнопку" width="1920"/>
+                <img src="99f57ba7cb5463faec840816c54d4b9d31893d246d650134713442fac60b05db.png" title=" Ожидание" width="1920"/>
+                <img src="99f57ba7cb5463faec840816c54d4b9d31893d246d650134713442fac60b05db.png" title=" Проверка наличия тестового автопоиска и его удаление" width="1920"/>
+                <img src="2d1ea4bc407d01c846fe04f1fab3e1ca23ff39a5a7436dc7a98e270a70f8e929.png" title=" Нажать кнопку" width="1920"/>
+                <img src="778a402cf1f420da2a3f17b40d3dd8ea45d14b9e0746ecdec5114263748ff7a3.png" title=" Ожидание" width="1920"/>
+                <img src="1942368cf3b492e9528af82945578770c471e259409ff0e33efdb5a5fc71999c.png" title=" Ввести название автопоиска" width="1920"/>
+                <img src="ac1265b4e1020c7c12ea43788d343bde9e981e443bd3abda9827773eac07d2f5.png" title=" Нажать кнопку" width="1920"/>
+                <img src="ad3f2e1c59ca3a26a202445a7e9ecc1a3564059ef4f32c2483acd8a2208f4c78.png" title=" Ожидание" width="1920"/>
+                <img src="ede17cead86afc09362db59e819f598e661b1cbf209fbd3c4da9d9f828a9d301.png" title=" Ввод пинкода" width="1920"/>
+                <img src="d8ef0bd5b7fde943fd7d10e5ac7eff32a7621e39f39cae42e2bc26b3c4707b8c.png" title=" Ожидание" width="1920"/>
+                <img src="77af0e5c8d09c2af46c0adea1c1828ed07f6bfdc06db80f50a73fff7420c6be1.png" title=" Нажать кнопку" width="1920"/>
+                <img src="c06556e70ab18521ef053a4285453f8df488fa2f2bc3c12446bb0984997a7d49.png" title=" Ожидание" width="1920"/>
+                <img src="2371c74495c431453342ff892dec8264b3dfc32cd242e7504f6ad24a04b409d1.png" title=" Нажать кнопку" width="1920"/>
+                <img src="2371c74495c431453342ff892dec8264b3dfc32cd242e7504f6ad24a04b409d1.png" title=" Ожидание" width="1920"/>
+                <img src="370a0fc9c8677d2039a6d7158db2a226c3a7fe0aa93029437bb62aedc05e9837.png" title=" Нажать кнопку" width="1920"/>
+                <img src="f6ed060190edee4ff5343edd5af95c120ef01c2493b129b2de40d1e072e40e33.png" title=" Ввод логина" width="1920"/>
+                <img src="244ab17ab4e6534c795e0a2d2f548128399fcc9f83bf5f16ca5ca498445acba3.png" title=" Ввод пароля" width="1920"/>
+                <img src="31e9e2c8e187670f9e958b2a008a8387f34b54afcc059b9e559d391ea3dc4947.png" title=" Нажать кнопку" width="1920"/>
+                <img src="8afeb02af591d806e133aa08f6821d3eabbd1680d93cc951bf448e1cb4882c77.png" title=" Нажать кнопку" width="1920"/>
+                <img src="8afeb02af591d806e133aa08f6821d3eabbd1680d93cc951bf448e1cb4882c77.png" title=" Ожидание" width="1920"/>
+                <img src="b7d6195521685ce19165d4dc734b525da2b104b6b527db988bf9e9115c22b089.png" title=" Нажать кнопку" width="1920"/>
+                <img src="81b8a443921a3e60c3d8b124aaf48db00ee3f92966210eb478cabf55fcebcc78.png" title=" Ожидание" width="1920"/>
+                <img src="769e7cacf0a40b1b13a92a2a50f04c8ef20efd38f361a45556a8847de3d53194.png" title=" Нажать кнопку" width="1920"/>
+                <img src="8ea7867ec0f642be6078faa2bfb560a42d88d507ffb458493e1a19805b852cd1.png" title=" Ввод пинкода" width="1920"/>
+                <img src="03eff93b209e8d3133b2b32c8d0f386a0cc350ae994dd4ccbad2ddddbab58cbc.png" title=" Нажать кнопку" width="1920"/>
+                <img src="03eff93b209e8d3133b2b32c8d0f386a0cc350ae994dd4ccbad2ddddbab58cbc.png" title=" Проверка отображения ошибки при некорректном заполнении поля 'Пинкод'" width="1920"/>
+                <img src="03eff93b209e8d3133b2b32c8d0f386a0cc350ae994dd4ccbad2ddddbab58cbc.png" title=" Проверка ошибки при сохранении автопоиска при некорректном заполнении поля 'Пинкод': <span class='success-color'>SUCCESS</span>" width="1920"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 2.4.51</span>
+</div>
+</body>
+</html>

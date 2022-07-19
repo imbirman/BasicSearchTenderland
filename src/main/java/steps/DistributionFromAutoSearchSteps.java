@@ -113,7 +113,7 @@ public class DistributionFromAutoSearchSteps {
 
     @Step("Проверка ошибки при сохранении автопоиска при некорректном заполнении поля 'Пинкод'")
     public void check_correct_error_message_with_wrong_pincode(){
-        Assertions.assertThat(page.isCorrectErrorMessageWithEmptyFieldPinCode())
+        Assertions.assertThat(page.isCorrectErrorMessageWithWrongPinCode())
                 .as("текст ошибки некорректен").isEqualTo("Неверный пин-код");
     }
 

@@ -48,7 +48,7 @@ public class DistributionFromAutoSearch extends PageObject{
     private final By fieldNameAutoSearch = By.xpath("//div[@id='tl-autosearch-name']//input"); // Поле ввода названия автопоиска
     private final By elementListAutoSearch = By.xpath("//div[@id='list-autosearches']//span[last()]"); // элемент списка автопоисков
     private final By errorMessageWithEmptyAccountForDistribution = By.xpath("//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Сообщение об ошибке при сохранении автопоиска без указания почты или телеграмма для рассылки
-    private final By errorMessageWithFieldPinCode = By.xpath("//div[@id='tl-pin-code']//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Сообщение об ошибке при пустом поле "Пинкод"
+    private final By errorMessageWithFieldPinCode = By.xpath("//div[@id='tl-pin-code']//div[@class='dx-overlay-content dx-invalid-message-content']"); // Сообщение об ошибке при пустом поле "Пинкод"
     private final By statusDistribution = By.id("tl-autosearch-distribution-status"); // Статус рассылки
     private final By activationDateDistribution = By.id("tl-autosearch-distribution-activation-date"); // Дата и время включения рассылки
     private final By blockDistributionFields = By.id("tl-delivery-fields"); // Блок полей для рассылки

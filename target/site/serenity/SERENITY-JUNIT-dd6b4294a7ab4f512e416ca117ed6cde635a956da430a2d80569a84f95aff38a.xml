@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenDistributionFromAutoSearchTest" skipped="0" tests="1" time="47.68" timestamp="2022-07-19 03:45:48"><testcase classname="testpackage.WhenDistributionFromAutoSearchTest" name="Проверка отображения ошибки при некорректном вводе пинкода"/></testsuite>
