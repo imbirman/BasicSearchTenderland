@@ -63,7 +63,7 @@ public class TabContracts extends PageObject {
     private final By listMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[4]"); // Причина штрафа в списке штрафов карточки контракта
     private final By listSumMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[5]"); // Сумма штрафа в списке штрафов карточки контракта
     private final By listPaidMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[6]"); // Оплата штрафа в списке штрафов карточки контракта
-
+    private final By noMulctInCardContract = By.xpath("(//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td)[1]"); // Поле с подписью об отсутствии штрафов
 
 
     public void waitFor(long number){
@@ -313,22 +313,29 @@ public class TabContracts extends PageObject {
             }
         }
         return check;
-    } // Проверка оплаты штрафов контракта
+    } // Проверка наличия неоплаченных штрафов контракта
 
     public boolean isPaidMulct(){
-        boolean check = true;
         List<WebElementFacade> paidMulctForCheck = findAll(listPaidMulctInCardContract);
         for(WebElementFacade paidMulct : paidMulctForCheck){
 //            System.out.println("Сумма: " + sumMulct.getText());
             String sumMulctCheck = paidMulct.getText();
 
+            try {
+                String checkNoMulctInCardContract = find(noMulctInCardContract).getText();
+                if(checkNoMulctInCardContract.equals("Нет данных")){
+                    return true;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             float floatSumMulctCheckForCheck = Float.parseFloat(sumMulctCheck);
             if(floatSumMulctCheckForCheck == 0){
-                check = false;
-                break;
+                return false;
             }
         }
-        return check;
-    } // Проверка оплаты штрафов контракта
+        return true;
+    } // Проверка отсутствия неоплаченных штрафов контракта
 
 }
