@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenDistributionFromAutoSearchTest" skipped="0" tests="1" time="34.45" timestamp="2022-07-20 10:42:31"><testcase classname="testpackage.WhenDistributionFromAutoSearchTest" name="Проверка ошибки при сохранении автопоиска без почты или телеграмма для рассылки"/></testsuite>
