@@ -182,7 +182,7 @@ public class Auditor extends PageObject {
         int checkTotalEntriesInRegistry;
         checkTotalEntriesInRegistry = Integer.parseInt(find(parameterTotalEntriesInRegistry).getText());
         return checkTotalEntriesInRegistry != 0 && find(parameterLocatedInRNP).getText().equals("ДА");
-    } // Проверка, что организация никогда не была в РНП
+    } // Проверка, что организация находится в РНП
 
     public boolean isCorrectNumberElementsContextMenu(){
         return findAll(elementContextMenu).size() >= 2;

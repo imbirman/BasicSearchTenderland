@@ -115,7 +115,7 @@ public class WhenAuditorTest extends Auditor {
     }
 
     @Test
-    @Title("Проверка организации на нахождение в РНП")
+    @Title("Проверка, что организация никогда не была в РНП")
     public void checkOrganizationNeverBeenInRNP(){
         steps.drag_and_drop_filter(filterSearchByStatusOfBeingInRNP);
         steps.click_button(radioButtonNeverBeenInRNP);
@@ -129,7 +129,7 @@ public class WhenAuditorTest extends Auditor {
     }
 
     @Test
-    @Title("Проверка организации на нахождение в РНП")
+    @Title("Проверка, что организация была раньше в РНП")
     public void checkOrganizationFormerlyBeenInRNP(){
         steps.drag_and_drop_filter(filterSearchByStatusOfBeingInRNP);
         steps.click_button(radioButtonFormerlyInRNP);
@@ -143,7 +143,7 @@ public class WhenAuditorTest extends Auditor {
     }
 
     @Test
-    @Title("Проверка организации на нахождение в РНП")
+    @Title("Проверка, что организация находится в РНП")
     public void checkOrganizationLocatedInRNP(){
         steps.drag_and_drop_filter(filterSearchByStatusOfBeingInRNP);
         steps.click_button(radioButtonLocatedInRNP);
