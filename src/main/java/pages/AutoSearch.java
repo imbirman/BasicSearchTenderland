@@ -41,7 +41,7 @@ public class AutoSearch extends PageObject{
     private final By fieldNameAutoSearch = By.xpath("//div[@id='tl-autosearch-name']//input"); // Поле ввода названия автопоиска
     private final By elementListAutoSearch = By.xpath("//div[@id='list-autosearches']//span"); // элемент списка автопоисков
     private final By autoSearchLabel = By.id("autosearch-label"); // Название автопоиска в древе построения фильтров
-    private final By loginUserInVersionAutoSearch = By.xpath("//td[text()='AdminTestitContract']"); // логин пользователя в версии автопоиска
+    private final By loginUserInVersionAutoSearch = By.xpath("//td[text()='AdminTestitAutoSearch']"); // логин пользователя в версии автопоиска
     private final By buttonCustomView = By.xpath("//div[@id='change-custom-view-button']//span"); // Кнопка "Пользовательский вид"
     private final By messageNoDataVersionAutoSearch = By.xpath("//span[@class='dx-datagrid-nodata']"); // Текст при отсутствии версий автопоиска
 
