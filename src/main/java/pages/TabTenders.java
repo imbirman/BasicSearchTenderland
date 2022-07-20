@@ -68,7 +68,7 @@ public class TabTenders extends PageObject {
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
     protected By cellTableToOpenDocumentationNotice = By.xpath("(//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a)[1]"); // Ячейка таблицы для открытия документации извещения тендера
     protected By cellTableToOpenDocumentation = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a"); // Ячейка таблицы для открытия документации тендера
-    protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]//td"); // Ячейка таблицы в результатах поиска тендеров для первого столбца для первой строки для фильтра "Категория"
+    protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска тендеров для первого столбца для первой строки для фильтра "Категория"
     protected By cellTableForCheckRegion = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[5]"); // Ячейка таблицы результатов поиска для проверки региона
 
     protected By contextMenuResultSearch = By.xpath("//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Кнопка контекстного меню для строки результата поиска
