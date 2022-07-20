@@ -37,7 +37,7 @@ public class AutoSearch extends PageObject{
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
-    private final By errorMessageEmptyNameFieldAutoSearch = By.xpath("//div[@id='tl-autosearch-name']//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Текст ошибки при сохранении автопоиска с пустым названием
+    private final By errorMessageEmptyNameFieldAutoSearch = By.xpath("//div[@id='tl-autosearch-name']//div[@class='dx-overlay-content dx-invalid-message-content']"); // Текст ошибки при сохранении автопоиска с пустым названием
     private final By fieldNameAutoSearch = By.xpath("//div[@id='tl-autosearch-name']//input"); // Поле ввода названия автопоиска
     private final By elementListAutoSearch = By.xpath("//div[@id='list-autosearches']//span"); // элемент списка автопоисков
     private final By autoSearchLabel = By.id("autosearch-label"); // Название автопоиска в древе построения фильтров
