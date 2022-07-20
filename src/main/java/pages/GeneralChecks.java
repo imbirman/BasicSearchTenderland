@@ -102,7 +102,7 @@ public class GeneralChecks extends PageObject {
     public boolean isCorrectHintAreaAnd(){
         String checkWord = find(hintArea).getText();
 
-        return checkWord.contains("перенесите в область фильтры\n" +
+        return checkWord.contains("Перенесите в область фильтры\n" +
                 "которые должны работать\n" +
                 "по логике \"И\"");
     } // Проверка области подсказки для фильтра И
@@ -110,7 +110,7 @@ public class GeneralChecks extends PageObject {
     public boolean isCorrectHintAreaOr(){
         String checkWord = find(hintArea).getText();
 
-        return checkWord.contains("перенесите в область фильтры\n" +
+        return checkWord.contains("Перенесите в область фильтры\n" +
                 "которые должны работать\n" +
                 "по логике \"ИЛИ\"");
     } // Проверка области подсказки для фильтра ИЛИ при смене с фильтра И
