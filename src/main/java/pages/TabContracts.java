@@ -43,6 +43,7 @@ public class TabContracts extends PageObject {
     protected By filterSearchByUnpaidMulct = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Наличие неоплаченных штраф" в автопоиске "Проверка поиска по наличию неоплаченных штрафов"
 
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
+    protected By tableCellToCheckForSwitchToNextTab = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[5]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки для тестов по штрафам
 
     protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль" у тендера или "Статус" у контракта или "Тип" у плана
 
