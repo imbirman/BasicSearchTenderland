@@ -185,7 +185,7 @@ public class Auditor extends PageObject {
     } // Проверка, что организация никогда не была в РНП
 
     public boolean isCorrectNumberElementsContextMenu(){
-        return findAll(elementContextMenu).size() == 2;
+        return findAll(elementContextMenu).size() >= 2;
     } // Проверка количества элементов контекстного меню
 
     public boolean isCorrectNameElementsContextMenu(){
