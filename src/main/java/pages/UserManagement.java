@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 
 import java.util.List;
 
-@DefaultUrl("https://v2.tenderland.ru/Home/Landing")
+@DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
 public class UserManagement extends PageObject {
 
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню

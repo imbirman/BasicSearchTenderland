@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenAutoFiltersTest" skipped="0" tests="1" time="32.18" timestamp="2022-08-09 01:11:17"><testcase classname="testpackage.WhenAutoFiltersTest" name="Проверка отсутствия в окне фильтра выбранного значения при очистке поля поиска"/></testsuite>
