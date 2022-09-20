@@ -26,6 +26,8 @@ public class TabTenders extends PageObject {
     protected By buttonAutoSearchRegistryNumberAndRegion = By.xpath("//span[text()='Проверка поиска по реестровому номеру и региону']"); // Кнопка автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//span[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка по названию тендера и исключению из названия"
     protected By buttonCheckPublicationDate = By.xpath("//span[text()='Проверка поиска по дате публикации']"); // Кнопка автопоиска "Проверка поиска по дате публикации"
+    protected By buttonCheckPublicationDateWithOnlyStartDate = By.xpath("//span[text()='Проверка поиска по дате (только начало)']"); // Кнопка автопоиска "Проверка поиска по дате (только начало)"
+    protected By buttonCheckPublicationDateWithOnlyEndDate = By.xpath("//span[text()='Проверка поиска по дате (только конец)']"); // Кнопка автопоиска "Проверка поиска по дате (только конец)"
     protected By buttonCheckStartSubmissionOfApplicationDate = By.xpath("//span[text()='Проверка поиска по дате начала подачи заявок']"); // Кнопка автопоиска "Проверка поиска по дате начала подачи заявок"
     protected By buttonCheckEndSubmissionOfApplicationDate = By.xpath("//span[text()='Проверка поиска по дате окончания подачи заявок']"); // Кнопка автопоиска "Проверка поиска по дате окончания подачи заявок"
     protected By buttonValidateSearchByTenderDate = By.xpath("//span[text()='Проверка поиска по дате проведения тендера']"); // Кнопка автопоиска "Проверка поиска по дате проведения тендера"
@@ -177,7 +179,7 @@ public class TabTenders extends PageObject {
     } // Получение реестрового номера
 
     public boolean checkDate(String startDate, String endDate) throws ParseException {
-        boolean check = true;
+        boolean check = false;
         List<WebElementFacade> dateForCheck = findAll(tableCellToCheck);
         dateForCheck.remove(dateForCheck.size()-1);
         for(WebElementFacade date : dateForCheck) {
@@ -188,14 +190,54 @@ public class TabTenders extends PageObject {
             Date currentDate = dateFormat.parse(dateStr);
             Date leftDate = dateFormat.parse(startDate);
             Date rightDate = dateFormat.parse(endDate);
-            if(!(currentDate.getTime() >= leftDate.getTime() && currentDate.getTime() <= rightDate.getTime())){
-                check = false;
+            if(currentDate.getTime() >= leftDate.getTime() && currentDate.getTime() <= rightDate.getTime()){
+                check = true;
                 break;
             }
 //            System.out.println(date.getText());
         }
         return check;
-    } // Проверка, что дата публикации находится в заданном диапазоне
+    } // Проверка, что дата находится в заданном диапазоне
+
+    public boolean checkDateWithOnlyStartDate(String startDate) throws ParseException {
+        boolean check = false;
+        List<WebElementFacade> dateForCheck = findAll(tableCellToCheck);
+        dateForCheck.remove(dateForCheck.size()-1);
+        for(WebElementFacade date : dateForCheck) {
+            String dateStr = date.getText();
+            dateStr = dateStr.replace("\n" + "(UTC+03:00)", "");
+            dateStr = dateStr.replace("\n", " ");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+            Date currentDate = dateFormat.parse(dateStr);
+            Date leftDate = dateFormat.parse(startDate);
+            if(currentDate.getTime() >= leftDate.getTime()){
+                check = true;
+                break;
+            }
+//            System.out.println(date.getText());
+        }
+        return check;
+    } // Проверка, что дата находится в заданном диапазоне
+
+    public boolean checkDateWithOnlyEndDate(String endDate) throws ParseException {
+        boolean check = false;
+        List<WebElementFacade> dateForCheck = findAll(tableCellToCheck);
+        dateForCheck.remove(dateForCheck.size()-1);
+        for(WebElementFacade date : dateForCheck) {
+            String dateStr = date.getText();
+            dateStr = dateStr.replace("\n" + "(UTC+03:00)", "");
+            dateStr = dateStr.replace("\n", " ");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+            Date currentDate = dateFormat.parse(dateStr);
+            Date rightDate = dateFormat.parse(endDate);
+            if(currentDate.getTime() <= rightDate.getTime()){
+                check = true;
+                break;
+            }
+//            System.out.println(date.getText());
+        }
+        return check;
+    } // Проверка, что дата находится в заданном диапазоне
 
     public boolean checkPrice(float priceFrom, float priceTo){
         boolean check = true;

@@ -139,6 +139,18 @@ public class TabTendersSteps {
                 .as("Есть тендеры с датой, не входящей в заданный промежуток").isTrue();
     }
 
+    @Step("Проверка даты")
+    public void check_date_with_only_start_date(String startDate) throws ParseException {
+        Assertions.assertThat(page.checkDateWithOnlyStartDate(startDate))
+                .as("Есть тендеры с датой, не входящей в заданный промежуток").isTrue();
+    }
+
+    @Step("Проверка даты")
+    public void check_date_with_only_end_date(String endDate) throws ParseException {
+        Assertions.assertThat(page.checkDateWithOnlyEndDate(endDate))
+                .as("Есть тендеры с датой, не входящей в заданный промежуток").isTrue();
+    }
+
     @Step("Проверка поиска по категории")
     public void check_category_name(){
         Assertions.assertThat(page.isContainCategoryName()).as("Минимум у одного тендера указана неправильная категория").isTrue();
