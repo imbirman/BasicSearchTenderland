@@ -49,7 +49,7 @@ public class Auditor extends PageObject {
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
     private final By fieldSearchInclude = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска "Включаем в поиск"
     private final By nameFounders = By.xpath("//div[@id='entity-tab-multiview']//table[@class='dx-datagrid-table dx-datagrid-table-fixed']//tr[@class='dx-row dx-data-row dx-row-lines']//td[1]"); // Наименование учредителя
-    private final By legalData = By.xpath("(//div[@id='entity-card-items']//div[@class='tl-card-item-content'])[1]/p"); // Юридические данные организации
+    private final By legalData = By.xpath("(//div[@class='entity-card-items']//div[@class='tl-card-item-content']/p)[4]"); // Юридические данные организации
     private final By parameterLocatedInRNP = By.xpath("//p[text()='В настоящий момент находится в реестре']/following::p[1]"); // В разделе РНП поле находится ли организация в настоящий момент в РНП
     private final By parameterTotalEntriesInRegistry = By.xpath("//p[text()='Всего записей в реестре']/following::p[1]"); // В разделе РНП поле "Всего записей в реестре"
 
