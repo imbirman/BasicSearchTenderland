@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="testpackage.WhenMyTendersTest" skipped="0" tests="1" time="22.77" timestamp="2022-09-20 02:52:22"><testcase classname="testpackage.WhenMyTendersTest" name="Проверка реестрового номера в окне тендера"><failure message="Expected enabled element was not enabled" type="net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException">Expected enabled element was not enabled</failure><system-err>Expected enabled element was not enabled&#13;
+pages.MyTenders.clickButton(MyTenders.java:84)&#13;
+steps.MyTendersSteps.click_button(MyTendersSteps.java:23)&#13;
+testpackage.WhenMyTendersTest.checkCorrectRegistryNumberInWindow(WhenMyTendersTest.java:65)&#13;
+</system-err></testcase></testsuite>
