@@ -32,7 +32,25 @@ public class WhenMyTendersTest extends MyTenders {
 
     public void openMyTenders(){
         steps.click_button(openTabMenu);
-        steps.click_button(buttonMyTenders);
+        steps.click_button(buttonTabMenuMyTenders);
+    }
+
+    @Test
+    @Title("Проверка добавления и удаления тендера")
+    public void checkAddAndDeleteTender(){
+
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonInAutoSearchListCheckMyTenders);
+        steps.wait_a_bit(1000);
+        steps.add_in_my_tenders();
+        openMyTenders();
+        steps.wait_a_bit(1000);
+        steps.check_register_number_added_tender();
+        steps.check_name_added_tender();
+        steps.click_button(buttonDeleteAddedTenderInListTenders);
+        steps.click_button(buttonConfirmDelete);
+        steps.wait_a_bit(1000);
+        steps.check_delete_added_tender();
     }
 
 

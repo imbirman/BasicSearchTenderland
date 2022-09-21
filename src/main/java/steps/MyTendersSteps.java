@@ -63,5 +63,22 @@ public class MyTendersSteps {
         page.scrollDownTo(scroll);
     }
 
+    @Step("Добавить в мои тендеры")
+    public void add_in_my_tenders(){page.addInMyTenders();}
+
+    @Step("Проверка номера и места добавленного тендера")
+    public void check_register_number_added_tender(){
+        Assertions.assertThat(page.checkRegisterNumberAddedTender()).as("Добавленный тендер отсутствует, либо находится не на первом месте").isTrue();
+    }
+
+    @Step("Проверка номера и места добавленного тендера")
+    public void check_name_added_tender(){
+        Assertions.assertThat(page.checkNameAddedTender()).as("Наименование добавленного тендера некорректно").isTrue();
+    }
+
+    @Step("Проверка номера и места добавленного тендера")
+    public void check_delete_added_tender(){
+        Assertions.assertThat(page.checkDeleteAddedTender()).as("Добавленный тендер не удален").isTrue();
+    }
 
 }

@@ -18,34 +18,27 @@ public class MyTenders extends PageObject {
 
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
-    protected By contextMenuResultSearchForTestAddingAndDeleteTender = By.xpath("(//a[@class='dx-link dx-icon-overflow dx-link-icon'])[5]"); // Кнопка контекстного меню для строки результата поиска для добавления в мои тендеры
+    protected By contextMenuResultSearchForTestAddingAndDeleteTender = By.xpath("(//a[@class='dx-link dx-icon-overflow dx-link-icon'])[3]"); // Кнопка контекстного меню для строки результата поиска для добавления в мои тендеры
+
 
     protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
-    protected By buttonMyTenders = By.xpath("(//div[@class='tl-sidenav-item'])[2]//div"); // Кнопка в боковом меню "Мои тендеры"
-
-    protected By buttonOpenResponsibleInWindowTender = By.xpath("//div[@id='tl-tender-task-select-responsible']//input"); // Открыть список ответственных в карточке тендера
-    protected By buttonDeleteTaskInList = By.xpath("//i[@class='dx-icon-minus dx-link-icon']"); // Кнопка удаления задачи в списке тендеров для первого тендера
-
-    protected By elementListMyTendersRegistryNumber = By.xpath("//div[@class='tl-gantt-task-click']//div[@class='tl-gantt-entity-number']"); // Элемент списка тендеров в Мои тендеры (реестровый номер)
-    protected By elementSwitch = By.xpath("//tbody[@role='presentation']//div[@class='tl-gantt-entity-number']"); // Перенесенный в другую вкладку тендер
-
+    protected By buttonTabMenuMyTenders = By.xpath("(//div[@class='tl-sidenav-item'])[2]//div"); // Кнопка в боковом меню "Мои тендеры"
+    protected By buttonInAutoSearchListCheckMyTenders = By.xpath("//span[text()='Проверка моих тендеров']"); // Автопоиск "Проверка моих тендеров"
+    protected By buttonDeleteAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-delete-favourite'])[1]"); // Кнопка удаления добавленного тендера в списке тендеров
+    protected By buttonConfirmDelete = By.id("tl-popup-approve-button"); // Кнопка подтверждения удаления тендера
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
-    private final By elementListMyTendersName = By.xpath("//tr[@class='dx-row dx-data-row']//div[@class='tl-gantt-subtitle']"); // Элемент списка тендеров в Мои тендеры (название тендера)
-    private final By nameTenderInWindow = By.xpath("//div[@class='tl-tender-task-title']//a"); // Реестровый номер тендера в его окне
-    private final By fieldNameTaskInWindowTender = By.xpath("//div[@id='tender-tasks']//div[@class='dx-texteditor-container']//input"); // Поле ввода названия задачи в окне тендера
-    private final By fieldNameTaskInList = By.xpath("//div[@id='tl-gantt-textbox-input']//input[@class='dx-texteditor-input']"); // Поле ввода названия задачи в списке тендеров
-    private final By fieldNameTaskInWindowTask = By.xpath("//div[@id='tl-textbox-task-name']//input"); // Название задачи в окне задачи
-    private final By fieldSearchTenders = By.xpath("//div[@id='tl-gantt-search-textbox']//input"); // Поле поиска в списке тендеров
-    private final By elementListStatusTender = By.xpath("//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка статусов тендера
-    private final By elementNameTaskInList = By.xpath("//div[@class='main-text label-task']"); // Название задачи в списке тендеров
-    private final By elementNameTaskInWindowTender = By.xpath("//div[@id='tender-tasks']//div[@class='main-text label-task']"); // Название задачи в окне тендера
-    private final By elementListTypesSort = By.xpath("//div[@role='menu']/div/ul/li/div/div/div/div"); // Элемент списка способов сортировки тендеров
-    private final By statusTaskInWindowTender = By.xpath("//div[@id='tender-tasks']//div[@class='tl-complete-status-task']"); // Статус задачи в окне тендера
-    private final By statusTaskInListTenders = By.xpath("//tr[@class='dx-row dx-data-row dx-selection']//div[@class='tl-complete-status-task']"); // Статус задачи в списке тендеров
+    private final By buttonAddInMyTenders = By.xpath("//div[text()='Добавить в Мои тендеры']"); // Кнопка добавления в "Мои тендеры"
+    private final By buttonSelectNameResponsible = By.xpath("//div[text()='Админ']"); // Выбор ответственного при добавлении тендера в "Мои тендеры"
+    private final By buttonLoadDocumentationInListTenders = By.xpath("(//div[@class='favourite-kanban-load-documents'])[1]"); // Кнопка для скачивания документации тендера в списке тендеров
+
+    private final By registerNumberAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-card-regnumber'])[1]"); // Регистрационный номер добавленного тендера в списке тендеров
+    private final By registerNumberTenderInListTenders = By.xpath("//div[@class='favourite-kanban-card-regnumber']"); // Регистрационный номер тендера в списке тендеров
+    private final By nameAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-card-name'])[1]"); // Название добавленного тендера
+
 
 
     public void waitFor(long number){
@@ -95,7 +88,27 @@ public class MyTenders extends PageObject {
         moveTo(element);
     } // Навести курсор на элемент
 
+    public void addInMyTenders(){
+        find(contextMenuResultSearchForTestAddingAndDeleteTender).click();
+        moveToElement(buttonAddInMyTenders);
+        find(buttonSelectNameResponsible).click();
+    } // Добавить тендер в "Мои тендеры"
 
+    public boolean checkRegisterNumberAddedTender(){
+        return find(registerNumberAddedTenderInListTenders).getText().equals("0372200015221000002");
+    } // Проверка номера добавленного тендера
 
+    public boolean checkNameAddedTender(){
+        return find(nameAddedTenderInListTenders).getText().equals("Приобретение мешков для мусора");
+    } // Проверка названия добавленного тендера
+
+    public boolean checkDeleteAddedTender(){
+        boolean check = true;
+        List<String> elementForCheck = findAll(registerNumberTenderInListTenders).texts();
+        for(String element: elementForCheck){
+            if(element.equals("0372200015221000002")){check = false; break;}
+        }
+        return check;
+    } // Проверка удаления добавленного тендера
 
 }
