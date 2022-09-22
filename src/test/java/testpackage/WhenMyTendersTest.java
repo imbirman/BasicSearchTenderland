@@ -53,6 +53,16 @@ public class WhenMyTendersTest extends MyTenders {
         steps.check_delete_added_tender();
     }
 
+    @Test
+    @Title("Проверка кликабельности кнопок тендера в списке тендеров")
+    public void checkClickableButtonTenderInListTenders(){
+
+        openMyTenders();
+        steps.wait_a_bit(1000);
+        steps.check_clickable_button_delete_tender_in_list_tenders();
+        steps.check_clickable_button_load_documentation_tender_in_list_tenders();
+    }
+
 
 
 }

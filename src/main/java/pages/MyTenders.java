@@ -27,6 +27,7 @@ public class MyTenders extends PageObject {
     protected By buttonTabMenuMyTenders = By.xpath("(//div[@class='tl-sidenav-item'])[2]//div"); // Кнопка в боковом меню "Мои тендеры"
     protected By buttonInAutoSearchListCheckMyTenders = By.xpath("//span[text()='Проверка моих тендеров']"); // Автопоиск "Проверка моих тендеров"
     protected By buttonDeleteAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-delete-favourite'])[1]"); // Кнопка удаления добавленного тендера в списке тендеров
+    protected By buttonDeleteTenderInListTenders = By.xpath("//div[@class='favourite-kanban-delete-favourite']"); // Кнопка удаления тендера в списке тендеров
     protected By buttonConfirmDelete = By.id("tl-popup-approve-button"); // Кнопка подтверждения удаления тендера
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
@@ -110,5 +111,13 @@ public class MyTenders extends PageObject {
         }
         return check;
     } // Проверка удаления добавленного тендера
+
+    public boolean checkClickableButtonDeleteTenderInListTenders(){
+        return find(buttonDeleteTenderInListTenders).isClickable();
+    } // Проверка кликабельности кнопки удаления тендера в списке тендеров
+
+    public boolean checkClickableButtonLoadDocumentationTenderInListTenders(){
+        return find(buttonLoadDocumentationInListTenders).isClickable();
+    } // Проверка кликабельности кнопки скачивания документации тендера в списке тендеров
 
 }

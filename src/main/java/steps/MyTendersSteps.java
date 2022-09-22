@@ -81,4 +81,14 @@ public class MyTendersSteps {
         Assertions.assertThat(page.checkDeleteAddedTender()).as("Добавленный тендер не удален").isTrue();
     }
 
+    @Step("Проверка кликабельности кнопки удаления тендера в списке тендеров")
+    public void check_clickable_button_delete_tender_in_list_tenders(){
+        Assertions.assertThat(page.checkClickableButtonDeleteTenderInListTenders()).as("Кнопка удаления тендера в списке тендеров не активна").isTrue();
+    }
+
+    @Step("Проверка кликабельности кнопки скачивания документации тендера в списке тендеров")
+    public void check_clickable_button_load_documentation_tender_in_list_tenders(){
+        Assertions.assertThat(page.checkClickableButtonLoadDocumentationTenderInListTenders()).as("Кнопка скачивания документации тендера в списке тендеров не активна").isTrue();
+    }
+
 }
