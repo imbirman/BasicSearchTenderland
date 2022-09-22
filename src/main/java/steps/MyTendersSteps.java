@@ -91,4 +91,12 @@ public class MyTendersSteps {
         Assertions.assertThat(page.checkClickableButtonLoadDocumentationTenderInListTenders()).as("Кнопка скачивания документации тендера в списке тендеров не активна").isTrue();
     }
 
+    @Step("Проверка некликабельности кнопки \"Удалить\" контекстного меню столбца")
+    public void check_disable_button_delete_context_menu_column(){
+        Assertions.assertThat(page.checkDisableButtonDeleteContextMenuColumn()).as("Кнопка 'Удалить' контекстного меню столбца активна при единственном столбце").isTrue();
+    }
+
+    @Step("Удаление второго столбца")
+    public void delete_second_column(){page.deleteSecondColumn();}
+
 }

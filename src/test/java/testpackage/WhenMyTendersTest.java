@@ -63,6 +63,16 @@ public class WhenMyTendersTest extends MyTenders {
         steps.check_clickable_button_load_documentation_tender_in_list_tenders();
     }
 
+    @Test
+    @Title("Проверка отключения кнопки 'Удалить' контекстного меню столбца при единственном столбце")
+    public void checkNotClickableButtonDeleteContextMenuColumn(){
 
+        openMyTenders();
+        steps.wait_a_bit(1000);
+        steps.delete_second_column();
+        steps.wait_a_bit(1000);
+        steps.click_button(contextMenuColumn);
+        steps.check_disable_button_delete_context_menu_column();
+    }
 
 }

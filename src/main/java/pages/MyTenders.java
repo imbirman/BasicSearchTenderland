@@ -19,6 +19,8 @@ public class MyTenders extends PageObject {
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
     protected By contextMenuResultSearchForTestAddingAndDeleteTender = By.xpath("(//a[@class='dx-link dx-icon-overflow dx-link-icon'])[3]"); // Кнопка контекстного меню для строки результата поиска для добавления в мои тендеры
+    protected By contextMenuColumn = By.xpath("//div[@class='favourite-kanban-list-title']/i"); // Кнопка контекстного меню столбца
+
 
 
     protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
@@ -29,6 +31,7 @@ public class MyTenders extends PageObject {
     protected By buttonDeleteAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-delete-favourite'])[1]"); // Кнопка удаления добавленного тендера в списке тендеров
     protected By buttonDeleteTenderInListTenders = By.xpath("//div[@class='favourite-kanban-delete-favourite']"); // Кнопка удаления тендера в списке тендеров
     protected By buttonConfirmDelete = By.id("tl-popup-approve-button"); // Кнопка подтверждения удаления тендера
+    protected By buttonDeleteContextMenuColumn = By.xpath("(//div[@class='dx-submenu']//div[@role='menuitem'])[2]"); // Кнопка "Удалить" контекстного меню столбца
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
@@ -95,6 +98,15 @@ public class MyTenders extends PageObject {
         find(buttonSelectNameResponsible).click();
     } // Добавить тендер в "Мои тендеры"
 
+    public void deleteSecondColumn(){
+        int sumColumn = findAll(contextMenuColumn).size();
+        if(sumColumn==2){
+            findAll(contextMenuColumn).get(1).click();
+            find(buttonDeleteContextMenuColumn).click();
+            find(buttonConfirmDelete).click();
+        }
+    }
+
     public boolean checkRegisterNumberAddedTender(){
         return find(registerNumberAddedTenderInListTenders).getText().equals("0372200015221000002");
     } // Проверка номера добавленного тендера
@@ -119,5 +131,11 @@ public class MyTenders extends PageObject {
     public boolean checkClickableButtonLoadDocumentationTenderInListTenders(){
         return find(buttonLoadDocumentationInListTenders).isClickable();
     } // Проверка кликабельности кнопки скачивания документации тендера в списке тендеров
+
+    public boolean checkDisableButtonDeleteContextMenuColumn(){
+        return find(buttonDeleteContextMenuColumn).getAttribute("class").contains("dx-state-disabled");
+    } // Проверка некликабельности кнопки "Удалить" контекстного меню столбца
+
+
 
 }
