@@ -58,7 +58,7 @@ public class WhenAuditorTest extends Auditor {
 //        steps.wait_a_bit(500);
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.double_click_button(cellTableInResultSearch);
+        steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.click_button(tabMenuAuditorFounders);
         steps.wait_a_bit(1000);
@@ -75,7 +75,7 @@ public class WhenAuditorTest extends Auditor {
 //        steps.wait_a_bit(500);
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.double_click_button(cellTableInResultSearch);
+        steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.check_search_by_current_legal_status();
 //        steps.wait_a_bit(5000);
@@ -90,7 +90,7 @@ public class WhenAuditorTest extends Auditor {
 //        steps.wait_a_bit(500);
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.double_click_button(cellTableInResultSearch);
+        steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.check_search_by_inactive_legal_status();
 //        steps.wait_a_bit(5000);
@@ -121,7 +121,7 @@ public class WhenAuditorTest extends Auditor {
         steps.click_button(radioButtonNeverBeenInRNP);
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.double_click_button(cellTableInResultSearch);
+        steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.click_button(tabLeftMenuRNP);
         steps.check_organization_never_been_in_rnp();
@@ -135,7 +135,7 @@ public class WhenAuditorTest extends Auditor {
         steps.click_button(radioButtonFormerlyInRNP);
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.double_click_button(cellTableInResultSearch);
+        steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.click_button(tabLeftMenuRNP);
         steps.check_organization_formerly_been_in_rnp();
@@ -149,7 +149,7 @@ public class WhenAuditorTest extends Auditor {
         steps.click_button(radioButtonLocatedInRNP);
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.double_click_button(cellTableInResultSearch);
+        steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.click_button(tabLeftMenuRNP);
         steps.check_organization_located_in_rnp();

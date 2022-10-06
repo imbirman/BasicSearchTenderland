@@ -33,7 +33,7 @@ public class Auditor extends PageObject {
 
     protected By tabMenuAuditorFounders = By.xpath("//div[@id='main-tabs']//div[text()='Учредители']"); // Вкладка в карточке организации "Учредители"
     protected By tabLeftMenuRNP = By.xpath("//div[@id='entity-card-menu']//div[text()='Реестр недобросовестных поставщиков']"); // Вкладка в карточке организации "Реестр недобросовестных поставщиков"
-    protected By cellTableInResultSearch = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы результатов поиска по ИНН
+    protected By cellTableInResultSearch = By.xpath("(//div[@class='dx-datagrid-content']//tbody[@role='presentation']/tr)[1]"); // Строка таблицы результатов поиска для открытия карточки организации
 
     protected By radioButtonCurrentLegalStatus = By.xpath("(//div[@class='dx-radiobutton-icon'])[1]"); // пункт "Действующая" фильтра "Юридический статус"
     protected By radioButtonInactiveLegalStatus = By.xpath("(//div[@class='dx-radiobutton-icon'])[2]"); // пункт "Недействующая" фильтра "Юридический статус"

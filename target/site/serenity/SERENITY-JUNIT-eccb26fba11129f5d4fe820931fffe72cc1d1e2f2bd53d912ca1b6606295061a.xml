@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenMyTendersTest" skipped="0" tests="1" time="26.79" timestamp="2022-09-21 04:56:21"><testcase classname="testpackage.WhenMyTendersTest" name="Проверка добавления и удаления тендера"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenMyTendersTest" skipped="0" tests="1" time="25.97" timestamp="2022-09-22 04:04:19"><testcase classname="testpackage.WhenMyTendersTest" name="Проверка добавления и удаления тендера"/></testsuite>

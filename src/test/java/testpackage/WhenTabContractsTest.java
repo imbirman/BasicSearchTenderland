@@ -42,7 +42,7 @@ public class WhenTabContractsTest extends TabContracts {
         steps.wait_a_bit(500);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
-        steps.double_click_button(tableCellToCheckForSwitchToNextTab);
+        steps.click_button(tableCellToCheckForSwitchToNextTab);
         steps.wait_a_bit(2000);
         steps.switch_to_tab();
         steps.click_button(tabListProductsInCardContract);
@@ -176,7 +176,7 @@ public class WhenTabContractsTest extends TabContracts {
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheckForSwitchToNextTab);
+        steps.click_button(tableCellToCheckForSwitchToNextTab);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
         steps.click_button(tabMulctContracts);
@@ -195,7 +195,7 @@ public class WhenTabContractsTest extends TabContracts {
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheckForSwitchToNextTab);
+        steps.click_button(tableCellToCheckForSwitchToNextTab);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
         steps.click_button(tabMulctContracts);
@@ -214,7 +214,7 @@ public class WhenTabContractsTest extends TabContracts {
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheckForSwitchToNextTab);
+        steps.click_button(tableCellToCheckForSwitchToNextTab);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
         steps.click_button(tabMulctContracts);
@@ -233,7 +233,7 @@ public class WhenTabContractsTest extends TabContracts {
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheckForSwitchToNextTab);
+        steps.click_button(tableCellToCheckForSwitchToNextTab);
         steps.wait_a_bit(1000);
         steps.switch_to_tab();
         steps.click_button(tabMulctContracts);
@@ -248,7 +248,7 @@ public class WhenTabContractsTest extends TabContracts {
         steps.click_button(buttonCheckSearchBySumMulct);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheckForSwitchToNextTab);
+        steps.click_button(tableCellToCheckForSwitchToNextTab);
         steps.switch_to_tab();
         steps.click_button(tabMulctContracts);
         steps.check_sum_mulct(10000,100000);
@@ -266,7 +266,7 @@ public class WhenTabContractsTest extends TabContracts {
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheckForSwitchToNextTab);
+        steps.click_button(tableCellToCheckForSwitchToNextTab);
         steps.switch_to_tab();
         steps.click_button(tabMulctContracts);
         steps.check_unpaid_mulct();
@@ -284,7 +284,7 @@ public class WhenTabContractsTest extends TabContracts {
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
-        steps.double_click_button(tableCellToCheckForSwitchToNextTab);
+        steps.click_button(tableCellToCheckForSwitchToNextTab);
         steps.switch_to_tab();
         steps.click_button(tabMulctContracts);
         steps.check_paid_mulct();
