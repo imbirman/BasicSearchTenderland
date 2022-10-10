@@ -54,13 +54,13 @@ public class WhenAuditorTest extends Auditor {
     public void checkResultSearchByFounders(){
         steps.drag_and_drop_filter(filterSearchByFounders);
         steps.wait_a_bit(500);
-        steps.type_search_include("молоко");
+        steps.type_search_include("иванов");
 //        steps.wait_a_bit(500);
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
-        steps.click_button(tabMenuAuditorFounders);
+        steps.click_button(buttonOpenListFounders);
         steps.wait_a_bit(1000);
         steps.check_search_by_founders();
 //        steps.wait_a_bit(5000);

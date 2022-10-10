@@ -23,6 +23,8 @@ public class MyTenders extends PageObject {
 
 
 
+
+
     protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
@@ -32,9 +34,11 @@ public class MyTenders extends PageObject {
     protected By buttonDeleteTenderInListTenders = By.xpath("//div[@class='favourite-kanban-delete-favourite']"); // Кнопка удаления тендера в списке тендеров
     protected By buttonConfirmDelete = By.id("tl-popup-approve-button"); // Кнопка подтверждения удаления тендера
     protected By buttonDeleteContextMenuColumn = By.xpath("(//div[@class='dx-submenu']//div[@role='menuitem'])[2]"); // Кнопка "Удалить" контекстного меню столбца
+    protected By buttonAddColumn = By.id("favourite-kanban-add-stage"); // Кнопка добавления столбца
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
+
     private final By buttonAddInMyTenders = By.xpath("//div[text()='Добавить в Мои тендеры']"); // Кнопка добавления в "Мои тендеры"
     private final By buttonSelectNameResponsible = By.xpath("//div[text()='Админ']"); // Выбор ответственного при добавлении тендера в "Мои тендеры"
     private final By buttonLoadDocumentationInListTenders = By.xpath("(//div[@class='favourite-kanban-load-documents'])[1]"); // Кнопка для скачивания документации тендера в списке тендеров
@@ -42,6 +46,11 @@ public class MyTenders extends PageObject {
     private final By registerNumberAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-card-regnumber'])[1]"); // Регистрационный номер добавленного тендера в списке тендеров
     private final By registerNumberTenderInListTenders = By.xpath("//div[@class='favourite-kanban-card-regnumber']"); // Регистрационный номер тендера в списке тендеров
     private final By nameAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-card-name'])[1]"); // Название добавленного тендера
+    private final By windowApproveDelete = By.xpath("//div[@class='tl-popup-wrapper tl-approve']"); // Окно подтверждения удаления
+    private final By elementListColumns = By.xpath("//div[@class='favourite-kanban-list']"); // Столбец
+    private final By fieldNameColumn = By.xpath("//div[@class='favourite-kanban-list']//input"); // Поле для ввода названия столбца
+    private final By nameSecondColumn = By.xpath("(//div[@class='favourite-kanban-list-title']/div)[2]"); // Название второго столбца
+
 
 
 
@@ -88,6 +97,11 @@ public class MyTenders extends PageObject {
         find(passwordField).sendKeys(password);
     } // Ввести пароль для входа
 
+    public void typeNameColumn(String name){
+        find(fieldNameColumn).sendKeys(name);
+        find(fieldNameColumn).sendKeys(Keys.ENTER);
+    } // Ввести название столбца
+
     public void moveToElement(By element){
         moveTo(element);
     } // Навести курсор на элемент
@@ -100,12 +114,24 @@ public class MyTenders extends PageObject {
 
     public void deleteSecondColumn(){
         int sumColumn = findAll(contextMenuColumn).size();
-        if(sumColumn==2){
-            findAll(contextMenuColumn).get(1).click();
-            find(buttonDeleteContextMenuColumn).click();
-            find(buttonConfirmDelete).click();
+        try {
+            if(sumColumn==2){
+                findAll(contextMenuColumn).get(1).click();
+                find(buttonDeleteContextMenuColumn).click();
+                find(buttonConfirmDelete).click();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
+    public Integer getNumberColumns(){
+        return findAll(elementListColumns).size();
+    } // Получить количество столбцов
+
+    public String getNameSecondColumn(){
+        return find(nameSecondColumn).getText();
+    } // Получить название второго столбца
 
     public boolean checkRegisterNumberAddedTender(){
         return find(registerNumberAddedTenderInListTenders).getText().equals("0372200015221000002");
@@ -136,6 +162,9 @@ public class MyTenders extends PageObject {
         return find(buttonDeleteContextMenuColumn).getAttribute("class").contains("dx-state-disabled");
     } // Проверка некликабельности кнопки "Удалить" контекстного меню столбца
 
+    public boolean checkVisibleWindowApproveDelete(){
+        return find(windowApproveDelete).isVisible();
+    } // Проверка появления окна подтверждения удаления
 
 
 }
