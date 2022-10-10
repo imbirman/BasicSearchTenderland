@@ -50,6 +50,11 @@ public class AuditorSteps {
         page.switchToTab();
     }
 
+    @Step("Прокрутить содержимое элемента вниз")
+    public void scroll_down_to(By scroll){
+        page.scrollDownTo(scroll);
+    }
+
     @Step("Ввод логина")
     public void type_login(String mail){
         page.typeLogin(mail);

@@ -4,6 +4,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -44,6 +45,7 @@ public class Auditor extends PageObject {
 
     protected By contextMenu = By.xpath("//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Контекстное меню в таблице результатов поиска
     protected By elementContextMenu = By.xpath("//div[@class='dx-submenu']//div[@class='dx-item dx-menu-item']//div[@class='tl-contextmenu-item']/div"); // Элемент контекстного меню
+    protected By fieldMainDataForScroll = By.xpath("//div[@class='tl-page']"); // Блок с основной информацией для прокрутки
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
@@ -51,8 +53,8 @@ public class Auditor extends PageObject {
     private final By fieldSearchInclude = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска "Включаем в поиск"
     private final By nameFounders = By.xpath("//div[@class='dx-popup-content']//div[@class='dx-datagrid-content']//tr/td[1]"); // Наименование учредителя
     private final By legalData = By.xpath("(//div[@class='tl-entity-param'])[3]//div[@class='tl-entity-parameter-value']"); // Юридические данные организации
-    private final By parameterLocatedInRNP = By.xpath("//p[text()='В настоящий момент находится в реестре']/following::p[1]"); // В разделе РНП поле находится ли организация в настоящий момент в РНП
-    private final By parameterTotalEntriesInRegistry = By.xpath("//p[text()='Всего записей в реестре']/following::p[1]"); // В разделе РНП поле "Всего записей в реестре"
+    private final By parameterLocatedInRNP = By.xpath("//div[text()='В настоящий момент находится в реестре']/following::div[1]"); // В разделе РНП поле находится ли организация в настоящий момент в РНП
+    private final By parameterTotalEntriesInRegistry = By.xpath("//div[text()='Всего записей в реестре']/following::div[1]"); // В разделе РНП поле "Всего записей в реестре"
 
 
     public void waitFor(long number){
@@ -96,6 +98,11 @@ public class Auditor extends PageObject {
             getDriver().switchTo().window(windowHandle);
         }
     } // Переключиться на следующую вкладку
+
+    public void scrollDownTo(By scroll){
+        ((JavascriptExecutor)getDriver()).executeScript(
+                "arguments[0].scrollTop = -1 >>> 1", find(scroll));
+    } // Прокрутить содержимое элемента вниз
 
     public boolean isContainOrganizationDetail(){
         List<String> checkOrganizationDetail = findAll(cellTableInResultSearch).texts();

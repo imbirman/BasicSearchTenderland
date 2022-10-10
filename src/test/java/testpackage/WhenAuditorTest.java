@@ -118,12 +118,16 @@ public class WhenAuditorTest extends Auditor {
     @Title("Проверка, что организация никогда не была в РНП")
     public void checkOrganizationNeverBeenInRNP(){
         steps.drag_and_drop_filter(filterSearchByStatusOfBeingInRNP);
+        steps.wait_a_bit(500);
         steps.click_button(radioButtonNeverBeenInRNP);
+
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
+        steps.wait_a_bit(1000);
         steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
-        steps.click_button(tabLeftMenuRNP);
+        steps.wait_a_bit(500);
+        steps.scroll_down_to(fieldMainDataForScroll);
         steps.check_organization_never_been_in_rnp();
 //        steps.wait_a_bit(5000);
     }
