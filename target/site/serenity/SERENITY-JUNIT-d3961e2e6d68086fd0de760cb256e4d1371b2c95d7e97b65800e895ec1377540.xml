@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="testpackage.WhenAuditorTest" skipped="0" tests="1" time="25.16" timestamp="2022-10-10 11:46:45"><testcase classname="testpackage.WhenAuditorTest" name="Проверка, что организация находится в РНП"><failure message="[организация либо никогда не была в РНП, либо сейчас не находится в РНП] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;" type="org.junit.ComparisonFailure">[организация либо никогда не была в РНП, либо сейчас не находится в РНП] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</failure><system-err>[организация либо никогда не была в РНП, либо сейчас не находится в РНП] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;&#13;
+steps.AuditorSteps.check_organization_located_in_rnp(AuditorSteps.java:118)&#13;
+testpackage.WhenAuditorTest.checkOrganizationLocatedInRNP(WhenAuditorTest.java:162)&#13;
+</system-err></testcase></testsuite>
