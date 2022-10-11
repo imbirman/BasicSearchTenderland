@@ -211,6 +211,8 @@ public class Auditor extends PageObject {
         List <String> checkElementsContextMenu = new ArrayList<>();
         checkElementsContextMenu.add("Скрыть организацию");
         checkElementsContextMenu.add("Метка организации");
+        checkElementsContextMenu.add("Отметить как просмотренные");
+        checkElementsContextMenu.add("Скачать документацию");
 
         return listElementsContextMenu.equals(checkElementsContextMenu);
     } // Проверка списка элементов контекстного меню

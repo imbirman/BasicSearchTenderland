@@ -176,6 +176,18 @@ public class WhenAuditorTest extends Auditor {
     }
 
     @Test
+    @Title("Проверка названия элементов контекстного меню")
+    public void checkCorrectNameElementsContextMenu(){
+        steps.drag_and_drop_filter(filterOrganizationDetails);
+        steps.wait_a_bit(500);
+        steps.type_search_include("1047796171631");
+        steps.click_button(openTabMenu);
+        steps.click_button(buttonSearch);
+        steps.click_button(contextMenu);
+        steps.check_correct_name_elements_context_menu();
+    }
+
+    @Test
     @Title("Проверка кликабельности кнопок в блоках")
     public void checkClickableButtonsInBlocks(){
         steps.drag_and_drop_filter(filterOrganizationDetails);
