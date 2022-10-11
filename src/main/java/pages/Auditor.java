@@ -44,7 +44,7 @@ public class Auditor extends PageObject {
     protected By radioButtonLocatedInRNP = By.xpath("(//div[@class='dx-radiobutton-icon'])[3]"); // Находится в РНП
 
     protected By contextMenu = By.xpath("//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Контекстное меню в таблице результатов поиска
-    protected By elementContextMenu = By.xpath("//div[@class='dx-submenu']//div[@class='dx-item dx-menu-item']//div[@class='tl-contextmenu-item']/div"); // Элемент контекстного меню
+    protected By elementContextMenu = By.xpath("//div[@class='dx-submenu']//div[@class='dx-item dx-menu-item']//div[@class='favourite-kanban-context-menu-item']"); // Элемент контекстного меню
     protected By fieldMainDataForScroll = By.xpath("//div[@class='tl-page']"); // Блок с основной информацией для прокрутки
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
