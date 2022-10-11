@@ -174,4 +174,18 @@ public class WhenAuditorTest extends Auditor {
         steps.click_button(contextMenu);
         steps.check_correct_number_elements_context_menu();
     }
+
+    @Test
+    @Title("Проверка кликабельности кнопок в блоках")
+    public void checkClickableButtonsInBlocks(){
+        steps.drag_and_drop_filter(filterOrganizationDetails);
+        steps.wait_a_bit(500);
+        steps.type_search_include("2801102311");
+        steps.click_button(openTabMenu);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(500);
+        steps.click_button(cellTableInResultSearch);
+        steps.switch_to_tab();
+        steps.check_clickable_buttons();
+    }
 }

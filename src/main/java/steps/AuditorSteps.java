@@ -130,4 +130,9 @@ public class AuditorSteps {
                 .as("Список элементов контекстного меню некорректен").isTrue();
     }
 
+    @Step("Проверка кликабельности кнопок в блоках")
+    public  void check_clickable_buttons(){
+        Assertions.assertThat(page.checkClickableButtons()).as("В блоках есть некликабельные кнопки").isTrue();
+    }
+
 }

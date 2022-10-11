@@ -27,6 +27,12 @@ public class Auditor extends PageObject {
     protected By buttonAutoSearchDateRegistration = By.xpath("//span[text()='Проверка поиска по дате регистрации']"); // Кнопка автопоиска "Проверка поиска по дате регистрации"
     protected By buttonAutoSearchDateClosing = By.xpath("//span[text()='Проверка поиска по дате закрытия']"); // Кнопка автопоиска "Проверка поиска по дате закрытия"
     protected By buttonOpenListFounders = By.id("entity-all-persons-organizations"); // Кнопка для открытия списка учредителей
+    protected By buttonOpenListAllTenders = By.id("entity-all-tenders"); // Кнопка для открытия списка тендеров
+    protected By buttonOpenListAllFASClaim  =By.id("entity-all-fas-organizations"); // Кнопка для открытия списка жалоб ФАС
+    protected By buttonOpenListAllEnforcementProceedings = By.id("entity-all-enforcement-proceedings"); // Кнопка для открытия списка исполнительных производств
+    protected By buttonOpenListAllContracts = By.id("entity-all-contracts-organizations"); // Кнопка для открытия списка контрактов
+    protected By buttonOpenListArbitrationCases = By.id("entity-all-cases"); // Кнопка для открытия списка арбитражных дел
+    protected By buttonOpenListArbitrationCasesOnAffiliates = By.id("entity-affilated-cases-affilation"); // Кнопка для открытия списка арбитражных дел по аффилированным лицам
 
     protected By filterOrganizationDetails = By.xpath("//span[text()='Реквизиты организации']"); // Фильтр "Реквизиты организации" в блоке фильтров
     protected By filterSearchByFounders = By.xpath("//span[text()='Поиск по учредителям']"); // Фильтр "Поиск по учредителям" в блоке фильтров
@@ -46,6 +52,9 @@ public class Auditor extends PageObject {
     protected By contextMenu = By.xpath("//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Контекстное меню в таблице результатов поиска
     protected By elementContextMenu = By.xpath("//div[@class='dx-submenu']//div[@class='dx-item dx-menu-item']//div[@class='favourite-kanban-context-menu-item']"); // Элемент контекстного меню
     protected By fieldMainDataForScroll = By.xpath("//div[@class='tl-page']"); // Блок с основной информацией для прокрутки
+    protected By headerBlockMainInfo = By.xpath("//div[@id='main-info-blocks']//div[@class='tl-entity-blocks-header']"); // Заголовок блока с основной информацией
+    protected By headerBlockTendersInfo = By.xpath("//div[@id='tender-info-blocks']//div[@class='tl-entity-blocks-header']"); // Заголовок блока с тендерной информацией
+    protected By headerBlockArbitrationInfo = By.xpath("//div[@id='cases-info-blocks']//div[@class='tl-entity-blocks-header']"); // Заголовок блока с арбитражной информацией
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
@@ -205,5 +214,24 @@ public class Auditor extends PageObject {
 
         return listElementsContextMenu.equals(checkElementsContextMenu);
     } // Проверка списка элементов контекстного меню
+
+    public boolean checkClickableButtons(){
+        boolean check = true;
+        List<Boolean> listClickable = new ArrayList<>();
+        listClickable.add(find(buttonOpenListFounders).isClickable());
+        clickButton(headerBlockMainInfo);
+        listClickable.add(find(buttonOpenListAllTenders).isClickable());
+        listClickable.add(find(buttonOpenListAllFASClaim).isClickable());
+        listClickable.add(find(buttonOpenListAllEnforcementProceedings).isClickable());
+        scrollDownTo(fieldMainDataForScroll);
+        listClickable.add(find(buttonOpenListAllContracts).isClickable());
+        listClickable.add(find(buttonOpenListArbitrationCases).isClickable());
+        listClickable.add(find(buttonOpenListArbitrationCasesOnAffiliates).isClickable());
+        System.out.println(listClickable);
+        for(boolean type:listClickable){
+            if(!type){check = false; break;}
+        }
+        return  check;
+    }
 
 }
