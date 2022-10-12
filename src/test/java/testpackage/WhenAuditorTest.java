@@ -200,4 +200,141 @@ public class WhenAuditorTest extends Auditor {
         steps.switch_to_tab();
         steps.check_clickable_buttons();
     }
+
+    @Test
+    @Title("Проверка названия окна списка учредителей")
+    public void checkNameWindowFounders(){
+        steps.drag_and_drop_filter(filterOrganizationDetails);
+        steps.wait_a_bit(500);
+        steps.type_search_include("2801102311");
+        steps.click_button(openTabMenu);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(500);
+        steps.click_button(cellTableInResultSearch);
+        steps.switch_to_tab();
+        steps.wait_a_bit(500);
+        steps.click_button(buttonOpenListFounders);
+        steps.check_name_window_founders();
+    }
+
+    @Test
+    @Title("Проверка списка учредителей")
+    public void checkListFounders(){
+        steps.drag_and_drop_filter(filterOrganizationDetails);
+        steps.wait_a_bit(500);
+        steps.type_search_include("2801102311");
+        steps.click_button(openTabMenu);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(500);
+        steps.click_button(cellTableInResultSearch);
+        steps.switch_to_tab();
+        steps.wait_a_bit(500);
+        steps.click_button(buttonOpenListFounders);
+        steps.check_correct_name_founders();
+    }
+
+    @Test
+    @Title("Проверка названия окна списка тендеров")
+    public void checkNameWindowTenders(){
+        steps.drag_and_drop_filter(filterOrganizationDetails);
+        steps.wait_a_bit(500);
+        steps.type_search_include("2801102311");
+        steps.click_button(openTabMenu);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(500);
+        steps.click_button(cellTableInResultSearch);
+        steps.switch_to_tab();
+        steps.wait_a_bit(500);
+        steps.click_button(headerBlockMainInfo);
+        steps.click_button(buttonOpenListAllTenders);
+        steps.check_name_window_tenders();
+    }
+
+    @Test
+    @Title("Проверка названия окна списка жалоб ФАС")
+    public void checkNameWindowFASClaim(){
+        steps.drag_and_drop_filter(filterOrganizationDetails);
+        steps.wait_a_bit(500);
+        steps.type_search_include("2801102311");
+        steps.click_button(openTabMenu);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(500);
+        steps.click_button(cellTableInResultSearch);
+        steps.switch_to_tab();
+        steps.wait_a_bit(500);
+        steps.click_button(headerBlockMainInfo);
+        steps.click_button(buttonOpenListFASClaim);
+        steps.check_name_window_fas_claim();
+    }
+
+    @Test
+    @Title("Проверка названия окна списка исполнительных производств")
+    public void checkNameWindowEnforcementProceeding(){
+        steps.drag_and_drop_filter(filterOrganizationDetails);
+        steps.wait_a_bit(500);
+        steps.type_search_include("2801102311");
+        steps.click_button(openTabMenu);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(500);
+        steps.click_button(cellTableInResultSearch);
+        steps.switch_to_tab();
+        steps.wait_a_bit(500);
+        steps.click_button(headerBlockMainInfo);
+        steps.click_button(buttonOpenListEnforcementProceedings);
+        steps.check_name_window_enforcement_proceedings();
+    }
+
+    @Test
+    @Title("Проверка названия окна списка контрактов")
+    public void checkNameWindowContracts(){
+        steps.drag_and_drop_filter(filterOrganizationDetails);
+        steps.wait_a_bit(500);
+        steps.type_search_include("2801102311");
+        steps.click_button(openTabMenu);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(500);
+        steps.click_button(cellTableInResultSearch);
+        steps.switch_to_tab();
+        steps.wait_a_bit(500);
+        steps.click_button(headerBlockMainInfo);
+        steps.scroll_down_to(fieldMainDataForScroll);
+        steps.click_button(buttonOpenListContracts);
+        steps.check_name_window_contracts();
+    }
+
+    @Test
+    @Title("Проверка названия окна списка арбитражных дел")
+    public void checkNameWindowArbitrationCases(){
+        steps.drag_and_drop_filter(filterOrganizationDetails);
+        steps.wait_a_bit(500);
+        steps.type_search_include("2801102311");
+        steps.click_button(openTabMenu);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(500);
+        steps.click_button(cellTableInResultSearch);
+        steps.switch_to_tab();
+        steps.wait_a_bit(500);
+        steps.click_button(headerBlockMainInfo);
+        steps.scroll_down_to(fieldMainDataForScroll);
+        steps.click_button(buttonOpenListArbitrationCases);
+        steps.check_name_window_arbitration_cases();
+    }
+
+    @Test
+    @Title("Проверка названия окна списка арбитражных дел")
+    public void checkNameWindowArbitrationCasesOnAffiliates(){
+        steps.drag_and_drop_filter(filterOrganizationDetails);
+        steps.wait_a_bit(500);
+        steps.type_search_include("2801102311");
+        steps.click_button(openTabMenu);
+        steps.click_button(buttonSearch);
+        steps.wait_a_bit(500);
+        steps.click_button(cellTableInResultSearch);
+        steps.switch_to_tab();
+        steps.wait_a_bit(500);
+        steps.click_button(headerBlockMainInfo);
+        steps.scroll_down_to(fieldMainDataForScroll);
+        steps.click_button(buttonOpenListArbitrationCasesOnAffiliates);
+        steps.check_name_window_arbitration_cases_on_affiliates();
+    }
 }

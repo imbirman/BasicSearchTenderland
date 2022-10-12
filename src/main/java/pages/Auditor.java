@@ -28,9 +28,9 @@ public class Auditor extends PageObject {
     protected By buttonAutoSearchDateClosing = By.xpath("//span[text()='Проверка поиска по дате закрытия']"); // Кнопка автопоиска "Проверка поиска по дате закрытия"
     protected By buttonOpenListFounders = By.id("entity-all-persons-organizations"); // Кнопка для открытия списка учредителей
     protected By buttonOpenListAllTenders = By.id("entity-all-tenders"); // Кнопка для открытия списка тендеров
-    protected By buttonOpenListAllFASClaim  =By.id("entity-all-fas-organizations"); // Кнопка для открытия списка жалоб ФАС
-    protected By buttonOpenListAllEnforcementProceedings = By.id("entity-all-enforcement-proceedings"); // Кнопка для открытия списка исполнительных производств
-    protected By buttonOpenListAllContracts = By.id("entity-all-contracts-organizations"); // Кнопка для открытия списка контрактов
+    protected By buttonOpenListFASClaim  =By.id("entity-all-fas-organizations"); // Кнопка для открытия списка жалоб ФАС
+    protected By buttonOpenListEnforcementProceedings = By.id("entity-all-enforcement-proceedings"); // Кнопка для открытия списка исполнительных производств
+    protected By buttonOpenListContracts = By.id("entity-all-contracts-organizations"); // Кнопка для открытия списка контрактов
     protected By buttonOpenListArbitrationCases = By.id("entity-all-cases"); // Кнопка для открытия списка арбитражных дел
     protected By buttonOpenListArbitrationCasesOnAffiliates = By.id("entity-affilated-cases-affilation"); // Кнопка для открытия списка арбитражных дел по аффилированным лицам
 
@@ -60,10 +60,11 @@ public class Auditor extends PageObject {
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
     private final By fieldSearchInclude = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска "Включаем в поиск"
-    private final By nameFounders = By.xpath("//div[@class='dx-popup-content']//div[@class='dx-datagrid-content']//tr/td[1]"); // Наименование учредителя
+    private final By nameFounders = By.xpath("//div[@class='dx-popup-content']//div[@class='dx-datagrid-content']//tr/td[1]"); // ФИО учредителя
     private final By legalData = By.xpath("(//div[@class='tl-entity-param'])[3]//div[@class='tl-entity-parameter-value']"); // Юридические данные организации
     private final By parameterLocatedInRNP = By.xpath("//div[text()='В настоящий момент находится в реестре']/following::div[1]"); // В разделе РНП поле находится ли организация в настоящий момент в РНП
     private final By parameterTotalEntriesInRegistry = By.xpath("//div[text()='Всего записей в реестре']/following::div[1]"); // В разделе РНП поле "Всего записей в реестре"
+    private final By nameWindowBlock = By.xpath("//div[@class='dx-item dx-toolbar-item dx-toolbar-label']/div[@class='dx-item-content dx-toolbar-item-content']/div"); // Название окна блока с учредителями
 
 
     public void waitFor(long number){
@@ -112,6 +113,10 @@ public class Auditor extends PageObject {
         ((JavascriptExecutor)getDriver()).executeScript(
                 "arguments[0].scrollTop = -1 >>> 1", find(scroll));
     } // Прокрутить содержимое элемента вниз
+
+    public String getNameWindowBlock(){
+        return find(nameWindowBlock).getText();
+    } // Получить название окна блока
 
     public boolean isContainOrganizationDetail(){
         List<String> checkOrganizationDetail = findAll(cellTableInResultSearch).texts();
@@ -162,27 +167,6 @@ public class Auditor extends PageObject {
         return checkIsLegalData;
     } // Проверка, что организация недействующая
 
-    public boolean checkDate(String startDate, String endDate) throws ParseException {
-        boolean check = true;
-        List<WebElementFacade> dateForCheck = findAll(cellTableInResultSearch);
-        dateForCheck.remove(dateForCheck.size()-1);
-        for(WebElementFacade date : dateForCheck) {
-            String dateStr = date.getText();
-//            dateStr = dateStr.replace("0:00", "");
-//            dateStr = dateStr.replace("\n", " ");
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-            Date currentDate = dateFormat.parse(dateStr);
-            Date leftDate = dateFormat.parse(startDate);
-            Date rightDate = dateFormat.parse(endDate);
-            if(!(currentDate.getTime() >= leftDate.getTime() && currentDate.getTime() <= rightDate.getTime())){
-                check = false;
-                break;
-            }
-//            System.out.println(date.getText());
-        }
-        return check;
-    } // Проверка, что дата публикации находится в заданном диапазоне
-
     public boolean isNeverBeenInRNP(){
         int checkTotalEntriesInRegistry;
         checkTotalEntriesInRegistry = Integer.parseInt(find(parameterTotalEntriesInRegistry).getText());
@@ -217,16 +201,37 @@ public class Auditor extends PageObject {
         return listElementsContextMenu.equals(checkElementsContextMenu);
     } // Проверка списка элементов контекстного меню
 
-    public boolean checkClickableButtons(){
+    public boolean isCorrectDate(String startDate, String endDate) throws ParseException {
+        boolean check = true;
+        List<WebElementFacade> dateForCheck = findAll(cellTableInResultSearch);
+        dateForCheck.remove(dateForCheck.size()-1);
+        for(WebElementFacade date : dateForCheck) {
+            String dateStr = date.getText();
+//            dateStr = dateStr.replace("0:00", "");
+//            dateStr = dateStr.replace("\n", " ");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+            Date currentDate = dateFormat.parse(dateStr);
+            Date leftDate = dateFormat.parse(startDate);
+            Date rightDate = dateFormat.parse(endDate);
+            if(!(currentDate.getTime() >= leftDate.getTime() && currentDate.getTime() <= rightDate.getTime())){
+                check = false;
+                break;
+            }
+//            System.out.println(date.getText());
+        }
+        return check;
+    } // Проверка, что дата публикации находится в заданном диапазоне
+
+    public boolean isClickableButtons(){
         boolean check = true;
         List<Boolean> listClickable = new ArrayList<>();
         listClickable.add(find(buttonOpenListFounders).isClickable());
         clickButton(headerBlockMainInfo);
         listClickable.add(find(buttonOpenListAllTenders).isClickable());
-        listClickable.add(find(buttonOpenListAllFASClaim).isClickable());
-        listClickable.add(find(buttonOpenListAllEnforcementProceedings).isClickable());
+        listClickable.add(find(buttonOpenListFASClaim).isClickable());
+        listClickable.add(find(buttonOpenListEnforcementProceedings).isClickable());
         scrollDownTo(fieldMainDataForScroll);
-        listClickable.add(find(buttonOpenListAllContracts).isClickable());
+        listClickable.add(find(buttonOpenListContracts).isClickable());
         listClickable.add(find(buttonOpenListArbitrationCases).isClickable());
         listClickable.add(find(buttonOpenListArbitrationCasesOnAffiliates).isClickable());
         System.out.println(listClickable);
@@ -234,6 +239,19 @@ public class Auditor extends PageObject {
             if(!type){check = false; break;}
         }
         return  check;
+    } // Проверка кликабельности кнопок блоков
+
+
+
+    public boolean isCorrectNameFounders(){
+        List<String> listFounders = findAll(nameFounders).texts();
+        listFounders.remove(listFounders.size()-1);
+        List<String> checkFounders = new ArrayList<>();
+        checkFounders.add("ПЕРЕВАЛОВ ВЛАДИМИР ВИКТОРОВИЧ");
+        checkFounders.add("ДЕГОДЬЕВА ВЕРА ВАСИЛЬЕВНА");
+        checkFounders.add("КОВАЛЕНКО ЛЮДМИЛА ПАВЛОВНА");
+
+        return listFounders.equals(checkFounders);
     }
 
 }

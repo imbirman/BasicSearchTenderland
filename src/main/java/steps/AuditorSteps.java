@@ -96,7 +96,7 @@ public class AuditorSteps {
 
     @Step("Проверка даты регистрации")
     public void check_date(String startDate, String endDate) throws ParseException {
-        Assertions.assertThat(page.checkDate(startDate, endDate))
+        Assertions.assertThat(page.isCorrectDate(startDate, endDate))
                 .as("Есть организации с датой регистрацией, не входящей в заданный промежуток").isTrue();
     }
 
@@ -132,7 +132,47 @@ public class AuditorSteps {
 
     @Step("Проверка кликабельности кнопок в блоках")
     public  void check_clickable_buttons(){
-        Assertions.assertThat(page.checkClickableButtons()).as("В блоках есть некликабельные кнопки").isTrue();
+        Assertions.assertThat(page.isClickableButtons()).as("В блоках есть некликабельные кнопки").isTrue();
+    }
+
+    @Step("Проверка названия окна учредителей")
+    public  void check_name_window_founders(){
+        Assertions.assertThat(page.getNameWindowBlock()).as("Название окна учредителей некорректно").isEqualTo("Учредители");
+    }
+
+    @Step("Проверка названия окна тендеров")
+    public  void check_name_window_tenders(){
+        Assertions.assertThat(page.getNameWindowBlock()).as("Название окна тендеров некорректно").isEqualTo("Тендеры");
+    }
+
+    @Step("Проверка названия окна жалоб ФАС")
+    public  void check_name_window_fas_claim(){
+        Assertions.assertThat(page.getNameWindowBlock()).as("Название окна жалоб ФАС некорректно").isEqualTo("Жалобы ФАС");
+    }
+
+    @Step("Проверка названия окна исполнительных производств")
+    public  void check_name_window_enforcement_proceedings(){
+        Assertions.assertThat(page.getNameWindowBlock()).as("Название окна исполнительных производств некорректно").isEqualTo("Исполнительные производства");
+    }
+
+    @Step("Проверка названия окна контрактов")
+    public  void check_name_window_contracts(){
+        Assertions.assertThat(page.getNameWindowBlock()).as("Название окна контрактов некорректно").isEqualTo("Контракты");
+    }
+
+    @Step("Проверка названия окна арбитражных дел")
+    public  void check_name_window_arbitration_cases(){
+        Assertions.assertThat(page.getNameWindowBlock()).as("Название окна арбитражных дел некорректно").isEqualTo("Суды");
+    }
+
+    @Step("Проверка названия окна арбитражных дел по аффилированным лицам")
+    public  void check_name_window_arbitration_cases_on_affiliates(){
+        Assertions.assertThat(page.getNameWindowBlock()).as("Название окна арбитражных дел по аффилированным лицам некорректно").isEqualTo("Суды по аффилированным лицам");
+    }
+
+    @Step("Проверка списка учредителей")
+    public  void check_correct_name_founders(){
+        Assertions.assertThat(page.isCorrectNameFounders()).as("Список ").isTrue();
     }
 
 }
