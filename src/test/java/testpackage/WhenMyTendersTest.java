@@ -99,4 +99,14 @@ public class WhenMyTendersTest extends MyTenders {
         steps.check_number_filters();
     }
 
+    @Test
+    @Title("Проверка поиска по реестровому номеру тендера")
+    public void checkSearchByRegisterNumberTender(){
+
+        openMyTenders();
+        steps.type_search_by_tender("01");
+        steps.wait_a_bit(2000);
+        steps.check_search_by_register_number_tender();
+    }
+
 }

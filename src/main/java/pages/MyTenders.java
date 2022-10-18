@@ -39,6 +39,7 @@ public class MyTenders extends PageObject {
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
+    private final By searchTenderField = By.xpath("//div[@id='favourite-search-name']//input"); // Поле для ввода поиска по тендеру
 
     private final By buttonAddInMyTenders = By.xpath("//div[text()='Добавить в Мои тендеры']"); // Кнопка добавления в "Мои тендеры"
     private final By buttonSelectNameResponsible = By.xpath("//div[text()='Админ']"); // Выбор ответственного при добавлении тендера в "Мои тендеры"
@@ -52,6 +53,7 @@ public class MyTenders extends PageObject {
     private final By fieldNameColumn = By.xpath("//div[@class='favourite-kanban-list']//input"); // Поле для ввода названия столбца
     private final By nameSecondColumn = By.xpath("(//div[@class='favourite-kanban-list-title']/div)[2]"); // Название второго столбца
     private final By filterForCheckNumberFilters = By.xpath("//div[@class='dx-texteditor-container']"); // Общий фильтр
+
 
 
 
@@ -97,6 +99,10 @@ public class MyTenders extends PageObject {
 
     public void typePassword(String password){
         find(passwordField).sendKeys(password);
+    } // Ввести пароль для входа
+
+    public void typeSearchByTender(String search){
+        find(searchTenderField).sendKeys(search);
     } // Ввести пароль для входа
 
     public void typeNameColumn(String name){
@@ -172,5 +178,17 @@ public class MyTenders extends PageObject {
         return find(windowApproveDelete).isVisible();
     } // Проверка появления окна подтверждения удаления
 
+    public boolean checkSearchByNumberTender(){
+
+        boolean check = false;
+
+        List<String> checkRegisterNumber = findAll(registerNumberTenderInListTenders).texts();
+
+        for(String type : checkRegisterNumber){
+            if(type.contains("01")){check = true; break;}
+        }
+
+        return check;
+    } // Проверка результата поиска по реестровому номеру тендера
 
 }

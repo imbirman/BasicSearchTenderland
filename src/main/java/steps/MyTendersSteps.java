@@ -53,6 +53,11 @@ public class MyTendersSteps {
         page.typePassword(password);
     }
 
+    @Step("Ввод ключевого слова для поиска по тендеру")
+    public void type_search_by_tender(String search){
+        page.typeSearchByTender(search);
+    }
+
     @Step("Ввод названия столбца")
     public void type_name_column(String name){
         page.typeNameColumn(name);
@@ -128,4 +133,10 @@ public class MyTendersSteps {
     public void check_number_filters(){
         Assertions.assertThat(page.getNumberFilters()).as("Количество фильтров некорректно").isEqualTo(9);
     }
+
+    @Step("Проверка поиска по реестровому номеру тендера")
+    public void check_search_by_register_number_tender(){
+        Assertions.assertThat(page.checkSearchByNumberTender()).as("В списке тендеров нет тендера в чей реестровый номер входит ключевое слово").isTrue();
+    }
+
 }
