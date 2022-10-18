@@ -178,7 +178,7 @@ public class MyTenders extends PageObject {
         return find(windowApproveDelete).isVisible();
     } // Проверка появления окна подтверждения удаления
 
-    public boolean checkSearchByNumberTender(){
+    public boolean checkSearchByNumberTenderInTabCard(){
 
         boolean check = false;
 

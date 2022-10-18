@@ -135,8 +135,8 @@ public class MyTendersSteps {
     }
 
     @Step("Проверка поиска по реестровому номеру тендера")
-    public void check_search_by_register_number_tender(){
-        Assertions.assertThat(page.checkSearchByNumberTender()).as("В списке тендеров нет тендера в чей реестровый номер входит ключевое слово").isTrue();
+    public void check_search_by_register_number_tender_in_tab_card(){
+        Assertions.assertThat(page.checkSearchByNumberTenderInTabCard()).as("В списке тендеров нет тендера в чей реестровый номер входит ключевое слово").isTrue();
     }
 
 }

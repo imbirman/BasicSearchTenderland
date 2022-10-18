@@ -101,12 +101,12 @@ public class WhenMyTendersTest extends MyTenders {
 
     @Test
     @Title("Проверка поиска по реестровому номеру тендера")
-    public void checkSearchByRegisterNumberTender(){
+    public void checkSearchByRegisterNumberTenderInTabCard(){
 
         openMyTenders();
         steps.type_search_by_tender("01");
         steps.wait_a_bit(2000);
-        steps.check_search_by_register_number_tender();
+        steps.check_search_by_register_number_tender_in_tab_card();
     }
 
 }
