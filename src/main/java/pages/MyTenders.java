@@ -33,8 +33,9 @@ public class MyTenders extends PageObject {
     protected By buttonDeleteAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-delete-favourite'])[1]"); // Кнопка удаления добавленного тендера в списке тендеров
     protected By buttonDeleteTenderInListTenders = By.xpath("//div[@class='favourite-kanban-delete-favourite']"); // Кнопка удаления тендера в списке тендеров
     protected By buttonConfirmDelete = By.id("tl-popup-approve-button"); // Кнопка подтверждения удаления тендера
-    protected By buttonDeleteContextMenuColumn = By.xpath("(//div[@class='dx-submenu']//div[@role='menuitem'])[2]"); // Кнопка "Удалить" контекстного меню столбца
+    protected By buttonDeleteContextMenuColumn = By.xpath("(//div[@class='dx-submenu']//div[@role='menuitem'])[3]"); // Кнопка "Удалить" контекстного меню столбца
     protected By buttonAddColumn = By.id("favourite-kanban-add-stage"); // Кнопка добавления столбца
+    protected By buttonOpenListFilters = By.id("favourite-filter-switch-icon"); // Кнопка раскрытия списка фильтров
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
@@ -50,6 +51,7 @@ public class MyTenders extends PageObject {
     private final By elementListColumns = By.xpath("//div[@class='favourite-kanban-list']"); // Столбец
     private final By fieldNameColumn = By.xpath("//div[@class='favourite-kanban-list']//input"); // Поле для ввода названия столбца
     private final By nameSecondColumn = By.xpath("(//div[@class='favourite-kanban-list-title']/div)[2]"); // Название второго столбца
+    private final By filterForCheckNumberFilters = By.xpath("//div[@class='dx-texteditor-container']"); // Общий фильтр
 
 
 
@@ -128,6 +130,10 @@ public class MyTenders extends PageObject {
     public Integer getNumberColumns(){
         return findAll(elementListColumns).size();
     } // Получить количество столбцов
+
+    public Integer getNumberFilters(){
+        return findAll(filterForCheckNumberFilters).size();
+    } // Получить количество фильтров
 
     public String getNameSecondColumn(){
         return find(nameSecondColumn).getText();
