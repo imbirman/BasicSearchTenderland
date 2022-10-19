@@ -78,32 +78,32 @@ public class MyTendersSteps {
 
     @Step("Проверка номера и места добавленного тендера")
     public void check_register_number_added_tender(){
-        Assertions.assertThat(page.checkRegisterNumberAddedTender()).as("Добавленный тендер отсутствует, либо находится не на первом месте").isTrue();
+        Assertions.assertThat(page.isCheckRegisterNumberAddedTender()).as("Добавленный тендер отсутствует, либо находится не на первом месте").isTrue();
     }
 
     @Step("Проверка номера и места добавленного тендера")
     public void check_name_added_tender(){
-        Assertions.assertThat(page.checkNameAddedTender()).as("Наименование добавленного тендера некорректно").isTrue();
+        Assertions.assertThat(page.isCheckNameAddedTender()).as("Наименование добавленного тендера некорректно").isTrue();
     }
 
     @Step("Проверка номера и места добавленного тендера")
     public void check_delete_added_tender(){
-        Assertions.assertThat(page.checkDeleteAddedTender()).as("Добавленный тендер не удален").isTrue();
+        Assertions.assertThat(page.isCheckDeleteAddedTender()).as("Добавленный тендер не удален").isTrue();
     }
 
     @Step("Проверка кликабельности кнопки удаления тендера в списке тендеров")
     public void check_clickable_button_delete_tender_in_list_tenders(){
-        Assertions.assertThat(page.checkClickableButtonDeleteTenderInListTenders()).as("Кнопка удаления тендера в списке тендеров не активна").isTrue();
+        Assertions.assertThat(page.isCheckClickableButtonDeleteTenderInListTenders()).as("Кнопка удаления тендера в списке тендеров не активна").isTrue();
     }
 
     @Step("Проверка кликабельности кнопки скачивания документации тендера в списке тендеров")
     public void check_clickable_button_load_documentation_tender_in_list_tenders(){
-        Assertions.assertThat(page.checkClickableButtonLoadDocumentationTenderInListTenders()).as("Кнопка скачивания документации тендера в списке тендеров не активна").isTrue();
+        Assertions.assertThat(page.isCheckClickableButtonLoadDocumentationTenderInListTenders()).as("Кнопка скачивания документации тендера в списке тендеров не активна").isTrue();
     }
 
     @Step("Проверка некликабельности кнопки \"Удалить\" контекстного меню столбца")
     public void check_disable_button_delete_context_menu_column(){
-        Assertions.assertThat(page.checkDisableButtonDeleteContextMenuColumn()).as("Кнопка 'Удалить' контекстного меню столбца активна при единственном столбце").isTrue();
+        Assertions.assertThat(page.isCheckDisableButtonDeleteContextMenuColumn()).as("Кнопка 'Удалить' контекстного меню столбца активна при единственном столбце").isTrue();
     }
 
     @Step("Удаление второго столбца")
@@ -111,7 +111,7 @@ public class MyTendersSteps {
 
     @Step("Проверка появления окна подтверждения удаления")
     public void check_visible_window_approve_delete(){
-        Assertions.assertThat(page.checkVisibleWindowApproveDelete()).as("Окно подтверждения удаления не появилось").isTrue();
+        Assertions.assertThat(page.isCheckVisibleWindowApproveDelete()).as("Окно подтверждения удаления не появилось").isTrue();
     }
 
     @Step("Проверка количества столбцов после добавления нового столбца")
@@ -136,12 +136,17 @@ public class MyTendersSteps {
 
     @Step("Проверка поиска по реестровому номеру тендера")
     public void check_search_by_register_number_tender_in_tab_card(){
-        Assertions.assertThat(page.checkSearchByRegisterNumberTender()).as("В списке тендеров нет тендера, в чей реестровый номер входит ключевое слово").isTrue();
+        Assertions.assertThat(page.isCheckSearchByRegisterNumberTender()).as("В списке тендеров нет тендера, в чей реестровый номер входит ключевое слово").isTrue();
     }
 
     @Step("Проверка поиска по названию тендера")
     public void check_search_by_name_tender_in_tab_card(){
-        Assertions.assertThat(page.checkSearchByNameTender()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
+        Assertions.assertThat(page.isCheckSearchByNameTender()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
+    }
+
+    @Step("Проверка поиска по названию тендера")
+    public void check_search_by_user_in_tab_card(){
+        Assertions.assertThat(page.isCheckSearchByUser()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
     }
 
 }

@@ -21,9 +21,10 @@ public class MyTenders extends PageObject {
     protected By contextMenuResultSearchForTestAddingAndDeleteTender = By.xpath("(//a[@class='dx-link dx-icon-overflow dx-link-icon'])[3]"); // Кнопка контекстного меню для строки результата поиска для добавления в мои тендеры
     protected By contextMenuColumn = By.xpath("//div[@class='favourite-kanban-list-title']/i"); // Кнопка контекстного меню столбца
 
-
-
-
+    protected By filterUsers = By.xpath("//div[@id='favourite-search-select-child-user']//input"); // Поле выбора пользователя в фильтре "Пользователи"
+    protected By selectUserAdmin = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Выбранный пользователь "Админ" в фильтре "Пользователи"
+    protected By openCardTender = By.xpath("//div[@class='dx-treelist-text-content']/div[@class='favourite-kanban-card']"); // Открыть карточку тендера
+    protected By responsibleByTenderInCardTender = By.xpath("//div[@id='favourite-tender-select-responsible']//div[@class='dx-texteditor-container']//input"); // Ответственный за тендер в карточке тендера
 
     protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
@@ -146,15 +147,15 @@ public class MyTenders extends PageObject {
         return find(nameSecondColumn).getText();
     } // Получить название второго столбца
 
-    public boolean checkRegisterNumberAddedTender(){
+    public boolean isCheckRegisterNumberAddedTender(){
         return find(registerNumberAddedTenderInListTenders).getText().equals("0372200015221000002");
     } // Проверка номера добавленного тендера
 
-    public boolean checkNameAddedTender(){
+    public boolean isCheckNameAddedTender(){
         return find(nameAddedTenderInListTenders).getText().equals("Приобретение мешков для мусора");
     } // Проверка названия добавленного тендера
 
-    public boolean checkDeleteAddedTender(){
+    public boolean isCheckDeleteAddedTender(){
         boolean check = true;
         List<String> elementForCheck = findAll(registerNumberTenderInListTenders).texts();
         for(String element: elementForCheck){
@@ -163,23 +164,23 @@ public class MyTenders extends PageObject {
         return check;
     } // Проверка удаления добавленного тендера
 
-    public boolean checkClickableButtonDeleteTenderInListTenders(){
+    public boolean isCheckClickableButtonDeleteTenderInListTenders(){
         return find(buttonDeleteTenderInListTenders).isClickable();
     } // Проверка кликабельности кнопки удаления тендера в списке тендеров
 
-    public boolean checkClickableButtonLoadDocumentationTenderInListTenders(){
+    public boolean isCheckClickableButtonLoadDocumentationTenderInListTenders(){
         return find(buttonLoadDocumentationInListTenders).isClickable();
     } // Проверка кликабельности кнопки скачивания документации тендера в списке тендеров
 
-    public boolean checkDisableButtonDeleteContextMenuColumn(){
+    public boolean isCheckDisableButtonDeleteContextMenuColumn(){
         return find(buttonDeleteContextMenuColumn).getAttribute("class").contains("dx-state-disabled");
     } // Проверка некликабельности кнопки "Удалить" контекстного меню столбца
 
-    public boolean checkVisibleWindowApproveDelete(){
+    public boolean isCheckVisibleWindowApproveDelete(){
         return find(windowApproveDelete).isVisible();
     } // Проверка появления окна подтверждения удаления
 
-    public boolean checkSearchByRegisterNumberTender(){
+    public boolean isCheckSearchByRegisterNumberTender(){
 
         boolean check = false;
 
@@ -192,7 +193,7 @@ public class MyTenders extends PageObject {
         return check;
     } // Проверка результата поиска по реестровому номеру тендера
 
-    public boolean checkSearchByNameTender(){
+    public boolean isCheckSearchByNameTender(){
 
         boolean check = false;
 
@@ -204,5 +205,9 @@ public class MyTenders extends PageObject {
 
         return check;
     } // Проверка результата поиска по названию тендера
+
+    public boolean isCheckSearchByUser(){
+        return find(responsibleByTenderInCardTender).getValue().equals("Админ");
+    } // Проверка результат поиска по пользователю
 
 }
