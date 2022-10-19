@@ -135,28 +135,43 @@ public class MyTendersSteps {
     }
 
     @Step("Проверка поиска по реестровому номеру тендера")
-    public void check_search_by_register_number_tender_in_tab_card(){
+    public void check_search_by_register_number_tender_in_tab_cards(){
         Assertions.assertThat(page.isCheckSearchByRegisterNumberTender()).as("В списке тендеров нет тендера, в чей реестровый номер входит ключевое слово").isTrue();
     }
 
     @Step("Проверка поиска по названию тендера")
-    public void check_search_by_name_tender_in_tab_card(){
+    public void check_search_by_name_tender_in_tab_cards(){
         Assertions.assertThat(page.isCheckSearchByNameTender()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
     }
 
     @Step("Проверка поиска по названию тендера")
-    public void check_search_by_user_in_tab_card(){
+    public void check_search_by_user_in_tab_cards(){
         Assertions.assertThat(page.isCheckSearchByUser()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
     }
 
     @Step("Проверка поиска по метке тендера")
-    public void check_search_by_tags_in_tab_card(){
+    public void check_search_by_tags_in_tab_cards(){
         Assertions.assertThat(page.isCheckSearchByTags()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
     }
 
     @Step("Проверка отображения карточки тендера")
-    public void check_visible_card(){
+    public void check_visible_cards(){
         Assertions.assertThat(page.isCheckVisibleCard()).as("Карточка тендера не открылась").isTrue();
+    }
+
+    @Step("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
+    public void check_clickable_button_change_tag(){
+        Assertions.assertThat(page.isCheckClickableButtonChangeTag()).as("Кнопка смены метки тендера не активна").isTrue();
+    }
+
+    @Step("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
+    public void check_clickable_button_link_source(){
+        Assertions.assertThat(page.isCheckClickableButtonLinkSource()).as("Кнопка ссылки на источник не активна").isTrue();
+    }
+
+    @Step("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
+    public void check_clickable_button_delete_tender_in_card(){
+        Assertions.assertThat(page.isCheckClickableButtonDeleteTenderInCard()).as("Кнопка удаления тендера не активна").isTrue();
     }
 
 }

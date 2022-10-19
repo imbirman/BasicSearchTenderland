@@ -40,6 +40,8 @@ public class MyTenders extends PageObject {
     protected By buttonDeleteContextMenuColumn = By.xpath("(//div[@class='dx-submenu']//div[@role='menuitem'])[3]"); // Кнопка "Удалить" контекстного меню столбца
     protected By buttonAddColumn = By.id("favourite-kanban-add-stage"); // Кнопка добавления столбца
     protected By buttonOpenListFilters = By.id("favourite-filter-switch-icon"); // Кнопка раскрытия списка фильтров
+    protected By buttonChangeTagInCardTender = By.xpath("//div[@class='favourite-card-control-icons']//i[@class='mdi mdi-24px mdi-tag-outline']"); // Кнопка смены метки в карточке тендера
+
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
@@ -48,6 +50,8 @@ public class MyTenders extends PageObject {
     private final By buttonAddInMyTenders = By.xpath("//div[text()='Добавить в Мои тендеры']"); // Кнопка добавления в "Мои тендеры"
     private final By buttonSelectNameResponsible = By.xpath("//div[text()='Админ']"); // Выбор ответственного при добавлении тендера в "Мои тендеры"
     private final By buttonLoadDocumentationInListTenders = By.xpath("(//div[@class='favourite-kanban-load-documents'])[1]"); // Кнопка для скачивания документации тендера в списке тендеров
+    private final By buttonLinkOfSourceInCard = By.id("favourites-card-link"); // Кнопка "Ссылка на источник"
+    private final By buttonDeleteTenderInCard = By.xpath("//i[@class='mdi mdi-24px mdi-delete-outline']"); // Кнопка "Удалить тендер"
 
     private final By registerNumberAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-card-regnumber'])[1]"); // Регистрационный номер добавленного тендера в списке тендеров
     private final By registerNumberTenderInListTenders = By.xpath("//div[@class='favourite-kanban-card-regnumber']"); // Регистрационный номер тендера в списке тендеров
@@ -224,5 +228,17 @@ public class MyTenders extends PageObject {
     public boolean isCheckVisibleCard(){
         return find(panelTenderInCardTender).isVisible();
     } // Проверка отображения карточки тендера
+
+    public boolean isCheckClickableButtonChangeTag(){
+        return find(buttonChangeTagInCardTender).isClickable();
+    } // Проверка кликабельности кнопки смены метки в карточке тендера
+
+    public boolean isCheckClickableButtonLinkSource(){
+        return find(buttonLinkOfSourceInCard).isClickable();
+    } // Проверка кликабельности кнопки ссылки на источник в карточке тендера
+
+    public boolean isCheckClickableButtonDeleteTenderInCard(){
+        return find(buttonDeleteTenderInCard).isClickable();
+    } // Проверка кликабельности кнопки удаления тендера в карточке тендера
 
 }

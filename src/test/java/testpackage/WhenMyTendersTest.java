@@ -106,7 +106,7 @@ public class WhenMyTendersTest extends MyTenders {
         openMyTenders();
         steps.type_search_by_tender("01");
         steps.wait_a_bit(2000);
-        steps.check_search_by_register_number_tender_in_tab_card();
+        steps.check_search_by_register_number_tender_in_tab_cards();
     }
 
     @Test
@@ -116,7 +116,7 @@ public class WhenMyTendersTest extends MyTenders {
         openMyTenders();
         steps.type_search_by_tender("усл");
         steps.wait_a_bit(2000);
-        steps.check_search_by_name_tender_in_tab_card();
+        steps.check_search_by_name_tender_in_tab_cards();
     }
 
     @Test
@@ -128,7 +128,7 @@ public class WhenMyTendersTest extends MyTenders {
         steps.click_button(selectUserAdmin);
         steps.click_button(openCardTender);
         steps.wait_a_bit(2000);
-        steps.check_search_by_user_in_tab_card();
+        steps.check_search_by_user_in_tab_cards();
     }
 
     @Test
@@ -141,7 +141,7 @@ public class WhenMyTendersTest extends MyTenders {
         steps.click_button(selectRedTagInList);
         steps.click_button(openCardTender);
         steps.wait_a_bit(2000);
-        steps.check_search_by_tags_in_tab_card();
+        steps.check_search_by_tags_in_tab_cards();
     }
 
     @Test
@@ -151,7 +151,37 @@ public class WhenMyTendersTest extends MyTenders {
         openMyTenders();
         steps.click_button(openCardTender);
         steps.wait_a_bit(2000);
-        steps.check_visible_card();
+        steps.check_visible_cards();
+    }
+
+    @Test
+    @Title("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
+    public void CheckClickableButtonChangeTag(){
+
+        openMyTenders();
+        steps.click_button(openCardTender);
+        steps.wait_a_bit(2000);
+        steps.check_clickable_button_change_tag();
+    }
+
+    @Test
+    @Title("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
+    public void CheckClickableButtonLinkSource(){
+
+        openMyTenders();
+        steps.click_button(openCardTender);
+        steps.wait_a_bit(2000);
+        steps.check_clickable_button_link_source();
+    }
+
+    @Test
+    @Title("Проверка кликабельности кнопки удаления тендера в карточке тендера")
+    public void CheckClickableButtonDeleteTenderInCard(){
+
+        openMyTenders();
+        steps.click_button(openCardTender);
+        steps.wait_a_bit(2000);
+        steps.check_clickable_button_delete_tender_in_card();
     }
 
 }
