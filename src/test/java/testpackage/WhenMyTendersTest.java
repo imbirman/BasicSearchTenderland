@@ -109,4 +109,14 @@ public class WhenMyTendersTest extends MyTenders {
         steps.check_search_by_register_number_tender_in_tab_card();
     }
 
+    @Test
+    @Title("Проверка поиска по названию тендера")
+    public void checkSearchByNameTenderInTabCard(){
+
+        openMyTenders();
+        steps.type_search_by_tender("усл");
+        steps.wait_a_bit(2000);
+        steps.check_search_by_name_tender_in_tab_card();
+    }
+
 }

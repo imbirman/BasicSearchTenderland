@@ -48,6 +48,7 @@ public class MyTenders extends PageObject {
     private final By registerNumberAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-card-regnumber'])[1]"); // Регистрационный номер добавленного тендера в списке тендеров
     private final By registerNumberTenderInListTenders = By.xpath("//div[@class='favourite-kanban-card-regnumber']"); // Регистрационный номер тендера в списке тендеров
     private final By nameAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-card-name'])[1]"); // Название добавленного тендера
+    private final By nameTenderInListTenders = By.xpath("//div[@class='favourite-kanban-card-name']"); // Название тендера в списке тендеров
     private final By windowApproveDelete = By.xpath("//div[@class='tl-popup-wrapper tl-approve']"); // Окно подтверждения удаления
     private final By elementListColumns = By.xpath("//div[@class='favourite-kanban-list']"); // Столбец
     private final By fieldNameColumn = By.xpath("//div[@class='favourite-kanban-list']//input"); // Поле для ввода названия столбца
@@ -178,7 +179,7 @@ public class MyTenders extends PageObject {
         return find(windowApproveDelete).isVisible();
     } // Проверка появления окна подтверждения удаления
 
-    public boolean checkSearchByNumberTenderInTabCard(){
+    public boolean checkSearchByRegisterNumberTender(){
 
         boolean check = false;
 
@@ -190,5 +191,18 @@ public class MyTenders extends PageObject {
 
         return check;
     } // Проверка результата поиска по реестровому номеру тендера
+
+    public boolean checkSearchByNameTender(){
+
+        boolean check = false;
+
+        List<String> checkRegisterNumber = findAll(nameTenderInListTenders).texts();
+
+        for(String type : checkRegisterNumber){
+            if(type.contains("усл")){check = true; break;}
+        }
+
+        return check;
+    } // Проверка результата поиска по названию тендера
 
 }
