@@ -51,14 +51,17 @@ public class MyTenders extends PageObject {
 
     private final By registerNumberAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-card-regnumber'])[1]"); // Регистрационный номер добавленного тендера в списке тендеров
     private final By registerNumberTenderInListTenders = By.xpath("//div[@class='favourite-kanban-card-regnumber']"); // Регистрационный номер тендера в списке тендеров
+
     private final By nameAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-card-name'])[1]"); // Название добавленного тендера
     private final By nameTenderInListTenders = By.xpath("//div[@class='favourite-kanban-card-name']"); // Название тендера в списке тендеров
+    private final By nameSecondColumn = By.xpath("(//div[@class='favourite-kanban-list-title']/div)[2]"); // Название второго столбца
+
     private final By windowApproveDelete = By.xpath("//div[@class='tl-popup-wrapper tl-approve']"); // Окно подтверждения удаления
     private final By elementListColumns = By.xpath("//div[@class='favourite-kanban-list']"); // Столбец
     private final By fieldNameColumn = By.xpath("//div[@class='favourite-kanban-list']//input"); // Поле для ввода названия столбца
-    private final By nameSecondColumn = By.xpath("(//div[@class='favourite-kanban-list-title']/div)[2]"); // Название второго столбца
     private final By filterForCheckNumberFilters = By.xpath("//div[@class='dx-texteditor-container']"); // Общий фильтр
     private final By tagInCardTender = By.id("favourite-card-tag"); // Метка в карточке тендера
+    private final By panelTenderInCardTender = By.id("tender-tab-panel"); // Панель тендера в карточке тендера
 
 
 
@@ -217,5 +220,9 @@ public class MyTenders extends PageObject {
     public boolean isCheckSearchByTags(){
         return find(tagInCardTender).getAttribute("style").contains("background-color: rgb(235, 9, 16)");
     } // Проверка поиска по метке
+
+    public boolean isCheckVisibleCard(){
+        return find(panelTenderInCardTender).isVisible();
+    } // Проверка отображения карточки тендера
 
 }

@@ -144,4 +144,14 @@ public class WhenMyTendersTest extends MyTenders {
         steps.check_search_by_tags_in_tab_card();
     }
 
+    @Test
+    @Title("Проверка отображения карточки тендера")
+    public void CheckVisibleCard(){
+
+        openMyTenders();
+        steps.click_button(openCardTender);
+        steps.wait_a_bit(2000);
+        steps.check_visible_card();
+    }
+
 }

@@ -154,4 +154,9 @@ public class MyTendersSteps {
         Assertions.assertThat(page.isCheckSearchByTags()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
     }
 
+    @Step("Проверка отображения карточки тендера")
+    public void check_visible_card(){
+        Assertions.assertThat(page.isCheckVisibleCard()).as("Карточка тендера не открылась").isTrue();
+    }
+
 }
