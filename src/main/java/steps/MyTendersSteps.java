@@ -149,4 +149,9 @@ public class MyTendersSteps {
         Assertions.assertThat(page.isCheckSearchByUser()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
     }
 
+    @Step("Проверка поиска по метке тендера")
+    public void check_search_by_tags_in_tab_card(){
+        Assertions.assertThat(page.isCheckSearchByTags()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
+    }
+
 }

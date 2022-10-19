@@ -131,4 +131,17 @@ public class WhenMyTendersTest extends MyTenders {
         steps.check_search_by_user_in_tab_card();
     }
 
+    @Test
+    @Title("Проверка поиска по метке тендера")
+    public void CheckSearchByTags(){
+
+        openMyTenders();
+        steps.click_button(buttonOpenListFilters);
+        steps.click_button(filterTags);
+        steps.click_button(selectRedTagInList);
+        steps.click_button(openCardTender);
+        steps.wait_a_bit(2000);
+        steps.check_search_by_tags_in_tab_card();
+    }
+
 }

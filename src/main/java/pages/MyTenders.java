@@ -22,9 +22,12 @@ public class MyTenders extends PageObject {
     protected By contextMenuColumn = By.xpath("//div[@class='favourite-kanban-list-title']/i"); // Кнопка контекстного меню столбца
 
     protected By filterUsers = By.xpath("//div[@id='favourite-search-select-child-user']//input"); // Поле выбора пользователя в фильтре "Пользователи"
-    protected By selectUserAdmin = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Выбранный пользователь "Админ" в фильтре "Пользователи"
+    protected By selectUserAdmin = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Пользователь "Админ" в фильтре "Пользователи"
     protected By openCardTender = By.xpath("//div[@class='dx-treelist-text-content']/div[@class='favourite-kanban-card']"); // Открыть карточку тендера
     protected By responsibleByTenderInCardTender = By.xpath("//div[@id='favourite-tender-select-responsible']//div[@class='dx-texteditor-container']//input"); // Ответственный за тендер в карточке тендера
+
+    protected By filterTags = By.xpath("//div[@id='favourite-search-select-tags']//div[@class='dx-texteditor-container']//input"); // Поле фильтра "Поиск по меткам"
+    protected By selectRedTagInList = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); //
 
     protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
@@ -55,6 +58,7 @@ public class MyTenders extends PageObject {
     private final By fieldNameColumn = By.xpath("//div[@class='favourite-kanban-list']//input"); // Поле для ввода названия столбца
     private final By nameSecondColumn = By.xpath("(//div[@class='favourite-kanban-list-title']/div)[2]"); // Название второго столбца
     private final By filterForCheckNumberFilters = By.xpath("//div[@class='dx-texteditor-container']"); // Общий фильтр
+    private final By tagInCardTender = By.id("favourite-card-tag"); // Метка в карточке тендера
 
 
 
@@ -209,5 +213,9 @@ public class MyTenders extends PageObject {
     public boolean isCheckSearchByUser(){
         return find(responsibleByTenderInCardTender).getValue().equals("Админ");
     } // Проверка результат поиска по пользователю
+
+    public boolean isCheckSearchByTags(){
+        return find(tagInCardTender).getAttribute("style").contains("background-color: rgb(235, 9, 16)");
+    } // Проверка поиска по метке
 
 }
