@@ -66,6 +66,7 @@ public class MyTenders extends PageObject {
     private final By filterForCheckNumberFilters = By.xpath("//div[@class='dx-texteditor-container']"); // Общий фильтр
     private final By tagInCardTender = By.id("favourite-card-tag"); // Метка в карточке тендера
     private final By panelTenderInCardTender = By.id("tender-tab-panel"); // Панель тендера в карточке тендера
+    private final By tabInCardTender = By.xpath("//div[@class='dx-popup-content']//div[contains(@class, 'dx-item dx-tab')]"); // Вкладка в карточке тендера
 
 
 
@@ -157,6 +158,10 @@ public class MyTenders extends PageObject {
     public String getNameSecondColumn(){
         return find(nameSecondColumn).getText();
     } // Получить название второго столбца
+
+    public Integer getNumberTabInCardTender(){
+        return findAll(tabInCardTender).size();
+    } // Получить количество вкладок в карточке тендера
 
     public boolean isCheckRegisterNumberAddedTender(){
         return find(registerNumberAddedTenderInListTenders).getText().equals("0372200015221000002");

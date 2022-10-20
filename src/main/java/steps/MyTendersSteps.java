@@ -174,4 +174,9 @@ public class MyTendersSteps {
         Assertions.assertThat(page.isCheckClickableButtonDeleteTenderInCard()).as("Кнопка удаления тендера не активна").isTrue();
     }
 
+    @Step("Проверка количества вкладок в карточке тендера")
+    public void check_number_tab_in_card_tender(){
+        Assertions.assertThat(page.getNumberTabInCardTender()).as("Кнопка удаления тендера не активна").isEqualTo(5);
+    }
+
 }

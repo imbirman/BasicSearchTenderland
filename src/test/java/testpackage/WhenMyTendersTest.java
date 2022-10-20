@@ -184,4 +184,14 @@ public class WhenMyTendersTest extends MyTenders {
         steps.check_clickable_button_delete_tender_in_card();
     }
 
+    @Test
+    @Title("Проверка количества вкладок в карточке тендера")
+    public void CheckNumberTabInCardTender(){
+
+        openMyTenders();
+        steps.click_button(openCardTender);
+        steps.wait_a_bit(2000);
+        steps.check_number_tab_in_card_tender();
+    }
+
 }
