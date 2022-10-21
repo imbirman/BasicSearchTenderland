@@ -18,8 +18,13 @@ public class MyTenders extends PageObject {
 
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
+    protected By tabCards = By.xpath("//div[@id='favourite-select-tabs']//div[text()='Карточки']"); // Главная вкладка "Карточки"
+    protected By tabTable = By.xpath("//div[@id='favourite-select-tabs']//div[text()='Таблица']"); // Главная вкладка "Таблица"
+    protected By tabCalendar = By.xpath("//div[@id='favourite-select-tabs']//div[text()='Календарь']"); // Главная вкладка "Календарь"
+
     protected By contextMenuResultSearchForTestAddingAndDeleteTender = By.xpath("(//a[@class='dx-link dx-icon-overflow dx-link-icon'])[3]"); // Кнопка контекстного меню для строки результата поиска для добавления в мои тендеры
     protected By contextMenuColumn = By.xpath("//div[@class='favourite-kanban-list-title']/i"); // Кнопка контекстного меню столбца
+
     protected By fieldSecondColumnForDragAndDrop = By.xpath("(//div[@class='dx-treelist-content dx-sortable dx-sortable-without-handle'])[2]"); // Поле второго столбца для перетаскивания тендера
     protected By fieldFirstColumnForDragAndDrop = By.xpath("(//div[@class='dx-treelist-content dx-sortable dx-sortable-without-handle'])[1]"); // Поле первого столбца для перетаскивания тендера
 
@@ -206,6 +211,30 @@ public class MyTenders extends PageObject {
         return find(buttonLoadDocumentationInListTenders).isClickable();
     } // Проверка кликабельности кнопки скачивания документации тендера в списке тендеров
 
+    public boolean isCheckClickableButtonChangeTag(){
+        return find(buttonChangeTagInCardTender).isClickable();
+    } // Проверка кликабельности кнопки смены метки в карточке тендера
+
+    public boolean isCheckClickableButtonLinkSource(){
+        return find(buttonLinkOfSourceInCard).isClickable();
+    } // Проверка кликабельности кнопки ссылки на источник в карточке тендера
+
+    public boolean isCheckClickableButtonDeleteTenderInCard(){
+        return find(buttonDeleteTenderInCard).isClickable();
+    } // Проверка кликабельности кнопки удаления тендера в карточке тендера
+
+    public boolean isCheckClickableTabCards(){
+        return find(tabCards).isClickable();
+    } // Проверка кликабельности главной вкладки "Карточки"
+
+    public boolean isCheckClickableTabTable(){
+        return find(tabTable).isClickable();
+    } // Проверка кликабельности главной вкладки "Таблица"
+
+    public boolean isCheckClickableTabCalendar(){
+        return find(tabCalendar).isClickable();
+    } // Проверка кликабельности главной вкладки "Календарь"
+
     public boolean isCheckDisableButtonDeleteContextMenuColumn(){
         return find(buttonDeleteContextMenuColumn).getAttribute("class").contains("dx-state-disabled");
     } // Проверка некликабельности кнопки "Удалить" контекстного меню столбца
@@ -251,18 +280,6 @@ public class MyTenders extends PageObject {
     public boolean isCheckVisibleCard(){
         return find(panelTenderInCardTender).isVisible();
     } // Проверка отображения карточки тендера
-
-    public boolean isCheckClickableButtonChangeTag(){
-        return find(buttonChangeTagInCardTender).isClickable();
-    } // Проверка кликабельности кнопки смены метки в карточке тендера
-
-    public boolean isCheckClickableButtonLinkSource(){
-        return find(buttonLinkOfSourceInCard).isClickable();
-    } // Проверка кликабельности кнопки ссылки на источник в карточке тендера
-
-    public boolean isCheckClickableButtonDeleteTenderInCard(){
-        return find(buttonDeleteTenderInCard).isClickable();
-    } // Проверка кликабельности кнопки удаления тендера в карточке тендера
 
     public boolean isCheckDragAndDropTender(){
         boolean checkFirstColumn = false;

@@ -194,6 +194,30 @@ public class WhenMyTendersTest extends MyTenders {
         steps.check_number_tab_in_card_tender();
     }
 
+    @Test
+    @Title("Проверка кликабельности главной вкладки \"Карточки\"")
+    public void checkClickableTabCards(){
+
+        openMyTenders();
+        steps.check_clickable_tab_cards();
+    }
+
+    @Test
+    @Title("Проверка кликабельности главной вкладки \"Таблица\"")
+    public void checkClickableTabTable(){
+
+        openMyTenders();
+        steps.check_clickable_tab_table();
+    }
+
+    @Test
+    @Title("Проверка кликабельности главной вкладки \"Календарь\"")
+    public void checkClickableTabCalendar(){
+
+        openMyTenders();
+        steps.check_clickable_tab_calendar();
+    }
+
 //    @Test
 //    @Title("Проверка смены столбца тендера с помощью перетаскивания")
 //    public void checkDragAndDropTender(){

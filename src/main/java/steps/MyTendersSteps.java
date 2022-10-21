@@ -111,6 +111,36 @@ public class MyTendersSteps {
         Assertions.assertThat(page.isCheckClickableButtonLoadDocumentationTenderInListTenders()).as("Кнопка скачивания документации тендера в списке тендеров не активна").isTrue();
     }
 
+    @Step("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
+    public void check_clickable_button_change_tag(){
+        Assertions.assertThat(page.isCheckClickableButtonChangeTag()).as("Кнопка смены метки тендера не активна").isTrue();
+    }
+
+    @Step("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
+    public void check_clickable_button_link_source(){
+        Assertions.assertThat(page.isCheckClickableButtonLinkSource()).as("Кнопка ссылки на источник не активна").isTrue();
+    }
+
+    @Step("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
+    public void check_clickable_button_delete_tender_in_card(){
+        Assertions.assertThat(page.isCheckClickableButtonDeleteTenderInCard()).as("Кнопка удаления тендера не активна").isTrue();
+    }
+
+    @Step("Проверка кликабельности главной вкладки \"Карточки\"")
+    public void check_clickable_tab_cards(){
+        Assertions.assertThat(page.isCheckClickableTabCards()).as("Вкладка Карточки не активна").isTrue();
+    }
+
+    @Step("Проверка кликабельности главной вкладки \"Таблица\"")
+    public void check_clickable_tab_table(){
+        Assertions.assertThat(page.isCheckClickableTabTable()).as("Вкладка Таблица не активна").isTrue();
+    }
+
+    @Step("Проверка кликабельности главной вкладки \"Календарь\"")
+    public void check_clickable_tab_calendar(){
+        Assertions.assertThat(page.isCheckClickableTabCalendar()).as("Вкладка Календарь не активна").isTrue();
+    }
+
     @Step("Проверка некликабельности кнопки \"Удалить\" контекстного меню столбца")
     public void check_disable_button_delete_context_menu_column(){
         Assertions.assertThat(page.isCheckDisableButtonDeleteContextMenuColumn()).as("Кнопка 'Удалить' контекстного меню столбца активна при единственном столбце").isTrue();
@@ -167,21 +197,6 @@ public class MyTendersSteps {
     @Step("Проверка отображения карточки тендера")
     public void check_visible_cards(){
         Assertions.assertThat(page.isCheckVisibleCard()).as("Карточка тендера не открылась").isTrue();
-    }
-
-    @Step("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
-    public void check_clickable_button_change_tag(){
-        Assertions.assertThat(page.isCheckClickableButtonChangeTag()).as("Кнопка смены метки тендера не активна").isTrue();
-    }
-
-    @Step("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
-    public void check_clickable_button_link_source(){
-        Assertions.assertThat(page.isCheckClickableButtonLinkSource()).as("Кнопка ссылки на источник не активна").isTrue();
-    }
-
-    @Step("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
-    public void check_clickable_button_delete_tender_in_card(){
-        Assertions.assertThat(page.isCheckClickableButtonDeleteTenderInCard()).as("Кнопка удаления тендера не активна").isTrue();
     }
 
     @Step("Проверка количества вкладок в карточке тендера")
