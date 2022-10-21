@@ -20,6 +20,8 @@ public class MyTenders extends PageObject {
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
     protected By contextMenuResultSearchForTestAddingAndDeleteTender = By.xpath("(//a[@class='dx-link dx-icon-overflow dx-link-icon'])[3]"); // Кнопка контекстного меню для строки результата поиска для добавления в мои тендеры
     protected By contextMenuColumn = By.xpath("//div[@class='favourite-kanban-list-title']/i"); // Кнопка контекстного меню столбца
+    protected By fieldSecondColumnForDragAndDrop = By.xpath("(//div[@class='dx-treelist-content dx-sortable dx-sortable-without-handle'])[2]"); // Поле второго столбца для перетаскивания тендера
+    protected By fieldFirstColumnForDragAndDrop = By.xpath("(//div[@class='dx-treelist-content dx-sortable dx-sortable-without-handle'])[1]"); // Поле первого столбца для перетаскивания тендера
 
     protected By filterUsers = By.xpath("//div[@id='favourite-search-select-child-user']//input"); // Поле выбора пользователя в фильтре "Пользователи"
     protected By selectUserAdmin = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Пользователь "Админ" в фильтре "Пользователи"
@@ -54,7 +56,8 @@ public class MyTenders extends PageObject {
     private final By buttonDeleteTenderInCard = By.xpath("//i[@class='mdi mdi-24px mdi-delete-outline']"); // Кнопка "Удалить тендер"
 
     private final By registerNumberAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-card-regnumber'])[1]"); // Регистрационный номер добавленного тендера в списке тендеров
-    private final By registerNumberTenderInListTenders = By.xpath("//div[@class='favourite-kanban-card-regnumber']"); // Регистрационный номер тендера в списке тендеров
+    private final By registerNumberTenderInListTendersForFirstColumn = By.xpath("(//div[@class='favourite-kanban-list'])[1]//div[@class='favourite-kanban-card-regnumber']"); // Регистрационный номер тендера в списке тендеров в первом столбце
+    private final By registerNumberTenderInListTendersForSecondColumn = By.xpath("(//div[@class='favourite-kanban-list'])[2]//div[@class='favourite-kanban-card-regnumber']"); // Регистрационный номер тендера в списке тендеров во втором столбце
 
     private final By nameAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-card-name'])[1]"); // Название добавленного тендера
     private final By nameTenderInListTenders = By.xpath("//div[@class='favourite-kanban-card-name']"); // Название тендера в списке тендеров
@@ -99,6 +102,10 @@ public class MyTenders extends PageObject {
             getDriver().switchTo().window(windowHandle);
         }
     } // Переключиться на следующую вкладку
+
+    public void dragAndDropTenderToSecondColumn(WebElementFacade tender, By field){
+        withAction().dragAndDrop(tender, find(field)).build().perform();
+    } // Перетащить фильтр в область построения дерева фильтров
 
     public void scrollDownTo(By scroll){
         ((JavascriptExecutor)getDriver()).executeScript(
@@ -163,6 +170,17 @@ public class MyTenders extends PageObject {
         return findAll(tabInCardTender).size();
     } // Получить количество вкладок в карточке тендера
 
+    public WebElementFacade getTenderByNumberInFirstColumn(int number, int numberColumn){
+        if (numberColumn==1) {
+
+                List<WebElementFacade> listTendersInFirstColumn = findAll(registerNumberTenderInListTendersForFirstColumn);
+                return listTendersInFirstColumn.get(number - 1);
+        }
+
+        return find(registerNumberTenderInListTendersForSecondColumn);
+
+    } // Получить тендер по его порядковому номеру
+
     public boolean isCheckRegisterNumberAddedTender(){
         return find(registerNumberAddedTenderInListTenders).getText().equals("0372200015221000002");
     } // Проверка номера добавленного тендера
@@ -173,7 +191,7 @@ public class MyTenders extends PageObject {
 
     public boolean isCheckDeleteAddedTender(){
         boolean check = true;
-        List<String> elementForCheck = findAll(registerNumberTenderInListTenders).texts();
+        List<String> elementForCheck = findAll(registerNumberTenderInListTendersForFirstColumn).texts();
         for(String element: elementForCheck){
             if(element.equals("0372200015221000002")){check = false; break;}
         }
@@ -200,7 +218,7 @@ public class MyTenders extends PageObject {
 
         boolean check = false;
 
-        List<String> checkRegisterNumber = findAll(registerNumberTenderInListTenders).texts();
+        List<String> checkRegisterNumber = findAll(registerNumberTenderInListTendersForFirstColumn).texts();
 
         for(String type : checkRegisterNumber){
             if(type.contains("01")){check = true; break;}
@@ -245,5 +263,21 @@ public class MyTenders extends PageObject {
     public boolean isCheckClickableButtonDeleteTenderInCard(){
         return find(buttonDeleteTenderInCard).isClickable();
     } // Проверка кликабельности кнопки удаления тендера в карточке тендера
+
+    public boolean isCheckDragAndDropTender(){
+        boolean checkFirstColumn = false;
+        boolean checkSecondColumn = false;
+        List<String> firstColumn = findAll(registerNumberTenderInListTendersForFirstColumn).texts();
+        List<String> secondColumn = findAll(registerNumberTenderInListTendersForSecondColumn).texts();
+
+        if(!firstColumn.contains("100006854121100011")){
+            checkFirstColumn = true;
+        }
+
+        if(secondColumn.contains("100006854121100011")){
+            checkSecondColumn = true;
+        }
+        return checkFirstColumn && checkSecondColumn;
+    } // Проверка на отсутствие или наличие перетаскиваемого тендера в столбцах
 
 }

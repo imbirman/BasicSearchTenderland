@@ -43,6 +43,11 @@ public class MyTendersSteps {
         page.switchToTab();
     }
 
+    @Step("Перетаскивание фильтра")
+    public void drag_and_drop_tender(WebElementFacade tender, By field){
+        page.dragAndDropTenderToSecondColumn(tender, field);
+    }
+
     @Step("Ввод логина")
     public void type_login(String mail){
         page.typeLogin(mail);
@@ -75,6 +80,11 @@ public class MyTendersSteps {
 
     @Step("Добавить в мои тендеры")
     public void add_in_my_tenders(){page.addInMyTenders();}
+
+    @Step("Получить тендер по его порядковому номеру в первом столбце")
+    public WebElementFacade get_tender_by_number_in_first_column(int number, int numberColumn){
+        return  page.getTenderByNumberInFirstColumn(number, numberColumn);
+    }
 
     @Step("Проверка номера и места добавленного тендера")
     public void check_register_number_added_tender(){
@@ -177,6 +187,11 @@ public class MyTendersSteps {
     @Step("Проверка количества вкладок в карточке тендера")
     public void check_number_tab_in_card_tender(){
         Assertions.assertThat(page.getNumberTabInCardTender()).as("Кнопка удаления тендера не активна").isEqualTo(5);
+    }
+
+    @Step("Проверка на отсутствие или наличие перетаскиваемого тендера в столбцах")
+    public void check_drag_and_drop_tender(){
+        Assertions.assertThat(page.isCheckDragAndDropTender()).as("Тендер перенесен в другой столбец некорректно").isTrue();
     }
 
 }

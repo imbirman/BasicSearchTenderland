@@ -121,7 +121,7 @@ public class WhenMyTendersTest extends MyTenders {
 
     @Test
     @Title("Проверка поиска по пользователю")
-    public void CheckSearchByUser(){
+    public void checkSearchByUser(){
 
         openMyTenders();
         steps.click_button(filterUsers);
@@ -133,7 +133,7 @@ public class WhenMyTendersTest extends MyTenders {
 
     @Test
     @Title("Проверка поиска по метке тендера")
-    public void CheckSearchByTags(){
+    public void checkSearchByTags(){
 
         openMyTenders();
         steps.click_button(buttonOpenListFilters);
@@ -146,7 +146,7 @@ public class WhenMyTendersTest extends MyTenders {
 
     @Test
     @Title("Проверка отображения карточки тендера")
-    public void CheckVisibleCard(){
+    public void checkVisibleCard(){
 
         openMyTenders();
         steps.click_button(openCardTender);
@@ -156,7 +156,7 @@ public class WhenMyTendersTest extends MyTenders {
 
     @Test
     @Title("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
-    public void CheckClickableButtonChangeTag(){
+    public void checkClickableButtonChangeTag(){
 
         openMyTenders();
         steps.click_button(openCardTender);
@@ -166,7 +166,7 @@ public class WhenMyTendersTest extends MyTenders {
 
     @Test
     @Title("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
-    public void CheckClickableButtonLinkSource(){
+    public void checkClickableButtonLinkSource(){
 
         openMyTenders();
         steps.click_button(openCardTender);
@@ -176,7 +176,7 @@ public class WhenMyTendersTest extends MyTenders {
 
     @Test
     @Title("Проверка кликабельности кнопки удаления тендера в карточке тендера")
-    public void CheckClickableButtonDeleteTenderInCard(){
+    public void checkClickableButtonDeleteTenderInCard(){
 
         openMyTenders();
         steps.click_button(openCardTender);
@@ -186,12 +186,23 @@ public class WhenMyTendersTest extends MyTenders {
 
     @Test
     @Title("Проверка количества вкладок в карточке тендера")
-    public void CheckNumberTabInCardTender(){
+    public void checkNumberTabInCardTender(){
 
         openMyTenders();
         steps.click_button(openCardTender);
         steps.wait_a_bit(2000);
         steps.check_number_tab_in_card_tender();
     }
+
+//    @Test
+//    @Title("Проверка смены столбца тендера с помощью перетаскивания")
+//    public void checkDragAndDropTender(){
+//
+//        openMyTenders();
+//        steps.drag_and_drop_tender(steps.get_tender_by_number_in_first_column(2, 1), fieldSecondColumnForDragAndDrop);
+//        steps.wait_a_bit(2000);
+//        steps.check_drag_and_drop_tender();
+//        steps.drag_and_drop_tender(steps.get_tender_by_number_in_first_column(2, 2), fieldFirstColumnForDragAndDrop);
+//    }
 
 }
