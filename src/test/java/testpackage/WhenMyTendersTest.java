@@ -125,7 +125,7 @@ public class WhenMyTendersTest extends MyTenders {
 
         openMyTenders();
         steps.click_button(filterUsers);
-        steps.click_button(selectUserAdmin);
+        steps.click_button(userAdminInFiltersUsers);
         steps.click_button(openCardTender);
         steps.wait_a_bit(2000);
         steps.check_search_by_user_in_tab_cards();
@@ -216,6 +216,32 @@ public class WhenMyTendersTest extends MyTenders {
 
         openMyTenders();
         steps.check_clickable_tab_calendar();
+    }
+
+    @Test
+    @Title("Проверка смены ответственного во вкладке \"Таблица\"")
+    public void checkChangeResponsibleInTabTable(){
+
+        openMyTenders();
+        steps.click_button(openCardTender);
+        steps.click_button(buttonChangeResponsibleInCardTender);
+        steps.click_button(userTestInCardTender);
+        steps.click_button(buttonCloseCardTender);
+        steps.click_button(tabTable);
+        steps.check_change_responsible_in_tab_table();
+    }
+
+    @Test
+    @Title("Проверка смены ответственного во вкладке \"Карточки\"")
+    public void checkChangeResponsibleInTabCards(){
+
+        openMyTenders();
+        steps.click_button(tabTable);
+        steps.click_button(buttonChangeResponsibleInTabTable);
+        steps.click_button(userTestInListUsersTabTable);
+        steps.click_button(tabCards);
+        steps.click_button(openCardTender);
+        steps.check_change_responsible_in_tab_cards();
     }
 
 //    @Test

@@ -1,16 +1,13 @@
 package pages;
 
-import com.ibm.icu.impl.UResource;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
-import net.thucydides.core.webdriver.exceptions.ElementNotFoundAfterTimeoutError;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
@@ -29,9 +26,11 @@ public class MyTenders extends PageObject {
     protected By fieldFirstColumnForDragAndDrop = By.xpath("(//div[@class='dx-treelist-content dx-sortable dx-sortable-without-handle'])[1]"); // Поле первого столбца для перетаскивания тендера
 
     protected By filterUsers = By.xpath("//div[@id='favourite-search-select-child-user']//input"); // Поле выбора пользователя в фильтре "Пользователи"
-    protected By selectUserAdmin = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Пользователь "Админ" в фильтре "Пользователи"
+    protected By userAdminInFiltersUsers = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Пользователь "Админ" в фильтре "Пользователи"
     protected By openCardTender = By.xpath("//div[@class='dx-treelist-text-content']/div[@class='favourite-kanban-card']"); // Открыть карточку тендера
-    protected By responsibleByTenderInCardTender = By.xpath("//div[@id='favourite-tender-select-responsible']//div[@class='dx-texteditor-container']//input"); // Ответственный за тендер в карточке тендера
+    protected By userTestInListUsersTabTable = By.xpath("(//div[@class='dx-item-content dx-list-item-content'])[1]"); // Выбор тестового пользователя в качестве ответственного для первого тендера, вкладка "Таблица"
+    protected By userTestInCardTender = By.xpath("(//div[@class='favourite-executor-fullname'])[1]"); // Выбор тестового пользователя в качестве ответственного для первого тендера в карточке тендера
+
 
     protected By filterTags = By.xpath("//div[@id='favourite-search-select-tags']//div[@class='dx-texteditor-container']//input"); // Поле фильтра "Поиск по меткам"
     protected By selectRedTagInList = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); //
@@ -41,21 +40,26 @@ public class MyTenders extends PageObject {
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
     protected By buttonTabMenuMyTenders = By.xpath("(//div[@class='tl-sidenav-item'])[2]//div"); // Кнопка в боковом меню "Мои тендеры"
     protected By buttonInAutoSearchListCheckMyTenders = By.xpath("//span[text()='Проверка моих тендеров']"); // Автопоиск "Проверка моих тендеров"
+    protected By buttonCloseCardTender = By.xpath("//i[@class='dx-icon dx-icon-close']"); // Кнопка закрытия карточки тендера
+
     protected By buttonDeleteAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-delete-favourite'])[1]"); // Кнопка удаления добавленного тендера в списке тендеров
     protected By buttonDeleteTenderInListTenders = By.xpath("//div[@class='favourite-kanban-delete-favourite']"); // Кнопка удаления тендера в списке тендеров
     protected By buttonConfirmDelete = By.id("tl-popup-approve-button"); // Кнопка подтверждения удаления тендера
     protected By buttonDeleteContextMenuColumn = By.xpath("(//div[@class='dx-submenu']//div[@role='menuitem'])[3]"); // Кнопка "Удалить" контекстного меню столбца
+
     protected By buttonAddColumn = By.id("favourite-kanban-add-stage"); // Кнопка добавления столбца
     protected By buttonOpenListFilters = By.id("favourite-filter-switch-icon"); // Кнопка раскрытия списка фильтров
-    protected By buttonChangeTagInCardTender = By.xpath("//div[@class='favourite-card-control-icons']//i[@class='mdi mdi-24px mdi-tag-outline']"); // Кнопка смены метки в карточке тендера
 
+    protected By buttonChangeTagInCardTender = By.xpath("//div[@class='favourite-card-control-icons']//i[@class='mdi mdi-24px mdi-tag-outline']"); // Кнопка смены метки в карточке тендера
+    protected By buttonChangeResponsibleInCardTender = By.xpath("//div[@id='favourite-tender-select-responsible']//div[@class='dx-texteditor-container']//input"); // Ответственный за тендер в карточке тендера
+    protected By buttonChangeResponsibleInTabTable = By.xpath("(//div[@class='dx-scrollable-wrapper']//div[@class='dx-texteditor-input-container']//input)[1]"); // Кнопка смены ответственного у первого элемента на вкладке "Таблица"
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By searchTenderField = By.xpath("//div[@id='favourite-search-name']//input"); // Поле для ввода поиска по тендеру
 
     private final By buttonAddInMyTenders = By.xpath("//div[text()='Добавить в Мои тендеры']"); // Кнопка добавления в "Мои тендеры"
-    private final By buttonSelectNameResponsible = By.xpath("//div[text()='Админ']"); // Выбор ответственного при добавлении тендера в "Мои тендеры"
+    private final By buttonSelectNameResponsibleToAddInMyTenders = By.xpath("//div[text()='Админ']"); // Выбор ответственного при добавлении тендера в "Мои тендеры"
     private final By buttonLoadDocumentationInListTenders = By.xpath("(//div[@class='favourite-kanban-load-documents'])[1]"); // Кнопка для скачивания документации тендера в списке тендеров
     private final By buttonLinkOfSourceInCard = By.id("favourites-card-link"); // Кнопка "Ссылка на источник"
     private final By buttonDeleteTenderInCard = By.xpath("//i[@class='mdi mdi-24px mdi-delete-outline']"); // Кнопка "Удалить тендер"
@@ -143,7 +147,7 @@ public class MyTenders extends PageObject {
     public void addInMyTenders(){
         find(contextMenuResultSearchForTestAddingAndDeleteTender).click();
         moveToElement(buttonAddInMyTenders);
-        find(buttonSelectNameResponsible).click();
+        find(buttonSelectNameResponsibleToAddInMyTenders).click();
     } // Добавить тендер в "Мои тендеры"
 
     public void deleteSecondColumn(){
@@ -185,6 +189,14 @@ public class MyTenders extends PageObject {
         return find(registerNumberTenderInListTendersForSecondColumn);
 
     } // Получить тендер по его порядковому номеру
+
+    public String getResponsibleInCardTender(){
+        return find(buttonChangeResponsibleInCardTender).getValue();
+    } // Получение значение ответственного в карточке тендера
+
+    public String getResponsibleInTabTable(){
+        return find(buttonChangeResponsibleInTabTable).getValue();
+    } // Получение значения ответственного у первого тендера во вкладке "Таблица"
 
     public boolean isCheckRegisterNumberAddedTender(){
         return find(registerNumberAddedTenderInListTenders).getText().equals("0372200015221000002");
@@ -269,10 +281,6 @@ public class MyTenders extends PageObject {
         return check;
     } // Проверка результата поиска по названию тендера
 
-    public boolean isCheckSearchByUser(){
-        return find(responsibleByTenderInCardTender).getValue().equals("Админ");
-    } // Проверка результат поиска по пользователю
-
     public boolean isCheckSearchByTags(){
         return find(tagInCardTender).getAttribute("style").contains("background-color: rgb(235, 9, 16)");
     } // Проверка поиска по метке
@@ -296,5 +304,7 @@ public class MyTenders extends PageObject {
         }
         return checkFirstColumn && checkSecondColumn;
     } // Проверка на отсутствие или наличие перетаскиваемого тендера в столбцах
+
+
 
 }
