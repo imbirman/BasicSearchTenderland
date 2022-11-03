@@ -86,17 +86,17 @@ public class MyTendersSteps {
         return  page.getTenderByNumberInFirstColumn(number, numberColumn);
     }
 
-    @Step("Проверка номера и места добавленного тендера")
+    @Step("Проверка реестрового номера добавленного тендера")
     public void check_register_number_added_tender(){
-        assertThat(page.isCheckRegisterNumberAddedTender()).as("Добавленный тендер отсутствует, либо находится не на первом месте").isTrue();
+        assertThat(page.getRegisterNumberAddedTender()).as("Добавленный тендер отсутствует, либо находится не на первом месте").isEqualTo("0372200015221000002");
     }
 
-    @Step("Проверка номера и места добавленного тендера")
+    @Step("Проверка наименования добавленного тендера")
     public void check_name_added_tender(){
         assertThat(page.isCheckNameAddedTender()).as("Наименование добавленного тендера некорректно").isTrue();
     }
 
-    @Step("Проверка номера и места добавленного тендера")
+    @Step("Проверка удаления тендера")
     public void check_delete_added_tender(){
         assertThat(page.isCheckDeleteAddedTender()).as("Добавленный тендер не удален").isTrue();
     }

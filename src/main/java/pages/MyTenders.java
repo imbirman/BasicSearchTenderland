@@ -33,7 +33,8 @@ public class MyTenders extends PageObject {
 
 
     protected By filterTags = By.xpath("//div[@id='favourite-search-select-tags']//div[@class='dx-texteditor-container']//input"); // Поле фильтра "Поиск по меткам"
-    protected By selectRedTagInList = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); //
+    protected By selectRedTagInList = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Выбрать красную метку
+    protected By registerNumberTenderInListTendersTabTable = By.xpath("//tr[@class='dx-row dx-data-row dx-row-lines']//td[4]//div[@class='favourite-table-td-name']"); // Реестровый номер тендера во вкладке "Таблица"
 
     protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
@@ -198,8 +199,8 @@ public class MyTenders extends PageObject {
         return find(buttonChangeResponsibleInTabTable).getValue();
     } // Получение значения ответственного у первого тендера во вкладке "Таблица"
 
-    public boolean isCheckRegisterNumberAddedTender(){
-        return find(registerNumberAddedTenderInListTenders).getText().equals("0372200015221000002");
+    public String getRegisterNumberAddedTender(){
+        return find(registerNumberAddedTenderInListTenders).getText();
     } // Проверка номера добавленного тендера
 
     public boolean isCheckNameAddedTender(){

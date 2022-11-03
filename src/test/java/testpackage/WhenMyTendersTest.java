@@ -36,8 +36,8 @@ public class WhenMyTendersTest extends MyTenders {
     }
 
     @Test
-    @Title("Проверка добавления и удаления тендера")
-    public void checkAddAndDeleteTender(){
+    @Title("Проверка добавления и удаления тендера во вкладке \"Карточки\"")
+    public void checkAddAndDeleteTenderInTabCards(){
 
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonInAutoSearchListCheckMyTenders);
