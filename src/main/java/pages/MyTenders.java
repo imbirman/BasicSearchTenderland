@@ -27,9 +27,11 @@ public class MyTenders extends PageObject {
 
     protected By filterUsers = By.xpath("//div[@id='favourite-search-select-child-user']//input"); // Поле выбора пользователя в фильтре "Пользователи"
     protected By userAdminInFiltersUsers = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Пользователь "Админ" в фильтре "Пользователи"
-    protected By openCardTender = By.xpath("//div[@class='dx-treelist-text-content']/div[@class='favourite-kanban-card']"); // Открыть карточку тендера
+    protected By openCardFirstTender = By.xpath("//div[@class='dx-treelist-text-content']/div[@class='favourite-kanban-card']"); // Открыть карточку первого тендера
     protected By userTestInListUsersTabTable = By.xpath("(//div[@class='dx-item-content dx-list-item-content'])[1]"); // Выбор тестового пользователя в качестве ответственного для первого тендера, вкладка "Таблица"
+    protected By userAdminInListUsersTabTable = By.xpath("(//div[@class='dx-item-content dx-list-item-content'])[2]"); // Выбор пользователя "Админ" в качестве ответственного для первого тендера, вкладка "Таблица"
     protected By userTestInCardTender = By.xpath("(//div[@class='favourite-executor-fullname'])[1]"); // Выбор тестового пользователя в качестве ответственного для первого тендера в карточке тендера
+    protected By userAdminInCardTender = By.xpath("(//div[@class='favourite-executor-fullname'])[2]"); // Выбор пользователя "Админ" в качестве ответственного для первого тендера в карточке тендера
 
 
     protected By filterTags = By.xpath("//div[@id='favourite-search-select-tags']//div[@class='dx-texteditor-container']//input"); // Поле фильтра "Поиск по меткам"

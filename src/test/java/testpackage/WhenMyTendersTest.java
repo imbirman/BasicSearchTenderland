@@ -126,7 +126,7 @@ public class WhenMyTendersTest extends MyTenders {
         openMyTenders();
         steps.click_button(filterUsers);
         steps.click_button(userAdminInFiltersUsers);
-        steps.click_button(openCardTender);
+        steps.click_button(openCardFirstTender);
         steps.wait_a_bit(2000);
         steps.check_search_by_user_in_tab_cards();
     }
@@ -139,7 +139,7 @@ public class WhenMyTendersTest extends MyTenders {
         steps.click_button(buttonOpenListFilters);
         steps.click_button(filterTags);
         steps.click_button(selectRedTagInList);
-        steps.click_button(openCardTender);
+        steps.click_button(openCardFirstTender);
         steps.wait_a_bit(2000);
         steps.check_search_by_tags_in_tab_cards();
     }
@@ -149,7 +149,7 @@ public class WhenMyTendersTest extends MyTenders {
     public void checkVisibleCard(){
 
         openMyTenders();
-        steps.click_button(openCardTender);
+        steps.click_button(openCardFirstTender);
         steps.wait_a_bit(2000);
         steps.check_visible_cards();
     }
@@ -159,7 +159,7 @@ public class WhenMyTendersTest extends MyTenders {
     public void checkClickableButtonChangeTag(){
 
         openMyTenders();
-        steps.click_button(openCardTender);
+        steps.click_button(openCardFirstTender);
         steps.wait_a_bit(2000);
         steps.check_clickable_button_change_tag();
     }
@@ -169,7 +169,7 @@ public class WhenMyTendersTest extends MyTenders {
     public void checkClickableButtonLinkSource(){
 
         openMyTenders();
-        steps.click_button(openCardTender);
+        steps.click_button(openCardFirstTender);
         steps.wait_a_bit(2000);
         steps.check_clickable_button_link_source();
     }
@@ -179,7 +179,7 @@ public class WhenMyTendersTest extends MyTenders {
     public void checkClickableButtonDeleteTenderInCard(){
 
         openMyTenders();
-        steps.click_button(openCardTender);
+        steps.click_button(openCardFirstTender);
         steps.wait_a_bit(2000);
         steps.check_clickable_button_delete_tender_in_card();
     }
@@ -189,7 +189,7 @@ public class WhenMyTendersTest extends MyTenders {
     public void checkNumberTabInCardTender(){
 
         openMyTenders();
-        steps.click_button(openCardTender);
+        steps.click_button(openCardFirstTender);
         steps.wait_a_bit(2000);
         steps.check_number_tab_in_card_tender();
     }
@@ -219,29 +219,37 @@ public class WhenMyTendersTest extends MyTenders {
     }
 
     @Test
-    @Title("Проверка смены ответственного во вкладке \"Таблица\"")
-    public void checkChangeResponsibleInTabTable(){
+    @Title("Проверка ответственного во вкладке \"Таблица\" после его смены во вкладке \"Карточки\"")
+    public void checkResponsibleInTabTableAfterChangeResponsibleInTabCards(){
 
         openMyTenders();
-        steps.click_button(openCardTender);
+        steps.click_button(openCardFirstTender);
         steps.click_button(buttonChangeResponsibleInCardTender);
         steps.click_button(userTestInCardTender);
         steps.click_button(buttonCloseCardTender);
         steps.click_button(tabTable);
         steps.check_change_responsible_in_tab_table();
+        steps.click_button(tabCards);
+        steps.click_button(openCardFirstTender);
+        steps.click_button(buttonChangeResponsibleInCardTender);
+        steps.click_button(userAdminInCardTender);
     }
 
     @Test
-    @Title("Проверка смены ответственного во вкладке \"Карточки\"")
-    public void checkChangeResponsibleInTabCards(){
+    @Title("Проверка ответственного во вкладке \"Карточки\" после его смены во вкладке \"Таблица\"")
+    public void checkResponsibleInTabCardsAfterChangeResponsibleInTabTable(){
 
         openMyTenders();
         steps.click_button(tabTable);
         steps.click_button(buttonChangeResponsibleInTabTable);
         steps.click_button(userTestInListUsersTabTable);
         steps.click_button(tabCards);
-        steps.click_button(openCardTender);
+        steps.click_button(openCardFirstTender);
         steps.check_change_responsible_in_tab_cards();
+        steps.click_button(buttonCloseCardTender);
+        steps.click_button(tabTable);
+        steps.click_button(buttonChangeResponsibleInTabTable);
+        steps.click_button(userAdminInListUsersTabTable);
     }
 
 //    @Test
