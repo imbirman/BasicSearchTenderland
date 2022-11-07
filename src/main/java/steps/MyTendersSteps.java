@@ -221,4 +221,9 @@ public class MyTendersSteps {
                 .isEqualTo("Тестовый Тест Тестович");
     }
 
+    @Step("Проверка отображения карточки тендера")
+    public void check_reset_filter_availability_task(){
+        assertThat(page.isCheckResetFilterAvailabilityTask()).as("Значение фильтра \"Наличие задач\" не сбросилось").isTrue();
+    }
+
 }

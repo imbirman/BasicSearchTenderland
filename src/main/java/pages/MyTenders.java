@@ -26,8 +26,9 @@ public class MyTenders extends PageObject {
     protected By fieldFirstColumnForDragAndDrop = By.xpath("(//div[@class='dx-treelist-content dx-sortable dx-sortable-without-handle'])[1]"); // Поле первого столбца для перетаскивания тендера
 
     protected By filterUsers = By.xpath("//div[@id='favourite-search-select-child-user']//input"); // Поле выбора пользователя в фильтре "Пользователи"
-    protected By userAdminInFiltersUsers = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Пользователь "Админ" в фильтре "Пользователи"
+    protected By firstElementInListFilter = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Первый пункт в списке фильтра
     protected By openCardFirstTender = By.xpath("//div[@class='dx-treelist-text-content']/div[@class='favourite-kanban-card']"); // Открыть карточку первого тендера
+
     protected By userTestInListUsersTabTable = By.xpath("(//div[@class='dx-item-content dx-list-item-content'])[1]"); // Выбор тестового пользователя в качестве ответственного для первого тендера, вкладка "Таблица"
     protected By userAdminInListUsersTabTable = By.xpath("(//div[@class='dx-item-content dx-list-item-content'])[2]"); // Выбор пользователя "Админ" в качестве ответственного для первого тендера, вкладка "Таблица"
     protected By userTestInCardTender = By.xpath("(//div[@class='favourite-executor-fullname'])[1]"); // Выбор тестового пользователя в качестве ответственного для первого тендера в карточке тендера
@@ -37,6 +38,7 @@ public class MyTenders extends PageObject {
     protected By filterTags = By.xpath("//div[@id='favourite-search-select-tags']//div[@class='dx-texteditor-container']//input"); // Поле фильтра "Поиск по меткам"
     protected By selectRedTagInList = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Выбрать красную метку
     protected By registerNumberTenderInListTendersTabTable = By.xpath("//tr[@class='dx-row dx-data-row dx-row-lines']//td[4]//div[@class='favourite-table-td-name']"); // Реестровый номер тендера во вкладке "Таблица"
+    protected By filterAvailabilityTask = By.xpath("(//div[@id='favourite-search-select-with-tasks']//input)[2]"); // Поле "Наличие задач"
 
     protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
@@ -52,6 +54,7 @@ public class MyTenders extends PageObject {
 
     protected By buttonAddColumn = By.id("favourite-kanban-add-stage"); // Кнопка добавления столбца
     protected By buttonOpenListFilters = By.id("favourite-filter-switch-icon"); // Кнопка раскрытия списка фильтров
+    protected By buttonClearFieldAvailabilityTask = By.xpath("//div[@id='favourite-search-select-with-tasks']//span[@class='dx-icon dx-icon-clear']"); // Очистить поле "Наличие задач"
 
     protected By buttonChangeTagInCardTender = By.xpath("//div[@class='favourite-card-control-icons']//i[@class='mdi mdi-24px mdi-tag-outline']"); // Кнопка смены метки в карточке тендера
     protected By buttonChangeResponsibleInCardTender = By.xpath("//div[@id='favourite-tender-select-responsible']//div[@class='dx-texteditor-container']//input"); // Ответственный за тендер в карточке тендера
@@ -307,6 +310,10 @@ public class MyTenders extends PageObject {
         }
         return checkFirstColumn && checkSecondColumn;
     } // Проверка на отсутствие или наличие перетаскиваемого тендера в столбцах
+
+    public boolean isCheckResetFilterAvailabilityTask(){
+        return find(filterAvailabilityTask).getValue().isEmpty();
+    } // Проверка на сброс значения фильтра "Наличие задач"
 
 
 
