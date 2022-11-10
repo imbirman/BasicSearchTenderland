@@ -165,7 +165,7 @@ public class WhenMyTendersTest extends MyTenders {
     }
 
     @Test
-    @Title("Проверка кликабельности кнопки смены метки тендера в карточке тендера")
+    @Title("Проверка кликабельности кнопки ссылки на источник")
     public void checkClickableButtonLinkSource(){
 
         openMyTenders();
@@ -263,6 +263,18 @@ public class WhenMyTendersTest extends MyTenders {
         steps.click_button(buttonOpenListFilters);
         steps.click_button(buttonClearFieldAvailabilityTask);
         steps.check_reset_filter_availability_task();
+    }
+
+    @Test
+    @Title("Проверка максимальной длины названия столбца")
+    public void checkMaxLengthNameColumn(){
+
+        openMyTenders();
+        steps.delete_second_column();
+        steps.click_button(buttonAddColumn);
+        steps.type_name_column("12345678910111213141516171819202122232425");
+        steps.check_max_length_name_column();
+        steps.delete_second_column();
     }
 
 //    @Test

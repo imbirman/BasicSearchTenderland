@@ -315,6 +315,10 @@ public class MyTenders extends PageObject {
         return find(filterAvailabilityTask).getValue().isEmpty();
     } // Проверка на сброс значения фильтра "Наличие задач"
 
+    public boolean isCheckMaxLengthNameColumn(){
+        return find(nameSecondColumn).getText().length() == 25;
+    } // Проверка максимальной длины названия столбца
+
 
 
 }

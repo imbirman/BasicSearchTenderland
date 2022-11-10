@@ -226,4 +226,9 @@ public class MyTendersSteps {
         assertThat(page.isCheckResetFilterAvailabilityTask()).as("Значение фильтра \"Наличие задач\" не сбросилось").isTrue();
     }
 
+    @Step("Проверка максимальной длины названия столбца")
+    public void check_max_length_name_column(){
+        assertThat(page.isCheckMaxLengthNameColumn()).as("Максимальная длина названия столбца больше 25").isTrue();
+    }
+
 }
