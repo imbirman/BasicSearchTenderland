@@ -139,7 +139,7 @@ public class MyTenders extends PageObject {
 
     public void typeSearchByTender(String search){
         find(searchTenderField).sendKeys(search);
-    } // Ввести пароль для входа
+    } // Ввести данные для поиска по тендеру
 
     public void typeNameColumn(String name){
         find(fieldNameColumn).sendKeys(name);
