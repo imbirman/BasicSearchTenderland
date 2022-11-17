@@ -72,4 +72,9 @@ public class MyTendersTasksSteps {
     public void check_add_task(){
         assertThat(page.getNameLastTask()).as("Новая задача не добавилась или добавилась с некорректным названием").isEqualTo("тестовая задача");
     }
+
+    @Step("Проверка удаления задачи")
+    public void check_delete_task(){
+        assertThat(page.isCheckDeleteTask()).as("Либо задача не удалилась, либо удалилась не та").isTrue();
+    }
 }

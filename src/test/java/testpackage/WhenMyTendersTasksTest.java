@@ -61,5 +61,16 @@ public class WhenMyTendersTasksTest extends MyTendersTasks {
         steps.check_add_task_with_duplicate_name();
     }
 
+    @Test
+    @Title("Проверка удаления задачи")
+    public void checkDeleteTask(){
+        openMyTenders();
+        steps.click_button(openCardFirstTender);
+        steps.wait_a_bit(2000);
+        steps.click_button(getButtonDeleteTaskByNumber(2));
+        steps.wait_a_bit(2000);
+        steps.check_delete_task();
+    }
+
 
 }

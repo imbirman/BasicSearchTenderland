@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
+import java.util.List;
+
 @DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
 public class MyTendersTasks extends PageObject {
 
@@ -19,7 +21,7 @@ public class MyTendersTasks extends PageObject {
     protected By buttonTabMenuMyTenders = By.xpath("(//div[@class='tl-sidenav-item'])[2]//div"); // Кнопка в боковом меню "Мои тендеры"
 
     protected By buttonAddTask = By.xpath("//div[@id='tasks-multiview']//div[@style='cursor: pointer;']"); // Кнопка добавления задачи //div[@id='tasks-multiview']//i[@class='mdi mdi-18px mdi-plus']
-    protected By buttonDeleteLastTask = By.xpath("(//div[@id='tasks-multiview']//i[@class='mdi mdi-24px mdi-delete favourite-task-delete-button'])[last()]"); // Кнопка удаления последней задачи в списке
+    protected By buttonDeleteTask = By.xpath("//div[@id='tasks-multiview']//i[contains(@class, 'favourite-task-delete-button')]"); // Кнопка удаления последней задачи в списке
 
     protected By checkboxCompleteTask = By.xpath("//div[@id='tasks-multiview']//span[@class='dx-checkbox-icon']"); // Чекбокс выполнения задачи
 
@@ -28,6 +30,7 @@ public class MyTendersTasks extends PageObject {
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
+    private final By nameTask = By.xpath("//div[@id='tasks-multiview']//div[@class='favourite-card-name-task']"); // Название задачи
 
     private final By fieldEntryNameTask = By.xpath("//div[@id='tasks-multiview']//input[@class='dx-texteditor-input']"); // Поле ввода названия задача
 
@@ -83,8 +86,21 @@ public class MyTendersTasks extends PageObject {
         find(fieldEntryNameTask).sendKeys(Keys.ENTER);
     } // Ввод названия задачи
 
+    public WebElementFacade getButtonDeleteTaskByNumber(int number){
+        return findAll(buttonDeleteTask).get(number);
+    } // Получить задача по её номеру
+
     public String getNameLastTask(){
         return find(nameLastTask).getText();
     } // Получение названия последней задачи
+
+    public boolean isCheckDeleteTask(){
+        boolean check = true;
+        List<String> namesTasks = findAll(nameTask).texts();
+        for(String type:namesTasks){
+            if(type.contains("тестовая задача 3")){check = false; break;}
+        }
+        return check;
+    } // Проверка удаления задачи
 
 }
