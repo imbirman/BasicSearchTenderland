@@ -1,5 +1,6 @@
 package steps;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
@@ -55,5 +56,20 @@ public class MyTendersTasksSteps {
     @Step("Ввод пароля")
     public void type_password(String password){
         page.typePassword(password);
+    }
+
+    @Step("Ввод названия задачи при добавлении новой")
+    public void type_name_task(String name){
+        page.typeNameTask("тестовая задача");
+    }
+
+    @Step("Проверка названия последней задачи в списке при добавлении задачи с дублирующим названием")
+    public void  check_add_task_with_duplicate_name(){
+        assertThat(page.getNameLastTask()).as("Задача с дублирующим названием добавилась").isNotEqualTo("тестовая задача 1");
+    }
+
+    @Step("Проверка добавления новой задачи")
+    public void check_add_task(){
+        assertThat(page.getNameLastTask()).as("Новая задача не добавилась или добавилась с некорректным названием").isEqualTo("тестовая задача");
     }
 }

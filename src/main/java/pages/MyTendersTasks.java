@@ -6,6 +6,7 @@ import net.thucydides.core.pages.PageObject;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 
 @DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
 public class MyTendersTasks extends PageObject {
@@ -17,8 +18,18 @@ public class MyTendersTasks extends PageObject {
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By buttonTabMenuMyTenders = By.xpath("(//div[@class='tl-sidenav-item'])[2]//div"); // Кнопка в боковом меню "Мои тендеры"
 
+    protected By buttonAddTask = By.xpath("//div[@id='tasks-multiview']//div[@style='cursor: pointer;']"); // Кнопка добавления задачи //div[@id='tasks-multiview']//i[@class='mdi mdi-18px mdi-plus']
+    protected By buttonDeleteLastTask = By.xpath("(//div[@id='tasks-multiview']//i[@class='mdi mdi-24px mdi-delete favourite-task-delete-button'])[last()]"); // Кнопка удаления последней задачи в списке
+
+    protected By checkboxCompleteTask = By.xpath("//div[@id='tasks-multiview']//span[@class='dx-checkbox-icon']"); // Чекбокс выполнения задачи
+
+    protected By openCardFirstTender = By.xpath("//div[@class='dx-treelist-text-content']/div[@class='favourite-kanban-card']"); // Открыть карточку первого тендера
+    protected By nameLastTask = By.xpath("(//div[@id='tasks-multiview']//div[@class='favourite-card-name-task'])[last()]"); // Название последней задачи
+
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
+
+    private final By fieldEntryNameTask = By.xpath("//div[@id='tasks-multiview']//input[@class='dx-texteditor-input']"); // Поле ввода названия задача
 
     public void waitFor(long number){
         waitABit(number);
@@ -66,4 +77,14 @@ public class MyTendersTasks extends PageObject {
     public void typePassword(String password){
         find(passwordField).sendKeys(password);
     } // Ввести пароль для входа
+
+    public void typeNameTask(String name) {
+        find(fieldEntryNameTask).sendKeys(name);
+        find(fieldEntryNameTask).sendKeys(Keys.ENTER);
+    } // Ввод названия задачи
+
+    public String getNameLastTask(){
+        return find(nameLastTask).getText();
+    } // Получение названия последней задачи
+
 }

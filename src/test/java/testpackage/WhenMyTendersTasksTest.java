@@ -4,11 +4,14 @@ package testpackage;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.annotations.Title;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import pages.MyTendersTasks;
 import steps.MyTendersSteps;
+import steps.MyTendersTasksSteps;
 
 @RunWith(SerenityRunner.class)
 public class WhenMyTendersTasksTest extends MyTendersTasks {
@@ -17,7 +20,7 @@ public class WhenMyTendersTasksTest extends MyTendersTasks {
     WebDriver driver;
 
     @Steps
-    MyTendersSteps steps;
+    MyTendersTasksSteps steps;
 
     @Before
     public void beforeMethod(){
@@ -32,6 +35,30 @@ public class WhenMyTendersTasksTest extends MyTendersTasks {
     public void openMyTenders(){
         steps.click_button(openTabMenu);
         steps.click_button(buttonTabMenuMyTenders);
+    }
+
+    @Test
+    @Title("Проверка добавления новой задачи")
+    public void checkAddingTask(){
+        openMyTenders();
+        steps.click_button(openCardFirstTender);
+        steps.wait_a_bit(2000);
+        steps.click_button(buttonAddTask);
+        steps.type_name_task("тестовая задача");
+        steps.wait_a_bit(2000);
+        steps.check_add_task();
+    }
+
+    @Test
+    @Title("Проверка добавления задачи с дублирующим названием")
+    public void checkAddingTaskWithDuplicateName(){
+        openMyTenders();
+        steps.click_button(openCardFirstTender);
+        steps.wait_a_bit(2000);
+        steps.click_button(buttonAddTask);
+        steps.type_name_task("тестовая задача 1");
+        steps.wait_a_bit(2000);
+        steps.check_add_task_with_duplicate_name();
     }
 
 

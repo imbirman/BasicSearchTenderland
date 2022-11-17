@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenMyTendersTasksTest" skipped="0" tests="1" time="21.31" timestamp="2022-11-17 10:37:40"><testcase classname="testpackage.WhenMyTendersTasksTest" name="Проверка добавления задачи с дублирующим названием"/></testsuite>
