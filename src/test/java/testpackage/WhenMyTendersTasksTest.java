@@ -72,5 +72,17 @@ public class WhenMyTendersTasksTest extends MyTendersTasks {
         steps.check_delete_task();
     }
 
+    @Test
+    @Title("Проверка статуса добавленной задачи")
+    public void checkStatusAddedTask(){
+        openMyTenders();
+        steps.click_button(openCardFirstTender);
+        steps.wait_a_bit(2000);
+        steps.click_button(buttonAddTask);
+        steps.type_name_task("тест статуса");
+        steps.wait_a_bit(1000);
+        steps.check_status_added_task();
+    }
+
 
 }

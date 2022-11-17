@@ -30,9 +30,10 @@ public class MyTendersTasks extends PageObject {
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
-    private final By nameTask = By.xpath("//div[@id='tasks-multiview']//div[@class='favourite-card-name-task']"); // Название задачи
 
+    private final By nameTask = By.xpath("//div[@id='tasks-multiview']//div[@class='favourite-card-name-task']"); // Название задачи
     private final By fieldEntryNameTask = By.xpath("//div[@id='tasks-multiview']//input[@class='dx-texteditor-input']"); // Поле ввода названия задача
+    private final By statusTask = By.xpath("//div[@id='favourite-tender-tasks']/div/div[2]/div"); // Статус задачи
 
     public void waitFor(long number){
         waitABit(number);
@@ -103,4 +104,8 @@ public class MyTendersTasks extends PageObject {
         return check;
     } // Проверка удаления задачи
 
+    public boolean isCheckStatusAddedTask(){
+        List<WebElementFacade> type = findAll(statusTask);
+       return type.get(type.size()-1).getText().contains("ВЫПОЛНЯЕТСЯ");
+    } // Проверка статуса созданной задачи
 }

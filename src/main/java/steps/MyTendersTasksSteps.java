@@ -60,7 +60,7 @@ public class MyTendersTasksSteps {
 
     @Step("Ввод названия задачи при добавлении новой")
     public void type_name_task(String name){
-        page.typeNameTask("тестовая задача");
+        page.typeNameTask(name);
     }
 
     @Step("Проверка названия последней задачи в списке при добавлении задачи с дублирующим названием")
@@ -76,5 +76,10 @@ public class MyTendersTasksSteps {
     @Step("Проверка удаления задачи")
     public void check_delete_task(){
         assertThat(page.isCheckDeleteTask()).as("Либо задача не удалилась, либо удалилась не та").isTrue();
+    }
+
+    @Step("Проверка статуса созданной задачи")
+    public void check_status_added_task(){
+        assertThat(page.isCheckStatusAddedTask()).as("Статус созданной задачи некорректен").isTrue();
     }
 }
