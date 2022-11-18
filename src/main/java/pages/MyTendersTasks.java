@@ -22,6 +22,10 @@ public class MyTendersTasks extends PageObject {
 
     protected By buttonAddTask = By.xpath("//div[@id='tasks-multiview']//div[@style='cursor: pointer;']"); // Кнопка добавления задачи //div[@id='tasks-multiview']//i[@class='mdi mdi-18px mdi-plus']
     protected By buttonDeleteTask = By.xpath("//div[@id='tasks-multiview']//i[contains(@class, 'favourite-task-delete-button')]"); // Кнопка удаления последней задачи в списке
+    protected By buttonBackToTask = By.xpath("//div[@id='tasks-multiview']//div[@class='favourite-card-back-tasks']"); // Кнопка, возвращающая к задаче
+
+    protected By switchToCompleteTask = By.id("favourite-card-task-is-complete"); // Кнопка переключения метки выполнения задачи
+
 
     protected By checkboxCompleteTask = By.xpath("//div[@id='tasks-multiview']//span[@class='dx-checkbox-icon']"); // Чекбокс выполнения задачи
 
@@ -33,7 +37,8 @@ public class MyTendersTasks extends PageObject {
 
     private final By nameTask = By.xpath("//div[@id='tasks-multiview']//div[@class='favourite-card-name-task']"); // Название задачи
     private final By fieldEntryNameTask = By.xpath("//div[@id='tasks-multiview']//input[@class='dx-texteditor-input']"); // Поле ввода названия задача
-    private final By statusTask = By.xpath("//div[@id='favourite-tender-tasks']/div/div[2]/div"); // Статус задачи
+    private final By statusTaskInListTasks = By.xpath("//div[@id='favourite-tender-tasks']/div/div[2]/div"); // Статус задачи
+    private final By statusTaskInWindowTask = By.id("favourite-card-task-status"); // Статус задачи в окне задачи
 
     public void waitFor(long number){
         waitABit(number);
@@ -87,25 +92,43 @@ public class MyTendersTasks extends PageObject {
         find(fieldEntryNameTask).sendKeys(Keys.ENTER);
     } // Ввод названия задачи
 
-    public WebElementFacade getButtonDeleteTaskByNumber(int number){
-        return findAll(buttonDeleteTask).get(number);
-    } // Получить задача по её номеру
-
     public String getNameLastTask(){
         return find(nameLastTask).getText();
     } // Получение названия последней задачи
+
+    public WebElementFacade getButtonDeleteTaskByNumberByNumber(int number){
+        return findAll(buttonDeleteTask).get(number);
+    } // Получить кнопку удаления задачи по её порядковому номеру
+
+    public WebElementFacade getTaskByNumber(int number){
+        return findAll(nameTask).get(number);
+    } // Получение задачи по ее порядковому номеру
+
+    public WebElementFacade getStatusTaskInListTasksByNumber(int number){
+        return findAll(statusTaskInListTasks).get(number);
+    } // Получение статуса задачи в списке задач по её номеру
 
     public boolean isCheckDeleteTask(){
         boolean check = true;
         List<String> namesTasks = findAll(nameTask).texts();
         for(String type:namesTasks){
-            if(type.contains("тестовая задача 3")){check = false; break;}
+            if(type.contains("тестовая задача 4")){check = false; break;}
         }
         return check;
     } // Проверка удаления задачи
 
     public boolean isCheckStatusAddedTask(){
-        List<WebElementFacade> type = findAll(statusTask);
-       return type.get(type.size()-1).getText().contains("ВЫПОЛНЯЕТСЯ");
+        List<WebElementFacade> type = findAll(statusTaskInListTasks);
+       return type.get(type.size()-1).getText().equals("ВЫПОЛНЯЕТСЯ");
     } // Проверка статуса созданной задачи
+
+    public boolean isCheckStatusTaskAfterClickSwitchBoxCompleteInWindowTask(){
+        return find(statusTaskInWindowTask).getText().equals("ГОТОВО");
+    } // Проверка статуса задачи в окне задачи после нажатия переключателя "Выполнено"
+
+    public boolean isCheckStatusTaskAfterClickSwitchBoxCompleteInListTask(int number){
+        return getStatusTaskInListTasksByNumber(number).getText().equals("ГОТОВО");
+    } // Проверка статуса задачи в списке задач после нажатия переключателя "Выполнено"
+
+
 }

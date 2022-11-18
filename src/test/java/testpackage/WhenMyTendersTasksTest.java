@@ -67,7 +67,7 @@ public class WhenMyTendersTasksTest extends MyTendersTasks {
         openMyTenders();
         steps.click_button(openCardFirstTender);
         steps.wait_a_bit(2000);
-        steps.click_button(getButtonDeleteTaskByNumber(2));
+        steps.click_button(getButtonDeleteTaskByNumberByNumber(3));
         steps.wait_a_bit(2000);
         steps.check_delete_task();
     }
@@ -84,5 +84,26 @@ public class WhenMyTendersTasksTest extends MyTendersTasks {
         steps.check_status_added_task();
     }
 
+    @Test
+    @Title("Проверка статуса задачи в окне задачи после нажатия переключателя \"Выполнено\"")
+    public void checkStatusTaskAfterClickSwitchBoxCompleteInWindowTask(){
+        openMyTenders();
+        steps.click_button(openCardFirstTender);
+        steps.wait_a_bit(2000);
+        steps.click_button(getTaskByNumber(0));
+        steps.click_button(switchToCompleteTask);
+        steps.check_status_task_after_click_switchbox_complete_in_window_task();
+    }
 
+    @Test
+    @Title("Проверка статуса задачи в списке задач после нажатия переключателя \"Выполнено\"")
+    public void checkStatusTaskAfterClickSwitchBoxCompleteInListTask(){
+        openMyTenders();
+        steps.click_button(openCardFirstTender);
+        steps.wait_a_bit(2000);
+        steps.click_button(getTaskByNumber(1));
+        steps.click_button(switchToCompleteTask);
+        steps.click_button(buttonBackToTask);
+        steps.check_status_task_after_click_switchbox_complete_in_list_task(1);
+    }
 }

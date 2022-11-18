@@ -82,4 +82,14 @@ public class MyTendersTasksSteps {
     public void check_status_added_task(){
         assertThat(page.isCheckStatusAddedTask()).as("Статус созданной задачи некорректен").isTrue();
     }
+
+    @Step("Проверка статуса задачи в окне задачи после нажатия переключателя \"Выполнено\"")
+    public void check_status_task_after_click_switchbox_complete_in_window_task(){
+        assertThat(page.isCheckStatusTaskAfterClickSwitchBoxCompleteInWindowTask()).as("Статус задачи некорректен").isTrue();
+    }
+
+    @Step("Проверка статуса задачи в списке задач после нажатия переключателя \"Выполнено\"")
+    public void check_status_task_after_click_switchbox_complete_in_list_task(int number){
+        assertThat(page.isCheckStatusTaskAfterClickSwitchBoxCompleteInListTask(number)).as("Статус задачи некорректен").isTrue();
+    }
 }
