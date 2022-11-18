@@ -106,7 +106,11 @@ public class MyTendersTasks extends PageObject {
 
     public WebElementFacade getStatusTaskInListTasksByNumber(int number){
         return findAll(statusTaskInListTasks).get(number);
-    } // Получение статуса задачи в списке задач по её номеру
+    } // Получение статуса задачи в списке задач по её порядковому номеру
+
+    public WebElementFacade getCheckboxInListTasksByNumber(int number){
+        return findAll(checkboxCompleteTask).get(number);
+    } // Получение чекбокса задачи в списке задач по его порядковому номеру
 
     public boolean isCheckDeleteTask(){
         boolean check = true;

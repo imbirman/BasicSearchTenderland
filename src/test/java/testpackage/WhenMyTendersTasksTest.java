@@ -104,6 +104,16 @@ public class WhenMyTendersTasksTest extends MyTendersTasks {
         steps.click_button(getTaskByNumber(1));
         steps.click_button(switchToCompleteTask);
         steps.click_button(buttonBackToTask);
-        steps.check_status_task_after_click_switchbox_complete_in_list_task(1);
+        steps.check_status_task_complete_in_list_task(1);
+    }
+
+    @Test
+    @Title("Проверка статуса задачи в списке задач после нажатия чекбокса \"Выполнено\"")
+    public void checkStatusTaskAfterClickCheckboxCompleteInListTask(){
+        openMyTenders();
+        steps.click_button(openCardFirstTender);
+        steps.wait_a_bit(2000);
+        steps.click_button(getCheckboxInListTasksByNumber(2));
+        steps.check_status_task_complete_in_list_task(2);
     }
 }

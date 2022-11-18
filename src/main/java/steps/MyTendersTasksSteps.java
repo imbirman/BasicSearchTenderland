@@ -89,7 +89,7 @@ public class MyTendersTasksSteps {
     }
 
     @Step("Проверка статуса задачи в списке задач после нажатия переключателя \"Выполнено\"")
-    public void check_status_task_after_click_switchbox_complete_in_list_task(int number){
+    public void check_status_task_complete_in_list_task(int number){
         assertThat(page.isCheckStatusTaskAfterClickSwitchBoxCompleteInListTask(number)).as("Статус задачи некорректен").isTrue();
     }
 }
