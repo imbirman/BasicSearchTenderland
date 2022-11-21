@@ -116,4 +116,18 @@ public class WhenMyTendersTasksTest extends MyTendersTasks {
         steps.click_button(getCheckboxInListTasksByNumber(2));
         steps.check_status_task_complete_in_list_task(2);
     }
+
+    @Test
+    @Title("Проверка полей оповещения если не выбрать частоту повторения оповещений")
+    public void checkFieldsNotification(){
+        openMyTenders();
+        steps.click_button(openCardFirstTender);
+        steps.wait_a_bit(2000);
+        steps.click_button(nameTask);
+        steps.click_button(fieldNotification);
+        steps.click_button(elementByDropDownList);
+        steps.click_button(buttonBackToTask);
+        steps.click_button(nameTask);
+        steps.check_empty_field_repeat_notification();
+    }
 }

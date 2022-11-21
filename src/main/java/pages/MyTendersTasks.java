@@ -31,11 +31,16 @@ public class MyTendersTasks extends PageObject {
 
     protected By openCardFirstTender = By.xpath("//div[@class='dx-treelist-text-content']/div[@class='favourite-kanban-card']"); // Открыть карточку первого тендера
     protected By nameLastTask = By.xpath("(//div[@id='tasks-multiview']//div[@class='favourite-card-name-task'])[last()]"); // Название последней задачи
+    protected By nameTask = By.xpath("//div[@id='tasks-multiview']//div[@class='favourite-card-name-task']"); // Название задачи
+    protected By fieldNotification = By.xpath("//div[@id='favourite-notify-time']//input[@class='dx-texteditor-input']"); // Поле "Оповещение"
+    protected By fieldRepeatNotification = By.xpath("//div[@id='favourite-notify-amount']//input[@class='dx-texteditor-input']"); // Поле "Повторять"
+    protected By elementByDropDownList = By.xpath("//div[@class='dx-scrollview-content']//div[@class='dx-item dx-list-item']"); // Элемент выпадающего списка
+
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
 
-    private final By nameTask = By.xpath("//div[@id='tasks-multiview']//div[@class='favourite-card-name-task']"); // Название задачи
+
     private final By fieldEntryNameTask = By.xpath("//div[@id='tasks-multiview']//input[@class='dx-texteditor-input']"); // Поле ввода названия задача
     private final By statusTaskInListTasks = By.xpath("//div[@id='favourite-tender-tasks']/div/div[2]/div"); // Статус задачи
     private final By statusTaskInWindowTask = By.id("favourite-card-task-status"); // Статус задачи в окне задачи
@@ -133,6 +138,10 @@ public class MyTendersTasks extends PageObject {
     public boolean isCheckStatusTaskAfterClickSwitchBoxCompleteInListTask(int number){
         return getStatusTaskInListTasksByNumber(number).getText().equals("ГОТОВО");
     } // Проверка статуса задачи в списке задач после нажатия переключателя "Выполнено"
+
+    public boolean isCheckFieldsNotification(){
+        return find(fieldNotification).getValue().isEmpty() && find(fieldRepeatNotification).isDisabled();
+    } // Проверка полей оповещения
 
 
 }

@@ -92,4 +92,9 @@ public class MyTendersTasksSteps {
     public void check_status_task_complete_in_list_task(int number){
         assertThat(page.isCheckStatusTaskAfterClickSwitchBoxCompleteInListTask(number)).as("Статус задачи некорректен").isTrue();
     }
+
+    @Step("Проверка полей оповещения если не выбрать частоту повторения оповещений")
+    public void check_empty_field_repeat_notification(){
+        assertThat(page.isCheckFieldsNotification()).as("Поле \"Оповещение\" заполнено. Поле \"Повторять\" активно").isTrue();
+    }
 }
