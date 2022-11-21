@@ -1,5 +1,6 @@
 package steps;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
@@ -96,5 +97,15 @@ public class MyTendersTasksSteps {
     @Step("Проверка полей оповещения если не выбрать частоту повторения оповещений")
     public void check_empty_field_repeat_notification(){
         assertThat(page.isCheckFieldsNotification()).as("Поле \"Оповещение\" заполнено. Поле \"Повторять\" активно").isTrue();
+    }
+
+    @Step("Проверка количества задач в карточке тендера")
+    public void check_number_tasks_in_tender_card(int number){
+        assertThat(page.isCheckNumberTasksInTenderCard(number)).as("Количество задач в карточке тендера некорректно").isTrue();
+    }
+
+    @Step("Проверка списка задач во вкладке \"Таблица\" и отсутствия поля ввода названия новой задачи")
+    public void check_number_tasks_in_tab_table(int number){
+        assertThat(page.isCheckNumberTasksInTabTable(number)).as("Количество задач во вкладке \"Таблица\" некорректно или отображается поле ввода названия новой задачи").isTrue();
     }
 }

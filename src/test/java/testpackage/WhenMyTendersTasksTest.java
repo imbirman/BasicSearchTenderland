@@ -130,4 +130,27 @@ public class WhenMyTendersTasksTest extends MyTendersTasks {
         steps.click_button(nameTask);
         steps.check_empty_field_repeat_notification();
     }
+
+    @Test
+    @Title("Проверка количества задач после добавления задачи во вкладке \"Таблица\" без названия задачи")
+    public void checkNumberTasksAfterAddedTaskInTabTableWithoutNameTask(){
+        int check_number_tasks_in_tab_table;
+        int check_number_tasks_in_tab_cards;
+        openMyTenders();
+        steps.click_button(openCardFirstTender);
+        check_number_tasks_in_tab_cards = findAll(nameTask).size();
+        steps.click_button(buttonCloseCardTender);
+        steps.click_button(tabTable);
+        steps.click_button(buttonOpenListTasksInTabTable);
+        check_number_tasks_in_tab_table = findAll(nameTaskInTabTable).size();
+        steps.click_button(buttonAddTaskInTabTable);
+        steps.click_button(tabCards);
+        steps.click_button(openCardFirstTender);
+        steps.wait_a_bit(2000);
+        steps.check_number_tasks_in_tender_card(check_number_tasks_in_tab_cards);
+        steps.click_button(buttonCloseCardTender);
+        steps.click_button(tabTable);
+        steps.click_button(buttonOpenListTasksInTabTable);
+        steps.check_number_tasks_in_tab_table(check_number_tasks_in_tab_table);
+    }
 }
