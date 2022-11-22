@@ -78,4 +78,9 @@ public class MyTendersFiltersSteps {
     public void check_search_by_tags_in_tab_cards(){
         assertThat(page.isCheckSearchByTags()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
     }
+
+    @Step("Проверка сброса фильтра \"Наличие задач\"")
+    public void check_reset_filter_availability_task(){
+        assertThat(page.isCheckResetFilterAvailabilityTask()).as("Значение фильтра \"Наличие задач\" не сбросилось").isTrue();
+    }
 }

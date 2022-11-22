@@ -199,19 +199,6 @@ public class WhenMyTendersTest extends MyTenders {
     }
 
     @Test
-    @Title("Проверка на сброс значения фильтра \"Наличие задач\"")
-    public void checkResetFilterAvailabilityTask(){
-
-        openMyTenders();
-        steps.click_button(buttonOpenListFilters);
-        steps.click_button(filterAvailabilityTask);
-        steps.click_button(firstElementInListFilter);
-        steps.click_button(buttonOpenListFilters);
-        steps.click_button(buttonClearFieldAvailabilityTask);
-        steps.check_reset_filter_availability_task();
-    }
-
-    @Test
     @Title("Проверка максимальной длины названия столбца")
     public void checkMaxLengthNameColumn(){
 

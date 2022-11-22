@@ -89,4 +89,17 @@ public class WhenMyTendersFiltersTest extends MyTendersFilters {
         steps.wait_a_bit(2000);
         steps.check_search_by_tags_in_tab_cards();
     }
+
+    @Test
+    @Title("Проверка на сброс значения фильтра \"Наличие задач\"")
+    public void checkResetFilterAvailabilityTask(){
+
+        openMyTenders();
+        steps.click_button(buttonOpenListFilters);
+        steps.click_button(filterAvailabilityTask);
+        steps.click_button(firstElementInListFilter);
+        steps.click_button(buttonOpenListFilters);
+        steps.click_button(buttonClearFieldAvailabilityTask);
+        steps.check_reset_filter_availability_task();
+    }
 }

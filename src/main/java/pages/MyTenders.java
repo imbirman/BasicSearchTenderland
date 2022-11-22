@@ -33,10 +33,6 @@ public class MyTenders extends PageObject {
     protected By userTestInCardTender = By.xpath("(//div[@class='favourite-executor-fullname'])[1]"); // Выбор тестового пользователя в качестве ответственного для первого тендера в карточке тендера
     protected By userAdminInCardTender = By.xpath("(//div[@class='favourite-executor-fullname'])[2]"); // Выбор пользователя "Админ" в качестве ответственного для первого тендера в карточке тендера
 
-
-
-    protected By filterAvailabilityTask = By.xpath("(//div[@id='favourite-search-select-with-tasks']//input)[2]"); // Поле "Наличие задач"
-
     protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
@@ -50,8 +46,6 @@ public class MyTenders extends PageObject {
     protected By buttonDeleteContextMenuColumn = By.xpath("(//div[@class='dx-submenu']//div[@role='menuitem'])[3]"); // Кнопка "Удалить" контекстного меню столбца
 
     protected By buttonAddColumn = By.id("favourite-kanban-add-stage"); // Кнопка добавления столбца
-    protected By buttonOpenListFilters = By.id("favourite-filter-switch-icon"); // Кнопка раскрытия списка фильтров
-    protected By buttonClearFieldAvailabilityTask = By.xpath("//div[@id='favourite-search-select-with-tasks']//span[@class='dx-icon dx-icon-clear']"); // Очистить поле "Наличие задач"
 
     protected By buttonChangeTagInCardTender = By.xpath("//div[@class='favourite-card-control-icons']//i[@class='mdi mdi-24px mdi-tag-outline']"); // Кнопка смены метки в карточке тендера
     protected By buttonChangeResponsibleInCardTender = By.xpath("//div[@id='favourite-tender-select-responsible']//div[@class='dx-texteditor-container']//input"); // Ответственный за тендер в карточке тендера
@@ -269,9 +263,7 @@ public class MyTenders extends PageObject {
         return checkFirstColumn && checkSecondColumn;
     } // Проверка на отсутствие или наличие перетаскиваемого тендера в столбцах
 
-    public boolean isCheckResetFilterAvailabilityTask(){
-        return find(filterAvailabilityTask).getValue().isEmpty();
-    } // Проверка на сброс значения фильтра "Наличие задач"
+
 
     public boolean isCheckMaxLengthNameColumn(){
         return find(nameSecondColumn).getText().length() == 25;

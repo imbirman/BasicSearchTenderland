@@ -16,11 +16,15 @@ public class MyTendersFilters extends PageObject {
     protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By buttonTabMenuMyTenders = By.xpath("(//div[@class='tl-sidenav-item'])[2]//div"); // Кнопка в боковом меню "Мои тендеры"
-    protected By buttonOpenListFilters = By.id("favourite-filter-switch-icon"); // Кнопка раскрытия списка фильтров
 
+    protected By buttonOpenListFilters = By.id("favourite-filter-switch-icon"); // Кнопка раскрытия списка фильтров
+    protected By buttonClearFieldAvailabilityTask = By.xpath("//div[@id='favourite-search-select-with-tasks']//span[@class='dx-icon dx-icon-clear']"); // Очистить поле "Наличие задач"
     protected By buttonChangeResponsibleInCardTender = By.xpath("//div[@id='favourite-tender-select-responsible']//div[@class='dx-texteditor-container']//input"); // Ответственный за тендер в карточке тендера
+
     protected By filterUsers = By.xpath("//div[@id='favourite-search-select-child-user']//input"); // Поле выбора пользователя в фильтре "Пользователи"
     protected By filterTags = By.xpath("//div[@id='favourite-search-select-tags']//div[@class='dx-texteditor-container']//input"); // Поле фильтра "Поиск по меткам"
+    protected By filterAvailabilityTask = By.xpath("(//div[@id='favourite-search-select-with-tasks']//input)[2]"); // Поле "Наличие задач"
+
     protected By selectRedTagInList = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Выбрать красную метку
     protected By firstElementInListFilter = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Первый пункт в списке фильтра
     protected By openCardFirstTender = By.xpath("//div[@class='dx-treelist-text-content']/div[@class='favourite-kanban-card']"); // Открыть карточку первого тендера
@@ -104,4 +108,8 @@ public class MyTendersFilters extends PageObject {
     public boolean isCheckSearchByTags(){
         return find(tagInCardTender).getAttribute("style").contains("background-color: rgb(235, 9, 16)");
     } // Проверка поиска по метке
+
+    public boolean isCheckResetFilterAvailabilityTask(){
+        return find(filterAvailabilityTask).getValue().isEmpty();
+    } // Проверка на сброс значения фильтра "Наличие задач"
 }
