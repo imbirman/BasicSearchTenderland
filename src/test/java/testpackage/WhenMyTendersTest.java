@@ -210,6 +210,30 @@ public class WhenMyTendersTest extends MyTenders {
         steps.delete_second_column();
     }
 
+    @Test
+    @Title("Проверка заметки в карточке тендера")
+    public void checkNoticeInCardTender(){
+        openMyTenders();
+        steps.click_button(tabTable);
+        steps.clear_field(firstFieldEntryNoticeInTabTable);
+        steps.type_notice_in_tab_table("тестовая заметка");
+        steps.click_button(tabCards);
+        steps.click_button(openCardFirstTender);
+        steps.check_notice_in_card_tender();
+    }
+
+    @Test
+    @Title("Проверка заметки во вкладке \"Таблица\"")
+    public void checkNoticeInTabTable(){
+        openMyTenders();
+        steps.click_button(openCardFirstTender);
+        steps.clear_field(fieldEntryNoticeInCardTender);
+        steps.type_notice_in_card_tender("тестовая заметка");
+        steps.click_button(buttonCloseCardTender);
+        steps.click_button(tabTable);
+        steps.check_notice_in_tab_table();
+    }
+
 //    @Test
 //    @Title("Проверка смены столбца тендера с помощью перетаскивания")
 //    public void checkDragAndDropTender(){

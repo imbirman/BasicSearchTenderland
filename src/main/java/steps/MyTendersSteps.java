@@ -58,11 +58,19 @@ public class MyTendersSteps {
         page.typePassword(password);
     }
 
-
-
     @Step("Ввод названия столбца")
     public void type_name_column(String name){
         page.typeNameColumn(name);
+    }
+
+    @Step("Ввод заметки")
+    public void type_notice_in_card_tender(String notice){
+        page.typeNoticeInCardTender(notice);
+    }
+
+    @Step("Ввод заметки")
+    public void type_notice_in_tab_table(String notice){
+        page.typeNoticeInTabTable(notice);
     }
 
     @Step("Навести курсор")
@@ -196,6 +204,16 @@ public class MyTendersSteps {
     @Step("Проверка максимальной длины названия столбца")
     public void check_max_length_name_column(){
         assertThat(page.isCheckMaxLengthNameColumn()).as("Максимальная длина названия столбца больше 25").isTrue();
+    }
+
+    @Step("Проверка заметки в карточке тендера")
+    public void check_notice_in_card_tender(){
+        assertThat(page.isCheckNoticeInCardTender()).as("Заметка в карточке тендера не соответствует введенной во вкладке \"Таблица\"").isTrue();
+    }
+
+    @Step("Проверка заметки во вкладке \"Таблица\"")
+    public void check_notice_in_tab_table(){
+        assertThat(page.isCheckNoticeInTabTable()).as("Заметка тендера во вкладке \"Таблица\" не соответствует введенной в карточке тендера").isTrue();
     }
 
 }

@@ -25,7 +25,9 @@ public class MyTenders extends PageObject {
     protected By fieldSecondColumnForDragAndDrop = By.xpath("(//div[@class='dx-treelist-content dx-sortable dx-sortable-without-handle'])[2]"); // Поле второго столбца для перетаскивания тендера
     protected By fieldFirstColumnForDragAndDrop = By.xpath("(//div[@class='dx-treelist-content dx-sortable dx-sortable-without-handle'])[1]"); // Поле первого столбца для перетаскивания тендера
 
-    protected By firstElementInListFilter = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Первый пункт в списке фильтра
+    protected By fieldEntryNoticeInCardTender = By.xpath("//div[@id='favourite-card-notice']//input"); // Поле для ввода заметки в карточке тендера
+    protected By firstFieldEntryNoticeInTabTable = By.xpath("(//div[@id='favourite-table']//input[@role='textbox'])[1]"); // Поле для первого тендера для ввода заметки во вкладке "Таблица"
+
     protected By openCardFirstTender = By.xpath("//div[@class='dx-treelist-text-content']/div[@class='favourite-kanban-card']"); // Открыть карточку первого тендера
 
     protected By userTestInListUsersTabTable = By.xpath("(//div[@class='dx-item-content dx-list-item-content'])[1]"); // Выбор тестового пользователя в качестве ответственного для первого тендера, вкладка "Таблица"
@@ -128,6 +130,16 @@ public class MyTenders extends PageObject {
         find(fieldNameColumn).sendKeys(name);
         find(fieldNameColumn).sendKeys(Keys.ENTER);
     } // Ввести название столбца
+
+    public void typeNoticeInCardTender(String notice){
+        find(fieldEntryNoticeInCardTender).sendKeys(notice);
+        find(fieldEntryNoticeInCardTender).sendKeys(Keys.ENTER);
+    } // Ввести заметку в карточке тендера
+
+    public void typeNoticeInTabTable(String notice){
+        find(firstFieldEntryNoticeInTabTable).sendKeys(notice);
+        find(firstFieldEntryNoticeInTabTable).sendKeys(Keys.ENTER);
+    } // Ввести заметку во вкладке "Таблица"
 
     public void moveToElement(By element){
         moveTo(element);
@@ -268,6 +280,14 @@ public class MyTenders extends PageObject {
     public boolean isCheckMaxLengthNameColumn(){
         return find(nameSecondColumn).getText().length() == 25;
     } // Проверка максимальной длины названия столбца
+
+    public boolean isCheckNoticeInTabTable(){
+        return find(firstFieldEntryNoticeInTabTable).getValue().equals("тестовая заметка");
+    } // Проверка заметки во вкладке "Таблица"
+
+    public boolean isCheckNoticeInCardTender(){
+        return find(fieldEntryNoticeInCardTender).getValue().equals("тестовая заметка");
+    } // Проверка заметки в карточке тендера
 
 
 
