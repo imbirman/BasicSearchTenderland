@@ -91,60 +91,6 @@ public class WhenMyTendersTest extends MyTenders {
     }
 
     @Test
-    @Title("Проверка количества фильтров")
-    public void checkNumberFilters(){
-
-        openMyTenders();
-        steps.click_button(buttonOpenListFilters);
-        steps.check_number_filters();
-    }
-
-    @Test
-    @Title("Проверка поиска по реестровому номеру тендера")
-    public void checkSearchByRegisterNumberTenderInTabCard(){
-
-        openMyTenders();
-        steps.type_search_by_tender("01");
-        steps.wait_a_bit(2000);
-        steps.check_search_by_register_number_tender_in_tab_cards();
-    }
-
-    @Test
-    @Title("Проверка поиска по названию тендера")
-    public void checkSearchByNameTenderInTabCard(){
-
-        openMyTenders();
-        steps.type_search_by_tender("усл");
-        steps.wait_a_bit(2000);
-        steps.check_search_by_name_tender_in_tab_cards();
-    }
-
-    @Test
-    @Title("Проверка поиска по пользователю")
-    public void checkSearchByUser(){
-
-        openMyTenders();
-        steps.click_button(filterUsers);
-        steps.click_button(firstElementInListFilter);
-        steps.click_button(openCardFirstTender);
-        steps.wait_a_bit(2000);
-        steps.check_search_by_user_in_tab_cards();
-    }
-
-    @Test
-    @Title("Проверка поиска по метке тендера")
-    public void checkSearchByTags(){
-
-        openMyTenders();
-        steps.click_button(buttonOpenListFilters);
-        steps.click_button(filterTags);
-        steps.click_button(selectRedTagInList);
-        steps.click_button(openCardFirstTender);
-        steps.wait_a_bit(2000);
-        steps.check_search_by_tags_in_tab_cards();
-    }
-
-    @Test
     @Title("Проверка отображения карточки тендера")
     public void checkVisibleCard(){
 

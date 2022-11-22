@@ -58,10 +58,7 @@ public class MyTendersSteps {
         page.typePassword(password);
     }
 
-    @Step("Ввод ключевого слова для поиска по тендеру")
-    public void type_search_by_tender(String search){
-        page.typeSearchByTender(search);
-    }
+
 
     @Step("Ввод названия столбца")
     public void type_name_column(String name){
@@ -83,7 +80,7 @@ public class MyTendersSteps {
 
     @Step("Получить тендер по его порядковому номеру в первом столбце")
     public WebElementFacade get_tender_by_number_in_first_column(int number, int numberColumn){
-        return  page.getTenderByNumberInFirstColumn(number, numberColumn);
+        return  page.getTenderByNumberInColumn(number, numberColumn);
     }
 
     @Step("Проверка реестрового номера добавленного тендера")
@@ -167,31 +164,6 @@ public class MyTendersSteps {
     @Step("Проверить название добавленного столбца")
     public void check_name_added_column(){
         assertThat(page.getNameSecondColumn()).as("Название добавленного столбца некорректно").isEqualTo("Тестовый столбец");
-    }
-
-    @Step("Проверка количества фильтров")
-    public void check_number_filters(){
-        assertThat(page.getNumberFilters()).as("Количество фильтров некорректно").isEqualTo(9);
-    }
-
-    @Step("Проверка поиска по реестровому номеру тендера")
-    public void check_search_by_register_number_tender_in_tab_cards(){
-        assertThat(page.isCheckSearchByRegisterNumberTender()).as("В списке тендеров нет тендера, в чей реестровый номер входит ключевое слово").isTrue();
-    }
-
-    @Step("Проверка поиска по названию тендера")
-    public void check_search_by_name_tender_in_tab_cards(){
-        assertThat(page.isCheckSearchByNameTender()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
-    }
-
-    @Step("Проверка поиска по названию тендера")
-    public void check_search_by_user_in_tab_cards(){
-        assertThat(page.getResponsibleInCardTender()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isEqualTo("Админ");
-    }
-
-    @Step("Проверка поиска по метке тендера")
-    public void check_search_by_tags_in_tab_cards(){
-        assertThat(page.isCheckSearchByTags()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
     }
 
     @Step("Проверка отображения карточки тендера")
