@@ -102,4 +102,13 @@ public class WhenMyTendersFiltersTest extends MyTendersFilters {
         steps.click_button(buttonClearFieldAvailabilityTask);
         steps.check_reset_filter_availability_task();
     }
+
+    @Test
+    @Title("Проверка наличия фильтра \"Поиск по этапам\"")
+    public void checkVisibleFilterSearchByStages(){
+
+        openMyTenders();
+        steps.click_button(buttonOpenListFilters);
+        steps.check_filter_search_by_stages();
+    }
 }

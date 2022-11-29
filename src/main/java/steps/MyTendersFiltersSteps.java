@@ -83,4 +83,9 @@ public class MyTendersFiltersSteps {
     public void check_reset_filter_availability_task(){
         assertThat(page.isCheckResetFilterAvailabilityTask()).as("Значение фильтра \"Наличие задач\" не сбросилось").isTrue();
     }
+
+    @Step("Проверка наличия фильтра \"Поиск по этапам\"")
+    public void check_filter_search_by_stages(){
+        assertThat(page.isCheckFilterSearchByStages()).as("Фильтр не отображен").isTrue();
+    }
 }

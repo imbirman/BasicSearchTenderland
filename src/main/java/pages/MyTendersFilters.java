@@ -21,9 +21,10 @@ public class MyTendersFilters extends PageObject {
     protected By buttonClearFieldAvailabilityTask = By.xpath("//div[@id='favourite-search-select-with-tasks']//span[@class='dx-icon dx-icon-clear']"); // Очистить поле "Наличие задач"
     protected By buttonChangeResponsibleInCardTender = By.xpath("//div[@id='favourite-tender-select-responsible']//div[@class='dx-texteditor-container']//input"); // Ответственный за тендер в карточке тендера
 
-    protected By filterUsers = By.xpath("//div[@id='favourite-search-select-child-user']//input"); // Поле выбора пользователя в фильтре "Пользователи"
-    protected By filterTags = By.xpath("//div[@id='favourite-search-select-tags']//div[@class='dx-texteditor-container']//input"); // Поле фильтра "Поиск по меткам"
-    protected By filterAvailabilityTask = By.xpath("(//div[@id='favourite-search-select-with-tasks']//input)[2]"); // Поле "Наличие задач"
+    protected By filterUsers = By.xpath("//div[@id='favourite-search-select-child-user']//input"); // Фильтр выбора пользователя в фильтре "Пользователи"
+    protected By filterTags = By.xpath("//div[@id='favourite-search-select-tags']//div[@class='dx-texteditor-container']//input"); // Фильтр "Поиск по меткам"
+    protected By filterAvailabilityTask = By.xpath("(//div[@id='favourite-search-select-with-tasks']//input)[2]"); // Фильтр "Наличие задач"
+    protected By filterSearchByStages = By.xpath("//div[@id='favourite-search-select-user-stages']//input"); // Фильтр "Поиск по этапам"
 
     protected By selectRedTagInList = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Выбрать красную метку
     protected By firstElementInListFilter = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Первый пункт в списке фильтра
@@ -112,4 +113,8 @@ public class MyTendersFilters extends PageObject {
     public boolean isCheckResetFilterAvailabilityTask(){
         return find(filterAvailabilityTask).getValue().isEmpty();
     } // Проверка на сброс значения фильтра "Наличие задач"
+
+    public boolean isCheckFilterSearchByStages(){
+        return find(filterSearchByStages).isVisible();
+    } // Проверка наличия фильтра "Поиск по этапам"
 }
