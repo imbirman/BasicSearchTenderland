@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import java.util.List;
 
 @DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
-public class AutoSearch extends PageObject{
+public class FilterSearch extends PageObject{
 
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
     protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему

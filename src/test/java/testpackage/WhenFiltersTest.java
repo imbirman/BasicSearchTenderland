@@ -9,18 +9,18 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import pages.AutoFilters;
-import steps.AutoFiltersSteps;
+import pages.Filters;
+import steps.FiltersSteps;
 
 @RunWith(SerenityRunner.class)
-public class WhenAutoFiltersTest extends AutoFilters {
+public class WhenFiltersTest extends Filters {
 
     @Managed(driver = "chrome", uniqueSession=true)
     WebDriver driver;
 
 
     @Steps
-    AutoFiltersSteps steps;
+    FiltersSteps steps;
 
     @Before
     public void beforeMethod(){

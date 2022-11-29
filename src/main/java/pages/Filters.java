@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
-public class AutoFilters extends PageObject {
+public class Filters extends PageObject {
 
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
@@ -157,7 +157,7 @@ public class AutoFilters extends PageObject {
         return find(filterInTreeCustomer).getText();
     }// Получить текст фильтра "Заказчик" в дереве фильтров
 
-    public AutoFilters scrollDownTo(By scroll){
+    public Filters scrollDownTo(By scroll){
         ((JavascriptExecutor)getDriver()).executeScript(
                 "arguments[0].scrollTop = -1 >>> 1", find(scroll));
         return this;

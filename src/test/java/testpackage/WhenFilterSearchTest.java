@@ -7,18 +7,18 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import pages.AutoSearch;
-import steps.AutoSearchSteps;
+import pages.FilterSearch;
+import steps.FilterSearchSteps;
 
 @RunWith(SerenityRunner.class)
-public class WhenAutoSearchTest extends AutoSearch {
+public class WhenFilterSearchTest extends FilterSearch {
 
     @Managed(driver = "chrome", uniqueSession=true)
     WebDriver driver;
 
 
     @Steps
-    AutoSearchSteps steps;
+    FilterSearchSteps steps;
 
     @Before
     public void beforeMethod(){
