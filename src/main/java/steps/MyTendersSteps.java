@@ -1,5 +1,6 @@
 package steps;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
@@ -214,6 +215,11 @@ public class MyTendersSteps {
     @Step("Проверка заметки во вкладке \"Таблица\"")
     public void check_notice_in_tab_table(){
         assertThat(page.isCheckNoticeInTabTable()).as("Заметка тендера во вкладке \"Таблица\" не соответствует введенной в карточке тендера").isTrue();
+    }
+
+    @Step("Проверка кнопок контекстного меню столбца")
+    public void check_button_context_menu_column(){
+        assertThat(page.isCheckButtonsContextMenuColumn()).as("Либо количество либо название пунктов контекстного меню столбца некорректно").isTrue();
     }
 
 }

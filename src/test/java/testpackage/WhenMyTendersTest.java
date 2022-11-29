@@ -234,6 +234,14 @@ public class WhenMyTendersTest extends MyTenders {
         steps.check_notice_in_tab_table();
     }
 
+    @Test
+    @Title("Проверка кнопок контекстного меню столбца")
+    public void checkButtonsContextMenuColumn(){
+        openMyTenders();
+        steps.click_button(contextMenuColumn);
+        steps.check_button_context_menu_column();
+    }
+
 //    @Test
 //    @Title("Проверка смены столбца тендера с помощью перетаскивания")
 //    public void checkDragAndDropTender(){

@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
@@ -55,6 +56,8 @@ public class MyTenders extends PageObject {
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
+
+    private final By elementContextMenuColumn = By.xpath("//div[@class='favourite-kanban-context-menu-item']"); // Элемент контекстного меню столбца
 
     private final By buttonAddInMyTenders = By.xpath("//div[text()='Добавить в Мои тендеры']"); // Кнопка добавления в "Мои тендеры"
     private final By buttonSelectNameResponsibleToAddInMyTenders = By.xpath("//div[text()='Админ']"); // Выбор ответственного при добавлении тендера в "Мои тендеры"
@@ -162,7 +165,7 @@ public class MyTenders extends PageObject {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    } // Удалить столбец
 
     public Integer getNumberColumns(){
         return findAll(elementListColumns).size();
@@ -249,11 +252,18 @@ public class MyTenders extends PageObject {
         return find(buttonDeleteContextMenuColumn).getAttribute("class").contains("dx-state-disabled");
     } // Проверка некликабельности кнопки "Удалить" контекстного меню столбца
 
+    public boolean isCheckButtonsContextMenuColumn(){
+        List<String> elements = findAll(elementContextMenuColumn).texts();
+        List<String> elementsForCheck = new ArrayList<>();
+        elementsForCheck.add("Переместить все");
+        elementsForCheck.add("Выгрузить");
+        elementsForCheck.add("Удалить");
+        return elements.equals(elementsForCheck);
+    } // Проверка кнопок контекстного меню столбца
+
     public boolean isCheckVisibleWindowApproveDelete(){
         return find(windowApproveDelete).isVisible();
     } // Проверка появления окна подтверждения удаления
-
-
 
     public boolean isCheckVisibleCard(){
         return find(panelTenderInCardTender).isVisible();
@@ -274,8 +284,6 @@ public class MyTenders extends PageObject {
         }
         return checkFirstColumn && checkSecondColumn;
     } // Проверка на отсутствие или наличие перетаскиваемого тендера в столбцах
-
-
 
     public boolean isCheckMaxLengthNameColumn(){
         return find(nameSecondColumn).getText().length() == 25;
