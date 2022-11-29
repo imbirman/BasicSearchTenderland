@@ -270,4 +270,16 @@ public class WhenFiltersTest extends Filters {
         steps.check_list_elements_of_select_mark();
     }
 
+    @Test
+    @Title("Проверка сброса чекбоксов \"Исключено из поиска\"")
+    public void checkResetUnSelectedCheckboxElements(){
+        steps.drag_and_drop_filter(filterStand);
+        steps.wait_a_bit(1000);
+        steps.click_button(checkboxSelectedAllElements);
+        steps.click_button(checkboxSelectedAllElements);
+        steps.click_button(buttonReset);
+        steps.wait_a_bit(1000);
+        steps.check_reset_unselected_checkbox_elements();
+    }
+
 }

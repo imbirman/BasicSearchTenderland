@@ -25,6 +25,7 @@ public class Filters extends PageObject {
     protected By filterDatePublication = By.xpath("//span[text()='Дата публикации']"); // Фильтр "Дата публикации" в блоке фильтров
     protected By filterModule = By.xpath("//span[text()='Модуль']"); // Фильтр "Модуль" в блоке фильтров
     protected By filterMark = By.xpath("//span[text()='Метка']"); // Фильтр "Метка" в блоке фильтров
+    protected By filterStand = By.xpath("//span[text()='Площадка']"); // Фильтр "Площадка" в блоке фильтров
     protected By filterInTreeCustomer = By.xpath("//span[@class='tl-filter-description']"); // Текст фильтра "Заказчик" в дереве фильтров
     protected By checkboxOKPD = By.xpath("(//div[@class='dx-checkbox-container'])[last()]"); // чекбокс фильтра ОКПД
     protected By checkboxSelectAll = By.xpath("(//div[@id='filter-editor-5']//div[@class='dx-datagrid-text-content']/div)[1]"); // Чекбокс в окне фильтра "Выбрать всё"  (//div[@id='filter-editor-5']//div[@class='dx-datagrid-text-content']/div)[1]
@@ -32,6 +33,8 @@ public class Filters extends PageObject {
     protected By checkboxShowOnlySelected = By.xpath("//div[@class='dx-switch-container']"); // Переключатель "Показывать только выбранное"
     protected By checkboxShowWithoutCategory = By.xpath("//div[@id='filter-editor-2-undefined_category']//span[@class='dx-checkbox-icon']"); // Чекбокс "Показывать без категории"
     protected By checkboxShowWithZeroPrice = By.xpath("//div[@id='filter-editor-compact-4-undefined_values']//span[@class='dx-checkbox-icon']"); // Чекбокс "Показывать с нулевой ценой"
+    protected By checkboxSelectedAllElements = By.xpath("(//div[@id='replace-item']//span[@class='dx-checkbox-icon'])[1]"); // Чекбокс "Выбрать всё"
+    protected By checkboxElementInsideFilter = By.xpath("//div[@id='replace-item']//span[@class='dx-checkbox-icon']"); // Чекбокс элемента внутри фильтра
     protected By comboboxDirection = By.xpath("//div[@id='selectbox-filter-editor-compact-5-type']//input[@class='dx-texteditor-input'][@role='combobox']"); // Комбобокс "Направление" во вкладке Диапазон фильтра "Дата публикации"
     protected By comboboxUnits = By.xpath("//div[@id='selectbox-filter-editor-compact-5-period']//input[@class='dx-texteditor-input'][@role='combobox']"); // Комбобокс "Единицы измерения" во вкладке Диапазон фильтра "Дата публикации"
     protected By comboboxRegionCustomer = By.xpath("//div[@id='filter-editor-5-region']//input[@class='dx-texteditor-input'][@role='combobox']"); // Комбобокс "Регион" фильтра "Заказчик"
@@ -318,5 +321,14 @@ public class Filters extends PageObject {
         System.out.println(keyMark);
         return keyMark.equals(checkArray);
     } // Проверка на соответствие выбранных меток
+
+    public boolean isCheckResetUnSelectedCheckboxElements(){
+        List<WebElementFacade> elements = findAll(checkboxElementInsideFilter);
+        boolean check = true;
+        for(WebElementFacade type:elements){
+            if(type.isSelected()){check = false; break;}
+        }
+        return check;
+    } // Проверка сброса чекбоксов "Исключено из поиска"
 
 }
