@@ -282,4 +282,18 @@ public class WhenFiltersTest extends Filters {
         steps.check_reset_unselected_checkbox_elements();
     }
 
+    @Test
+    @Title("Проверка выделения чекбоксов при просмотре только выбранных элементов")
+    public void checkSelectedCheckboxShowOnlySelectedElements(){
+        steps.drag_and_drop_filter(filterCustomer);
+        steps.wait_a_bit(1000);
+        steps.type_search_inside_filter_customer("305780214002814");
+        steps.wait_a_bit(1000);
+        steps.click_button(checkboxSelectedAllElements);
+        steps.click_button(buttonApply);
+        steps.click_button(filterInTree);
+        steps.click_button(checkboxShowOnlySelected);
+        steps.check_selected_checkbox_show_only_selected_elements();
+    }
+
 }

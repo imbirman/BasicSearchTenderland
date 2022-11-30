@@ -26,7 +26,7 @@ public class Filters extends PageObject {
     protected By filterModule = By.xpath("//span[text()='Модуль']"); // Фильтр "Модуль" в блоке фильтров
     protected By filterMark = By.xpath("//span[text()='Метка']"); // Фильтр "Метка" в блоке фильтров
     protected By filterStand = By.xpath("//span[text()='Площадка']"); // Фильтр "Площадка" в блоке фильтров
-    protected By filterInTreeCustomer = By.xpath("//span[@class='tl-filter-description']"); // Текст фильтра "Заказчик" в дереве фильтров
+    protected By filterInTree = By.xpath("//span[@class='tl-filter-description']"); // Текст фильтра в дереве фильтров
     protected By checkboxOKPD = By.xpath("(//div[@class='dx-checkbox-container'])[last()]"); // чекбокс фильтра ОКПД
     protected By checkboxSelectAll = By.xpath("(//div[@id='filter-editor-5']//div[@class='dx-datagrid-text-content']/div)[1]"); // Чекбокс в окне фильтра "Выбрать всё"  (//div[@id='filter-editor-5']//div[@class='dx-datagrid-text-content']/div)[1]
     protected By secondPage = By.xpath("//div[@class='dx-page']"); // Вторая страница списка в окне фильтра
@@ -157,7 +157,7 @@ public class Filters extends PageObject {
     } // Количество элементов в списке фильтра "Модуль"
 
     public String getTextFilterInTreeCustomer(){
-        return find(filterInTreeCustomer).getText();
+        return find(filterInTree).getText();
     }// Получить текст фильтра "Заказчик" в дереве фильтров
 
     public Filters scrollDownTo(By scroll){
@@ -330,5 +330,15 @@ public class Filters extends PageObject {
         }
         return check;
     } // Проверка сброса чекбоксов "Исключено из поиска"
+
+    public boolean isCheckSelectedCheckboxShowOnlySelectedElements(){
+        List<WebElementFacade> elements = findAll(checkboxElementInsideFilter);
+        boolean check = true;
+        for(WebElementFacade type:elements){
+            if(type.getAttribute("style").equals("background-color: rgb(235, 9, 16);") || type.getAttribute("style").equals("background-color: white;"))
+            {check = false; break;}
+        }
+        return check;
+    } // Проверка выделения чекбоксов при просмотре только выбранных элементов
 
 }

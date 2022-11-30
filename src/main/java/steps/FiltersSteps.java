@@ -224,5 +224,10 @@ public class FiltersSteps {
         assertThat(page.isCheckResetUnSelectedCheckboxElements()).as("Есть элемент, с которого не снялась галочка").isTrue();
     }
 
+    @Step("Проверка выделения чекбоксов при просмотре только выбранных элементов")
+    public void check_selected_checkbox_show_only_selected_elements(){
+        assertThat(page.isCheckSelectedCheckboxShowOnlySelectedElements()).as("Есть элемент с некорректным выделением чекбокса").isTrue();
+    }
+
 
 }
