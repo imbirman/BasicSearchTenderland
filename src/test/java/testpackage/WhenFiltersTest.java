@@ -161,9 +161,8 @@ public class WhenFiltersTest extends Filters {
     public void checkSearchRegionInsideFilterCustomer(){
         steps.drag_and_drop_filter(filterCustomer);
         steps.wait_a_bit(1000);
-        steps.click_button(comboboxRegionCustomer);
-        steps.click_button(elementOfComboboxCustomer);
-        steps.wait_a_bit(5000);
+        steps.type_search_inside_filter_customer_by_name_organization("ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ КРАСНОГИР МАРИНА ВАСИЛЬЕВНА");
+        steps.wait_a_bit(1000);
         steps.check_result_search_region_inside_filter_customer();
     }
 

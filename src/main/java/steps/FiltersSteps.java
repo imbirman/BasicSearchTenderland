@@ -58,6 +58,11 @@ public class FiltersSteps {
         page.typeSearchInsideFilterCustomerByDetails(search);
     }
 
+    @Step("Ввод значения в поле поиска по наименованию организации в фильтре 'Заказчик'")
+    public void type_search_inside_filter_customer_by_name_organization(String search){
+        page.typeSearchInsideFilterCustomerByNameOrganization(search);
+    }
+
     @Step("Ввод значения в поле исключения из поиска по тексту в фильтре 'Заказчик'")
     public void type_search_exclude_from_search_filter_customer(String search){
         page.typeExcludeFromSearchInsideFilterCustomer(search);
@@ -140,7 +145,7 @@ public class FiltersSteps {
 
     @Step("Проверка результата поиска по тексту внутри фильтра 'Заказчик'")
     public void check_result_text_search_inside_filter_customer(){
-        assertThat(page.isContainKeyWordByTextSearchInsideFilterCustomer()).as("В поиске есть результаты без ключевого слова")
+        assertThat(page.isCheckSearchByTextInsideFilterCustomer()).as("В поиске есть результаты без ключевого слова")
                 .isTrue();
     }
 
