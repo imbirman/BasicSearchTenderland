@@ -136,6 +136,16 @@ public class WhenFiltersTest extends Filters {
     }
 
     @Test
+    @Title("Проверка результата поиска по реквизитам внутри фильтра 'Заказчик'")
+    public void checkSearchInsideFilterCustomer(){
+        steps.drag_and_drop_filter(filterCustomer);
+        steps.wait_a_bit(1000);
+        steps.type_search_inside_filter_customer_by_details("305780214002814");
+        steps.wait_a_bit(1000);
+        steps.check_result_search_inside_filter_customer_by_details();
+    }
+
+    @Test
     @Title("Проверка результата поиска по тексту внутри фильтра 'Заказчик'")
     public void checkTextSearchInsideFilterCustomer(){
         steps.drag_and_drop_filter(filterCustomer);
@@ -144,16 +154,6 @@ public class WhenFiltersTest extends Filters {
         steps.type_search_inside_filter_customer_text_search("ЗАКУПАЙ");
         steps.wait_a_bit(1000);
         steps.check_result_text_search_inside_filter_customer();
-    }
-
-    @Test
-    @Title("Проверка результата поиска внутри фильтра 'Заказчик'")
-    public void checkSearchInsideFilterCustomer(){
-        steps.drag_and_drop_filter(filterCustomer);
-        steps.wait_a_bit(1000);
-        steps.type_search_inside_filter_customer("305780214002814");
-        steps.wait_a_bit(1000);
-        steps.check_result_search_inside_filter_customer();
     }
 
     @Test
@@ -287,7 +287,7 @@ public class WhenFiltersTest extends Filters {
     public void checkSelectedCheckboxShowOnlySelectedElements(){
         steps.drag_and_drop_filter(filterCustomer);
         steps.wait_a_bit(1000);
-        steps.type_search_inside_filter_customer("305780214002814");
+        steps.type_search_inside_filter_customer_by_details("305780214002814");
         steps.wait_a_bit(1000);
         steps.click_button(checkboxSelectedAllElements);
         steps.click_button(buttonApply);

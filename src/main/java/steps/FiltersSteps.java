@@ -53,14 +53,9 @@ public class FiltersSteps {
         page.typeSearchInsideFilterCustomerTextSearch(search);
     }
 
-    @Step("Ввод значения в поле поиска в фильтре 'Название тендера'")
-    public void type_search_inside_filter_name_tender(String search){
-        page.typeSearchInsideFilterNameTender(search);
-    }
-
-    @Step("Ввод значения в поле поиска по тексту в фильтре 'Заказчик'")
-    public void type_search_inside_filter_customer(String search){
-        page.typeSearchInsideFilterCustomer(search);
+    @Step("Ввод значения в поле поиска по реквизитам в фильтре 'Заказчик'")
+    public void type_search_inside_filter_customer_by_details(String search){
+        page.typeSearchInsideFilterCustomerByDetails(search);
     }
 
     @Step("Ввод значения в поле исключения из поиска по тексту в фильтре 'Заказчик'")
@@ -150,8 +145,8 @@ public class FiltersSteps {
     }
 
     @Step("Проверка результата поиска по реквизитам внутри фильтра 'Заказчик'")
-    public void check_result_search_inside_filter_customer(){
-        assertThat(page.isContainKeyWordBySearchInsideFilterCustomer()).as("В поиске есть результаты без ключевого слова")
+    public void check_result_search_inside_filter_customer_by_details(){
+        assertThat(page.isCheckSearchInsideFilterCustomerByDetails()).as("В поиске есть результаты без ключевого слова")
                 .isTrue();
     }
 

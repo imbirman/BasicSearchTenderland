@@ -58,16 +58,16 @@ public class Filters extends PageObject {
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
     private final By resultSearchInFilter = By.xpath("//span[@class='dx-treelist-search-text']"); // результат поиска внутри фильтра
     private final By fieldPriceFrom = By.xpath("//div[@id='filter-editor-compact-4-from']//input[@role='spinbutton']"); // Поле для ввода цены "от"
-    private final By fieldPriceTo = By.xpath("//div[@id='filter-editor-compact-4-to']//input[@role='spinbutton']"); // Поле для ввода цены "до"  (//div[@id='filter-editor-5']//tbody//td[@role='gridcell'])[last()]
+    private final By fieldPriceTo = By.xpath("//div[@id='filter-editor-compact-4-to']//input[@role='spinbutton']"); // Поле для ввода цены "до"
+    private final By fieldSearchByDetailsInFilterCustomer = By.xpath("(//div[@id='replace-item']//input[@type='text'])[1]"); // Поле поиска во вкладке "Выбор из справочника" внутри фильтра "Заказчик"
     private final By fieldSearchByCustomerTextSearch = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска внутри фильтра "Заказчик"
-    private final By fieldSearchByCustomer = By.xpath("//div[@id='filter-editor-5-search']//input[@role='textbox']"); // Поле поиска во вкладке "Выбор из справочника" внутри фильтра "Заказчик"
     private final By fieldExcludeFromSearchByCustomer = By.xpath("//div[@id='exclude_block']//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле исключения из поиска внутри фильтра "Заказчик"
-    private final By fieldResultSelectMark = By.id("filter-editor-compact-26-result"); // Поле с выбранными метками
     private final By resultShowOnlySelected = By.xpath("//div[@class='dx-treelist-text-content']"); // результат работы чекбокса "Показывать только выбранное"
     private final By cellTableCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[7]//td"); // Ячейка таблицы в результатах поиска для столбца "Категория"
     private final By cellTablePrice = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[6]"); // Ячейка таблицы в результатах поиска для столбца "Цена"
     private final By cellTableInsideFilterCustomerFullTitle = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[5]"); // Ячейка таблицы в результатах поиска для столбца "Полное название" внутри фильтра "Заказчик"
     private final By cellTableInsideFilterCustomerFullTitleTextSearch = By.xpath("//div[@id='filter-editor-5search-block']//tbody[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[4]"); //Ячейка таблицы в результатах поиска для столбца "Полное название" внутри фильтра "Заказчик" во вкладке "Поиск по тексту"
+    private final By cellTableInsideFilterCustomerNameOrganization = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']//td[2]"); // Поле таблицы "Наименование организации" в фильтре "Заказчик"
     private final By elementOfCombobox = By.xpath("//div[@class='dx-item-content dx-list-item-content']"); // Элемент комбобокса во вкладке "Диапазон" фильтра "Дата публикации"
     private final By elementOfFilterModule = By.xpath("//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка фильтра "Модуль"
     private final By elementOfSelectMark = By.xpath("//div[contains(@class, 'dx-item dx-list-item dx-list-item-selected')]/div[@class='dx-item-content dx-list-item-content']"); // Выбранная метка
@@ -104,13 +104,9 @@ public class Filters extends PageObject {
         find(fieldSearchByCustomerTextSearch).sendKeys(Keys.ENTER);
     } // Ввести значение в поле поиска по тексту фильтра "Заказчик"
 
-    public void typeSearchInsideFilterNameTender(String search){
-        find(fieldSearchByCustomerTextSearch).sendKeys(search);
-    } // Ввести значение в поле поиска по тексту фильтра "Заказчик"
-
-    public void typeSearchInsideFilterCustomer(String search){
-        find(fieldSearchByCustomer).sendKeys(search);
-        find(fieldSearchByCustomer).sendKeys(Keys.ENTER);
+    public void typeSearchInsideFilterCustomerByDetails(String search){
+        find(fieldSearchByDetailsInFilterCustomer).sendKeys(search);
+        find(fieldSearchByDetailsInFilterCustomer).sendKeys(Keys.ENTER);
     } // Ввести значение в поле поиска по реквизитам фильтра "Заказчик"
 
     public void typeExcludeFromSearchInsideFilterCustomer(String search){
@@ -238,11 +234,10 @@ public class Filters extends PageObject {
         return check;
     } // Проверка поиска по тексту внутри фильтра "Заказчик"
 
-    public boolean isContainKeyWordBySearchInsideFilterCustomer(){
-        List<WebElementFacade> keyWord = findAll(cellTableInsideFilterCustomerFullTitle);
-//        keyWord.remove(keyWord.size()-1);
+    public boolean isCheckSearchInsideFilterCustomerByDetails(){
+        List<WebElementFacade> keyWords = findAll(cellTableInsideFilterCustomerNameOrganization);
         boolean check = true;
-        for(WebElementFacade type : keyWord){
+        for(WebElementFacade type : keyWords){
             if(!(type.getText().contains("ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ МАЛОВА НАТАЛЬЯ БОРИСОВНА"))){
 //                System.out.println("Название: " + type.getText());
                 check = false;
