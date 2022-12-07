@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenFiltersTest" skipped="0" tests="1" time="21.43" timestamp="2022-12-07 03:33:41"><testcase classname="testpackage.WhenFiltersTest" name="Проверка поиска по адресу регистрации внутри фильтра &quot;Заказчик&quot;"/></testsuite>

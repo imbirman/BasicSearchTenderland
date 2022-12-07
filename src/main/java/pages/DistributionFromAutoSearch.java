@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Pattern;
 
-@DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
+@DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class DistributionFromAutoSearch extends PageObject{
 
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"

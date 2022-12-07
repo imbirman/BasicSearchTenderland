@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-@DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
+@DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class TabContracts extends PageObject {
 
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню

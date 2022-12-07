@@ -167,16 +167,13 @@ public class WhenFiltersTest extends Filters {
     }
 
     @Test
-    @Title("Проверка результата исключения из поиска по тексту внутри фильтра 'Заказчик'")
+    @Title("Проверка поиска по адресу регистрации внутри фильтра \"Заказчик\"")
     public void checkExcludeFromSearchInsideFilterCustomer(){
         steps.drag_and_drop_filter(filterCustomer);
         steps.wait_a_bit(1000);
-        steps.click_button(tabTextSearchInFilterCustomer);
-        steps.type_search_inside_filter_customer_text_search("сош");
-//        steps.click_button(buttonAdditionalFilters);
-        steps.type_search_exclude_from_search_filter_customer("58");
+        steps.type_search_inside_filter_customer_by_registration_address("ОРЕНБУРГ");
         steps.wait_a_bit(1000);
-        steps.check_result_exclude_from_search_inside_filter_customer();
+        steps.check_result_search_registration_address_inside_filter_customer();
     }
 
     @Test

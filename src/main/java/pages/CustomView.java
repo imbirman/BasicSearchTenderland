@@ -9,7 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.List;
 
-@DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
+@DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class CustomView extends PageObject {
 
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"

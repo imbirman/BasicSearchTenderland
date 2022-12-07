@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import java.util.List;
 
-@DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
+@DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class FilterSearch extends PageObject{
 
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"

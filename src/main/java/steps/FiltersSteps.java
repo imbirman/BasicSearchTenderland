@@ -63,6 +63,11 @@ public class FiltersSteps {
         page.typeSearchInsideFilterCustomerByNameOrganization(search);
     }
 
+    @Step("Ввод значения в поле поиска по адресу регистрации в фильтре 'Заказчик'")
+    public void type_search_inside_filter_customer_by_registration_address(String search){
+        page.typeSearchInsideFilterCustomerByRegistrationAddress(search);
+    }
+
     @Step("Ввод значения в поле исключения из поиска по тексту в фильтре 'Заказчик'")
     public void type_search_exclude_from_search_filter_customer(String search){
         page.typeExcludeFromSearchInsideFilterCustomer(search);
@@ -123,7 +128,7 @@ public class FiltersSteps {
 
     @Step("Проверка результата поиска без категории")
     public void check_result_search_by_without_category(){
-        assertThat(page.isContainEmptyCategory()).as("В поиске отсутствуют тендеры без категории")
+        assertThat(page.isContainEmptyCategory()).as("В результате поиска отсутствуют тендеры без категории")
                 .isTrue();
     }
 
@@ -139,31 +144,31 @@ public class FiltersSteps {
 
     @Step("Проверка результата поиска с нулевой ценой")
     public void check_result_search_by_with_zero_price(){
-        assertThat(page.isContainZeroPrice()).as("В поиске отсутствуют тендеры с нулевой ценой")
+        assertThat(page.isContainZeroPrice()).as("В результате поиска отсутствуют тендеры с нулевой ценой")
                 .isTrue();
     }
 
     @Step("Проверка результата поиска по тексту внутри фильтра 'Заказчик'")
     public void check_result_text_search_inside_filter_customer(){
-        assertThat(page.isCheckSearchByTextInsideFilterCustomer()).as("В поиске есть результаты без ключевого слова")
+        assertThat(page.isCheckSearchByTextInsideFilterCustomer()).as("В результате поиска есть результаты без ключевого слова")
                 .isTrue();
     }
 
     @Step("Проверка результата поиска по реквизитам внутри фильтра 'Заказчик'")
     public void check_result_search_inside_filter_customer_by_details(){
-        assertThat(page.isCheckSearchInsideFilterCustomerByDetails()).as("В поиске есть результаты без ключевого слова")
+        assertThat(page.isCheckSearchInsideFilterCustomerByDetails()).as("В результате поиска есть результаты без ключевого слова")
                 .isTrue();
     }
 
     @Step("Проверка результата поиска по региону внутри фильтра 'Заказчик'")
     public void check_result_search_region_inside_filter_customer(){
-        assertThat(page.isContainKeyWordByRegionSearchInsideFilterCustomer()).as("В поиске отсутствует необходимый результат (ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ КРАСНОГИР МАРИНА ВАСИЛЬЕВНА)")
+        assertThat(page.isContainKeyWordByRegionSearchInsideFilterCustomer()).as("В результате поиска отсутствует необходимый результат (ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ КРАСНОГИР МАРИНА ВАСИЛЬЕВНА)")
                 .isTrue();
     }
 
-    @Step("Проверка результата поиска при исключении из поиска внутри фильтра 'Заказчик'")
-    public void check_result_exclude_from_search_inside_filter_customer(){
-       assertThat(page.isNotContainKeyWordBySearchInsideFilterCustomer()).as("В поиске есть результаты с исключенным ключевым словом")
+    @Step("Проверка поиска по адресу регистрации внутри фильтра \"Заказчик\"")
+    public void check_result_search_registration_address_inside_filter_customer(){
+       assertThat(page.isCheckSearchInsideFilterCustomerByRegistrationAddress()).as("В результате поиска есть результаты без ключевого слова")
                 .isTrue();
     }
 

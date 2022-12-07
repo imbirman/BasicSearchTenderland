@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
+@DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class Auditor extends PageObject {
 
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"

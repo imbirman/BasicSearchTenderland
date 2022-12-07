@@ -12,7 +12,7 @@ import org.openqa.selenium.Keys;
 import java.util.ArrayList;
 import java.util.List;
 
-@DefaultUrl("https://test2.v2.tenderland.ru/Home/Landing")
+@DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class Filters extends PageObject {
 
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
@@ -61,6 +61,7 @@ public class Filters extends PageObject {
     private final By fieldPriceTo = By.xpath("//div[@id='filter-editor-compact-4-to']//input[@role='spinbutton']"); // Поле для ввода цены "до"
     private final By fieldSearchByDetailsInFilterCustomer = By.xpath("(//div[@id='replace-item']//input[@type='text'])[1]"); // Поле поиска по реквизитам во вкладке "Выбор из справочника" внутри фильтра "Заказчик"
     private final By fieldSearchByNameOrganizationInFilterCustomer = By.xpath("(//div[@id='replace-item']//input[@type='text'])[2]"); // Поле поиска по наименованию организации во вкладке "Выбор из справочника" внутри фильтра "Заказчик"
+    private final By fieldSearchByRegistrationAddressInFilterCustomer = By.xpath("(//div[@id='replace-item']//input[@type='text'])[3]"); // Поле поиска по адресу регистрации во вкладке "Выбор из справочника" внутри фильтра "Заказчик"
 
     private final By fieldSearchByCustomerTextSearch = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска внутри фильтра "Заказчик"
     private final By fieldExcludeFromSearchByCustomer = By.xpath("//div[@id='exclude_block']//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле исключения из поиска внутри фильтра "Заказчик"
@@ -69,7 +70,9 @@ public class Filters extends PageObject {
     private final By cellTablePrice = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[6]"); // Ячейка таблицы в результатах поиска для столбца "Цена"
     private final By cellTableInsideFilterCustomerFullTitle = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[5]"); // Ячейка таблицы в результатах поиска для столбца "Полное название" внутри фильтра "Заказчик"
     private final By cellTableInsideFilterCustomerFullTitleTextSearch = By.xpath("//div[@id='filter-editor-5search-block']//tbody[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[4]"); //Ячейка таблицы в результатах поиска для столбца "Полное название" внутри фильтра "Заказчик" во вкладке "Поиск по тексту"
+
     private final By cellTableInsideFilterCustomerNameOrganization = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']//td[2]"); // Поле таблицы "Наименование организации" в фильтре "Заказчик"
+    private final By cellTableInsideFilterCustomerRegistrationAddress = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']//td[3]"); // Поле таблицы "Адрес регистрации" в фильтре "Заказчик"
     private final By elementOfCombobox = By.xpath("//div[@class='dx-item-content dx-list-item-content']"); // Элемент комбобокса во вкладке "Диапазон" фильтра "Дата публикации"
     private final By elementOfFilterModule = By.xpath("//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка фильтра "Модуль"
     private final By elementOfSelectMark = By.xpath("//div[contains(@class, 'dx-item dx-list-item dx-list-item-selected')]/div[@class='dx-item-content dx-list-item-content']"); // Выбранная метка
@@ -114,7 +117,12 @@ public class Filters extends PageObject {
     public void typeSearchInsideFilterCustomerByNameOrganization(String search){
         find(fieldSearchByNameOrganizationInFilterCustomer).sendKeys(search);
         find(fieldSearchByNameOrganizationInFilterCustomer).sendKeys(Keys.ENTER);
-    } // Ввести значение в поле поиска по реквизитам фильтра "Заказчик"
+    } // Ввести значение в поле поиска по наименованию организации фильтра "Заказчик"
+
+    public void typeSearchInsideFilterCustomerByRegistrationAddress(String search){
+        find(fieldSearchByRegistrationAddressInFilterCustomer).sendKeys(search);
+        find(fieldSearchByRegistrationAddressInFilterCustomer).sendKeys(Keys.ENTER);
+    } // Ввести значение в поле поиска по наименованию организации фильтра "Заказчик"
 
     public void typeExcludeFromSearchInsideFilterCustomer(String search){
         find(fieldExcludeFromSearchByCustomer).sendKeys(search);
@@ -266,18 +274,18 @@ public class Filters extends PageObject {
         return check;
     } // Проверка поиска по региону внутри фильтра "Заказчик"
 
-    public boolean isNotContainKeyWordBySearchInsideFilterCustomer(){
-        List<WebElementFacade> keyWord = findAll(cellTableInsideFilterCustomerFullTitleTextSearch);
+    public boolean isCheckSearchInsideFilterCustomerByRegistrationAddress(){
+        List<WebElementFacade> keyWord = findAll(cellTableInsideFilterCustomerRegistrationAddress);
         boolean check = true;
         for(WebElementFacade type : keyWord){
-            if(type.getText().contains("58")){
-//                System.out.println("Название: " + type.getText());
+//            System.out.println("Название2: " + type + "!,");
+            if(!type.getText().contains("ОРЕНБУРГ") && type.isDisplayed()){
                 check = false;
                 break;
             }
         }
         return check;
-    } // Проверка поиска по тексту внутри фильтра "Заказчик" при исключении из поиска
+    } // Проверка поиска по адресу регистрации внутри фильтра "Заказчик"
 
     public boolean isNotSelectedButtonAllSelect(){
         return find(checkboxSelectAll).getAttribute("class").contains("dx-widget dx-checkbox dx-state-hover dx-checkbox-checked");
