@@ -188,6 +188,20 @@ public class WhenFiltersTest extends Filters {
     }
 
     @Test
+    @Title("Проверка полей ввода внутри фильтра \"Заказчик\" на пустое значение")
+    public void checkEmptyFieldsForSearchInsideFilterCustomer(){
+        steps.drag_and_drop_filter(filterCustomer);
+        steps.wait_a_bit(1000);
+        steps.click_button(checkboxSelectAll);
+        steps.type_search_inside_filter_customer_by_details("560900393483");
+        steps.type_search_inside_filter_customer_by_name_organization("ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ");
+        steps.type_search_inside_filter_customer_by_registration_address("ОРЕНБУРГ");
+        steps.click_button(checkboxShowOnlySelected);
+        steps.wait_a_bit(1000);
+        steps.check_empty_fields_for_search_inside_filter_customer();
+    }
+
+    @Test
     @Title("Проверка выделения элементов при закрытии окна фильтра 'Заказчик' без сохранения")
     public void checkSaveAfterCloseFilter(){
         steps.drag_and_drop_filter(filterCustomer);

@@ -177,6 +177,11 @@ public class FiltersSteps {
         assertThat(page.isNotSelectedButtonAllSelect()).as("При переключении на вторую страницу чекбокс 'Выбрать всё' остается выделенным").isFalse();
     }
 
+    @Step("Проверка полей ввода внутри фильтра \"Заказчик\" на пустое значение")
+    public void check_empty_fields_for_search_inside_filter_customer(){
+        assertThat(page.isCheckEmptyFieldsForSearchInsideFilterCustomer()).as("Хотя бы одно поле для поиска не пустое").isTrue();
+    }
+
     @Step("Проверка несохранения выбранного значения при закрытии окна фильтра 'Заказчик'")
     public void check_save_after_close_filter(){
         assertThat(page.getTextFilterInTreeCustomer()).as("После закрытия окна фильтра без сохранения выбранных элементов, элементы всё равно считаются выбранными").isEqualTo("Установить значение");

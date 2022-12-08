@@ -28,7 +28,7 @@ public class Filters extends PageObject {
     protected By filterStand = By.xpath("//span[text()='Площадка']"); // Фильтр "Площадка" в блоке фильтров
     protected By filterInTree = By.xpath("//span[@class='tl-filter-description']"); // Текст фильтра в дереве фильтров
     protected By checkboxOKPD = By.xpath("(//div[@class='dx-checkbox-container'])[last()]"); // чекбокс фильтра ОКПД
-    protected By checkboxSelectAll = By.xpath("(//div[@id='filter-editor-5']//div[@class='dx-datagrid-text-content']/div)[1]"); // Чекбокс в окне фильтра "Выбрать всё"  (//div[@id='filter-editor-5']//div[@class='dx-datagrid-text-content']/div)[1]
+    protected By checkboxSelectAll = By.xpath("(//div[@id='filter-editor-5']//div[@class='dx-datagrid-text-content']//div[@role='checkbox'])[1]"); // Чекбокс в окне фильтра "Выбрать всё"
     protected By secondPage = By.xpath("//div[@class='dx-page']"); // Вторая страница списка в окне фильтра
     protected By checkboxShowOnlySelected = By.xpath("//div[@class='dx-switch-container']"); // Переключатель "Показывать только выбранное"
     protected By checkboxShowWithoutCategory = By.xpath("//div[@id='filter-editor-2-undefined_category']//span[@class='dx-checkbox-icon']"); // Чекбокс "Показывать без категории"
@@ -286,6 +286,11 @@ public class Filters extends PageObject {
         }
         return check;
     } // Проверка поиска по адресу регистрации внутри фильтра "Заказчик"
+
+    public boolean isCheckEmptyFieldsForSearchInsideFilterCustomer(){
+        return find(fieldSearchByDetailsInFilterCustomer).getValue().isEmpty() && find(fieldSearchByNameOrganizationInFilterCustomer).getValue().isEmpty() &&
+                find(fieldSearchByRegistrationAddressInFilterCustomer).getValue().isEmpty();
+    } // Проверка полей ввода внутри фильтра "Заказчик" на пустое значение
 
     public boolean isNotSelectedButtonAllSelect(){
         return find(checkboxSelectAll).getAttribute("class").contains("dx-widget dx-checkbox dx-state-hover dx-checkbox-checked");
