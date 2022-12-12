@@ -234,9 +234,14 @@ public class FiltersSteps {
         assertThat(page.isCheckSelectedCheckboxShowOnlySelectedElements()).as("Есть элемент с некорректным выделением чекбокса").isTrue();
     }
 
+    @Step("Проверка отображения названия чекбокса \"Показывать без региона\"")
+    public void check_visible_name_checkbox_show_without_region(){
+        assertThat(page.isCheckVisibleNameCheckboxShowWithoutRegion()).as("Названия чекбокса \"Показывать без региона\" не отображается").isTrue();
+    }
+
     @Step("Проверка отображения чекбокса \"Показывать без региона\"")
     public void check_visible_checkbox_show_without_region(){
-        assertThat(page.isCheckVisibleCheckboxShowWithoutRegion()).as("").isTrue();
+        assertThat(page.isCheckVisibleCheckboxShowWithoutRegion()).as("чекбокс \"Показывать без региона\" не отображается").isTrue();
     }
 
 }

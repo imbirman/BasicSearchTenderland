@@ -17,7 +17,6 @@ public class Filters extends PageObject {
 
     protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
-    protected By filterNameTender = By.xpath("//span[text()='Название тендера']"); // Фильтр "Название тендера" в блоке фильтров
     protected By filterOKPD = By.xpath("//span[text()='ОКПД 2']"); // Фильтр "ОКПД 2" в блоке фильтров
     protected By filterCategory = By.xpath("//span[text()='Категория']"); // Фильтр "Категория" в блоке фильтров
     protected By filterPrice = By.xpath("//span[text()='Цена']"); // Фильтр "Цена" в блоке фильтров
@@ -38,7 +37,6 @@ public class Filters extends PageObject {
     protected By checkboxElementInsideFilter = By.xpath("//div[@id='replace-item']//span[@class='dx-checkbox-icon']"); // Чекбокс элемента внутри фильтра
     protected By comboboxDirection = By.xpath("//div[@id='selectbox-filter-editor-compact-5-type']//input[@class='dx-texteditor-input'][@role='combobox']"); // Комбобокс "Направление" во вкладке Диапазон фильтра "Дата публикации"
     protected By comboboxUnits = By.xpath("//div[@id='selectbox-filter-editor-compact-5-period']//input[@class='dx-texteditor-input'][@role='combobox']"); // Комбобокс "Единицы измерения" во вкладке Диапазон фильтра "Дата публикации"
-    protected By comboboxRegionCustomer = By.xpath("//div[@id='filter-editor-5-region']//input[@class='dx-texteditor-input'][@role='combobox']"); // Комбобокс "Регион" фильтра "Заказчик"
     protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
@@ -56,7 +54,8 @@ public class Filters extends PageObject {
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
-    private final By nameCheckboxShowWithoutRegion = By.xpath("//div[@class='tl-filter-options']//span[@class='dx-checkbox-text']"); // Подпись чекбокса "Показывать без региона"
+    private final By checkboxShowWithoutRegion = By.xpath("//div[@class='tl-filter-options']//span[@class='dx-checkbox-icon']"); // чекбокс "Показывать без региона" в фильтре "Регион"
+    private final By nameCheckboxShowWithoutRegion = By.xpath("//div[@class='tl-filter-options']//span[@class='dx-checkbox-text']"); // Подпись чекбокса "Показывать без региона" в фильтре "Регион"
 
     private final By resultSearchInFilter = By.xpath("//span[@class='dx-treelist-search-text']"); // результат поиска внутри фильтра
     private final By resultShowOnlySelected = By.xpath("//div[@class='dx-treelist-text-content']"); // результат работы чекбокса "Показывать только выбранное"
@@ -355,8 +354,12 @@ public class Filters extends PageObject {
         return check;
     } // Проверка выделения чекбоксов при просмотре только выбранных элементов
 
-    public boolean isCheckVisibleCheckboxShowWithoutRegion(){
+    public boolean isCheckVisibleNameCheckboxShowWithoutRegion(){
         return find(nameCheckboxShowWithoutRegion).isDisplayed();
+    } // Проверка отображения названия чекбокса "Показывать без региона"
+
+    public boolean isCheckVisibleCheckboxShowWithoutRegion(){
+        return find(checkboxShowWithoutRegion).isDisplayed();
     } // Проверка отображения чекбокса "Показывать без региона"
 
 }

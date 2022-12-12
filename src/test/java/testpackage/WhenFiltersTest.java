@@ -307,8 +307,15 @@ public class WhenFiltersTest extends Filters {
     }
 
     @Test
+    @Title("Проверка отображения названия чекбокса \"Показывать без региона\"")
+    public void checkVisibleNameCheckboxShowWithoutRegion(){
+        steps.drag_and_drop_filter(filterRegion);
+        steps.check_visible_name_checkbox_show_without_region();
+    }
+
+    @Test
     @Title("Проверка отображения чекбокса \"Показывать без региона\"")
-    public void check(){
+    public void checkVisibleCheckboxShowWithoutRegion(){
         steps.drag_and_drop_filter(filterRegion);
         steps.check_visible_checkbox_show_without_region();
     }
