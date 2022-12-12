@@ -306,4 +306,11 @@ public class WhenFiltersTest extends Filters {
         steps.check_selected_checkbox_show_only_selected_elements();
     }
 
+    @Test
+    @Title("Проверка отображения чекбокса \"Показывать без региона\"")
+    public void check(){
+        steps.drag_and_drop_filter(filterRegion);
+        steps.check_visible_checkbox_show_without_region();
+    }
+
 }

@@ -26,6 +26,7 @@ public class Filters extends PageObject {
     protected By filterModule = By.xpath("//span[text()='Модуль']"); // Фильтр "Модуль" в блоке фильтров
     protected By filterMark = By.xpath("//span[text()='Метка']"); // Фильтр "Метка" в блоке фильтров
     protected By filterStand = By.xpath("//span[text()='Площадка']"); // Фильтр "Площадка" в блоке фильтров
+    protected By filterRegion = By.xpath("//span[text()='Регион']"); // Фильтр "Регион" в блоке фильтров
     protected By filterInTree = By.xpath("//span[@class='tl-filter-description']"); // Текст фильтра в дереве фильтров
     protected By checkboxOKPD = By.xpath("(//div[@class='dx-checkbox-container'])[last()]"); // чекбокс фильтра ОКПД
     protected By checkboxSelectAll = By.xpath("(//div[@id='filter-editor-5']//div[@class='dx-datagrid-text-content']//div[@role='checkbox'])[1]"); // Чекбокс в окне фильтра "Выбрать всё"
@@ -47,7 +48,6 @@ public class Filters extends PageObject {
     protected By fieldSearchInFilter = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
     protected By tabRangeInFilterDatePublication = By.id("nav-tab-tl-date-compact-filter"); // Вкладка "Диапазон" в фильтре "Дата публикации"
     protected By tabTextSearchInFilterCustomer = By.xpath("//div[@id='filter-editor-5-organizations-filter-tabs']//span[text()='ПОИСК ПО ТЕКСТУ']"); // Вкладка "Поиск по тексту" в фильтре "Заказчик"
-    protected By elementOfComboboxCustomer = By.xpath("//div[@class='dx-item-content dx-list-item-content']"); // Элемент комбобокса фильтра "Заказчик"
     protected By redColorMark = By.xpath("(//div[@class='dx-item dx-list-item']//div[@class='dx-item-content dx-list-item-content'])[1]"); // Метка "Красный"
     protected By blueColorMark = By.xpath("(//div[@class='dx-item dx-list-item']//div[@class='dx-item-content dx-list-item-content'])[2]"); // Метка "Сиреневый"
     protected By greenColorMark = By.xpath("(//div[@class='dx-item dx-list-item']//div[@class='dx-item-content dx-list-item-content'])[3]"); // Метка "Голубой"
@@ -56,19 +56,21 @@ public class Filters extends PageObject {
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
+    private final By nameCheckboxShowWithoutRegion = By.xpath("//div[@class='tl-filter-options']//span[@class='dx-checkbox-text']"); // Подпись чекбокса "Показывать без региона"
+
     private final By resultSearchInFilter = By.xpath("//span[@class='dx-treelist-search-text']"); // результат поиска внутри фильтра
+    private final By resultShowOnlySelected = By.xpath("//div[@class='dx-treelist-text-content']"); // результат работы чекбокса "Показывать только выбранное"
+
     private final By fieldPriceFrom = By.xpath("//div[@id='filter-editor-compact-4-from']//input[@role='spinbutton']"); // Поле для ввода цены "от"
     private final By fieldPriceTo = By.xpath("//div[@id='filter-editor-compact-4-to']//input[@role='spinbutton']"); // Поле для ввода цены "до"
     private final By fieldSearchByDetailsInFilterCustomer = By.xpath("(//div[@id='replace-item']//input[@type='text'])[1]"); // Поле поиска по реквизитам во вкладке "Выбор из справочника" внутри фильтра "Заказчик"
     private final By fieldSearchByNameOrganizationInFilterCustomer = By.xpath("(//div[@id='replace-item']//input[@type='text'])[2]"); // Поле поиска по наименованию организации во вкладке "Выбор из справочника" внутри фильтра "Заказчик"
     private final By fieldSearchByRegistrationAddressInFilterCustomer = By.xpath("(//div[@id='replace-item']//input[@type='text'])[3]"); // Поле поиска по адресу регистрации во вкладке "Выбор из справочника" внутри фильтра "Заказчик"
-
     private final By fieldSearchByCustomerTextSearch = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска внутри фильтра "Заказчик"
     private final By fieldExcludeFromSearchByCustomer = By.xpath("//div[@id='exclude_block']//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле исключения из поиска внутри фильтра "Заказчик"
-    private final By resultShowOnlySelected = By.xpath("//div[@class='dx-treelist-text-content']"); // результат работы чекбокса "Показывать только выбранное"
+
     private final By cellTableCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[7]//td"); // Ячейка таблицы в результатах поиска для столбца "Категория"
     private final By cellTablePrice = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[6]"); // Ячейка таблицы в результатах поиска для столбца "Цена"
-    private final By cellTableInsideFilterCustomerFullTitle = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[5]"); // Ячейка таблицы в результатах поиска для столбца "Полное название" внутри фильтра "Заказчик"
     private final By cellTableInsideFilterCustomerFullTitleTextSearch = By.xpath("//div[@id='filter-editor-5search-block']//tbody[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[4]"); //Ячейка таблицы в результатах поиска для столбца "Полное название" внутри фильтра "Заказчик" во вкладке "Поиск по тексту"
 
     private final By cellTableInsideFilterCustomerNameOrganization = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']//td[2]"); // Поле таблицы "Наименование организации" в фильтре "Заказчик"
@@ -352,5 +354,9 @@ public class Filters extends PageObject {
         }
         return check;
     } // Проверка выделения чекбоксов при просмотре только выбранных элементов
+
+    public boolean isCheckVisibleCheckboxShowWithoutRegion(){
+        return find(nameCheckboxShowWithoutRegion).isDisplayed();
+    } // Проверка отображения чекбокса "Показывать без региона"
 
 }

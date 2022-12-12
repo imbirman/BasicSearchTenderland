@@ -68,11 +68,6 @@ public class FiltersSteps {
         page.typeSearchInsideFilterCustomerByRegistrationAddress(search);
     }
 
-    @Step("Ввод значения в поле исключения из поиска по тексту в фильтре 'Заказчик'")
-    public void type_search_exclude_from_search_filter_customer(String search){
-        page.typeExcludeFromSearchInsideFilterCustomer(search);
-    }
-
     @Step("Ввод значения в поле цены от")
     public void type_price_from(String price){
         page.typePriceFrom(price);
@@ -239,5 +234,9 @@ public class FiltersSteps {
         assertThat(page.isCheckSelectedCheckboxShowOnlySelectedElements()).as("Есть элемент с некорректным выделением чекбокса").isTrue();
     }
 
+    @Step("Проверка отображения чекбокса \"Показывать без региона\"")
+    public void check_visible_checkbox_show_without_region(){
+        assertThat(page.isCheckVisibleCheckboxShowWithoutRegion()).as("").isTrue();
+    }
 
 }
