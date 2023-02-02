@@ -10,8 +10,8 @@ import java.util.List;
 @DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class FilterSearch extends PageObject{
 
-    protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
-    protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
+    protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
+    protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By filterNameTender = By.xpath("//span[text()='Название тендера']"); // Фильтр "Название тендера" в блоке фильтров
     protected By testAutoSearch = By.xpath("//span[text()='Тестовый автопоиск']"); // Тестовый автопоиск в списке автопоисков

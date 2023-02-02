@@ -16,8 +16,8 @@ import java.util.regex.Pattern;
 @DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class DistributionFromAutoSearch extends PageObject{
 
-    protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
-    protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
+    protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
+    protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By fieldSearchInFilter = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
     protected By filterNameTender = By.xpath("//span[text()='Название тендера']"); // Фильтр "Название тендера" в блоке фильтров

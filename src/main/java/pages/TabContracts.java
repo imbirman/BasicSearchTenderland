@@ -15,10 +15,10 @@ import java.util.List;
 public class TabContracts extends PageObject {
 
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
-    protected By logInButton = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
+    protected By logInButton = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By signInButton = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
 
-    protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
+    protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By tabListProductsInCardContract = By.id("tl-card-2"); // Вкладка "Список продуктов" в карточке контракта
     protected By tabMulctContracts = By.id("tl-card-5"); // Вкладка "Штрафы" в карточке контракта
 

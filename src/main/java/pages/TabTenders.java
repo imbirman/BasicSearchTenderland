@@ -17,9 +17,9 @@ public class TabTenders extends PageObject {
 
 
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
-    protected By logInButton = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
+    protected By logInButton = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By signInButton = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
-    protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
+    protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By listAutoSearchToScroll = By.xpath("//div[@id='tl-scroll-tabs']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки list-autosearches
     protected By excludedElementCustomer = By.xpath("//span[text()='Проверка результата поиска на исключенный элемент фильтр Заказчик']"); // Кнопка автопоиска "Проверка результата поиска на исключенный элемент фильтр Заказчик"
 

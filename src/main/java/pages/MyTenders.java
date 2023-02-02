@@ -15,7 +15,7 @@ import java.util.List;
 public class MyTenders extends PageObject {
 
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
-    protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
+    protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By tabCards = By.xpath("//div[@id='favourite-select-tabs']//div[text()='Карточки']"); // Главная вкладка "Карточки"
     protected By tabTable = By.xpath("//div[@id='favourite-select-tabs']//div[text()='Таблица']"); // Главная вкладка "Таблица"
     protected By tabCalendar = By.xpath("//div[@id='favourite-select-tabs']//div[text()='Календарь']"); // Главная вкладка "Календарь"
@@ -36,7 +36,7 @@ public class MyTenders extends PageObject {
     protected By userTestInCardTender = By.xpath("(//div[@class='favourite-executor-fullname'])[1]"); // Выбор тестового пользователя в качестве ответственного для первого тендера в карточке тендера
     protected By userAdminInCardTender = By.xpath("(//div[@class='favourite-executor-fullname'])[2]"); // Выбор пользователя "Админ" в качестве ответственного для первого тендера в карточке тендера
 
-    protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
+    protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By buttonSearch = By.id("search-button"); // Кнопка поиска
     protected By buttonTabMenuMyTenders = By.xpath("(//div[@class='tl-sidenav-item'])[2]//div"); // Кнопка в боковом меню "Мои тендеры"

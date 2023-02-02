@@ -15,8 +15,9 @@ import java.util.List;
 @DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class Filters extends PageObject {
 
-    protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
+    protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
+
     protected By filterOKPD = By.xpath("//span[text()='ОКПД 2']"); // Фильтр "ОКПД 2" в блоке фильтров
     protected By filterCategory = By.xpath("//span[text()='Категория']"); // Фильтр "Категория" в блоке фильтров
     protected By filterPrice = By.xpath("//span[text()='Цена']"); // Фильтр "Цена" в блоке фильтров
@@ -27,25 +28,29 @@ public class Filters extends PageObject {
     protected By filterStand = By.xpath("//span[text()='Площадка']"); // Фильтр "Площадка" в блоке фильтров
     protected By filterRegion = By.xpath("//span[text()='Регион']"); // Фильтр "Регион" в блоке фильтров
     protected By filterInTree = By.xpath("//span[@class='tl-filter-description']"); // Текст фильтра в дереве фильтров
+
     protected By checkboxOKPD = By.xpath("(//div[@class='dx-checkbox-container'])[last()]"); // чекбокс фильтра ОКПД
     protected By checkboxSelectAll = By.xpath("(//div[@id='filter-editor-5']//div[@class='dx-datagrid-text-content']//div[@role='checkbox'])[1]"); // Чекбокс в окне фильтра "Выбрать всё"
-    protected By secondPage = By.xpath("//div[@class='dx-page']"); // Вторая страница списка в окне фильтра
     protected By checkboxShowOnlySelected = By.xpath("//div[@class='dx-switch-container']"); // Переключатель "Показывать только выбранное"
     protected By checkboxShowWithoutCategory = By.xpath("//div[@id='filter-editor-2-undefined_category']//span[@class='dx-checkbox-icon']"); // Чекбокс "Показывать без категории"
     protected By checkboxShowWithZeroPrice = By.xpath("//div[@id='filter-editor-compact-4-undefined_values']//span[@class='dx-checkbox-icon']"); // Чекбокс "Показывать с нулевой ценой"
     protected By checkboxSelectedAllElements = By.xpath("(//div[@id='replace-item']//span[@class='dx-checkbox-icon'])[1]"); // Чекбокс "Выбрать всё"
     protected By checkboxElementInsideFilter = By.xpath("//div[@id='replace-item']//span[@class='dx-checkbox-icon']"); // Чекбокс элемента внутри фильтра
+
     protected By comboboxDirection = By.xpath("//div[@id='selectbox-filter-editor-compact-5-type']//input[@class='dx-texteditor-input'][@role='combobox']"); // Комбобокс "Направление" во вкладке Диапазон фильтра "Дата публикации"
     protected By comboboxUnits = By.xpath("//div[@id='selectbox-filter-editor-compact-5-period']//input[@class='dx-texteditor-input'][@role='combobox']"); // Комбобокс "Единицы измерения" во вкладке Диапазон фильтра "Дата публикации"
-    protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
+
+    protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
     protected By buttonReset = By.id("filter-cancel-button"); // Кнопка "Сбросить"
     protected By buttonSearch = By.id("search-button"); // Кнопка "Поиск"
     protected By buttonCloseFilter = By.xpath("//i[@class='dx-icon dx-icon-close']"); // Крестик закрыть окно фильтра
+
     protected By fieldSearchInFilter = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
     protected By tabRangeInFilterDatePublication = By.id("nav-tab-tl-date-compact-filter"); // Вкладка "Диапазон" в фильтре "Дата публикации"
     protected By tabTextSearchInFilterCustomer = By.xpath("//div[@id='filter-editor-5-organizations-filter-tabs']//span[text()='ПОИСК ПО ТЕКСТУ']"); // Вкладка "Поиск по тексту" в фильтре "Заказчик"
+    protected By secondPage = By.xpath("//div[@class='dx-page']"); // Вторая страница списка в окне фильтра
     protected By redColorMark = By.xpath("(//div[@class='dx-item dx-list-item']//div[@class='dx-item-content dx-list-item-content'])[1]"); // Метка "Красный"
     protected By blueColorMark = By.xpath("(//div[@class='dx-item dx-list-item']//div[@class='dx-item-content dx-list-item-content'])[2]"); // Метка "Сиреневый"
     protected By greenColorMark = By.xpath("(//div[@class='dx-item dx-list-item']//div[@class='dx-item-content dx-list-item-content'])[3]"); // Метка "Голубой"
@@ -67,17 +72,18 @@ public class Filters extends PageObject {
     private final By fieldSearchByRegistrationAddressInFilterCustomer = By.xpath("(//div[@id='replace-item']//input[@type='text'])[3]"); // Поле поиска по адресу регистрации во вкладке "Выбор из справочника" внутри фильтра "Заказчик"
     private final By fieldSearchByCustomerTextSearch = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска внутри фильтра "Заказчик"
     private final By fieldExcludeFromSearchByCustomer = By.xpath("//div[@id='exclude_block']//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле исключения из поиска внутри фильтра "Заказчик"
+    private final By fieldNameAutoSearch = By.xpath("//div[@id='tl-autosearch-name']//input"); // Поле ввода названия автопоиска
 
     private final By cellTableCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[7]//td"); // Ячейка таблицы в результатах поиска для столбца "Категория"
     private final By cellTablePrice = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[6]"); // Ячейка таблицы в результатах поиска для столбца "Цена"
     private final By cellTableInsideFilterCustomerFullTitleTextSearch = By.xpath("//div[@id='filter-editor-5search-block']//tbody[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[4]"); //Ячейка таблицы в результатах поиска для столбца "Полное название" внутри фильтра "Заказчик" во вкладке "Поиск по тексту"
-
     private final By cellTableInsideFilterCustomerNameOrganization = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']//td[2]"); // Поле таблицы "Наименование организации" в фильтре "Заказчик"
     private final By cellTableInsideFilterCustomerRegistrationAddress = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']//td[3]"); // Поле таблицы "Адрес регистрации" в фильтре "Заказчик"
+
     private final By elementOfCombobox = By.xpath("//div[@class='dx-item-content dx-list-item-content']"); // Элемент комбобокса во вкладке "Диапазон" фильтра "Дата публикации"
     private final By elementOfFilterModule = By.xpath("//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка фильтра "Модуль"
     private final By elementOfSelectMark = By.xpath("//div[contains(@class, 'dx-item dx-list-item dx-list-item-selected')]/div[@class='dx-item-content dx-list-item-content']"); // Выбранная метка
-    private final By fieldNameAutoSearch = By.xpath("//div[@id='tl-autosearch-name']//input"); // Поле ввода названия автопоиска
+
 
     public void waitFor(long number){
         waitABit(number);

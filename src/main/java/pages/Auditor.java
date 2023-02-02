@@ -15,10 +15,10 @@ import java.util.List;
 @DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class Auditor extends PageObject {
 
-    protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
+    protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
 
-    protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
+    protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
     protected By buttonReset = By.id("filter-cancel-button"); // Кнопка "Сбросить"

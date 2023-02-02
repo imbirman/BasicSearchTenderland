@@ -12,12 +12,12 @@ import java.util.List;
 @DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class CustomView extends PageObject {
 
-    protected By tabListAutoSearch = By.id("tab-list-autosearches"); // Вкладка "Автопоиски"
+    protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
-    protected By buttonLogin = By.xpath("//span[text()='Войти']"); // Кнопка входа в систему
+    protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
-    protected By buttonAutoSearchTestCustomView = By.xpath("//span[text()='Тестирование пользовательского вида']"); // Кнопка автопоиска "Тестирование пользовательского вида"
-    protected By buttonCustomView = By.id("change-custom-view-button"); // Кнопка "Пользовательский вид"
+    protected By buttonAutoSearchTestCustomView = By.xpath("//div[text()='Тестирование пользовательского вида']"); // Кнопка автопоиска "Тестирование пользовательского вида"
+    protected By buttonCustomView = By.id("search-panel-change-custom-view"); // Кнопка "Пользовательский вид"
     protected By buttonSaveSettings = By.id("search-view-save-button"); // Кнопка "Сохранить настройки"
     protected By buttonDeleteCustomView = By.id("search-view-delete-button"); // Кнопка "Удалить" пользовательский вид
     protected By buttonCloseWindowCustomView = By.xpath("//div[@role='toolbar']//i"); // Кнопка закрытия окна пользовательского вида
@@ -29,6 +29,7 @@ public class CustomView extends PageObject {
     protected By fieldNameCustomView = By.xpath("//div[@id='search-view-name']//input"); // Поле для ввода названия пользовательского вида
     protected By fieldSearchColumnCustomView = By.xpath("//div[@id='search-view-field-selector-search-panel']//input"); // Поле поиска столбцов в пользовательском виде
     protected By fieldSelectedColumnsCustomViewForScroll = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-scrollable-container']"); // Область выбранных столбцов пользовательского вида для прокрутки
+    protected By fieldForScrollInListAutosearch = By.xpath("//div[@id='list-autosearches']//div[@class='dx-scrollable-container']"); // Область списка автопоисков для прокрутки
     protected By fieldSearchInFilter = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
     protected By buttonRemoveColumnFromListSelectedColumns = By.xpath("//div[@id='search-view-field-selector-values']//i[@class='dx-icon dx-icon-remove']"); // Кнопка удаления элемента из списка выбранных столбцов
     protected By elementOfListColumns = By.xpath("//div[@id='search-view-manager-tab-panel']//div[@class='dx-scrollview-content']//div[@class='dx-item dx-list-item']"); // Элемент списка столбцов

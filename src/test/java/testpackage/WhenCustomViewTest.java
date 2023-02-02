@@ -35,6 +35,7 @@ public class WhenCustomViewTest extends CustomView {
     @Title("Проверка сообщения об ошибке при сохранении пользовательского вида при пустом названии")
     public void checkSaveCustomViewWithEmptyName(){
         steps.click_button(tabListAutoSearch);
+        steps.scroll_down_to(fieldForScrollInListAutosearch);
         steps.click_button(buttonAutoSearchTestCustomView);
         steps.wait_a_bit(2000);
         steps.click_button(buttonCustomView);
