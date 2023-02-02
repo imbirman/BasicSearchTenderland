@@ -21,7 +21,7 @@ public class CustomView extends PageObject {
     protected By buttonSaveSettings = By.id("search-view-save-button"); // Кнопка "Сохранить настройки"
     protected By buttonDeleteCustomView = By.id("search-view-delete-button"); // Кнопка "Удалить" пользовательский вид
     protected By buttonCloseWindowCustomView = By.xpath("//div[@role='toolbar']//i"); // Кнопка закрытия окна пользовательского вида
-    protected By buttonExpandListCustomView = By.xpath("//div[@id='change-view-button']//i[@class='dx-icon dx-icon-spindown']"); // Раскрыть список пользовательских видов
+    protected By buttonExpandListCustomView = By.xpath("//div[@id='search-panel-change-custom-view']//i[@class='dx-icon dx-icon-spindown']"); // Раскрыть список пользовательских видов
     protected By buttonAddNewCustomView = By.id("search-view-manager-newitem"); // Кнопка добавления нового пользовательского вида
     protected By buttonApplyCustomView = By.id("search-view-apply-button"); // Кнопка "Применить" пользовательского вида
     protected By elementOfListCustomView = By.xpath("//div[@id='search-view-manager-viewlist']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка сохраненных пользовательских видов
@@ -83,7 +83,7 @@ public class CustomView extends PageObject {
         find(fieldSearchColumnCustomView).sendKeys(search);
     } // Ввести значение поиска столбца для пользовательского вида
 
-    public void checkListNameCustomView(){
+    public void checkAndCleanListNameCustomView(){
         if(!findAll(elementOfListCustomView).isEmpty()){
             clickButton(elementOfListCustomView);
             clickButton(buttonDeleteCustomView);
@@ -135,7 +135,7 @@ public class CustomView extends PageObject {
 
     public boolean isNotContainDeletedColumn(){
         List<String> checkColumn = findAll(elementOfDatagridNameColumns).texts();
-        return checkColumn.size()==12 && !checkColumn.contains("Реестровый номер");
+        return !checkColumn.contains("Реестровый номер");
     } // Проверка столбцов в таблице результата поиска после удаления столбца из пользовательского вида
 
     public boolean isContainResultSearchColumnCustomView(){

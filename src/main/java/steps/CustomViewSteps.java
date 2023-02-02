@@ -60,7 +60,7 @@ public class CustomViewSteps {
 
     @Step("Проверка списка пользовательских видов")
     public void check_list_name_custom_view(){
-        page.checkListNameCustomView();
+        page.checkAndCleanListNameCustomView();
     }
 
     @Step("Проверка сообщения об ошибке при сохранении пользовательского вида при пустом названии")
