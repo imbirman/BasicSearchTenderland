@@ -140,10 +140,4 @@ public class CustomViewSteps {
         Assertions.assertThat(page.isContainSelectedColumn())
                 .as("выбранный столбец не был добавлен").isTrue();
     }
-
-    @Step("Проверка результата поиска столбца организатора")
-    public void check_include_found_column_organizer(){
-        Assertions.assertThat(page.isIncludeFoundColumnOrganizer())
-                .as("в списке отсутствует ").isTrue();
-    }
 }

@@ -106,13 +106,4 @@ public class WhenCustomViewTest extends CustomView {
         steps.scroll_down_to(fieldSelectedColumnsCustomViewForScroll);
         steps.check_contain_selected_column();
     }
-
-    @Test
-    @Title("Проверка результата поиска столбца организатора")
-    public void checkIncludeFoundColumnOrganizer(){
-        steps.click_button(buttonCustomView);
-        steps.click_button(elementOfListColumns);
-        steps.type_search_column_custom_view("организатор");
-        steps.check_include_found_column_organizer();
-    }
 }

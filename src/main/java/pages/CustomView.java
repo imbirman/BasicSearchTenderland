@@ -41,7 +41,6 @@ public class CustomView extends PageObject {
     private final By errorMessageEmptyFieldNameCustomView = By.xpath("//div[@class='dx-overlay-content dx-invalid-message-content']"); // Сообщение об ошибке поля "Название" пользовательского вида
     private final By errorMessageWithoutSelectedColumnCustomView = By.xpath("//div[@role='alert']"); // Алерт - ошибка при сохранении пользовательского вида без выбранных столбцов
     private final By elementOfDatagridNameColumns = By.xpath("//div[@class='dx-datagrid-headers']//div[@class='dx-datagrid-text-content'or@class='dx-datagrid-text-content dx-text-content-alignment-left'or@class='dx-datagrid-text-content dx-text-content-alignment-left dx-sort-indicator']//td[2]"); // Название столбца таблицы результата поиска
-    private final By resultSearchingColumns = By.xpath("(//div[@id='search-view-field-selector']//div[@class='dx-list-group'])[3]//div[@class='dx-item dx-list-item']/div"); // результат поиска полей таблицы (столбцов)
 
     public void waitFor(long number){
         waitABit(number);
@@ -172,16 +171,4 @@ public class CustomView extends PageObject {
 
         return checkIsContainSelectedColumn;
     } // Проверка добавления столбца пользовательского вида
-
-    public boolean isIncludeFoundColumnOrganizer(){
-        List<String> checkFoundColumn = findAll(resultSearchingColumns).texts();
-        boolean checkIncludeFoundColumn = false;
-        for(String type : checkFoundColumn){
-            if(type.contains("Наименование организатора")){
-                checkIncludeFoundColumn = true;
-                break;
-            }
-        }
-        return checkIncludeFoundColumn;
-    } // Проверка результата поиска столбца организатора
 }

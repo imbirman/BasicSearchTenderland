@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="testpackage.WhenCustomViewTest" skipped="0" tests="1" time="22.38" timestamp="2023-02-02 10:51:46"><testcase classname="testpackage.WhenCustomViewTest" name="Проверка результата поиска столбца организатора"><failure message="[в списке отсутствует ] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;" type="org.junit.ComparisonFailure">[в списке отсутствует ] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</failure><system-err>[в списке отсутствует ] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;&#13;
+steps.CustomViewSteps.check_include_found_column_organizer(CustomViewSteps.java:147)&#13;
+testpackage.WhenCustomViewTest.checkIncludeFoundColumnOrganizer(WhenCustomViewTest.java:116)&#13;
+</system-err></testcase></testsuite>
