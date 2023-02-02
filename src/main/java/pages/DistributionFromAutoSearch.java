@@ -19,13 +19,12 @@ public class DistributionFromAutoSearch extends PageObject{
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
-    protected By fieldSearchInFilter = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
     protected By filterNameTender = By.xpath("//span[text()='Название тендера']"); // Фильтр "Название тендера" в блоке фильтров
-    protected By testAutoSearch = By.xpath("//span[text()='Тестовый автопоиск']"); // Тестовый автопоиск в списке автопоисков
-    protected By buttonSaveAutoSearch = By.id("save-autosearch-button"); // Кнопка "Сохранить автопоиск"
+    protected By testAutoSearch = By.xpath("//div[text()='Тестовый автопоиск']"); // Тестовый автопоиск в списке автопоисков
+    protected By buttonSaveAutoSearch = By.id("search-filters-save-autosearch-button"); // Кнопка "Сохранить автопоиск"
     protected By buttonAcceptSaveAutoSearch = By.id("save-autosearch-apply"); // Кнопка "Применить" для сохранения автопоиска
-    protected By buttonDeleteAutoSearchInListAutoSearch = By.xpath("//span[text()='Тестовый автопоиск']/following::div[@class='tl-tag-autosearch dx-tag-remove-button'][1]"); // Кнопка удаления автопоиска в списке автопоисков
-    protected By buttonAcceptDeletedAutoSearch = By.id("tl-popup-approve-button"); // Кнопка подтверждения удаления автопоиска
+    protected By buttonDeleteAutoSearchInListAutoSearch = By.xpath("(//div[text()='Тестовый автопоиск']/following::i)[1]"); // Кнопка удаления автопоиска в списке автопоисков
+    protected By buttonAcceptDeletedAutoSearch = By.xpath("//span[text()='Удалить']"); // Кнопка подтверждения удаления автопоиска
     protected By buttonSwitchDistribution = By.id("tl-mailing-switch"); // Кнопка включения/выключения рассылки
     protected By buttonLogout = By.xpath("//form/button"); // Кнопка "Выйти"
     protected By buttonSwitchPinCode = By.id("tl-has-pin-code"); // Кнопка включения/выключения пинкода
@@ -39,14 +38,14 @@ public class DistributionFromAutoSearch extends PageObject{
     protected By checkboxSaturday = By.id("check-6"); // Чекбокс "Суббота"
     protected By checkboxFriday = By.id("check-5"); // Чекбокс "Пятница"
 
-    protected By tabDistributionInWindowAutoSearch = By.xpath("(//div[@role='tab'])[2]"); // Вкладка в окне автопоиска "Рассылка"
+    protected By tabDistributionInWindowAutoSearch = By.xpath("(//div[@id='autosearch-tab-panel']//div[@role='tab'])[2]"); // Вкладка в окне автопоиска "Рассылка"
 
     private final By fieldSearchByNameTender = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска внутри фильтра "Название тендера"
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
     private final By fieldNameAutoSearch = By.xpath("//div[@id='tl-autosearch-name']//input"); // Поле ввода названия автопоиска
-    private final By elementListAutoSearch = By.xpath("//div[@id='list-autosearches']//span[last()]"); // элемент списка автопоисков
+    private final By firstElementListAutoSearch = By.xpath("//div[@class='search-filters-filters-group dx-sortable']//div[@class='search-filters-tagbox-tag-content autosearch dx-draggable']/div"); // первый элемент списка автопоисков
     private final By errorMessageWithEmptyAccountForDistribution = By.xpath("//div[@class='dx-overlay-content dx-invalid-message-content']"); // Сообщение об ошибке при сохранении автопоиска без указания почты или телеграмма для рассылки
     private final By errorMessageWithFieldPinCode = By.xpath("//div[@id='tl-pin-code']//div[@class='dx-overlay-content dx-invalid-message-content']"); // Сообщение об ошибке при пустом поле "Пинкод"
     private final By statusDistribution = By.id("tl-autosearch-distribution-status"); // Статус рассылки
@@ -109,7 +108,7 @@ public class DistributionFromAutoSearch extends PageObject{
     public void checkTestAutoSearch(){
 
         try {
-            if (find(elementListAutoSearch).getText().equals("Тестовый автопоиск")) {
+            if (find(firstElementListAutoSearch).getText().equals("Тестовый автопоиск")) {
                 clickButton(buttonDeleteAutoSearchInListAutoSearch);
                 find(buttonAcceptDeletedAutoSearch).waitUntilClickable();
                 clickButton(buttonAcceptDeletedAutoSearch);
