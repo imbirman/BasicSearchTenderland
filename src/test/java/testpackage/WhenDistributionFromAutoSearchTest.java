@@ -100,7 +100,6 @@ public class WhenDistributionFromAutoSearchTest extends DistributionFromAutoSear
         steps.click_button(testAutoSearch);
         steps.wait_a_bit(1000);
         steps.click_button(buttonSaveAutoSearch);
-        steps.type_name_autosearch("Тестовый автопоиск");
         steps.click_button(tabDistributionInWindowAutoSearch);
         steps.click_button(buttonSwitchDistribution);
         steps.check_visible_account_and_address_distribution_for_child_user();

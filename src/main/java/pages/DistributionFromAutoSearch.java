@@ -187,14 +187,14 @@ public class DistributionFromAutoSearch extends PageObject{
     public boolean isContainCorrectFieldsForDistribution(String filePath) throws IOException {
 
         List<String> fieldsForDistribution = findAll(elementOfListFieldsForDistribution).textContents();
-        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8));
 
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8));
         String str;
         str = br.readLine();
 
         List<String> ar= List.of(str.split(Pattern.quote(". ")));
 
-        return fieldsForDistribution.equals(ar);
+        return ar.equals(fieldsForDistribution);
     } // Проверка списка полей для рассылки
 
     public boolean isCorrectDefaultFieldsInBlockForDistribution(){
