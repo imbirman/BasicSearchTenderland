@@ -94,7 +94,7 @@ public class WhenFiltersTest extends Filters {
     }
 
     @Test
-    @Title("Проверка результата поиска без категории")
+    @Title("Проверка чекбокса \"Без категории\"")
     public void checkResultSearchFilterWithoutCategory(){
         steps.drag_and_drop_filter(filterCategory);
         steps.wait_a_bit(2000);
