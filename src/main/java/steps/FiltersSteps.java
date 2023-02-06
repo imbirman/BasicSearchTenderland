@@ -121,9 +121,9 @@ public class FiltersSteps {
                 .isEqualTo("Коммунальные услуги");
     }
 
-    @Step("Проверка результата поиска без категории")
-    public void check_result_search_by_without_category(){
-        assertThat(page.isContainEmptyCategory()).as("В результате поиска отсутствуют тендеры без категории")
+    @Step("Проверка чекбокса \"Без категории\"")
+    public void check_disabled_checkbox_without_category(){
+        assertThat(page.isDisabledCheckboxEmptyCategory()).as("Чекбокс \"Без категории\" не заблокирован")
                 .isTrue();
     }
 

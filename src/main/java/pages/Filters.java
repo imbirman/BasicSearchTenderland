@@ -32,7 +32,7 @@ public class Filters extends PageObject {
     protected By checkboxOKPD = By.xpath("(//div[@class='dx-checkbox-container'])[last()]"); // чекбокс фильтра ОКПД
     protected By checkboxSelectAll = By.xpath("(//div[@id='filter-editor-5']//div[@class='dx-datagrid-text-content']//div[@role='checkbox'])[1]"); // Чекбокс в окне фильтра "Выбрать всё"
     protected By checkboxShowOnlySelected = By.xpath("//div[@class='dx-switch-container']"); // Переключатель "Показывать только выбранное"
-    protected By checkboxShowWithoutCategory = By.xpath("//div[@id='filter-editor-2-undefined_category']//span[@class='dx-checkbox-icon']"); // Чекбокс "Показывать без категории"
+    protected By checkboxShowWithoutCategory = By.xpath("//div[@id='replace-item']//div[@aria-disabled]//span[@class='dx-checkbox-icon']"); // Чекбокс "Показывать без категории"
     protected By checkboxShowWithZeroPrice = By.xpath("//div[@id='filter-editor-compact-4-undefined_values']//span[@class='dx-checkbox-icon']"); // Чекбокс "Показывать с нулевой ценой"
     protected By checkboxSelectedAllElements = By.xpath("(//div[@id='replace-item']//span[@class='dx-checkbox-icon'])[1]"); // Чекбокс "Выбрать всё"
     protected By checkboxElementInsideFilter = By.xpath("//div[@id='replace-item']//span[@class='dx-checkbox-icon']"); // Чекбокс элемента внутри фильтра
@@ -73,6 +73,7 @@ public class Filters extends PageObject {
     private final By fieldSearchByCustomerTextSearch = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска внутри фильтра "Заказчик"
     private final By fieldExcludeFromSearchByCustomer = By.xpath("//div[@id='exclude_block']//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле исключения из поиска внутри фильтра "Заказчик"
     private final By fieldNameAutoSearch = By.xpath("//div[@id='tl-autosearch-name']//input"); // Поле ввода названия автопоиска
+    private final By fieldWithoutCategory = By.xpath("//div[@id='replace-item']//div[@aria-disabled]"); // Поле чекбокса "Показывать без категории"
 
     private final By cellTableCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[7]//td"); // Ячейка таблицы в результатах поиска для столбца "Категория"
     private final By cellTablePrice = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[6]"); // Ячейка таблицы в результатах поиска для столбца "Цена"
@@ -216,18 +217,10 @@ public class Filters extends PageObject {
         return check;
     } // Проверка отображения поискового элемента при выключенном чекбоксе "Показывать только выбранное" в фильтре ОКПД
 
-    public boolean isContainEmptyCategory(){
-        List<WebElementFacade> cellCategory = findAll(cellTableCategory);
-        boolean check = false;
-        for(WebElementFacade type : cellCategory){
-            if(type.getText().contains("-")){
-//                System.out.println("Услуги: " + type.getText());
-                check = true;
-                break;
-            }
-        }
-        return check;
-    } // Проверка результата поиска без категории в фильтре "Категория"
+    public boolean isDisabledCheckboxEmptyCategory(){
+        System.out.println(find(fieldWithoutCategory).getAttribute("class"));
+        return find(fieldWithoutCategory).getAttribute("class").contains("dx-state-disabled");
+    } // Проверка блокирования чекбокса "Без категории" в фильтре "Категория"
 
     public boolean isContainZeroPrice(){
         List<WebElementFacade> cellPrice = findAll(cellTablePrice);

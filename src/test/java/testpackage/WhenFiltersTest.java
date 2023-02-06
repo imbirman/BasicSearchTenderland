@@ -97,11 +97,8 @@ public class WhenFiltersTest extends Filters {
     @Title("Проверка результата поиска без категории")
     public void checkResultSearchFilterWithoutCategory(){
         steps.drag_and_drop_filter(filterCategory);
-        steps.click_button(checkboxShowWithoutCategory);
-        steps.click_button(buttonApply);
-        steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
-        steps.check_result_search_by_without_category();
+        steps.check_disabled_checkbox_without_category();
     }
 
     @Test
