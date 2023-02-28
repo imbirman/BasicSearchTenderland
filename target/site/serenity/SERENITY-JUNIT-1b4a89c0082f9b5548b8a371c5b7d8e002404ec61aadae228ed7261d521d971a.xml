@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="testpackage.WhenFiltersTest" skipped="0" tests="1" time="25.44" timestamp="2023-02-06 03:20:10"><testcase classname="testpackage.WhenFiltersTest" name="Проверка ввода некорректной цены от"><failure message="[Некорректное значение введено] expected:&lt;&quot;[]&quot;&gt; but was:&lt;&quot;[-12 ₽]&quot;&gt;" type="org.junit.ComparisonFailure">[Некорректное значение введено] expected:&lt;"[]"&gt; but was:&lt;"[-12 ₽]"&gt;</failure><system-err>[Некорректное значение введено] expected:&lt;"[]"&gt; but was:&lt;"[-12 ₽]"&gt;&#13;
+steps.FiltersSteps.check_enter_incorrect_price_from(FiltersSteps.java:132)&#13;
+testpackage.WhenFiltersTest.checkIncorrectPriceFrom(WhenFiltersTest.java:110)&#13;
+</system-err></testcase></testsuite>

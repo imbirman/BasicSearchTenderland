@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenFiltersTest" skipped="0" tests="1" time="44.15" timestamp="2023-02-28 09:54:11"><testcase classname="testpackage.WhenFiltersTest" name="Проверка количества элементов комбобокса 'Направление' в фильтре 'Дата публикации''"/></testsuite>

@@ -89,8 +89,13 @@ public class FiltersSteps {
     }
 
     @Step("Прокрутить содержимое элемента вниз")
-    public void scroll_down_to(By scroll){
-        page.scrollDownTo(scroll);
+    public void scroll_down_to(){
+        page.scrollDownTo();
+    }
+
+    @Step("Прокрутить содержимое элемента вниз на определенное количество пикселей")
+    public void scroll_on_pixels(String number){
+        page.scrollOnPixels(number);
     }
 
     @Step("Проверка соответствия найденного значения по поиску ОКПД")

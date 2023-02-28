@@ -126,9 +126,9 @@ public class WhenFiltersTest extends Filters {
         steps.type_price_from("1000");
         steps.type_price_to("10000");
         steps.click_button(checkboxShowWithZeroPrice);
-        steps.click_button(openTabMenu);
+//        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
-        steps.wait_a_bit(2000);
+        steps.wait_a_bit(4000);
         steps.check_result_search_by_with_zero_price();
     }
 
@@ -212,6 +212,9 @@ public class WhenFiltersTest extends Filters {
     @Test
     @Title("Проверка списка элементов комбобокса 'Направление' в фильтре 'Дата публикации''")
     public void checkListElementsComboboxDirection(){
+        steps.wait_a_bit(3000);
+        steps.scroll_on_pixels("150");
+        steps.wait_a_bit(3000);
         steps.drag_and_drop_filter(filterDatePublication);
         steps.wait_a_bit(1000);
         steps.click_button(tabRangeInFilterDatePublication);
@@ -222,6 +225,7 @@ public class WhenFiltersTest extends Filters {
     @Test
     @Title("Проверка списка элементов комбобокса 'Единицы измерения' в фильтре 'Дата публикации''")
     public void checkListElementsComboboxUnits(){
+        steps.scroll_on_pixels("150");
         steps.drag_and_drop_filter(filterDatePublication);
         steps.wait_a_bit(1000);
         steps.click_button(tabRangeInFilterDatePublication);
@@ -230,16 +234,9 @@ public class WhenFiltersTest extends Filters {
     }
 
     @Test
-    @Title("Проверка списка элементов в фильтре 'Модуль''")
-    public void checkListElementsOfFilterModule(){
-        steps.drag_and_drop_filter(filterModule);
-        steps.wait_a_bit(1000);
-        steps.check_list_elements_of_filter_module();
-    }
-
-    @Test
     @Title("Проверка количества элементов комбобокса 'Направление' в фильтре 'Дата публикации''")
     public void checkNumberListElementsComboboxDirection(){
+        steps.scroll_on_pixels("150");
         steps.drag_and_drop_filter(filterDatePublication);
         steps.wait_a_bit(1000);
         steps.click_button(tabRangeInFilterDatePublication);
@@ -250,11 +247,20 @@ public class WhenFiltersTest extends Filters {
     @Test
     @Title("Проверка количества элементов комбобокса 'Единицы измерения' в фильтре 'Дата публикации''")
     public void checkNumberListElementsComboboxUnits(){
+        steps.scroll_on_pixels("150");
         steps.drag_and_drop_filter(filterDatePublication);
         steps.wait_a_bit(1000);
         steps.click_button(tabRangeInFilterDatePublication);
         steps.click_button(comboboxUnits);
         steps.check_number_list_elements_combobox_units();
+    }
+
+    @Test
+    @Title("Проверка списка элементов в фильтре 'Модуль'")
+    public void checkListElementsOfFilterModule(){
+        steps.drag_and_drop_filter(filterModule);
+        steps.wait_a_bit(1000);
+        steps.check_list_elements_of_filter_module();
     }
 
     @Test
@@ -268,6 +274,7 @@ public class WhenFiltersTest extends Filters {
     @Test
     @Title("Проверка выбранных элементов в фильтре 'Метка'")
     public void checkListElementsOfSelectMark(){
+        steps.scroll_down_to();
         steps.drag_and_drop_filter(filterMark);
         steps.wait_a_bit(1000);
         steps.click_button(redColorMark);

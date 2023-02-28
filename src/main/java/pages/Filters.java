@@ -22,12 +22,12 @@ public class Filters extends PageObject {
     protected By filterCategory = By.xpath("//span[text()='Категория']"); // Фильтр "Категория" в блоке фильтров
     protected By filterPrice = By.xpath("//span[text()='Цена']"); // Фильтр "Цена" в блоке фильтров
     protected By filterCustomer = By.xpath("//span[text()='Заказчик']"); // Фильтр "Заказчик" в блоке фильтров
-    protected By filterDatePublication = By.xpath("//span[text()='Дата публикации']"); // Фильтр "Дата публикации" в блоке фильтров
+    protected By filterDatePublication = By.xpath("//div[@id='list-tenders-filters-group']//span[text()='публикации']"); // Фильтр "Дата публикации" в блоке фильтров
     protected By filterModule = By.xpath("//span[text()='Модуль']"); // Фильтр "Модуль" в блоке фильтров
     protected By filterMark = By.xpath("//span[text()='Метка']"); // Фильтр "Метка" в блоке фильтров
     protected By filterStand = By.xpath("//span[text()='Площадка']"); // Фильтр "Площадка" в блоке фильтров
     protected By filterRegion = By.xpath("//span[text()='Регион']"); // Фильтр "Регион" в блоке фильтров
-    protected By filterInTree = By.xpath("//span[@class='tl-filter-description']"); // Текст фильтра в дереве фильтров
+    protected By filterInTree = By.xpath("//div[@class='tl-filter-description']"); // Текст фильтра в дереве фильтров
 
     protected By checkboxOKPD = By.xpath("(//div[@class='dx-checkbox-container'])[last()]"); // чекбокс фильтра ОКПД
     protected By checkboxSelectAll = By.xpath("(//div[@id='filter-editor-5']//div[@class='dx-datagrid-text-content']//div[@role='checkbox'])[1]"); // Чекбокс в окне фильтра "Выбрать всё"
@@ -44,7 +44,7 @@ public class Filters extends PageObject {
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
     protected By buttonReset = By.id("filter-cancel-button"); // Кнопка "Сбросить"
-    protected By buttonSearch = By.id("search-button"); // Кнопка "Поиск"
+    protected By buttonSearch = By.id("search-filters-search-button"); // Кнопка "Поиск"
     protected By buttonCloseFilter = By.xpath("//i[@class='dx-icon dx-icon-close']"); // Крестик закрыть окно фильтра
 
     protected By fieldSearchInFilter = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
@@ -179,11 +179,17 @@ public class Filters extends PageObject {
         return find(filterInTree).getText();
     }// Получить текст фильтра "Заказчик" в дереве фильтров
 
-    public Filters scrollDownTo(By scroll){
+    public Filters scrollDownTo(){
         ((JavascriptExecutor)getDriver()).executeScript(
-                "arguments[0].scrollTop = -1 >>> 1", find(scroll));
+                "window.scrollTo(0, document.body.scrollHeight)");
         return this;
     } // Прокрутить содержимое элемента вниз
+
+    public Filters scrollOnPixels(String number){
+        ((JavascriptExecutor)getDriver()).executeScript(
+                "window.scrollBy(0," + number + ")");
+        return this;
+    }
 
     public boolean isResetResultSearchByFilterOKPD(){
         return find(resultSearchInFilter).isSelected();
@@ -330,7 +336,6 @@ public class Filters extends PageObject {
         checkArray.add("Красный");
         checkArray.add("Голубой");
         checkArray.add("Зеленый");
-        System.out.println(keyMark);
         return keyMark.equals(checkArray);
     } // Проверка на соответствие выбранных меток
 
