@@ -57,6 +57,7 @@ public class WhenFilterSearchTest extends FilterSearch {
         steps.click_button(buttonSaveAutoSearch);
         steps.type_name_autosearch("Тестовый автопоиск");
         steps.click_button(buttonAcceptSaveAutoSearch);
+        steps.wait_a_bit(1000);
         steps.check_correct_name_autosearch();
         steps.click_button(tabListAutoSearch);
         steps.check_contain_autosearch();

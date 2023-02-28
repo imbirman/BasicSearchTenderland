@@ -17,9 +17,9 @@ public class FilterSearch extends PageObject{
     protected By testAutoSearch = By.xpath("//span[text()='Тестовый автопоиск']"); // Тестовый автопоиск в списке автопоисков
     protected By buttonSaveAutoSearch = By.id("search-filters-save-autosearch-button"); // Кнопка "Сохранить автопоиск"
     protected By buttonAcceptSaveAutoSearch = By.id("save-autosearch-apply"); // Кнопка "Применить" для сохранения автопоиска
-    protected By buttonDeleteAutoSearchInListAutoSearch = By.xpath("//span[text()='Тестовый автопоиск']/following::div[@class='tl-tag-autosearch dx-tag-remove-button'][1]"); // Кнопка удаления автопоиска в списке автопоисков
-    protected By buttonAcceptDeletedAutoSearch = By.id("tl-popup-approve-button"); // Кнопка подтверждения удаления автопоиска
-    protected By buttonCancelDeletedAutoSearch = By.id("tl-popup-close-button"); // Кнопка отмены удаления автопоиска
+    protected By buttonDeleteAutoSearchInListAutoSearch = By.xpath("(//div[text()='Тестовый автопоиск']/following::i)[1]"); // Кнопка удаления тестового автопоиска в списке автопоисков
+    protected By buttonAcceptDeletedAutoSearch = By.xpath("//span[text()='Удалить']"); // Кнопка подтверждения удаления автопоиска
+    protected By buttonCancelDeletedAutoSearch = By.xpath("//span[text()='Не удалять']"); // Кнопка отмены удаления автопоиска
     protected By buttonDeleteAutoSearchInBuildingSearch = By.xpath("//i[@class='mdi mdi-26px mdi-trash-can-outline']"); // Кнопка удаления автопоиска в блоке дерева фильтров
     protected By buttonCloseAutoSearchInBuildingSearch = By.xpath("//i[@class='mdi mdi-26px mdi-close']"); // Кнопка закрытия автопоиска
     protected By buttonCopyLinkAutoSearchInBuildingSearch = By.xpath("//i[@class='mdi mdi-24px mdi-share-variant']"); // Кнопка копирования ссылки автопоиска
@@ -39,7 +39,7 @@ public class FilterSearch extends PageObject{
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
     private final By errorMessageEmptyNameFieldAutoSearch = By.xpath("//div[@id='tl-autosearch-name']//div[@class='dx-overlay-content dx-invalid-message-content']"); // Текст ошибки при сохранении автопоиска с пустым названием
     private final By fieldNameAutoSearch = By.xpath("//div[@id='tl-autosearch-name']//input"); // Поле ввода названия автопоиска
-    private final By elementListAutoSearch = By.xpath("//div[@id='list-autosearches']//span"); // элемент списка автопоисков
+    private final By elementListAutoSearch = By.xpath("//div[@id='list-autosearches']//div[@class='search-autosearch-group-container']//div[not(@*)]"); // элемент списка автопоисков
     private final By autoSearchLabel = By.id("autosearch-label"); // Название автопоиска в древе построения фильтров
     private final By loginUserInVersionAutoSearch = By.xpath("//td[text()='AdminTestitAutoSearch']"); // логин пользователя в версии автопоиска
     private final By buttonCustomView = By.xpath("//div[@id='change-custom-view-button']//span"); // Кнопка "Пользовательский вид"
