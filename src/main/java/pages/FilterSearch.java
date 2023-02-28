@@ -15,7 +15,7 @@ public class FilterSearch extends PageObject{
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By filterNameTender = By.xpath("//span[text()='Название тендера']"); // Фильтр "Название тендера" в блоке фильтров
     protected By testAutoSearch = By.xpath("//span[text()='Тестовый автопоиск']"); // Тестовый автопоиск в списке автопоисков
-    protected By buttonSaveAutoSearch = By.id("save-autosearch-button"); // Кнопка "Сохранить автопоиск"
+    protected By buttonSaveAutoSearch = By.id("search-filters-save-autosearch-button"); // Кнопка "Сохранить автопоиск"
     protected By buttonAcceptSaveAutoSearch = By.id("save-autosearch-apply"); // Кнопка "Применить" для сохранения автопоиска
     protected By buttonDeleteAutoSearchInListAutoSearch = By.xpath("//span[text()='Тестовый автопоиск']/following::div[@class='tl-tag-autosearch dx-tag-remove-button'][1]"); // Кнопка удаления автопоиска в списке автопоисков
     protected By buttonAcceptDeletedAutoSearch = By.id("tl-popup-approve-button"); // Кнопка подтверждения удаления автопоиска
@@ -145,10 +145,6 @@ public class FilterSearch extends PageObject{
     public boolean isClickableButtonCloseAutoSearchInBuildingSearch(){
         return find(buttonCloseAutoSearchInBuildingSearch).isClickable();
     } // Проверка кликабельности кнопки закрытия автопоиска
-
-//    public boolean isNotClickableButtonSaveAutoSearch(){
-//        return find(buttonSaveAutoSearch).getAttribute("aria-disabled").contains("true");
-//    } // Проверка некликабельности кнопки сохранения автопоиска
 
     public boolean isClickableButtonSaveAutoSearch(){
 
