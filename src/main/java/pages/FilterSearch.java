@@ -20,11 +20,10 @@ public class FilterSearch extends PageObject{
     protected By buttonDeleteAutoSearchInListAutoSearch = By.xpath("(//div[text()='Тестовый автопоиск']/following::i)[1]"); // Кнопка удаления тестового автопоиска в списке автопоисков
     protected By buttonAcceptDeletedAutoSearch = By.xpath("//span[text()='Удалить']"); // Кнопка подтверждения удаления автопоиска
     protected By buttonCancelDeletedAutoSearch = By.xpath("//span[text()='Не удалять']"); // Кнопка отмены удаления автопоиска
-    protected By buttonDeleteAutoSearchInBuildingSearch = By.xpath("//i[@class='mdi mdi-26px mdi-trash-can-outline']"); // Кнопка удаления автопоиска в блоке дерева фильтров
-    protected By buttonCloseAutoSearchInBuildingSearch = By.xpath("//i[@class='mdi mdi-26px mdi-close']"); // Кнопка закрытия автопоиска
+    protected By buttonDeleteAutoSearchInBuildingSearch = By.xpath("//i[@id='search-autosearch-delete']"); // Кнопка удаления автопоиска в блоке дерева фильтров
+    protected By buttonClearBuildingFieldSearch = By.xpath("//span[text()='Очистить поле']"); // Кнопка очистки поля построения фильтров
     protected By buttonCopyLinkAutoSearchInBuildingSearch = By.xpath("//i[@class='mdi mdi-24px mdi-share-variant']"); // Кнопка копирования ссылки автопоиска
     protected By buttonCopyAutoSearchInBuildingSearch = By.xpath("//i[@class='mdi mdi-24px mdi-content-copy']"); // Кнопка копирования автопоиска
-    protected By buttonCloseWindowAcceptOrCancelDeletedAutoSearch = By.xpath("//div[@class='tl-popup-header tl-approve-header']//span"); // Кнопка закрытия окна подтверждения/отмены удаления автопоиска
 
     protected By buttonOpenListCustomView = By.xpath("//div[@id='change-custom-view-button']//i"); // Кнопка раскрытия списка пользовательских видов
     protected By buttonItemCustomView = By.xpath("//div[text()='Тестовый вид']"); // Пункт списка пользовательского вида "Тестовый вид"
@@ -143,7 +142,7 @@ public class FilterSearch extends PageObject{
     } // Проверка кликабельности кнопки удаления автопоиска
 
     public boolean isClickableButtonCloseAutoSearchInBuildingSearch(){
-        return find(buttonCloseAutoSearchInBuildingSearch).isClickable();
+        return find(buttonClearBuildingFieldSearch).isClickable();
     } // Проверка кликабельности кнопки закрытия автопоиска
 
     public boolean isClickableButtonSaveAutoSearch(){

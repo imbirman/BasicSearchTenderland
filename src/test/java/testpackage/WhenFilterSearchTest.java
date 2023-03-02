@@ -84,12 +84,10 @@ public class WhenFilterSearchTest extends FilterSearch {
         steps.click_button(buttonCancelDeletedAutoSearch);
         steps.check_contain_autosearch();
         steps.click_button(buttonDeleteAutoSearchInBuildingSearch);
+        steps.wait_a_bit(1000);
         steps.click_button(buttonCancelDeletedAutoSearch);
         steps.check_contain_autosearch();
-        steps.click_button(buttonDeleteAutoSearchInListAutoSearch);
-        steps.click_button(buttonCloseWindowAcceptOrCancelDeletedAutoSearch);
-        steps.check_contain_autosearch();
-        steps.click_button(buttonCloseAutoSearchInBuildingSearch);
+        steps.click_button(buttonClearBuildingFieldSearch);
         steps.check_contain_autosearch();
         steps.check_test_autosearch_and_delete();
     }
@@ -170,7 +168,7 @@ public class WhenFilterSearchTest extends FilterSearch {
         steps.type_name_autosearch("Тестовый автопоиск");
         steps.click_button(buttonAcceptSaveAutoSearch);
         steps.wait_a_bit(1000);
-        steps.click_button(buttonCloseAutoSearchInBuildingSearch);
+        steps.click_button(buttonClearBuildingFieldSearch);
         steps.wait_a_bit(1000);
         steps.click_button(testAutoSearch);
         steps.check_clickable_button_save_autosearch();
