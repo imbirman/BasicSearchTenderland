@@ -30,7 +30,7 @@ public class FilterSearch extends PageObject{
     protected By buttonLogout = By.xpath("//form/button"); // Кнопка "Выйти"
     protected By buttonSwitchPinCode = By.id("tl-has-pin-code"); // Кнопка включения/выключения пинкода
 
-    protected By tabListVersionInWindowAutoSearch = By.xpath("(//div[@role='tab'])[3]"); // Вкладка в окне автопоиска "Версия автопоиска"
+    protected By tabListVersionInWindowAutoSearch = By.xpath("(//span[@class='dx-tab-text'])[3]"); // Вкладка в окне автопоиска "Версия автопоиска"
 
     private final By fieldSearchByNameTender = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска внутри фильтра "Название тендера"
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
