@@ -22,8 +22,8 @@ public class FilterSearch extends PageObject{
     protected By buttonCancelDeletedAutoSearch = By.xpath("//span[text()='Не удалять']"); // Кнопка отмены удаления автопоиска
     protected By buttonDeleteAutoSearchInBuildingSearch = By.xpath("//i[@id='search-autosearch-delete']"); // Кнопка удаления автопоиска в блоке дерева фильтров
     protected By buttonClearBuildingFieldSearch = By.xpath("//span[text()='Очистить поле']"); // Кнопка очистки поля построения фильтров
-    protected By buttonCopyLinkAutoSearchInBuildingSearch = By.xpath("//i[@class='mdi mdi-24px mdi-share-variant']"); // Кнопка копирования ссылки автопоиска
-    protected By buttonCopyAutoSearchInBuildingSearch = By.xpath("//i[@class='mdi mdi-24px mdi-content-copy']"); // Кнопка копирования автопоиска
+    protected By buttonCopyLinkAutoSearchInBuildingSearch = By.xpath("//i[@class='material-icons-round icon-24px icon-grey icon-grey-hover md-share']"); // Кнопка копирования ссылки автопоиска
+    protected By buttonCopyAutoSearchInBuildingSearch = By.xpath("//i[@class='material-icons-round icon-24px icon-grey icon-grey-hover md-content_copy']"); // Кнопка копирования автопоиска
 
     protected By buttonOpenListCustomView = By.xpath("//div[@id='change-custom-view-button']//i"); // Кнопка раскрытия списка пользовательских видов
     protected By buttonItemCustomView = By.xpath("//div[text()='Тестовый вид']"); // Пункт списка пользовательского вида "Тестовый вид"
