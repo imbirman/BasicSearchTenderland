@@ -16,7 +16,7 @@ public class FilterSearch extends PageObject{
     protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By filterNameTender = By.xpath("//span[text()='Название тендера']"); // Фильтр "Название тендера" в блоке фильтров
-    protected By testAutoSearch = By.xpath("//span[text()='Тестовый автопоиск']"); // Тестовый автопоиск в списке автопоисков
+    protected By testAutoSearch = By.xpath("//div[text()='Тестовый автопоиск']"); // Тестовый автопоиск в списке автопоисков
     protected By buttonSaveAutoSearch = By.id("search-filters-save-autosearch-button"); // Кнопка "Сохранить автопоиск"
     protected By buttonAcceptSaveAutoSearch = By.id("save-autosearch-apply"); // Кнопка "Применить" для сохранения автопоиска
     protected By buttonDeleteAutoSearchInListAutoSearch = By.xpath("(//div[text()='Тестовый автопоиск']/following::i)[1]"); // Кнопка удаления тестового автопоиска в списке автопоисков
