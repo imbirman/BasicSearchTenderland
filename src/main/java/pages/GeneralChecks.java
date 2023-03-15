@@ -28,7 +28,7 @@ public class GeneralChecks extends PageObject {
     protected By buttonAcceptDeleteHiddenTender = By.xpath("//span[text()='Да']"); // Кнопка подтверждения удаления тендера из скрытых
     protected By buttonCloseWindowHiddenDataControl = By.xpath("//i[@class='dx-icon dx-icon-close']"); // Кнопка закрытия окна управления скрытыми данными
 
-    protected By filterAndOr = By.xpath("//span[@class='tl-filter-visual-group-name']"); // фильтр логики И/ИЛИ
+    protected By filterAndOr = By.xpath("//div[@id='tl-filter-root']//span"); // фильтр логики И/ИЛИ
 
     protected By checkboxSelectAllSearchResult = By.xpath("(//div[@id='search-result']//div[@class='dx-checkbox-container'])[1]"); // Чекбокс "Выбрать всё" в таблице результата поиска
 

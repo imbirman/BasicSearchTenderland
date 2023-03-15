@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenFilterSearchTest" skipped="0" tests="1" time="62.58" timestamp="2023-03-15 11:08:53"><testcase classname="testpackage.WhenFilterSearchTest" name="Проверка кликабельности кнопок автопоиска в древе построения фильтров для дочернего пользователя"/></testsuite>
