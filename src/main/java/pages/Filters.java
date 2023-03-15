@@ -189,7 +189,7 @@ public class Filters extends PageObject {
         ((JavascriptExecutor)getDriver()).executeScript(
                 "window.scrollBy(0," + number + ")");
         return this;
-    }
+    } // Прокрутить вниз на заданное количество пикселей
 
     public boolean isResetResultSearchByFilterOKPD(){
         return find(resultSearchInFilter).isSelected();

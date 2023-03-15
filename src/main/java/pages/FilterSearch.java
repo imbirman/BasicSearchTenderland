@@ -5,6 +5,8 @@ import net.thucydides.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+
 import java.util.List;
 
 @DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
@@ -25,12 +27,14 @@ public class FilterSearch extends PageObject{
     protected By buttonCopyLinkAutoSearchInBuildingSearch = By.xpath("//i[@class='material-icons-round icon-24px icon-grey icon-grey-hover md-share']"); // Кнопка копирования ссылки автопоиска
     protected By buttonCopyAutoSearchInBuildingSearch = By.xpath("//i[@class='material-icons-round icon-24px icon-grey icon-grey-hover md-content_copy']"); // Кнопка копирования автопоиска
 
-    protected By buttonOpenListCustomView = By.xpath("//div[@id='change-custom-view-button']//i"); // Кнопка раскрытия списка пользовательских видов
+    protected By buttonOpenListCustomView = By.xpath("//div[@id='search-panel-change-custom-view']//i"); // Кнопка раскрытия списка пользовательских видов
     protected By buttonItemCustomView = By.xpath("//div[text()='Тестовый вид']"); // Пункт списка пользовательского вида "Тестовый вид"
     protected By buttonLogout = By.xpath("//form/button"); // Кнопка "Выйти"
     protected By buttonSwitchPinCode = By.id("tl-has-pin-code"); // Кнопка включения/выключения пинкода
 
     protected By tabListVersionInWindowAutoSearch = By.xpath("(//span[@class='dx-tab-text'])[3]"); // Вкладка в окне автопоиска "Версия автопоиска"
+
+    protected By main = By.xpath("//div[@role='main']");
 
     private final By fieldSearchByNameTender = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска внутри фильтра "Название тендера"
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
@@ -41,7 +45,7 @@ public class FilterSearch extends PageObject{
     private final By elementListAutoSearch = By.xpath("//div[@id='list-autosearches']//div[@class='search-autosearch-group-container']//div[not(@*)]"); // элемент списка автопоисков
     private final By autoSearchLabel = By.id("autosearch-label"); // Название автопоиска в древе построения фильтров
     private final By loginUserInVersionAutoSearch = By.xpath("//td[text()='AdminTestitAutoSearch']"); // логин пользователя в версии автопоиска
-    private final By buttonCustomView = By.xpath("//div[@id='change-custom-view-button']//span"); // Кнопка "Пользовательский вид"
+    private final By buttonCustomView = By.xpath("//div[@id='search-panel-change-custom-view']//span"); // Кнопка "Пользовательский вид"
     private final By messageNoDataVersionAutoSearch = By.xpath("//span[@class='dx-datagrid-nodata']"); // Текст при отсутствии версий автопоиска
 
     public void waitFor(long number){
@@ -69,6 +73,12 @@ public class FilterSearch extends PageObject{
     public void dragAndDropFilter(By filter){
         withAction().dragAndDrop(find(filter), find(filterRoot)).build().perform();
     } // Перетащить фильтр в область построения дерева фильтров
+
+    public FilterSearch scrollOnPixels(String number){
+        ((JavascriptExecutor)getDriver()).executeScript(
+                "window.scrollBy(0," + number + ")");
+        return this;
+    }
 
     public void typeNameAutoSearch(String name){
         find(fieldNameAutoSearch).sendKeys(name);

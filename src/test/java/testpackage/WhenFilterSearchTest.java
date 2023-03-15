@@ -146,7 +146,8 @@ public class WhenFilterSearchTest extends FilterSearch {
         steps.click_button(buttonOpenListCustomView);
         steps.wait_a_bit(1000);
         steps.click_button(buttonItemCustomView);
-        steps.wait_a_bit(1000);
+        steps.wait_a_bit(2000);
+        steps.scroll_on_pixels_up("-300");
         steps.click_button(buttonSaveAutoSearch);
         steps.wait_a_bit(1000);
         steps.click_button(buttonAcceptSaveAutoSearch);
