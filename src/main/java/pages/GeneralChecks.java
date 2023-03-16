@@ -18,7 +18,7 @@ public class GeneralChecks extends PageObject {
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By listAutoSearchToScroll = By.xpath("//div[@id='tl-scroll-tabs']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки list-autosearches
 
-    protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//span[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка поиска по названию тендера и исключению из названия"
+    protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//div[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By buttonCheckHideResultSearch = By.xpath("//span[text()='Проверка скрытия результатов поиска']"); // Кнопка автопоиска "Проверка скрытия результатов поиска"
     protected By buttonSearch = By.id("search-button"); // Кнопка "Поиск"
     protected By buttonOpenShowHideEntities = By.id("show-hide-entities-button"); // Кнопка открытия окна для отображения скрытых результатов поиска
@@ -33,7 +33,7 @@ public class GeneralChecks extends PageObject {
     protected By checkboxSelectAllSearchResult = By.xpath("(//div[@id='search-result']//div[@class='dx-checkbox-container'])[1]"); // Чекбокс "Выбрать всё" в таблице результата поиска
 
     protected By secondPageSearch = By.xpath("//div[@class='dx-page']"); // Вторая страница таблицы результата поиска
-    protected By contextMenuResultSearch = By.xpath("//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Кнопка контекстного меню для строки результата поиска
+    protected By contextMenuResultSearch = By.xpath("//table[@class='dx-datagrid-table dx-pointer-events-none dx-datagrid-table-fixed']//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Кнопка контекстного меню для строки результата поиска
     protected By hideContextMenu = By.xpath("//div[text()='Скрыть тендер']"); // пункт контекстного меню "Скрыть тендер"
     protected By addInMineTendersContextMenu = By.xpath("//div[text()='Добавить в Мои тендеры']"); // пункт контекстного меню "Добавить в Мои тендеры"
     protected By markContextMenu = By.xpath("//div[text()='Метка тендера']"); // пункт контекстного меню "Метка тендера"
