@@ -16,6 +16,8 @@ public class CustomView extends PageObject {
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
     protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
+    protected By listAutoSearchToScroll = By.xpath("//div[@id='list-autosearches']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки
+
     protected By buttonAutoSearchTestCustomView = By.xpath("//div[text()='Тестирование пользовательского вида']"); // Кнопка автопоиска "Тестирование пользовательского вида"
     protected By buttonCustomView = By.id("search-panel-change-custom-view"); // Кнопка "Пользовательский вид"
     protected By buttonSaveSettings = By.id("search-view-save-button"); // Кнопка "Сохранить настройки"
@@ -24,16 +26,19 @@ public class CustomView extends PageObject {
     protected By buttonExpandListCustomView = By.xpath("//div[@id='search-panel-change-custom-view']//i[@class='dx-icon dx-icon-spindown']"); // Раскрыть список пользовательских видов
     protected By buttonAddNewCustomView = By.id("search-view-manager-newitem"); // Кнопка добавления нового пользовательского вида
     protected By buttonApplyCustomView = By.id("search-view-apply-button"); // Кнопка "Применить" пользовательского вида
+    protected By buttonRemoveColumnFromListSelectedColumns = By.xpath("//div[@id='search-view-field-selector-values']//i[@class='dx-icon dx-icon-remove']"); // Кнопка удаления элемента из списка выбранных столбцов
+
     protected By elementOfListCustomView = By.xpath("//div[@id='search-view-manager-viewlist']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка сохраненных пользовательских видов
     protected By elementExpandedListCustomView = By.xpath("//div[@class='dx-popup-content dx-dropdownbutton-content']//div[@class='dx-item-content dx-list-item-content']"); // элемент раскрывающегося списка пользовательских видов
+    protected By elementOfListColumns = By.xpath("//div[@id='search-view-manager-tab-panel']//div[@class='dx-scrollview-content']//div[@class='dx-item dx-list-item']"); // Элемент списка столбцов
+    protected By elementOfListSelectedColomns = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-item dx-list-item']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка выбранных столбцов
+
     protected By fieldNameCustomView = By.xpath("//div[@id='search-view-name']//input"); // Поле для ввода названия пользовательского вида
     protected By fieldSearchColumnCustomView = By.xpath("//div[@id='search-view-field-selector-search-panel']//input"); // Поле поиска столбцов в пользовательском виде
     protected By fieldSelectedColumnsCustomViewForScroll = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-scrollable-container']"); // Область выбранных столбцов пользовательского вида для прокрутки
-    protected By fieldForScrollInListAutosearch = By.xpath("//div[@id='list-autosearches']//div[@class='dx-scrollable-container']"); // Область списка автопоисков для прокрутки
     protected By fieldSearchInFilter = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
-    protected By buttonRemoveColumnFromListSelectedColumns = By.xpath("//div[@id='search-view-field-selector-values']//i[@class='dx-icon dx-icon-remove']"); // Кнопка удаления элемента из списка выбранных столбцов
-    protected By elementOfListColumns = By.xpath("//div[@id='search-view-manager-tab-panel']//div[@class='dx-scrollview-content']//div[@class='dx-item dx-list-item']"); // Элемент списка столбцов
-    protected By elementOfListSelectedColomns = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-item dx-list-item']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка выбранных столбцов
+
+
 
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
@@ -69,10 +74,11 @@ public class CustomView extends PageObject {
         return this;
     } // Ввести значение в поле поиска
 
-    public void scrollDownTo(By scroll){
+    public CustomView scrollElementOnPixels(String number, By scroll){
         ((JavascriptExecutor)getDriver()).executeScript(
-                "arguments[0].scrollTop = -1 >>> 1", find(scroll));
-    } // Прокрутить содержимое элемента вниз
+                "arguments[0].scrollBy(0," + number + ")", find(scroll));
+        return this;
+    } // Прокрутить на заданное количество пикселей
 
     public void typeNameCustomView(String name){
         find(fieldNameCustomView).sendKeys(name);

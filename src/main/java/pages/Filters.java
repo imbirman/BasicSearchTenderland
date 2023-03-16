@@ -18,6 +18,8 @@ public class Filters extends PageObject {
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
 
+    protected By listFilters = By.xpath("//div[@id='list-tenders-filters-group']//div[@class='dx-scrollable-container']");
+
     protected By filterOKPD = By.xpath("//span[text()='ОКПД 2']"); // Фильтр "ОКПД 2" в блоке фильтров
     protected By filterCategory = By.xpath("//span[text()='Категория']"); // Фильтр "Категория" в блоке фильтров
     protected By filterPrice = By.xpath("//span[text()='Цена']"); // Фильтр "Цена" в блоке фильтров
@@ -185,11 +187,11 @@ public class Filters extends PageObject {
         return this;
     } // Прокрутить содержимое элемента вниз
 
-    public Filters scrollOnPixels(String number){
+    public Filters scrollElementOnPixels(String number, By scroll){
         ((JavascriptExecutor)getDriver()).executeScript(
-                "window.scrollBy(0," + number + ")");
+                "arguments[0].scrollBy(0," + number + ")", find(scroll));
         return this;
-    } // Прокрутить вниз на заданное количество пикселей
+    } // Прокрутить на заданное количество пикселей
 
     public boolean isResetResultSearchByFilterOKPD(){
         return find(resultSearchInFilter).isSelected();

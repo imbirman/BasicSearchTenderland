@@ -44,8 +44,8 @@ public class CustomViewSteps {
     }
 
     @Step("Прокрутить содержимое элемента вниз")
-    public void scroll_down_to(By scroll){
-        page.scrollDownTo(scroll);
+    public void scroll_element_on_pixels(String number, By scroll){
+        page.scrollElementOnPixels(number, scroll);
     }
 
     @Step("Ввести название пользовательского вида")

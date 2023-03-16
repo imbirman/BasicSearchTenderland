@@ -35,7 +35,7 @@ public class WhenCustomViewTest extends CustomView {
     @Title("Проверка сообщения об ошибке при сохранении пользовательского вида при пустом названии")
     public void checkSaveCustomViewWithEmptyName(){
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(fieldForScrollInListAutosearch);
+        steps.scroll_element_on_pixels("1050", listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchTestCustomView);
         steps.wait_a_bit(2000);
         steps.click_button(buttonCustomView);
@@ -103,7 +103,7 @@ public class WhenCustomViewTest extends CustomView {
     public void checkContainSelectedColumnCustomView(){
         steps.click_button(buttonCustomView);
         steps.click_button(elementOfListColumns);
-        steps.scroll_down_to(fieldSelectedColumnsCustomViewForScroll);
+        steps.scroll_element_on_pixels("200", fieldSelectedColumnsCustomViewForScroll);
         steps.check_contain_selected_column();
     }
 }

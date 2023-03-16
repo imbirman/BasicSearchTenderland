@@ -212,8 +212,7 @@ public class WhenFiltersTest extends Filters {
     @Test
     @Title("Проверка списка элементов комбобокса 'Направление' в фильтре 'Дата публикации''")
     public void checkListElementsComboboxDirection(){
-        steps.wait_a_bit(3000);
-        steps.scroll_on_pixels("150");
+        steps.scroll_element_on_pixels("150", listFilters);
         steps.wait_a_bit(3000);
         steps.drag_and_drop_filter(filterDatePublication);
         steps.wait_a_bit(1000);
@@ -225,7 +224,7 @@ public class WhenFiltersTest extends Filters {
     @Test
     @Title("Проверка списка элементов комбобокса 'Единицы измерения' в фильтре 'Дата публикации''")
     public void checkListElementsComboboxUnits(){
-        steps.scroll_on_pixels("150");
+        steps.scroll_element_on_pixels("150", listFilters);
         steps.drag_and_drop_filter(filterDatePublication);
         steps.wait_a_bit(1000);
         steps.click_button(tabRangeInFilterDatePublication);
@@ -236,7 +235,7 @@ public class WhenFiltersTest extends Filters {
     @Test
     @Title("Проверка количества элементов комбобокса 'Направление' в фильтре 'Дата публикации''")
     public void checkNumberListElementsComboboxDirection(){
-        steps.scroll_on_pixels("150");
+        steps.scroll_element_on_pixels("150", listFilters);
         steps.drag_and_drop_filter(filterDatePublication);
         steps.wait_a_bit(1000);
         steps.click_button(tabRangeInFilterDatePublication);
@@ -247,7 +246,8 @@ public class WhenFiltersTest extends Filters {
     @Test
     @Title("Проверка количества элементов комбобокса 'Единицы измерения' в фильтре 'Дата публикации''")
     public void checkNumberListElementsComboboxUnits(){
-        steps.scroll_on_pixels("150");
+        steps.scroll_element_on_pixels("150", listFilters);
+        steps.wait_a_bit(3000);
         steps.drag_and_drop_filter(filterDatePublication);
         steps.wait_a_bit(1000);
         steps.click_button(tabRangeInFilterDatePublication);

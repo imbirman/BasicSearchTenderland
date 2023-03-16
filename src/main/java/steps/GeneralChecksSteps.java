@@ -33,9 +33,9 @@ public class GeneralChecksSteps {
         page.switchToTab();
     }
 
-    @Step("Прокрутить содержимое элемента вниз")
-    public void scroll_down_to(By scroll){
-        page.scrollDownTo(scroll);
+    @Step("Прокрутить элемент на заданное количество пикселей")
+    public void scroll_element_on_pixels(String number, By scroll){
+        page.scrollElementOnPixels(number, scroll);
     }
 
     @Step("Нажать кнопку")

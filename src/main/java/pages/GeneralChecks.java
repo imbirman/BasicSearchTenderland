@@ -16,11 +16,11 @@ public class GeneralChecks extends PageObject {
     protected By logInButton = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By signInButton = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
-    protected By listAutoSearchToScroll = By.xpath("//div[@id='tl-scroll-tabs']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки list-autosearches
+    protected By listAutoSearchToScroll = By.xpath("//div[@id='list-autosearches']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки
 
     protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//div[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка поиска по названию тендера и исключению из названия"
-    protected By buttonCheckHideResultSearch = By.xpath("//span[text()='Проверка скрытия результатов поиска']"); // Кнопка автопоиска "Проверка скрытия результатов поиска"
-    protected By buttonSearch = By.id("search-button"); // Кнопка "Поиск"
+    protected By buttonCheckHideResultSearch = By.xpath("//div[text()='Проверка скрытия результатов поиска']"); // Кнопка автопоиска "Проверка скрытия результатов поиска"
+    protected By buttonSearch = By.id("search-filters-search-button"); // Кнопка "Поиск"
     protected By buttonOpenShowHideEntities = By.id("show-hide-entities-button"); // Кнопка открытия окна для отображения скрытых результатов поиска
     protected By buttonSwitchShowHideEntities = By.id("show-hide-entities-swith"); // Кнопка смены отображения скрытых результатов поиска
     protected By buttonOpenHiddenDataControl = By.xpath("//a[@class='tl-highlite-link']"); // Открыть "Управление скрытыми данными"
@@ -78,10 +78,11 @@ public class GeneralChecks extends PageObject {
         withAction().dragAndDrop(find(filter), find(filterRoot)).build().perform();
     } // Перетащить фильтр в область построения дерева фильтров
 
-    public void scrollDownTo(By scroll){
+    public GeneralChecks scrollElementOnPixels(String number, By scroll){
         ((JavascriptExecutor)getDriver()).executeScript(
-                "arguments[0].scrollTop = -1 >>> 1", find(scroll));
-    } // Прокрутить содержимое элемента вниз
+                "arguments[0].scrollBy(0," + number + ")", find(scroll));
+        return this;
+    } // Прокрутить на заданное количество пикселей
 
     public void clickButton(WebElementFacade button){
         button.click();
