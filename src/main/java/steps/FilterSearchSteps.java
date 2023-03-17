@@ -48,9 +48,9 @@ public class FilterSearchSteps {
         page.dragAndDropFilter(filter);
     }
 
-    @Step("Прокрутить содержимое элемента вниз на определенное количество пикселей")
-    public void scroll_on_pixels_up(String number){
-        page.scrollOnPixels(number);
+    @Step("Прокрутить окно на определенное количество пикселей")
+    public void scroll_window_on_pixels(String number){
+        page.scrollWindowOnPixels(number);
     }
 
     @Step("Ввод значения в поле поиска в фильтре 'Название тендера'")

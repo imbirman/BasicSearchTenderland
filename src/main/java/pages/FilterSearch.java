@@ -74,7 +74,7 @@ public class FilterSearch extends PageObject{
         withAction().dragAndDrop(find(filter), find(filterRoot)).build().perform();
     } // Перетащить фильтр в область построения дерева фильтров
 
-    public FilterSearch scrollOnPixels(String number){
+    public FilterSearch scrollWindowOnPixels(String number){
         ((JavascriptExecutor)getDriver()).executeScript(
                 "window.scrollBy(0," + number + ")");
         return this;

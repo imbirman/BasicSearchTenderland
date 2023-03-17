@@ -84,6 +84,12 @@ public class GeneralChecks extends PageObject {
         return this;
     } // Прокрутить на заданное количество пикселей
 
+    public GeneralChecks scrollWindowOnPixels(String number){
+        ((JavascriptExecutor)getDriver()).executeScript(
+                "window.scrollBy(0," + number + ")");
+        return this;
+    }
+
     public void clickButton(WebElementFacade button){
         button.click();
     } // Кликнуть по кнопке / выбрать radiobutton или checkbox
@@ -146,7 +152,7 @@ public class GeneralChecks extends PageObject {
         List<String> textCheck = findAll(cellTableForCheckRegistryNumber).texts();
         boolean check = false;
         for(String type : textCheck){
-            if(type.contains("100154727119000142")){check = true; break;}
+            if(type.contains("32008750757")){check = true; break;}
         }
         return check;
     } // Проверка отображения в результатах поиска удаленного из скрытых элемента

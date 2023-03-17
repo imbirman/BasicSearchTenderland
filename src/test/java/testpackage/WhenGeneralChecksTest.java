@@ -67,10 +67,7 @@ public class WhenGeneralChecksTest extends GeneralChecks {
     @Test
     @Title("Проверка отображения в результатах поиска скрытого элемента и количества скрытых элементов")
     public void checkContainHideTender(){
-
-//        steps.wait_a_bit(3000);
         steps.click_button(tabListAutoSearch);
-//        steps.move_to_element(buttonCheckTenderNameAndNameDeletion);
         steps.scroll_element_on_pixels("1000", listAutoSearchToScroll);
         steps.click_button(buttonCheckHideResultSearch);
         steps.click_button(contextMenuResultSearch);
@@ -91,6 +88,7 @@ public class WhenGeneralChecksTest extends GeneralChecks {
     @Title("Проверка отображения удаленного из скрытых элемента")
     public void checkContainRemoveFromHidden(){
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("1000", listAutoSearchToScroll);
         steps.click_button(buttonCheckHideResultSearch);
         steps.click_button(contextMenuResultSearch);
         steps.click_button(hideContextMenu);
@@ -99,7 +97,10 @@ public class WhenGeneralChecksTest extends GeneralChecks {
         steps.click_button(buttonDeleteHiddenTender);
         steps.click_button(buttonAcceptDeleteHiddenTender);
         steps.click_button(buttonCloseWindowHiddenDataControl);
+        steps.wait_a_bit(1000);
+        steps.scroll_window_on_pixels("-300");
         steps.click_button(buttonSearch);
+        steps.wait_a_bit(1000);
         steps.check_contain_not_hide_tender();
     }
 

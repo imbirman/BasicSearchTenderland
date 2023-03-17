@@ -38,6 +38,11 @@ public class GeneralChecksSteps {
         page.scrollElementOnPixels(number, scroll);
     }
 
+    @Step("Прокрутить окно на определенное количество пикселей")
+    public void scroll_window_on_pixels(String number){
+        page.scrollWindowOnPixels(number);
+    }
+
     @Step("Нажать кнопку")
     public void click_button(WebElementFacade button){
         page.clickButton(button);
