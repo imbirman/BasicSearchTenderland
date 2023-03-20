@@ -70,7 +70,6 @@ public class WhenMarkSettingTest extends MarkSetting{
     @Title("Проверка текста ошибки при сохранении метки с пустым названием")
     public void checkCorrectErrorMessageEmptyNameMark(){
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);
@@ -83,7 +82,6 @@ public class WhenMarkSettingTest extends MarkSetting{
     @Title("Проверка текста ошибки при сохранении метки с дублирующим названием")
     public void checkCorrectErrorMessageDuplicateNameMark(){
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);
@@ -97,7 +95,6 @@ public class WhenMarkSettingTest extends MarkSetting{
     @Title("Проверка базового списка меток")
     public void checkCorrectBaseListMarks(){
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);
@@ -109,7 +106,6 @@ public class WhenMarkSettingTest extends MarkSetting{
     @Title("Проверка добавления и удаления новой метки")
     public void checkAddAndDeleteNewMark(){
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);
@@ -130,7 +126,6 @@ public class WhenMarkSettingTest extends MarkSetting{
     @Title("Проверка базового списка меток после обновления метки")
     public void checkCorrectBaseListMarksAfterUpdateMark(){
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);

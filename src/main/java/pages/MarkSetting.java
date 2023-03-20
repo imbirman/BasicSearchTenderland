@@ -28,7 +28,7 @@ public class MarkSetting extends PageObject {
     protected By buttonSaveMark = By.id("tl-save-user-tag-button"); // Кнопка сохранения метки
     protected By buttonDeleteMark = By.id("tl-delete-user-tag-button"); // Кнопка удаления метки
     protected By buttonAddMark = By.id("tl-add-new-user-tag-button"); // Кнопка добавления метки
-    protected By buttonApproveDeleteMark = By.id("tl-popup-approve-button"); // Кнопка подтверждения удаления метки
+    protected By buttonApproveDeleteMark = By.xpath("//div[@class='common-popup-confirm-footer']//span[text()='Удалить']"); // Кнопка подтверждения удаления метки
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
