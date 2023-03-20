@@ -34,7 +34,7 @@ public class WhenMarkSettingTest extends MarkSetting{
     @Title("Проверка заблокированности кнопки удаления метки")
     public void checkDisableButtonDeleteMark(){
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
+//        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);
