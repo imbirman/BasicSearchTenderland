@@ -88,7 +88,7 @@ public class GeneralChecks extends PageObject {
         ((JavascriptExecutor)getDriver()).executeScript(
                 "window.scrollBy(0," + number + ")");
         return this;
-    }
+    } // Прокрутить окно на заданное количество пикселей
 
     public void clickButton(WebElementFacade button){
         button.click();

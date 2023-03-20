@@ -79,13 +79,13 @@ public class MyTendersSteps {
         page.moveToElement(element);
     }
 
-    @Step("Прокрутить содержимое элемента вниз")
-    public void scroll_down_to(By scroll){
-        page.scrollDownTo(scroll);
+    @Step("Прокрутить окно на заданное количество пикселей")
+    public void scroll_window_on_pixels(String number){
+        page.scrollWindowOnPixels(number);
     }
 
     @Step("Добавить в мои тендеры")
-    public void add_in_my_tenders(){page.addInMyTenders();}
+    public void add_in_my_tenders(){page.addIngMyTenders();}
 
     @Step("Получить тендер по его порядковому номеру в первом столбце")
     public WebElementFacade get_tender_by_number_in_first_column(int number, int numberColumn){

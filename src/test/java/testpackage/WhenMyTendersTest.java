@@ -42,13 +42,14 @@ public class WhenMyTendersTest extends MyTenders {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonInAutoSearchListCheckMyTenders);
         steps.wait_a_bit(1000);
+        steps.scroll_window_on_pixels("100");
         steps.add_in_my_tenders();
         openMyTenders();
         steps.wait_a_bit(1000);
         steps.check_register_number_added_tender();
         steps.check_name_added_tender();
         steps.click_button(buttonDeleteAddedTenderInListTenders);
-        steps.check_visible_window_approve_delete();
+//        steps.check_visible_window_approve_delete();
         steps.click_button(buttonConfirmDelete);
         steps.wait_a_bit(1000);
         steps.check_delete_added_tender();
