@@ -72,7 +72,7 @@ public class MyTenders extends PageObject {
     private final By nameAddedTenderInListTenders = By.xpath("(//div[@class='favourite-kanban-card-name'])[1]"); // Название добавленного тендера
     private final By nameSecondColumn = By.xpath("(//div[@class='favourite-kanban-list-title']/div)[2]"); // Название второго столбца
 
-    private final By windowApproveDelete = By.xpath("//div[@class='tl-popup-wrapper tl-approve']"); // Окно подтверждения удаления
+    private final By windowApproveDelete = By.xpath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable dx-popup-flex-height']"); // Окно подтверждения удаления
     private final By elementListColumns = By.xpath("//div[@class='favourite-kanban-list']"); // Столбец
     private final By fieldNameColumn = By.xpath("//div[@class='favourite-kanban-list']//input"); // Поле для ввода названия столбца
     private final By panelTenderInCardTender = By.id("tender-tab-panel"); // Панель тендера в карточке тендера
