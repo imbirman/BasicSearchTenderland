@@ -99,7 +99,6 @@ public class WhenMyTendersFiltersTest extends MyTendersFilters {
         steps.click_button(buttonOpenListFilters);
         steps.click_button(filterAvailabilityTask);
         steps.click_button(firstElementInListFilter);
-        steps.click_button(buttonOpenListFilters);
         steps.click_button(buttonClearFieldAvailabilityTask);
         steps.check_reset_filter_availability_task();
     }
