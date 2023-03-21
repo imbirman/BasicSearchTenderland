@@ -11,11 +11,11 @@ import java.util.List;
 @DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class MyTendersFilters extends PageObject {
 
-    protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
+    protected By openTabMenu = By.xpath("//i[@class='material-icons-round icon-28px icon-grey md-menu icon-grey-hover common-header-icon']"); // Кнопка открытия бокового меню
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
-    protected By buttonTabMenuMyTenders = By.xpath("(//div[@class='tl-sidenav-item'])[2]//div"); // Кнопка в боковом меню "Мои тендеры"
+    protected By buttonTabMenuMyTenders = By.xpath("//div[@id='main-menu-list']//div[text()='Мои тендеры']"); // Кнопка в боковом меню "Мои тендеры"
 
     protected By buttonOpenListFilters = By.id("favourite-filter-switch-icon"); // Кнопка раскрытия списка фильтров
     protected By buttonClearFieldAvailabilityTask = By.xpath("//div[@id='favourite-search-select-with-tasks']//span[@class='dx-icon dx-icon-clear']"); // Очистить поле "Наличие задач"
@@ -73,7 +73,7 @@ public class MyTendersFilters extends PageObject {
     } // Ввести данные для поиска по тендеру
 
     public Integer getNumberFilters(){
-        return findAll(filterForCheckNumberFilters).size();
+        return findAll(filterForCheckNumberFilters).size()-1;
     } // Получить количество фильтров
 
     public String getResponsibleInCardTender(){

@@ -56,7 +56,7 @@ public class MyTendersFiltersSteps {
 
     @Step("Проверка количества фильтров")
     public void check_number_filters(){
-        assertThat(page.getNumberFilters()).as("Количество фильтров некорректно").isEqualTo(9);
+        assertThat(page.getNumberFilters()).as("Количество фильтров некорректно").isEqualTo(11);
     }
 
     @Step("Проверка поиска по реестровому номеру тендера")
