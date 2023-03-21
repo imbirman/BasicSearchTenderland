@@ -13,14 +13,14 @@ import java.util.List;
 @DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class MyTendersTasks extends PageObject {
 
-    protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
+    protected By openTabMenu = By.xpath("//i[@class='material-icons-round icon-28px icon-grey md-menu icon-grey-hover common-header-icon']"); // Кнопка открытия бокового меню
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By tabCards = By.xpath("//div[@id='favourite-select-tabs']//div[text()='Карточки']"); // Главная вкладка "Карточки"
     protected By tabTable = By.xpath("//div[@id='favourite-select-tabs']//div[text()='Таблица']"); // Главная вкладка "Таблица"
 
     protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
-    protected By buttonTabMenuMyTenders = By.xpath("(//div[@class='tl-sidenav-item'])[2]//div"); // Кнопка в боковом меню "Мои тендеры"
+    protected By buttonTabMenuMyTenders = By.xpath("//div[@id='main-menu-list']//div[text()='Мои тендеры']"); // Кнопка в боковом меню "Мои тендеры"
 
     protected By buttonCloseCardTender = By.xpath("//i[@class='dx-icon dx-icon-close']"); // Кнопка закрытия карточки тендера
     protected By buttonAddTask = By.xpath("//div[@id='tasks-multiview']//div[@style='cursor: pointer;']"); // Кнопка добавления задачи во вкладке "Карточки"
