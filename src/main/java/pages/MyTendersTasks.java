@@ -108,7 +108,7 @@ public class MyTendersTasks extends PageObject {
         return find(nameLastTask).getText();
     } // Получение названия последней задачи
 
-    public WebElementFacade getButtonDeleteTaskByNumberByNumber(int number){
+    public WebElementFacade getButtonDeleteTaskByNumber(int number){
         return findAll(buttonDeleteTask).get(number);
     } // Получить кнопку удаления задачи по её порядковому номеру
 

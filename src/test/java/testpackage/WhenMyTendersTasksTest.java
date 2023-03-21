@@ -67,7 +67,7 @@ public class WhenMyTendersTasksTest extends MyTendersTasks {
         openMyTenders();
         steps.click_button(openCardFirstTender);
         steps.wait_a_bit(2000);
-        steps.click_button(getButtonDeleteTaskByNumberByNumber(3));
+        steps.click_button(getButtonDeleteTaskByNumber(3));
         steps.wait_a_bit(2000);
         steps.check_delete_task();
     }
