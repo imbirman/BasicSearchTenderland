@@ -39,9 +39,7 @@ public class WhenTabContractsTest extends TabContracts {
         steps.click_button(tabListAutoSearch);
         steps.wait_a_bit(500);
         steps.click_button(buttonCheckSearchByProduct);
-        steps.wait_a_bit(500);
-        steps.click_button(buttonSearch);
-        steps.wait_a_bit(3000);
+        steps.wait_a_bit(2000);
         steps.click_button(tableCellToCheckForSwitchToNextTab);
         steps.wait_a_bit(2000);
         steps.switch_to_tab();

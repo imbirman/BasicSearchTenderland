@@ -22,7 +22,7 @@ public class TabContracts extends PageObject {
     protected By tabListProductsInCardContract = By.id("tl-card-2"); // Вкладка "Список продуктов" в карточке контракта
     protected By tabMulctContracts = By.id("tl-card-5"); // Вкладка "Штрафы" в карточке контракта
 
-    protected By buttonSearch = By.id("search-button"); // Кнопка поиска
+    protected By buttonSearch = By.id("search-filters-search-button"); // Кнопка поиска
     protected By buttonCheckSearchByProduct = By.xpath("//div[text()='Проверка поиска по продуктам']"); // Кнопка автопоиска "Проверка поиска по продуктам"
     protected By buttonCheckSearchByPrice = By.xpath("//div[text()='Проверка поиска по цене']"); // Кнопка автопоиска "Проверка поиска по цене"
     protected By buttonCheckSearchByStatusContracts = By.xpath("//div[text()='Проверка поиска по статусу']"); // Кнопка автопоиска "Проверка поиска по статусу"
@@ -61,7 +61,7 @@ public class TabContracts extends PageObject {
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By fieldSearchInFilterEditor = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
     private final By fieldSearchFilters = By.xpath("//div[@id='tl-search-filters-textbox']//input"); // Поле поиска фильтров в блоке фильтров
-    private final By listProductInCardContract = By.xpath("//div[@id='entity-card-items']//table//tr/following::td[1]"); // Название продукта в списке продуктов карточки контракта
+    private final By listProductInCardContract = By.xpath("//div[@class='tl-card-item tl-card-item-info-block']//table//tr/following::td[1]"); // Название продукта в списке продуктов карточки контракта
     private final By listMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[4]"); // Причина штрафа в списке штрафов карточки контракта
     private final By listSumMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[5]"); // Сумма штрафа в списке штрафов карточки контракта
     private final By listPaidMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[6]"); // Оплата штрафа в списке штрафов карточки контракта
