@@ -71,12 +71,12 @@ public class MyTendersFiltersSteps {
 
     @Step("Проверка поиска по названию тендера")
     public void check_search_by_user_in_tab_cards(){
-        assertThat(page.getResponsibleInCardTender()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isEqualTo("Админ");
+        assertThat(page.getResponsibleInCardTender()).as("В списке тендеров есть тендер, у которого ответственный отличается от выбранного в фильтре").isEqualTo("Тестовый Тест Тестович");
     }
 
     @Step("Проверка поиска по метке тендера")
     public void check_search_by_tags_in_tab_cards(){
-        assertThat(page.isCheckSearchByTags()).as("В списке тендеров нет тендера, в чьё название входит ключевое слово").isTrue();
+        assertThat(page.isCheckSearchByTags()).as("В списке тендеров есть тендер, у которого метка отличается от выбранной в фильтре").isTrue();
     }
 
     @Step("Проверка сброса фильтра \"Наличие задач\"")

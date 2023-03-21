@@ -66,14 +66,15 @@ public class WhenMyTendersFiltersTest extends MyTendersFilters {
     }
 
     @Test
-    @Title("Проверка поиска по пользователю")
+    @Title("Проверка поиска по ответственному")
     public void checkSearchByUser(){
 
         openMyTenders();
-        steps.click_button(filterUsers);
+        steps.click_button(filterResponsible);
         steps.click_button(firstElementInListFilter);
+        steps.wait_a_bit(1000);
         steps.click_button(openCardFirstTender);
-        steps.wait_a_bit(2000);
+        steps.wait_a_bit(1000);
         steps.check_search_by_user_in_tab_cards();
     }
 

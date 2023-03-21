@@ -21,13 +21,13 @@ public class MyTendersFilters extends PageObject {
     protected By buttonClearFieldAvailabilityTask = By.xpath("//div[@id='favourite-search-select-with-tasks']//span[@class='dx-icon dx-icon-clear']"); // Очистить поле "Наличие задач"
     protected By buttonChangeResponsibleInCardTender = By.xpath("//div[@id='favourite-tender-select-responsible']//div[@class='dx-texteditor-container']//input"); // Ответственный за тендер в карточке тендера
 
-    protected By filterUsers = By.xpath("//div[@id='favourite-search-select-child-user']//input"); // Фильтр выбора пользователя в фильтре "Пользователи"
+    protected By filterResponsible = By.xpath("//div[@id='favourite-search-select-responsibles']//input"); // Фильтр выбора пользователя в фильтре "По ответственному"
     protected By filterTags = By.xpath("//div[@id='favourite-search-select-tags']//div[@class='dx-texteditor-container']//input"); // Фильтр "Поиск по меткам"
     protected By filterAvailabilityTask = By.xpath("(//div[@id='favourite-search-select-with-tasks']//input)[2]"); // Фильтр "Наличие задач"
     protected By filterSearchByStages = By.xpath("//div[@id='favourite-search-select-user-stages']//input"); // Фильтр "Поиск по этапам"
 
     protected By selectRedTagInList = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Выбрать красную метку
-    protected By firstElementInListFilter = By.xpath("(//div[@class='dx-item dx-list-item'])[1]"); // Первый пункт в списке фильтра
+    protected By firstElementInListFilter = By.xpath("(//div[@class='dx-overlay-content dx-popup-normal dx-resizable']//div[@class='dx-item-content dx-list-item-content'])[1]"); // Первый пункт в списке фильтра
     protected By openCardFirstTender = By.xpath("//div[@class='dx-treelist-text-content']/div[@class='favourite-kanban-card']"); // Открыть карточку первого тендера
 
     private final By registerNumberTenderInListTendersForFirstColumn = By.xpath("(//div[@class='favourite-kanban-list'])[1]//div[@class='favourite-kanban-card-regnumber']"); // Регистрационный номер тендера в списке тендеров в первом столбце
