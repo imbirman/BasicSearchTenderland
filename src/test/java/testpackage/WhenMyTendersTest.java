@@ -250,15 +250,4 @@ public class WhenMyTendersTest extends MyTenders {
         steps.check_button_context_menu_column();
     }
 
-//    @Test
-//    @Title("Проверка смены столбца тендера с помощью перетаскивания")
-//    public void checkDragAndDropTender(){
-//
-//        openMyTenders();
-//        steps.drag_and_drop_tender(steps.get_tender_by_number_in_first_column(2, 1), fieldSecondColumnForDragAndDrop);
-//        steps.wait_a_bit(2000);
-//        steps.check_drag_and_drop_tender();
-//        steps.drag_and_drop_tender(steps.get_tender_by_number_in_first_column(2, 2), fieldFirstColumnForDragAndDrop);
-//    }
-
 }
