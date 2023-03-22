@@ -41,7 +41,7 @@ public class TabContracts extends PageObject {
     protected By filterSearchContractsStatus = By.xpath("//div[@class='search-filters-tagbox-tag-content']"); // Фильтр "Статус" в автопоиске "Проверка поиска по статусу"
     protected By filterPublicationDate = By.xpath("//div[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
     protected By filterSearchByMulct = By.xpath("//div[@class='search-filters-tagbox-tag-content']"); // Фильтр "Штраф" в автопоиске "Проверка поиска по штрафу"
-    protected By filterSearchByUnpaidMulct = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Наличие неоплаченных штраф" в автопоиске "Проверка поиска по наличию неоплаченных штрафов"
+    protected By filterSearchByUnpaidMulct = By.xpath("//div[@class='search-filters-tagbox-tag-content']"); // Фильтр "Наличие неоплаченных штраф" в автопоиске "Проверка поиска по наличию неоплаченных штрафов"
 
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
     protected By tableCellToCheckForSwitchToNextTab = By.xpath("(//div[@class='dx-datagrid-content']//tbody[@role='presentation']/tr)[1]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки для тестов по штрафам

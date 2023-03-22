@@ -181,11 +181,11 @@ public class WhenTabContractsTest extends TabContracts {
     public void checkSearchByDelayInFulfillmentOfObligationsByCustomer(){
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("150",listAutoSearchToScroll);
         steps.click_button(buttonCheckSearchByMulct);
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByMulct);
         steps.click_button(getCheckboxInFilter(1));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.click_button(tableCellToCheckForSwitchToNextTab);
@@ -200,11 +200,11 @@ public class WhenTabContractsTest extends TabContracts {
     public void checkSearchByInadequateExecutionBySupplier(){
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("150",listAutoSearchToScroll);
         steps.click_button(buttonCheckSearchByMulct);
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByMulct);
         steps.click_button(getCheckboxInFilter(2));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.click_button(tableCellToCheckForSwitchToNextTab);
@@ -219,11 +219,11 @@ public class WhenTabContractsTest extends TabContracts {
     public void checkSearchByInadequateExecutionByCustomer(){
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("150",listAutoSearchToScroll);
         steps.click_button(buttonCheckSearchByMulct);
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByMulct);
         steps.click_button(getCheckboxInFilter(3));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.click_button(tableCellToCheckForSwitchToNextTab);
@@ -238,6 +238,7 @@ public class WhenTabContractsTest extends TabContracts {
     public void checkSumMulctContract(){
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("300",listAutoSearchToScroll);
         steps.click_button(buttonCheckSearchBySumMulct);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
@@ -252,6 +253,7 @@ public class WhenTabContractsTest extends TabContracts {
     public void checkUnpaidMulctContract(){
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("400",listAutoSearchToScroll);
         steps.click_button(buttonCheckSearchByUnpaidMulct);
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByUnpaidMulct);
@@ -270,11 +272,11 @@ public class WhenTabContractsTest extends TabContracts {
     public void checkPaidMulctContract(){
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("400",listAutoSearchToScroll);
         steps.click_button(buttonCheckSearchByUnpaidMulct);
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByUnpaidMulct);
         steps.click_button(radiobuttonNoUnpaidMulct);
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.click_button(tableCellToCheckForSwitchToNextTab);
