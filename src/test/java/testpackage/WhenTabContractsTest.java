@@ -85,7 +85,6 @@ public class WhenTabContractsTest extends TabContracts {
         steps.click_button(buttonCheckSearchByStatusContracts);
         steps.click_button(filterSearchContractsStatus);
         steps.click_button(getCheckboxInFilter(1));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
         steps.check_search_by_execution_terminated();
@@ -98,7 +97,6 @@ public class WhenTabContractsTest extends TabContracts {
         steps.click_button(buttonCheckSearchByStatusContracts);
         steps.click_button(filterSearchContractsStatus);
         steps.click_button(getCheckboxInFilter(2));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
         steps.check_search_by_execution_completed();
