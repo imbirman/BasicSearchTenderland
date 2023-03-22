@@ -59,7 +59,6 @@ public class WhenTabContractsTest extends TabContracts {
         steps.type_price_from("10000");
         steps.clear_field(fieldPriceTo);
         steps.type_price_to("50000");
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_price(10000,50000);
