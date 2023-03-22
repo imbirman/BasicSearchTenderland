@@ -162,11 +162,11 @@ public class WhenTabContractsTest extends TabContracts {
     public void checkSearchByDelayInPerformanceBySupplier(){
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("150",listAutoSearchToScroll);
         steps.click_button(buttonCheckSearchByMulct);
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByMulct);
         steps.click_button(getCheckboxInFilter(0));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.click_button(tableCellToCheckForSwitchToNextTab);

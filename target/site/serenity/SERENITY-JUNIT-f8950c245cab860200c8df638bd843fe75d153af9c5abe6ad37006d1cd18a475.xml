@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="testpackage.WhenTabContractsTest" skipped="0" tests="1" time="26.16" timestamp="2023-03-22 02:11:43"><testcase classname="testpackage.WhenTabContractsTest" name="Проверка фактической даты исполнения контракта"><failure message="[Есть тендеры с датой, не входящей в заданный промежуток] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;" type="org.junit.ComparisonFailure">[Есть тендеры с датой, не входящей в заданный промежуток] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</failure><system-err>[Есть тендеры с датой, не входящей в заданный промежуток] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;&#13;
+steps.TabContractsSteps.check_date(TabContractsSteps.java:124)&#13;
+testpackage.WhenTabContractsTest.checkContractActualExecutionDate(WhenTabContractsTest.java:147)&#13;
+</system-err></testcase></testsuite>

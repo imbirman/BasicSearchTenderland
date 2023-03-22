@@ -17,6 +17,7 @@ public class TabContracts extends PageObject {
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
     protected By logInButton = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By signInButton = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
+    protected By listAutoSearchToScroll = By.xpath("//div[@id='list-autosearches']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки
 
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By tabListProductsInCardContract = By.id("tl-card-2"); // Вкладка "Список продуктов" в карточке контракта
@@ -37,9 +38,9 @@ public class TabContracts extends PageObject {
     protected By buttonCheckSearchByUnpaidMulct = By.xpath("//div[text()='Проверка поиска по наличию неоплаченных штрафов']"); // Кнопка автопоиска "Проверка поиска по наличию неоплаченных штрафов"
 
     protected By filterValidateSearchByTenderPrice = By.xpath("//div[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
-    protected By filterSearchContractsStatus = By.xpath("//div[@class='search-filters-tagbox-tag-content']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
+    protected By filterSearchContractsStatus = By.xpath("//div[@class='search-filters-tagbox-tag-content']"); // Фильтр "Статус" в автопоиске "Проверка поиска по статусу"
     protected By filterPublicationDate = By.xpath("//div[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
-    protected By filterSearchByMulct = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Штраф" в автопоиске "Проверка поиска по штрафу"
+    protected By filterSearchByMulct = By.xpath("//div[@class='search-filters-tagbox-tag-content']"); // Фильтр "Штраф" в автопоиске "Проверка поиска по штрафу"
     protected By filterSearchByUnpaidMulct = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Наличие неоплаченных штраф" в автопоиске "Проверка поиска по наличию неоплаченных штрафов"
 
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
@@ -62,7 +63,7 @@ public class TabContracts extends PageObject {
     private final By fieldSearchInFilterEditor = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
     private final By fieldSearchFilters = By.xpath("//div[@id='tl-search-filters-textbox']//input"); // Поле поиска фильтров в блоке фильтров
     private final By listProductInCardContract = By.xpath("//div[@class='tl-card-item tl-card-item-info-block']//table//tr/following::td[1]"); // Название продукта в списке продуктов карточки контракта
-    private final By listMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[4]"); // Причина штрафа в списке штрафов карточки контракта
+    private final By listMulctInCardContract = By.xpath("//div[@class='tl-card-item tl-card-item-info-block']//td[4]"); // Причина штрафа в списке штрафов карточки контракта
     private final By listSumMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[5]"); // Сумма штрафа в списке штрафов карточки контракта
     private final By listPaidMulctInCardContract = By.xpath("//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td[6]"); // Оплата штрафа в списке штрафов карточки контракта
     private final By noMulctInCardContract = By.xpath("(//div[@id='entity-card-items']//div[@class='tl-card-item'][5]//table//tr/following::td)[1]"); // Поле с подписью об отсутствии штрафов
@@ -94,6 +95,11 @@ public class TabContracts extends PageObject {
         ((JavascriptExecutor)getDriver()).executeScript(
                 "arguments[0].scrollTop = -1 >>> 1", find(scroll));
     } // Прокрутить содержимое элемента вниз
+
+    public void scrollElementOnPixels(String number, By scroll){
+        ((JavascriptExecutor)getDriver()).executeScript(
+                "arguments[0].scrollBy(0," + number + ")", find(scroll));
+    } // Прокрутить на заданное количество пикселей
 
     public void clickButton(WebElementFacade button){
         button.click();
@@ -237,7 +243,7 @@ public class TabContracts extends PageObject {
         List<WebElementFacade> listCheck = findAll(listMulctInCardContract);
         boolean check = false;
         for(WebElementFacade type : listCheck){
-            if(type.getText().contains("Просрочка исполнения поставщиком (подрядчиком, исполнителем) обязательств, предусмотренных контрактом (в том числе гарантийного обязательства)")){
+            if(type.getText().contains("Просрочка исполнения поставщиком")){
 //                System.out.println("Услуги: " + name.getText());
                 check = true;
                 break;
