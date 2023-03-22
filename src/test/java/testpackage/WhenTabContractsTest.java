@@ -112,7 +112,6 @@ public class WhenTabContractsTest extends TabContracts {
         steps.click_button(filterPublicationDate);
         steps.click_button(buttonClearFieldDateFrom);
         steps.type_date_from("01.01.2021");
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_date("01.01.2021 00:00","09.01.2021 23:59");

@@ -38,7 +38,7 @@ public class TabContracts extends PageObject {
 
     protected By filterValidateSearchByTenderPrice = By.xpath("//div[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
     protected By filterSearchContractsStatus = By.xpath("//div[@class='search-filters-tagbox-tag-content']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
-    protected By filterPublicationDate = By.xpath("//span[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
+    protected By filterPublicationDate = By.xpath("//div[text()='09.01.2021 — 09.01.2021']"); // Фильтр "Дата публикации" в автопоиске "Проверка поиска по дате публикации"
     protected By filterSearchByMulct = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Штраф" в автопоиске "Проверка поиска по штрафу"
     protected By filterSearchByUnpaidMulct = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Наличие неоплаченных штраф" в автопоиске "Проверка поиска по наличию неоплаченных штрафов"
 
