@@ -70,9 +70,8 @@ public class WhenTabContractsTest extends TabContracts {
 
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByStatusContracts);
-        steps.click_button(filterSearchByMineTendersOrContractsStatus);
+        steps.click_button(filterSearchContractsStatus);
         steps.click_button(getCheckboxInFilter(0));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_being_executed();
@@ -84,7 +83,7 @@ public class WhenTabContractsTest extends TabContracts {
 
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByStatusContracts);
-        steps.click_button(filterSearchByMineTendersOrContractsStatus);
+        steps.click_button(filterSearchContractsStatus);
         steps.click_button(getCheckboxInFilter(1));
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
@@ -97,7 +96,7 @@ public class WhenTabContractsTest extends TabContracts {
 
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByStatusContracts);
-        steps.click_button(filterSearchByMineTendersOrContractsStatus);
+        steps.click_button(filterSearchContractsStatus);
         steps.click_button(getCheckboxInFilter(2));
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
