@@ -44,14 +44,14 @@ public class TabTenders extends PageObject {
     protected By buttonOpenTreeList = By.xpath("(//div[@class='dx-treelist-icon-container'])[1]"); // Кнопка раскрытия подкатегории
 
 
-    protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
-    protected By filterNameTender = By.xpath("//span[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
-    protected By filterValidateSearchByTenderPrice = By.xpath("//span[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
-    protected By filterSearchByTenderModule = By.xpath("//span[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
+    protected By filterRegionRoot = By.xpath("//div[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
+    protected By filterNameTender = By.xpath("//div[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
+    protected By filterValidateSearchByTenderPrice = By.xpath("//div[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
+    protected By filterSearchByTenderModule = By.xpath("//div[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
     protected By filterSearchByMineTendersOrContractsStatus = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
-    protected By filterDatePublication = By.xpath("//span[text()='Дата публикации']"); // Фильтр "Дата публикации" в блоке фильтров
-    protected By filterInTreeFilters = By.xpath("//span[@class='tl-filter-description']"); // фильтр в дереве фильтров
-    protected By filterCategory = By.xpath("//span[text()='Категория']"); // Фильтр "Категория" в блоке фильтров
+    protected By filterDatePublication = By.xpath("//div[text()='Дата публикации']"); // Фильтр "Дата публикации" в блоке фильтров
+    protected By filterInTreeFilters = By.xpath("//div[@class='tl-filter-description']"); // фильтр в дереве фильтров
+    protected By filterCategory = By.xpath("//div[text()='Категория']"); // Фильтр "Категория" в блоке фильтров
 
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс в таблице результата поиска
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
@@ -60,7 +60,7 @@ public class TabTenders extends PageObject {
     protected By textCheckboxSelected = By.xpath("//div[@class='dx-widget dx-checkbox dx-state-hover dx-checkbox-checked']//following-sibling::div[@style='margin-left: 25px;']"); // Текст выбранного чекбокса внутри фильтра
 
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
-    protected By buttonSearch = By.id("search-button"); // Кнопка поиска
+    protected By buttonSearch = By.id("search-filters-search-button"); // Кнопка поиска
     protected By fieldNameTender = By.xpath("//div[@id='filter-editor-compact-1-include']//textarea"); // Поле для ввода названия тендера для поиска
     protected By fieldPriceFrom = By.xpath("//div[@id='filter-editor-compact-4-from']//input[@role='spinbutton']"); // Поле для ввода цены "от"
     protected By fieldPriceTo = By.xpath("//div[@id='filter-editor-compact-4-to']//input[@role='spinbutton']"); // Поле для ввода цены "до"

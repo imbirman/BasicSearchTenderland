@@ -52,7 +52,6 @@ public class WhenTabTendersTest extends TabTenders {
 
         steps.click_button(tabListAutoSearch);
         steps.wait_a_bit(500);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(filterRegionRoot);
         steps.wait_a_bit(2000);
