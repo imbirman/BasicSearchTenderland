@@ -20,7 +20,7 @@ public class TabTenders extends PageObject {
     protected By logInButton = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By signInButton = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
-    protected By listAutoSearchToScroll = By.xpath("//div[@id='tl-scroll-tabs']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки list-autosearches
+    protected By listAutoSearchToScroll = By.xpath("//div[@id='list-autosearches']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки
     protected By excludedElementCustomer = By.xpath("//span[text()='Проверка результата поиска на исключенный элемент фильтр Заказчик']"); // Кнопка автопоиска "Проверка результата поиска на исключенный элемент фильтр Заказчик"
 
     protected By buttonAutoSearchRegistryNumberAndRegion = By.xpath("//div[text()='Проверка поиска по реестровому номеру и региону']"); // Кнопка автопоиска "Проверка поиска по реестровому номеру и региону"
@@ -135,6 +135,11 @@ public class TabTenders extends PageObject {
                 "window.scrollBy(0," + number + ")");
     } // Прокрутить окно на заданное количество пикселей
 
+    public void scrollElementOnPixels(String number, By scroll){
+        ((JavascriptExecutor)getDriver()).executeScript(
+                "arguments[0].scrollBy(0," + number + ")", find(scroll));
+    } // Прокрутить на заданное количество пикселей
+
     public void clickButton(WebElementFacade button){
         button.click();
     } // Кликнуть по кнопке / выбрать radiobutton или checkbox
@@ -221,6 +226,7 @@ public class TabTenders extends PageObject {
             }
 //            System.out.println(date.getText());
         }
+
         return check;
     } // Проверка, что дата находится в заданном диапазоне
 

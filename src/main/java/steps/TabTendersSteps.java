@@ -40,9 +40,14 @@ public class TabTendersSteps {
         page.scrollDownTo(scroll);
     }
 
-    @Step("Прокрутить содержимое элемента вниз")
+    @Step("Прокрутить окно на заданное количество пикселей")
     public void scroll_window_on_pixels(String number){
         page.scrollWindowOnPixels(number);
+    }
+
+    @Step("Прокрутить элемент на заданное количество пикселей")
+    public void scroll_element_on_pixels(String number, By scroll){
+        page.scrollElementOnPixels(number, scroll);
     }
 
     @Step("Нажать кнопку")
