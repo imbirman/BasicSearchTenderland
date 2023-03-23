@@ -15,13 +15,13 @@ public class TabPlans extends PageObject {
     protected By signInButton = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
 
-    protected By buttonCheckSearchByNamePlan = By.xpath("//span[text()='Проверка поиска по названию плана']"); // Кнопка автопоиска "Проверка поиска по названию плана"
-    protected By buttonCheckSearchByTypePlan = By.xpath("//span[text()='Проверка поиска по типу плана']"); // Кнопка автопоиска "Проверка поиска по типу плана"
-    protected By buttonSearch = By.id("search-button"); // Кнопка поиска
+    protected By buttonCheckSearchByNamePlan = By.xpath("//div[text()='Проверка поиска по названию плана']"); // Кнопка автопоиска "Проверка поиска по названию плана"
+    protected By buttonCheckSearchByTypePlan = By.xpath("//div[text()='Проверка поиска по типу плана']"); // Кнопка автопоиска "Проверка поиска по типу плана"
+    protected By buttonSearch = By.id("search-filters-search-button"); // Кнопка поиска
 
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
 
-    protected By filterSearchByTypePlan = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Тип" в автопоиске "Проверка поиска по типу плана"
+    protected By filterSearchByTypePlan = By.xpath("//div[@class='search-filters-tagbox-tag-content']"); // Фильтр "Тип" в автопоиске "Проверка поиска по типу плана"
 
     protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль" у тендера или "Статус" у контракта или "Тип" у плана
 
