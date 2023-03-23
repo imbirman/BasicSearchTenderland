@@ -75,7 +75,6 @@ public class WhenTabPlansTest extends TabPlans {
         steps.wait_a_bit(2000);
         steps.click_button(filterSearchByTypePlan);
         steps.click_button(getCheckboxInFilter(1));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.check_search_by_type_plan_schedule_2017();
     }
