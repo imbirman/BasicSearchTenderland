@@ -95,14 +95,13 @@ public class WhenTabTendersTest extends TabTenders {
     public void checkTransliterationNameTender(){
 
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.wait_a_bit(2000);
+        steps.scroll_window_on_pixels("-500");
         steps.click_button(filterNameTender);
         steps.clear_field(fieldNameTender);
         steps.type_name_tender("Муcор");
         steps.click_button(checkBoxTransliteration);
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_name_tender_to_include_keyword();
@@ -113,7 +112,6 @@ public class WhenTabTendersTest extends TabTenders {
     public void checkPublicationDateOfTender() throws ParseException {
 
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonCheckPublicationDate);
         steps.wait_a_bit(2000);
         steps.check_date("09.01.2021 00:00","09.01.2021 23:59");
@@ -124,9 +122,9 @@ public class WhenTabTendersTest extends TabTenders {
     public void checkPublicationDateOfTenderWithOnlyStartDate() throws ParseException {
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("500", listAutoSearchToScroll);
         steps.click_button(buttonCheckPublicationDateWithOnlyStartDate);
         steps.wait_a_bit(2000);
-        steps.wait_a_bit(5000);
         steps.check_date_with_only_start_date("09.01.2021 00:00");
     }
 
@@ -135,9 +133,9 @@ public class WhenTabTendersTest extends TabTenders {
     public void checkPublicationDateOfTenderWithOnlyEndDate() throws ParseException {
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("500", listAutoSearchToScroll);
         steps.click_button(buttonCheckPublicationDateWithOnlyEndDate);
         steps.wait_a_bit(2000);
-        steps.wait_a_bit(5000);
         steps.check_date_with_only_end_date("09.01.2021 00:00");
     }
 
@@ -194,7 +192,6 @@ public class WhenTabTendersTest extends TabTenders {
         steps.type_price_from("10000");
         steps.clear_field(fieldPriceTo);
         steps.type_price_to("100000");
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_price(10000,100000);
@@ -238,7 +235,6 @@ public class WhenTabTendersTest extends TabTenders {
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.click_button(filterSearchByTenderModule);
         steps.click_button(checkBoxFilter);
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_search_by_only_government_and_commercial_tenders();
@@ -253,7 +249,6 @@ public class WhenTabTendersTest extends TabTenders {
         steps.click_button(filterSearchByTenderModule);
         steps.click_button(checkBoxFilter);
         steps.click_button(checkBoxFilter);
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_search_by_only_government_and_commercial_and_cis_tenders();
@@ -269,7 +264,6 @@ public class WhenTabTendersTest extends TabTenders {
         steps.click_button(checkBoxFilter);
         steps.click_button(checkBoxFilter);
         steps.click_button(checkBoxFilter);
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_search_by_all_modules_tender();
@@ -293,7 +287,6 @@ public class WhenTabTendersTest extends TabTenders {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(1));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_new_tenders();
@@ -307,7 +300,6 @@ public class WhenTabTendersTest extends TabTenders {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(2));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_application_preparation();
@@ -321,7 +313,6 @@ public class WhenTabTendersTest extends TabTenders {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(3));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_determination_winner();
@@ -335,7 +326,6 @@ public class WhenTabTendersTest extends TabTenders {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(4));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_conclusion_contract();
@@ -349,7 +339,6 @@ public class WhenTabTendersTest extends TabTenders {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(5));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_execution_contract();
@@ -363,7 +352,6 @@ public class WhenTabTendersTest extends TabTenders {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(6));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_archive_tenders();
@@ -377,7 +365,6 @@ public class WhenTabTendersTest extends TabTenders {
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
         steps.click_button(getCheckboxInFilter(0));
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_all_mine_tenders();
