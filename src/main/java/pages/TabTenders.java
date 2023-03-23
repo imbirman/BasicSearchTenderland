@@ -23,25 +23,25 @@ public class TabTenders extends PageObject {
     protected By listAutoSearchToScroll = By.xpath("//div[@id='tl-scroll-tabs']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки list-autosearches
     protected By excludedElementCustomer = By.xpath("//span[text()='Проверка результата поиска на исключенный элемент фильтр Заказчик']"); // Кнопка автопоиска "Проверка результата поиска на исключенный элемент фильтр Заказчик"
 
-    protected By buttonAutoSearchRegistryNumberAndRegion = By.xpath("//span[text()='Проверка поиска по реестровому номеру и региону']"); // Кнопка автопоиска "Проверка поиска по реестровому номеру и региону"
-    protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//span[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка по названию тендера и исключению из названия"
-    protected By buttonCheckPublicationDate = By.xpath("//span[text()='Проверка поиска по дате публикации']"); // Кнопка автопоиска "Проверка поиска по дате публикации"
-    protected By buttonCheckPublicationDateWithOnlyStartDate = By.xpath("//span[text()='Проверка поиска по дате (только начало)']"); // Кнопка автопоиска "Проверка поиска по дате (только начало)"
-    protected By buttonCheckPublicationDateWithOnlyEndDate = By.xpath("//span[text()='Проверка поиска по дате (только конец)']"); // Кнопка автопоиска "Проверка поиска по дате (только конец)"
-    protected By buttonCheckStartSubmissionOfApplicationDate = By.xpath("//span[text()='Проверка поиска по дате начала подачи заявок']"); // Кнопка автопоиска "Проверка поиска по дате начала подачи заявок"
-    protected By buttonCheckEndSubmissionOfApplicationDate = By.xpath("//span[text()='Проверка поиска по дате окончания подачи заявок']"); // Кнопка автопоиска "Проверка поиска по дате окончания подачи заявок"
-    protected By buttonValidateSearchByTenderDate = By.xpath("//span[text()='Проверка поиска по дате проведения тендера']"); // Кнопка автопоиска "Проверка поиска по дате проведения тендера"
-    protected By buttonValidateSearchByCategory = By.xpath("//span[text()='Проверка поиска по категории']"); // Кнопка автопоиска "Проверка поиска по категории"
-    protected By buttonCheckSearchByPrice = By.xpath("//span[text()='Проверка поиска по цене']"); // Кнопка автопоиска "Проверка поиска по цене"
-    protected By buttonCheckSearchByTenderType = By.xpath("//span[text()='Проверка поиска по типу тендера']"); // Кнопка автопоиска "Проверка поиска по типу тендера"
-    protected By buttonCheckSearchByTenderStand = By.xpath("//span[text()='Проверка поиска по площадке']"); // Кнопка автопоиска "Проверка поиска по площадке"
-    protected By buttonCheckSearchByTenderModule = By.xpath("//span[text()='Проверка поиска по модулю']"); // Кнопка автопоиска "Проверка поиска по модулю"
-    protected By buttonCheckSearchByParticipant = By.xpath("//span[text()='Проверка поиска по участнику']"); // Кнопка автопоиска "Проверка поиска по участнику"
-    protected By buttonCheckSearchByMineTenders = By.xpath("//span[text()='Проверка поиска по моим тендерам']"); // Кнопка автопоиска "Проверка поиска по моим тендерам"
-    protected By buttonCheckSearchByDocumentation = By.xpath("//span[text()='Проверка поиска по документации']"); // Кнопка автопоиска "Проверка поиска по документации"
-    protected By buttonCheckSearchByNotice = By.xpath("//span[text()='Проверка поиска по извещению']"); // Кнопка автопоиска "Проверка поиска по извещению"
+    protected By buttonAutoSearchRegistryNumberAndRegion = By.xpath("//div[text()='Проверка поиска по реестровому номеру и региону']"); // Кнопка автопоиска "Проверка поиска по реестровому номеру и региону"
+    protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//div[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка по названию тендера и исключению из названия"
+    protected By buttonCheckPublicationDate = By.xpath("//div[text()='Проверка поиска по дате публикации']"); // Кнопка автопоиска "Проверка поиска по дате публикации"
+    protected By buttonCheckPublicationDateWithOnlyStartDate = By.xpath("//div[text()='Проверка поиска по дате (только начало)']"); // Кнопка автопоиска "Проверка поиска по дате (только начало)"
+    protected By buttonCheckPublicationDateWithOnlyEndDate = By.xpath("//div[text()='Проверка поиска по дате (только конец)']"); // Кнопка автопоиска "Проверка поиска по дате (только конец)"
+    protected By buttonCheckStartSubmissionOfApplicationDate = By.xpath("//div[text()='Проверка поиска по дате начала подачи заявок']"); // Кнопка автопоиска "Проверка поиска по дате начала подачи заявок"
+    protected By buttonCheckEndSubmissionOfApplicationDate = By.xpath("//div[text()='Проверка поиска по дате окончания подачи заявок']"); // Кнопка автопоиска "Проверка поиска по дате окончания подачи заявок"
+    protected By buttonValidateSearchByTenderDate = By.xpath("//div[text()='Проверка поиска по дате проведения тендера']"); // Кнопка автопоиска "Проверка поиска по дате проведения тендера"
+    protected By buttonValidateSearchByCategory = By.xpath("//div[text()='Проверка поиска по категории']"); // Кнопка автопоиска "Проверка поиска по категории"
+    protected By buttonCheckSearchByPrice = By.xpath("//div[text()='Проверка поиска по цене']"); // Кнопка автопоиска "Проверка поиска по цене"
+    protected By buttonCheckSearchByTenderType = By.xpath("//div[text()='Проверка поиска по типу тендера']"); // Кнопка автопоиска "Проверка поиска по типу тендера"
+    protected By buttonCheckSearchByTenderStand = By.xpath("//div[text()='Проверка поиска по площадке']"); // Кнопка автопоиска "Проверка поиска по площадке"
+    protected By buttonCheckSearchByTenderModule = By.xpath("//div[text()='Проверка поиска по модулю']"); // Кнопка автопоиска "Проверка поиска по модулю"
+    protected By buttonCheckSearchByParticipant = By.xpath("//div[text()='Проверка поиска по участнику']"); // Кнопка автопоиска "Проверка поиска по участнику"
+    protected By buttonCheckSearchByMineTenders = By.xpath("//div[text()='Проверка поиска по моим тендерам']"); // Кнопка автопоиска "Проверка поиска по моим тендерам"
+    protected By buttonCheckSearchByDocumentation = By.xpath("//div[text()='Проверка поиска по документации']"); // Кнопка автопоиска "Проверка поиска по документации"
+    protected By buttonCheckSearchByNotice = By.xpath("//div[text()='Проверка поиска по извещению']"); // Кнопка автопоиска "Проверка поиска по извещению"
     protected By buttonHideFilter = By.xpath("(//i[@class='mdi mdi-filter-off-outline'])[2]"); // Кнопка скрытия фильтра
-    protected By buttonOpenTreeList = By.xpath("(//div[@class='dx-treelist-icon-container'])[1]"); // Кнопка раскрытия подкотегории
+    protected By buttonOpenTreeList = By.xpath("(//div[@class='dx-treelist-icon-container'])[1]"); // Кнопка раскрытия подкатегории
 
 
     protected By filterRegionRoot = By.xpath("//span[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"

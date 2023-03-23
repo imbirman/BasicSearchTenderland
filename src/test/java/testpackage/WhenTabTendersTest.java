@@ -40,7 +40,6 @@ public class WhenTabTendersTest extends TabTenders {
     public void checkRegistryNumber(){
 
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.wait_a_bit(2000);
         steps.check_number_result_search();
