@@ -70,7 +70,6 @@ public class WhenTabTendersTest extends TabTenders {
     public void checkNameTenderToIncludeKeyword(){
 
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.wait_a_bit(2000);
         steps.check_name_tender_to_include_keyword();
@@ -81,12 +80,11 @@ public class WhenTabTendersTest extends TabTenders {
     public void checkDeletionNameTenderToIncludeKeyword(){
 
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.wait_a_bit(2000);
+        steps.scroll_window_on_pixels("-500");
         steps.click_button(filterNameTender);
         steps.type_deletion("Мусоровоз");
-        steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(2000);
         steps.check_deletion_name_tender_to_include_keyword();

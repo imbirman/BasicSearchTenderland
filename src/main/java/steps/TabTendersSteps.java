@@ -40,6 +40,11 @@ public class TabTendersSteps {
         page.scrollDownTo(scroll);
     }
 
+    @Step("Прокрутить содержимое элемента вниз")
+    public void scroll_window_on_pixels(String number){
+        page.scrollWindowOnPixels(number);
+    }
+
     @Step("Нажать кнопку")
     public void click_button(WebElementFacade button){
         page.clickButton(button);

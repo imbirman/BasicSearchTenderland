@@ -45,7 +45,7 @@ public class TabTenders extends PageObject {
 
 
     protected By filterRegionRoot = By.xpath("//div[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
-    protected By filterNameTender = By.xpath("//div[text()='мусор | ']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
+    protected By filterNameTender = By.xpath("//div[text()='мусор']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By filterValidateSearchByTenderPrice = By.xpath("//div[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
     protected By filterSearchByTenderModule = By.xpath("//div[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
     protected By filterSearchByMineTendersOrContractsStatus = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
@@ -129,6 +129,11 @@ public class TabTenders extends PageObject {
         ((JavascriptExecutor)getDriver()).executeScript(
                 "arguments[0].scrollTop = -1 >>> 1", find(scroll));
     } // Прокрутить содержимое элемента вниз
+
+    public void scrollWindowOnPixels(String number){
+        ((JavascriptExecutor)getDriver()).executeScript(
+                "window.scrollBy(0," + number + ")");
+    } // Прокрутить окно на заданное количество пикселей
 
     public void clickButton(WebElementFacade button){
         button.click();
