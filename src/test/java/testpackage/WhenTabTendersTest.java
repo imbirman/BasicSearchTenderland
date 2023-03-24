@@ -202,6 +202,7 @@ public class WhenTabTendersTest extends TabTenders {
     public void checkSearchByTenderType(){
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("100", listAutoSearchToScroll);
         steps.click_button(buttonCheckSearchByTenderType);
         steps.wait_a_bit(2000);
         steps.check_search_by_tender_type();
