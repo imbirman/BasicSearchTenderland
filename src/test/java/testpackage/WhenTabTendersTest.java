@@ -235,6 +235,7 @@ public class WhenTabTendersTest extends TabTenders {
     public void checkSearchOnlyGovernmentAndCommercialTenders(){
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("200", listAutoSearchToScroll);
         steps.click_button(buttonCheckSearchByTenderModule);
         steps.click_button(filterSearchByTenderModule);
         steps.click_button(checkBoxFilter);
