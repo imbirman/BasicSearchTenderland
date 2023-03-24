@@ -140,18 +140,17 @@ public class WhenTabTendersTest extends TabTenders {
     }
 
     @Test
-    @Title("Проверка даты начала подачи заявок")
+    @Title("Проверка поиска по дате начала подачи заявок")
     public void checkDateStartSubmissionOfApplication() throws ParseException {
 
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonCheckStartSubmissionOfApplicationDate);
         steps.wait_a_bit(2000);
         steps.check_date("04.01.2021 00:00","04.01.2021 23:59");
     }
 
     @Test
-    @Title("Проверка даты окончания подачи заявок")
+    @Title("Проверка поиска по дате окончания подачи заявок")
     public void checkDateEndSubmissionOfApplication() throws ParseException {
 
         steps.click_button(tabListAutoSearch);
