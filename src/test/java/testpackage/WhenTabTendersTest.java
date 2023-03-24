@@ -160,7 +160,7 @@ public class WhenTabTendersTest extends TabTenders {
     }
 
     @Test
-    @Title("Проверка даты проведения тендера")
+    @Title("Проверка поиска по дате проведения тендера")
     public void checkDateValidateSearchByTenderDate() throws ParseException {
 
         steps.click_button(tabListAutoSearch);
@@ -186,6 +186,7 @@ public class WhenTabTendersTest extends TabTenders {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckSearchByPrice);
         steps.wait_a_bit(2000);
+        steps.scroll_element_on_pixels("-500", listAutoSearchToScroll);
         steps.click_button(filterValidateSearchByTenderPrice);
         steps.clear_field(fieldPriceFrom);
         steps.type_price_from("10000");
