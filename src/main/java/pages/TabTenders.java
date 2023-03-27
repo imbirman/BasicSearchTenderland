@@ -424,7 +424,7 @@ public class TabTenders extends PageObject {
         participantType.remove(participantType.size()-1);
         boolean check = true;
         for(WebElementFacade type : participantType){
-            if(!(type.getText().contains("ООО \"ТРАНСЭКОСЕРВИС\""))){
+            if(!(type.getText().contains("ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ТРАНСЭКОСЕРВИС\""))){
 //                System.out.println("Услуги: " + name.getText());
                 check = false;
                 break;
