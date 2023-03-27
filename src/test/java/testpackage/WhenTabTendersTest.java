@@ -389,9 +389,8 @@ public class WhenTabTendersTest extends TabTenders {
     public void checkSearchByTextDocumentation(){
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("250", listAutoSearchToScroll);
         steps.click_button(buttonCheckSearchByDocumentation);
-        steps.wait_a_bit(1000);
-        steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
         steps.click_button(cellTableToOpenDocumentation);
         steps.wait_a_bit(1000);
