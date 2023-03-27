@@ -69,7 +69,7 @@ public class TabTenders extends PageObject {
     protected By fieldPublicationDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//input[@role='textbox']"); // Поле для ввода даты публикации "до"
 
     protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
-    protected By cellTableToOpenDocumentationNotice = By.xpath("(//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a)[1]"); // Ячейка таблицы для открытия документации извещения тендера
+    protected By cellTableToOpenDocumentationNotice = By.xpath("(//td//a)[2]"); // Ячейка таблицы для открытия документации извещения тендера
     protected By cellTableToOpenDocumentation = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a"); // Ячейка таблицы для открытия документации тендера
     protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска тендеров для первого столбца для первой строки для фильтра "Категория"
     protected By cellTableForCheckRegion = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[5]"); // Ячейка таблицы результатов поиска для проверки региона

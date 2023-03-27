@@ -403,6 +403,7 @@ public class WhenTabTendersTest extends TabTenders {
     public void checkSearchByTextNotice(){
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("300", listAutoSearchToScroll);
         steps.click_button(buttonCheckSearchByNotice);
         steps.wait_a_bit(2000);
         steps.click_button(cellTableToOpenDocumentationNotice);
