@@ -375,9 +375,10 @@ public class WhenTabTendersTest extends TabTenders {
     public void checkSearchByAllMineTenders(){
 
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("250", listAutoSearchToScroll);
         steps.click_button(buttonCheckSearchByMineTenders);
         steps.click_button(filterSearchByMineTendersOrContractsStatus);
-        steps.click_button(getCheckboxInFilter(0));
+        steps.click_button(checkboxSelectAllMyTenders);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(3000);
         steps.check_search_by_all_mine_tenders();

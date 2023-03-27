@@ -55,7 +55,8 @@ public class TabTenders extends PageObject {
 
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс в таблице результата поиска
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
-    protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре "Модуль" у тендера или "Статус" у контракта или "Тип" у плана
+    protected By checkBoxFilter = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-checkbox']"); // чекбокс в фильтре
+    protected By checkboxSelectAllMyTenders = By.xpath("//div[@role='checkbox'][@class='dx-widget dx-checkbox dx-list-select-all-checkbox']"); // чекбокс "Выбрать всё" в фильтре "Мои тендеры"
     protected By checkboxFirstInFilter = By.xpath("(//div[@id='filter-editor-2']//span[@class='dx-checkbox-icon'])[1]"); // Чекбокс первого пункта фильтра
     protected By textCheckboxSelected = By.xpath("//div[@class='dx-widget dx-checkbox dx-state-hover dx-checkbox-checked']//following-sibling::div[@style='margin-left: 25px;']"); // Текст выбранного чекбокса внутри фильтра
 
