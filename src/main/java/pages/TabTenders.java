@@ -48,7 +48,7 @@ public class TabTenders extends PageObject {
     protected By filterNameTender = By.xpath("//div[text()='мусор']"); // Фильтр "Название тендера" в поле построения дерева фильтров для автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By filterValidateSearchByTenderPrice = By.xpath("//div[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
     protected By filterSearchByTenderModule = By.xpath("//div[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
-    protected By filterSearchByMineTendersOrContractsStatus = By.xpath("//div[@class='dx-tag-content dx-tag-contr']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
+    protected By filterSearchByMineTendersOrContractsStatus = By.xpath("//div[@class='search-filters-tagbox-tag-content']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
     protected By filterDatePublication = By.xpath("//div[text()='Дата публикации']"); // Фильтр "Дата публикации" в блоке фильтров
     protected By filterInTreeFilters = By.xpath("//div[@class='tl-filter-description']"); // фильтр в дереве фильтров
     protected By filterCategory = By.xpath("//div[text()='Категория']"); // Фильтр "Категория" в блоке фильтров
@@ -67,7 +67,7 @@ public class TabTenders extends PageObject {
     protected By fieldPublicationDateFrom = By.xpath("//div[@id='textbox-filter-editor-compact-5-from']//input[@role='textbox']"); // Поле для ввода даты публикации "от"
     protected By fieldPublicationDateTo = By.xpath("//div[@id='textbox-filter-editor-compact-5-to']//input[@role='textbox']"); // Поле для ввода даты публикации "до"
 
-    protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
+    protected By tableCellToCheck = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]f"); // Ячейка таблицы в результатах поиска для первого столбца для первой строки
     protected By cellTableToOpenDocumentationNotice = By.xpath("(//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a)[1]"); // Ячейка таблицы для открытия документации извещения тендера
     protected By cellTableToOpenDocumentation = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//a"); // Ячейка таблицы для открытия документации тендера
     protected By tableCellToCheckForCategory = By.xpath("//div[@class='dx-datagrid-content']//tbody[@role='presentation']//td[4]"); // Ячейка таблицы в результатах поиска тендеров для первого столбца для первой строки для фильтра "Категория"
