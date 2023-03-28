@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="testpackage.WhenTabTendersTest" skipped="0" tests="1" time="44.23" timestamp="2023-03-28 03:59:52"><testcase classname="testpackage.WhenTabTendersTest" name="Проверка количества выбранных подкатегорий фильтра 'Категория' с открытой главной категорией"><failure message="[Количество выбранных категорий не равно 1] expected:&lt;1[]&gt; but was:&lt;1[1]&gt;" type="org.junit.ComparisonFailure">[Количество выбранных категорий не равно 1] expected:&lt;1[]&gt; but was:&lt;1[1]&gt;</failure><system-err>[Количество выбранных категорий не равно 1] expected:&lt;1[]&gt; but was:&lt;1[1]&gt;&#13;
+steps.TabTendersSteps.check_number_selected_categories_with_open_main_category(TabTendersSteps.java:301)&#13;
+testpackage.WhenTabTendersTest.checkNumberSelectedCategoriesWithOpenMainCategory(WhenTabTendersTest.java:487)&#13;
+</system-err></testcase></testsuite>

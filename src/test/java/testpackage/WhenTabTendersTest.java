@@ -500,6 +500,7 @@ public class WhenTabTendersTest extends TabTenders {
     @Title("Проверка исключения из фильтра Заказчик")
     public void checkExcludedFromFilterCustomer(){
         steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("500", listAutoSearchToScroll);
         steps.click_button(excludedElementCustomer);
         steps.check_excluded_from_filter_customer();
     }

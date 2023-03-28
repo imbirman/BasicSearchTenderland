@@ -22,7 +22,7 @@ public class TabTenders extends PageObject {
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By listAutoSearchToScroll = By.xpath("//div[@id='list-autosearches']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки
     protected By listFilters = By.xpath("//div[@id='list-tenders-filters-group']//div[@class='dx-scrollable-container']"); // Блок фильтров для прокрутки
-    protected By excludedElementCustomer = By.xpath("//span[text()='Проверка результата поиска на исключенный элемент фильтр Заказчик']"); // Кнопка автопоиска "Проверка результата поиска на исключенный элемент фильтр Заказчик"
+    protected By excludedElementCustomer = By.xpath("//div[text()='Проверка результата поиска на исключенный элемент фильтр Заказчик']"); // Кнопка автопоиска "Проверка результата поиска на исключенный элемент фильтр Заказчик"
 
     protected By buttonAutoSearchRegistryNumberAndRegion = By.xpath("//div[text()='Проверка поиска по реестровому номеру и региону']"); // Кнопка автопоиска "Проверка поиска по реестровому номеру и региону"
     protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//div[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка по названию тендера и исключению из названия"
