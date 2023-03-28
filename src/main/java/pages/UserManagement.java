@@ -11,8 +11,8 @@ import java.util.List;
 @DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class UserManagement extends PageObject {
 
-    protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
-    protected By buttonMyTenders = By.xpath("(//div[@class='tl-sidenav-item'])[2]//div"); // Кнопка в боковом меню "Мои тендеры"
+    protected By openTabMenu = By.xpath("//i[@class='material-icons-round icon-28px icon-grey md-menu icon-grey-hover common-header-icon']"); // Кнопка открытия бокового меню
+    protected By buttonMyTenders = By.xpath("//div[text()='Мои тендеры']"); // Кнопка в боковом меню "Мои тендеры"
 
     protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
@@ -35,17 +35,17 @@ public class UserManagement extends PageObject {
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By fieldLastNameUser = By.xpath("//div[@id='tl-manage-user-surname']//input"); // Поле для ввода фамилии пользователя
-    private final By lastNameUserEmptyError = By.xpath("//div[@id='tl-manage-user-surname']//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Текст ошибки при пустом поле "Фамилия" при сохранении пользователя
+    private final By lastNameUserEmptyError = By.xpath("//div[@id='tl-manage-user-surname']//div[@class='dx-overlay-content dx-invalid-message-content']"); // Текст ошибки при пустом поле "Фамилия" при сохранении пользователя
     private final By fieldNameUser = By.xpath("//div[@id='tl-manage-user-name']//input"); // Поле для ввода имени пользователя
     private final By fieldPatronymicUser = By.xpath("//div[@id='tl-manage-user-patronymic']//input"); // Поле для ввода отчества пользователя
     private final By fieldLoginUser = By.xpath("//div[@id='tl-manage-user-login']//input"); // Поле для ввода логина пользователя
-    private final By emptyLoginUserError = By.xpath("//div[@id='tl-manage-user-login']//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Текст ошибки при некорректном поле "Логин" при сохранении пользователя
+    private final By emptyLoginUserError = By.xpath("//div[@id='tl-manage-user-login']//div[@class='dx-overlay-content dx-invalid-message-content']"); // Текст ошибки при некорректном поле "Логин" при сохранении пользователя
     private final By fieldPasswordUser = By.xpath("//div[@id='tl-manage-user-password']//input"); // Поле для ввода пароля пользователя
-    private final By emptyPasswordUserError = By.xpath("//div[@id='tl-manage-user-password']//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Текст ошибки при пустом поле "Пароль" при сохранении пользователя
+    private final By emptyPasswordUserError = By.xpath("//div[@id='tl-manage-user-password']//div[@class='dx-overlay-content dx-invalid-message-content']"); // Текст ошибки при пустом поле "Пароль" при сохранении пользователя
     private final By fieldRetryPasswordUser = By.xpath("//div[@id='tl-manage-user-password-retry']//input"); // Поле для ввода подтверждения пароля
-    private final By notMatchPasswordUserError = By.xpath("//div[@id='tl-manage-user-password-retry']//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Текст ошибки при некорректном поле "Повторите пароль" при сохранении пользователя
+    private final By notMatchPasswordUserError = By.xpath("//div[@id='tl-manage-user-password-retry']//div[@class='dx-overlay-content dx-invalid-message-content']"); // Текст ошибки при некорректном поле "Повторите пароль" при сохранении пользователя
     private final By fieldEmailUser = By.xpath("//div[@id='tl-manage-user-email']//input"); // Поле для ввода электронной почты пользователя
-    private final By emptyUserRoleError = By.xpath("//div[@id='tl-manage-user-role']//div[@class='dx-overlay-content dx-invalid-message-content dx-resizable']"); // Текст ошибки если не выбрана роль пользователя при сохранении пользователя
+    private final By emptyUserRoleError = By.xpath("//div[@id='tl-manage-user-role']//div[@class='dx-overlay-content dx-invalid-message-content']"); // Текст ошибки если не выбрана роль пользователя при сохранении пользователя
     private final By windowAcceptDeleteUser = By.xpath("//div[@class='tl-popup-wrapper tl-approve']"); // Окно подтверждения удаления пользователя
     private final By textInWindowAcceptDeleteUser = By.xpath("//span[@class='approve-text']"); // Текст в окне подтверждения удаления пользователя
 
