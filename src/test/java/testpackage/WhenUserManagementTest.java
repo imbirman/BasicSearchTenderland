@@ -27,14 +27,13 @@ public class WhenUserManagementTest extends UserManagement {
         steps.type_login("AdminTestitMyTenders");
         steps.type_password("Hyqpmaz0/");
         steps.click_button(buttonSignIn);
+        steps.click_button(openTabMenu);
+        steps.click_button(buttonMyTenders);
     }
 
     @Test
     @Title("Проверка ошибок в окне управления пользователями при пустых полях")
     public void checkErrorsEmptyFieldsInWindowUserManagement() {
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonMyTenders);
-
         steps.wait_a_bit(1000);
         steps.click_button(buttonUserManagement);
         steps.wait_a_bit(1000);
@@ -49,9 +48,6 @@ public class WhenUserManagementTest extends UserManagement {
     @Test
     @Title("Проверка неактивности поля 'Повторите пароль', кнопки 'Удалить' и кнопки 'Добавить пользователя' по умолчанию")
     public void checkInactiveRetryPasswordAndDeleteUserAndAddUser() {
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonMyTenders);
-        steps.wait_a_bit(1000);
         steps.click_button(buttonUserManagement);
         steps.wait_a_bit(500);
         steps.check_not_clickable_field_retry_password();
@@ -62,9 +58,6 @@ public class WhenUserManagementTest extends UserManagement {
     @Test
     @Title("Проверка ошибки при коротком пароле пользователя")
     public void checkErrorWithWrongPassword() {
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonMyTenders);
-
         steps.wait_a_bit(1000);
         steps.click_button(buttonUserManagement);
         steps.wait_a_bit(500);
@@ -75,9 +68,6 @@ public class WhenUserManagementTest extends UserManagement {
     @Test
     @Title("Проверка ошибки при некорректном пароле пользователя")
     public void checkErrorWithWrongLogin() {
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonMyTenders);
-
         steps.wait_a_bit(1000);
         steps.click_button(buttonUserManagement);
         steps.wait_a_bit(500);
@@ -89,9 +79,6 @@ public class WhenUserManagementTest extends UserManagement {
     @Test
     @Title("Проверка ошибки при несовпадении пароля пользователя")
     public void checkErrorNotMatchPassword() {
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonMyTenders);
-
         steps.wait_a_bit(1000);
         steps.click_button(buttonUserManagement);
         steps.wait_a_bit(500);
@@ -105,9 +92,6 @@ public class WhenUserManagementTest extends UserManagement {
     @Test
     @Title("Проверка добавленного пользователя")
     public void checkFieldAddingUser(){
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonMyTenders);
-
         steps.wait_a_bit(1000);
         steps.click_button(buttonUserManagement);
         steps.wait_a_bit(500);
@@ -147,9 +131,6 @@ public class WhenUserManagementTest extends UserManagement {
     @Test
     @Title("Проверка окна подтверждения удаления пользователя")
     public void checkWindowAcceptedDeleteUserUser(){
-        steps.click_button(openTabMenu);
-        steps.click_button(buttonMyTenders);
-
         steps.wait_a_bit(1000);
         steps.click_button(buttonUserManagement);
         steps.wait_a_bit(500);
