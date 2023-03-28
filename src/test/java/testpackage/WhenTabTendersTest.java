@@ -448,7 +448,6 @@ public class WhenTabTendersTest extends TabTenders {
     @Title("Проверка удаления метки тендера")
     public void checkDeletionMarkOfTender(){
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);

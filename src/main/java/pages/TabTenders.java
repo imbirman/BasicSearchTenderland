@@ -77,7 +77,7 @@ public class TabTenders extends PageObject {
     protected By contextMenuResultSearch = By.xpath("//table[@class='dx-datagrid-table dx-pointer-events-none dx-datagrid-table-fixed']//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Кнопка контекстного меню для строки результата поиска
     protected By markContextMenu = By.xpath("//div[text()='Метка тендера']"); // пункт контекстного меню "Метка тендера"
     protected By redMarkContextMenu = By.xpath("//div[text()='Красный']"); // Метка "Красный" в контекстном меню
-    protected By deleteMark = By.xpath("//div[text()='Удалить метку']"); // Кнопка "Удалить метку"
+    protected By deleteMark = By.xpath("//div[@class='dx-submenu']//div[text()='Удалить']"); // Кнопка "Удалить метку"
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
