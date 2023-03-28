@@ -437,7 +437,6 @@ public class WhenTabTendersTest extends TabTenders {
     @Title("Проверка метки тендера")
     public void checkMarkOfTender(){
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);
