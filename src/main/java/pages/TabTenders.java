@@ -52,7 +52,7 @@ public class TabTenders extends PageObject {
     protected By filterSearchByMineTendersOrContractsStatus = By.xpath("//div[@class='search-filters-tagbox-tag-content']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
     protected By filterDatePublication = By.xpath("//span[text()='публикации']"); // Фильтр "Дата публикации" в блоке фильтров
     protected By filterInTreeFilters = By.xpath("//div[@class='tl-filter-description']"); // фильтр в дереве фильтров
-    protected By filterCategory = By.xpath("//div[text()='Категория']"); // Фильтр "Категория" в блоке фильтров
+    protected By filterCategory = By.xpath("//span[text()='Категория']"); // Фильтр "Категория" в блоке фильтров
 
     protected By checkbox = By.xpath("//tbody[@role='presentation']//div[@role='checkbox']"); // чекбокс в таблице результата поиска
     protected By checkBoxTransliteration = By.xpath("//div[@id='filter-editor-compact-1-transliteration']"); // чекбокс "Транслитерация"
