@@ -461,6 +461,7 @@ public class WhenTabTendersTest extends TabTenders {
     @Test
     @Title("Проверка на пустое поле даты публикации до")
     public void checkEmptyFieldPublicationDateTo(){
+        steps.scroll_element_on_pixels("150", listFilters);
         steps.drag_and_drop_filter(filterDatePublication);
         steps.type_date_from("01.01.2021");
         steps.type_date_to("31.12.2020");

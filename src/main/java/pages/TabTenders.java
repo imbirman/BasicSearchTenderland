@@ -21,6 +21,7 @@ public class TabTenders extends PageObject {
     protected By signInButton = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By listAutoSearchToScroll = By.xpath("//div[@id='list-autosearches']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки
+    protected By listFilters = By.xpath("//div[@id='list-tenders-filters-group']//div[@class='dx-scrollable-container']"); // Блок фильтров для прокрутки
     protected By excludedElementCustomer = By.xpath("//span[text()='Проверка результата поиска на исключенный элемент фильтр Заказчик']"); // Кнопка автопоиска "Проверка результата поиска на исключенный элемент фильтр Заказчик"
 
     protected By buttonAutoSearchRegistryNumberAndRegion = By.xpath("//div[text()='Проверка поиска по реестровому номеру и региону']"); // Кнопка автопоиска "Проверка поиска по реестровому номеру и региону"
@@ -49,7 +50,7 @@ public class TabTenders extends PageObject {
     protected By filterValidateSearchByTenderPrice = By.xpath("//div[text()='10000 ₽ — 100000 ₽']"); // Фильтр "Цена" в автопоиске "Проверка поиска по цене"
     protected By filterSearchByTenderModule = By.xpath("//div[text()='Государственные тендеры']"); // Фильтр "Модуль" в автопоиске "Проверка поиска по модулю"
     protected By filterSearchByMineTendersOrContractsStatus = By.xpath("//div[@class='search-filters-tagbox-tag-content']"); // Фильтр "Мои Тендеры" в автопоиске "Проверка поиска по моим тендерам"
-    protected By filterDatePublication = By.xpath("//div[text()='Дата публикации']"); // Фильтр "Дата публикации" в блоке фильтров
+    protected By filterDatePublication = By.xpath("//span[text()='публикации']"); // Фильтр "Дата публикации" в блоке фильтров
     protected By filterInTreeFilters = By.xpath("//div[@class='tl-filter-description']"); // фильтр в дереве фильтров
     protected By filterCategory = By.xpath("//div[text()='Категория']"); // Фильтр "Категория" в блоке фильтров
 

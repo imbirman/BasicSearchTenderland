@@ -18,7 +18,7 @@ public class Filters extends PageObject {
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
 
-    protected By listFilters = By.xpath("//div[@id='list-tenders-filters-group']//div[@class='dx-scrollable-container']");
+    protected By listFilters = By.xpath("//div[@id='list-tenders-filters-group']//div[@class='dx-scrollable-container']"); // Блок фильтров для прокрутки
 
     protected By filterOKPD = By.xpath("//span[text()='ОКПД 2']"); // Фильтр "ОКПД 2" в блоке фильтров
     protected By filterCategory = By.xpath("//span[text()='Категория']"); // Фильтр "Категория" в блоке фильтров
