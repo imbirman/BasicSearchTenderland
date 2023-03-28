@@ -427,7 +427,6 @@ public class WhenTabTendersTest extends TabTenders {
     @Title("Проверка результата поиска после скрытия фильтра 'Регион'")
     public void checkSearchWithHideFilter(){
         steps.click_button(tabListAutoSearch);
-        steps.scroll_down_to(listAutoSearchToScroll);
         steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
         steps.click_button(buttonHideFilter);
         steps.click_button(buttonSearch);

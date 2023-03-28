@@ -40,7 +40,7 @@ public class TabTenders extends PageObject {
     protected By buttonCheckSearchByMineTenders = By.xpath("//div[text()='Проверка поиска по моим тендерам']"); // Кнопка автопоиска "Проверка поиска по моим тендерам"
     protected By buttonCheckSearchByDocumentation = By.xpath("//div[text()='Проверка поиска по документации']"); // Кнопка автопоиска "Проверка поиска по документации"
     protected By buttonCheckSearchByNotice = By.xpath("//div[text()='Проверка поиска по извещению']"); // Кнопка автопоиска "Проверка поиска по извещению"
-    protected By buttonHideFilter = By.xpath("(//i[@class='mdi mdi-filter-off-outline'])[2]"); // Кнопка скрытия фильтра
+    protected By buttonHideFilter = By.xpath("(//i[@class='material-icons-round icon-20px icon-grey icon-grey-hover md-filter_alt_off'])[2]"); // Кнопка скрытия фильтра
     protected By buttonOpenTreeList = By.xpath("(//div[@class='dx-treelist-icon-container'])[1]"); // Кнопка раскрытия подкатегории
 
 
