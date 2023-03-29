@@ -23,7 +23,7 @@ public class UserManagement extends PageObject {
     protected By buttonSaveUser = By.id("tl-popup-save-user-button"); // Кнопка "Сохранить" в окне "Управление пользователями"
     protected By buttonCloseUserManagement = By.xpath("//div[@class='dx-toolbar-after']//i"); // Кнопка закрытия окна управления пользователями
     protected By buttonCloseWindowAcceptDeleteUser = By.xpath("//span[@class='mdi mdi-close']"); // Крестик для закрытия окна подтверждения удаления пользователя
-    protected By buttonAcceptDeleted = By.id("tl-popup-approve-button"); // Кнопка подтверждения удаления
+    protected By buttonAcceptDeleted = By.xpath("//div[@class='common-popup-confirm-footer']//span[text()='Удалить']"); // Кнопка подтверждения удаления
     protected By buttonCancelDeleted = By.id("tl-popup-close-button"); // Кнопка отмены удаления
 
     protected By fieldUserRole = By.xpath("//div[@id='tl-manage-user-role']//div[@class='dx-texteditor-input-container']//input"); // Поле роли пользователя
@@ -141,7 +141,7 @@ public class UserManagement extends PageObject {
 
         for(String type : elementResult){
             if(type.equals("Тестовый2 Тест2 Тестович2")){
-                clickButton(getUser(0));
+                clickButton(getUser(1));
 
                 clickButton(buttonDeleteUser);
                 find(buttonAcceptDeleted).waitUntilClickable();
