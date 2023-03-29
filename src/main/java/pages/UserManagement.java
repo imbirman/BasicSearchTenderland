@@ -22,7 +22,7 @@ public class UserManagement extends PageObject {
     protected By buttonDeleteUser = By.id("tl-popup-delete-user-button"); // Кнопка "Удалить" в окне "Управление пользователями"
     protected By buttonSaveUser = By.id("tl-popup-save-user-button"); // Кнопка "Сохранить" в окне "Управление пользователями"
     protected By buttonCloseUserManagement = By.xpath("//div[@class='dx-toolbar-after']//i"); // Кнопка закрытия окна управления пользователями
-    protected By buttonCloseWindowAcceptDeleteUser = By.xpath("//span[@class='mdi mdi-close']"); // Крестик для закрытия окна подтверждения удаления пользователя
+    protected By buttonCloseWindowAcceptDeleteUser = By.xpath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable dx-popup-flex-height']//div[@class='dx-widget dx-button dx-button-mode-text dx-button-normal dx-button-has-icon dx-closebutton']"); // Крестик для закрытия окна подтверждения удаления пользователя
     protected By buttonAcceptDeleted = By.xpath("//div[@class='common-popup-confirm-footer']//span[text()='Удалить']"); // Кнопка подтверждения удаления
     protected By buttonCancelDeleted = By.id("tl-popup-close-button"); // Кнопка отмены удаления
 
@@ -46,8 +46,8 @@ public class UserManagement extends PageObject {
     private final By notMatchPasswordUserError = By.xpath("//div[@id='tl-manage-user-password-retry']//div[@class='dx-overlay-content dx-invalid-message-content']"); // Текст ошибки при некорректном поле "Повторите пароль" при сохранении пользователя
     private final By fieldEmailUser = By.xpath("//div[@id='tl-manage-user-email']//input"); // Поле для ввода электронной почты пользователя
     private final By emptyUserRoleError = By.xpath("//div[@id='tl-manage-user-role']//div[@class='dx-overlay-content dx-invalid-message-content']"); // Текст ошибки если не выбрана роль пользователя при сохранении пользователя
-    private final By windowAcceptDeleteUser = By.xpath("//div[@class='tl-popup-wrapper tl-approve']"); // Окно подтверждения удаления пользователя
-    private final By textInWindowAcceptDeleteUser = By.xpath("//span[@class='approve-text']"); // Текст в окне подтверждения удаления пользователя
+    private final By windowAcceptDeleteUser = By.xpath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable dx-popup-flex-height']"); // Окно подтверждения удаления пользователя
+    private final By textInWindowAcceptDeleteUser = By.xpath("//span[@class='common-popup-confirm-text']"); // Текст в окне подтверждения удаления пользователя
 
 
 

@@ -134,6 +134,7 @@ public class WhenUserManagementTest extends UserManagement {
     public void checkWindowAcceptedDeleteUserUser(){
         steps.wait_a_bit(1000);
         steps.click_button(buttonUserManagement);
+        steps.check_test_user_for_delete();
         steps.wait_a_bit(500);
         steps.type_last_name_user("Тестовый2");
         steps.wait_a_bit(1000);
@@ -154,7 +155,7 @@ public class WhenUserManagementTest extends UserManagement {
         steps.wait_a_bit(1000);
         steps.click_button(buttonSaveUser);
         steps.wait_a_bit(2000);
-        steps.click_button(getUser(0));
+        steps.click_button(getUser(1));
         steps.click_button(buttonDeleteUser);
         steps.check_visible_window_accepted_delete_user();
         steps.check_text_window_accepted_delete_user();
