@@ -21,6 +21,8 @@ public class CustomView extends PageObject {
     protected By buttonAutoSearchTestCustomView = By.xpath("//div[text()='Тестирование пользовательского вида']"); // Кнопка автопоиска "Тестирование пользовательского вида"
     protected By buttonOpenWindowCustomView = By.id("search-view-popup-id"); // Кнопка открытия настроек пользовательского вида
     protected By buttonAddNewCustomView = By.id("search-view-create-button"); // Кнопка добавления нового пользовательского вида
+    protected By buttonTabContracts = By.xpath("(//div[@id='search-view-tabs-fields']/div/div)[2]"); // Вкладка "Контракты"
+    protected By buttonTabPlans = By.xpath("(//div[@id='search-view-tabs-fields']/div/div)[3]"); // Вкладка "Планы"
     protected By buttonSaveCustomView = By.id("search-view-save-button"); // Кнопка "Сохранить настройки"
     protected By buttonDeleteCustomView = By.id("search-view-delete-button"); // Кнопка "Удалить" пользовательский вид
     protected By buttonCloseWindowCustomView = By.xpath("//div[@role='toolbar']//i"); // Кнопка закрытия окна пользовательского вида

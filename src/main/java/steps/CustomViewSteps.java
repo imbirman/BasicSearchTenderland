@@ -59,9 +59,19 @@ public class CustomViewSteps {
         page.typeSearchColumnCustomView(search);
     }
 
-    @Step("Проверка количества элементов для выбора в блоке Поля таблицы")
-    public void check_number_elements_table_fields_for_selection_tender(){
-        assertThat(page.checkNumberElementsTableFieldsForSelection()).as("Количество элементов для выбора в блоке 'Поля таблицы' для тендеров некорректно. Должно быть 12.").isEqualTo(12);
+    @Step("Проверка количества элементов для выбора в блоке 'Поля таблицы' на вкладке 'Тендеры'")
+    public void check_number_elements_table_fields_for_selection_on_tab_tender(){
+        assertThat(page.checkNumberElementsTableFieldsForSelection()).as("Количество элементов для выбора в блоке 'Поля таблицы' на вкладке 'Тендеры' некорректно. Должно быть 12.").isEqualTo(12);
+    }
+
+    @Step("Проверка количества элементов для выбора в блоке 'Поля таблицы' на вкладке 'Контракты'")
+    public void check_number_elements_table_fields_for_selection_on_tab_contracts(){
+        assertThat(page.checkNumberElementsTableFieldsForSelection()).as("Количество элементов для выбора в блоке 'Поля таблицы' на вкладке 'Контракты' некорректно. Должно быть 12.").isEqualTo(13);
+    }
+
+    @Step("Проверка количества элементов для выбора в блоке 'Поля таблицы' на вкладке 'Контракты'")
+    public void check_number_elements_table_fields_for_selection_on_tab_plans(){
+        assertThat(page.checkNumberElementsTableFieldsForSelection()).as("Количество элементов для выбора в блоке 'Поля таблицы' на вкладке 'Планы' некорректно. Должно быть 12.").isEqualTo(15);
     }
 
     @Step("Проверка количества выбранных элементов в блоке Поля таблицы")

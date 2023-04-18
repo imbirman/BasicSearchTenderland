@@ -32,10 +32,21 @@ public class WhenCustomViewTest extends CustomView {
     }
 
     @Test
-    @Title("Проверка количества элементов в блоке 'Поля таблицы' для тендеров")
-    public void checkNumberElementsTableFieldsTender(){
+    @Title("Проверка количества элементов в блоке 'Поля таблицы' на вкладке 'Тендеры'")
+    public void checkNumberElementsTableFieldsInTabTender(){
         steps.click_button(buttonOpenWindowCustomView);
-        steps.check_number_elements_table_fields_for_selection_tender();
+        steps.click_button(buttonAddNewCustomView);
+        steps.check_number_elements_table_fields_for_selection_on_tab_tender();
+        steps.check_number_elements_table_fields_selected_tender();
+    }
+
+    @Test
+    @Title("Проверка количества элементов в блоке 'Поля таблицы' на вкладке 'Контракты'")
+    public void checkNumberElementsTableFieldsInTabContracts(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAddNewCustomView);
+        steps.click_button(buttonTabContracts);
+        steps.check_number_elements_table_fields_for_selection_on_tab_contracts();
         steps.check_number_elements_table_fields_selected_tender();
     }
 
