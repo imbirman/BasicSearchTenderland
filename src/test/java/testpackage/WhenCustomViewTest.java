@@ -32,11 +32,11 @@ public class WhenCustomViewTest extends CustomView {
     }
 
     @Test
-    @Title("Проверка количества элементов в блоке 'Поля таблицы'")
-    public void checkNumberElementsTableFields(){
+    @Title("Проверка количества элементов в блоке 'Поля таблицы' для тендеров")
+    public void checkNumberElementsTableFieldsTender(){
         steps.click_button(buttonOpenWindowCustomView);
-        steps.check_number_elements_table_fields_for_selection();
-        steps.check_number_elements_table_fields_selected();
+        steps.check_number_elements_table_fields_for_selection_tender();
+        steps.check_number_elements_table_fields_selected_tender();
     }
 
     @Test
