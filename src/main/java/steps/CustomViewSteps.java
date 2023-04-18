@@ -1,5 +1,6 @@
 package steps;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.Assertions;
@@ -56,6 +57,16 @@ public class CustomViewSteps {
     @Step("Ввести в поле поиска пользовательского вида")
     public void type_search_column_custom_view(String search){
         page.typeSearchColumnCustomView(search);
+    }
+
+    @Step("Проверка количества элементов для выбора в блоке Поля таблицы")
+    public void check_number_elements_table_fields_for_selection(){
+        assertThat(page.checkNumberElementsTableFieldsForSelection()).as("Количество элементов для выбора в блоке 'Поля таблицы' некорректно. Должно быть 12.").isEqualTo(12);
+    }
+
+    @Step("Проверка количества выбранных элементов в блоке Поля таблицы")
+    public void check_number_elements_table_fields_selected(){
+        assertThat(page.checkNumberElementsTableFieldsSelected()).as("Количество выбранных элементов в блоке 'Поля таблицы' некорректно. Должно быть 12.").isEqualTo(12);
     }
 
     @Step("Проверка списка пользовательских видов")

@@ -19,12 +19,12 @@ public class CustomView extends PageObject {
     protected By listAutoSearchToScroll = By.xpath("//div[@id='list-autosearches']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки
 
     protected By buttonAutoSearchTestCustomView = By.xpath("//div[text()='Тестирование пользовательского вида']"); // Кнопка автопоиска "Тестирование пользовательского вида"
-    protected By buttonCustomView = By.id("search-panel-change-custom-view"); // Кнопка "Пользовательский вид"
-    protected By buttonSaveSettings = By.id("search-view-save-button"); // Кнопка "Сохранить настройки"
+    protected By buttonOpenWindowCustomView = By.id("search-view-popup-id"); // Кнопка открытия настроек пользовательского вида
+    protected By buttonAddNewCustomView = By.id("search-view-create-button"); // Кнопка добавления нового пользовательского вида
+    protected By buttonSaveCustomView = By.id("search-view-save-button"); // Кнопка "Сохранить настройки"
     protected By buttonDeleteCustomView = By.id("search-view-delete-button"); // Кнопка "Удалить" пользовательский вид
     protected By buttonCloseWindowCustomView = By.xpath("//div[@role='toolbar']//i"); // Кнопка закрытия окна пользовательского вида
     protected By buttonExpandListCustomView = By.xpath("//div[@id='search-panel-change-custom-view']//i[@class='dx-icon dx-icon-spindown']"); // Раскрыть список пользовательских видов
-    protected By buttonAddNewCustomView = By.id("search-view-manager-newitem"); // Кнопка добавления нового пользовательского вида
     protected By buttonApplyCustomView = By.id("search-view-apply-button"); // Кнопка "Применить" пользовательского вида
     protected By buttonRemoveColumnFromListSelectedColumns = By.xpath("//div[@id='search-view-field-selector-values']//i[@class='dx-icon dx-icon-remove']"); // Кнопка удаления элемента из списка выбранных столбцов
 
@@ -32,6 +32,7 @@ public class CustomView extends PageObject {
     protected By elementExpandedListCustomView = By.xpath("//div[@class='dx-popup-content dx-dropdownbutton-content']//div[@class='dx-item-content dx-list-item-content']"); // элемент раскрывающегося списка пользовательских видов
     protected By elementOfListColumns = By.xpath("//div[@id='search-view-manager-tab-panel']//div[@class='dx-scrollview-content']//div[@class='dx-item dx-list-item']"); // Элемент списка столбцов
     protected By elementOfListSelectedColomns = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-item dx-list-item']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка выбранных столбцов
+    protected By elementUnitTableFieldsForSelection = By.xpath("//div[@id='search-view-multiview']//div[@class='dx-item dx-multiview-item dx-item-selected']//span"); // Элемент для выбора в блоке "Поля таблицы"
 
     protected By fieldNameCustomView = By.xpath("//div[@id='search-view-name']//input"); // Поле для ввода названия пользовательского вида
     protected By fieldSearchColumnCustomView = By.xpath("//div[@id='search-view-field-selector-search-panel']//input"); // Поле поиска столбцов в пользовательском виде
@@ -40,7 +41,7 @@ public class CustomView extends PageObject {
 
 
 
-
+    private final By elementUnitTableFieldsSelected = By.xpath("//div[@id='search-view-result-fields-scroll']//span"); // Выбранный элемент в блоке "Поля таблицы"
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By errorMessageEmptyFieldNameCustomView = By.xpath("//div[@class='dx-overlay-content dx-invalid-message-content']"); // Сообщение об ошибке поля "Название" пользовательского вида
@@ -88,6 +89,14 @@ public class CustomView extends PageObject {
         find(fieldSearchColumnCustomView).sendKeys(search);
     } // Ввести значение поиска столбца для пользовательского вида
 
+    public Integer checkNumberElementsTableFieldsForSelection(){
+        return findAll(elementUnitTableFieldsForSelection).size();
+    } // Получение количества элементов для выбора в блоке "Поля таблицы"
+
+    public Integer checkNumberElementsTableFieldsSelected(){
+        return findAll(elementUnitTableFieldsSelected).size();
+    } // Получение количества выбранных элементов в блоке "Поля таблицы"
+
     public void checkAndCleanListNameCustomView(){
         if(!findAll(elementOfListCustomView).isEmpty()){
             clickButton(elementOfListCustomView);
@@ -127,7 +136,7 @@ public class CustomView extends PageObject {
     } // Проверка кликабельности кнопки "Удалить" после сохранения пользовательского вида
 
     public boolean isClickableButtonSaveSettings(){
-        return find(buttonSaveSettings).isDisabled();
+        return find(buttonSaveCustomView).isDisabled();
     } // Проверка кликабельности кнопки "Сохранить настройки" после сохранения пользовательского вида
 
     public boolean isContainListColumn(){

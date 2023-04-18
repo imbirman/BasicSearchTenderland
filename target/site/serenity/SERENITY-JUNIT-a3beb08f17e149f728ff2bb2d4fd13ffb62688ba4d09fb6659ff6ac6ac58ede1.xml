@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenCustomViewTest" skipped="0" tests="1" time="25.12" timestamp="2023-04-18 02:46:47"><testcase classname="testpackage.WhenCustomViewTest" name="Проверка сообщения об ошибке при сохранении пользовательского вида при пустом названии"/></testsuite>
