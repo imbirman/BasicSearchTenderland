@@ -47,7 +47,15 @@ public class WhenCustomViewTest extends CustomView {
         steps.click_button(buttonAddNewCustomView);
         steps.click_button(buttonTabContracts);
         steps.check_number_elements_table_fields_for_selection_on_tab_contracts();
-        steps.check_number_elements_table_fields_selected_tender();
+    }
+
+    @Test
+    @Title("Проверка количества элементов в блоке 'Поля таблицы' на вкладке 'Планы'")
+    public void checkNumberElementsTableFieldsInTabPlans(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAddNewCustomView);
+        steps.click_button(buttonTabPlans);
+        steps.check_number_elements_table_fields_for_selection_on_tab_plans();
     }
 
     @Test
