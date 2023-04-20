@@ -104,6 +104,11 @@ public class CustomViewSteps {
         assertThat(page.checkCheckboxDiscloseDetailing()).as("По умолчанию чекбокс 'По убыванию' НЕ выбран").isTrue();
     }
 
+    @Step("Проверка отображения количества выбранных полей по умолчанию")
+    public void check_value_label_selected_fields_default(){
+        assertThat(page.getValueLabelSelectedFields()).as("по умолчанию отображается некорректное количество выбранных полей").isEqualTo("Выбрано полей - 12");
+    }
+
     @Step("Проверка списка пользовательских видов")
     public void check_list_name_custom_view(){
         page.checkAndCleanListNameCustomView();

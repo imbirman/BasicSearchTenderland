@@ -96,6 +96,17 @@ public class WhenCustomViewTest extends CustomView {
     }
 
     @Test
+    @Title("Проверка отображения количества выбранных полей по умолчанию")
+    public void checkValueLabelSelectedFieldsDefault(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAddNewCustomView);
+        steps.check_value_label_selected_fields_default();
+    }
+
+
+
+
+    @Test
     @Title("Проверка сообщения об ошибке при сохранении пользовательского вида при пустом названии")
     public void checkSaveCustomViewWithEmptyName(){
         steps.click_button(tabListAutoSearch);
