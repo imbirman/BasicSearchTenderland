@@ -109,6 +109,11 @@ public class CustomViewSteps {
         assertThat(page.getValueLabelSelectedFields()).as("по умолчанию отображается некорректное количество выбранных полей").isEqualTo("Выбрано полей - 12");
     }
 
+    @Step("Проверка отображения количества выбранных детализаций по умолчанию")
+    public void check_value_label_selected_detailing_default(){
+        assertThat(page.getValueLabelSelectedDetailing()).as("по умолчанию отображается некорректное количество выбранных детализаций").isEqualTo("Выбрано детализаций - 4");
+    }
+
     @Step("Проверка списка пользовательских видов")
     public void check_list_name_custom_view(){
         page.checkAndCleanListNameCustomView();

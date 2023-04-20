@@ -51,6 +51,7 @@ public class CustomView extends PageObject {
     private final By elementUnitTableFieldsSelected = By.xpath("//div[@id='search-view-result-fields-scroll']//span"); // Выбранный элемент в блоке "Поля таблицы"
     private final By elementUnitDetailingFieldsSelected = By.xpath("//div[@id='search-view-result-details']//span"); // Выбранный элемент в блоке "Детализация"
     private final By labelSelectedFields = By.id("search-view-fields-label"); // Пометка "Выбрано полей"
+    private final By labelSelectedDetailing = By.id("search-view-details-label"); // Пометка "Выбрано детализаций"
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By errorMessageEmptyFieldNameCustomView = By.xpath("//div[@class='dx-overlay-content dx-invalid-message-content']"); // Сообщение об ошибке поля "Название" пользовательского вида
@@ -121,6 +122,10 @@ public class CustomView extends PageObject {
     public String getValueLabelSelectedFields(){
         return find(labelSelectedFields).getText();
     } // Получение значения пометки "Выбрано полей"
+
+    public String getValueLabelSelectedDetailing(){
+        return find(labelSelectedDetailing).getText();
+    } // Получение значения пометки "Выбрано детализаций"
 
     public boolean checkSelectedRadiobuttonDescending(){
         return find(radiobuttonDescending).getAttribute("aria-checked").contains("true");

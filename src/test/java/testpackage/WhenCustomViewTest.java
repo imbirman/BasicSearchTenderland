@@ -103,6 +103,15 @@ public class WhenCustomViewTest extends CustomView {
         steps.check_value_label_selected_fields_default();
     }
 
+    @Test
+    @Title("Проверка отображения количества выбранных детализаций по умолчанию")
+    public void checkValueLabelSelectedDelailingDefault(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAddNewCustomView);
+        steps.check_value_label_selected_detailing_default();
+    }
+
+
 
 
 
