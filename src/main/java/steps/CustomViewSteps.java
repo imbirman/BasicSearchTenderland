@@ -61,22 +61,47 @@ public class CustomViewSteps {
 
     @Step("Проверка количества элементов для выбора в блоке 'Поля таблицы' на вкладке 'Тендеры'")
     public void check_number_elements_table_fields_for_selection_on_tab_tender(){
-        assertThat(page.checkNumberElementsTableFieldsForSelection()).as("Количество элементов для выбора в блоке 'Поля таблицы' на вкладке 'Тендеры' некорректно. Должно быть 12.").isEqualTo(12);
+        assertThat(page.getNumberElementsTableFieldsForSelection()).as("Количество элементов для выбора в блоке 'Поля таблицы' на вкладке 'Тендеры' некорректно. Должно быть 12.").isEqualTo(12);
     }
 
     @Step("Проверка количества элементов для выбора в блоке 'Поля таблицы' на вкладке 'Контракты'")
     public void check_number_elements_table_fields_for_selection_on_tab_contracts(){
-        assertThat(page.checkNumberElementsTableFieldsForSelection()).as("Количество элементов для выбора в блоке 'Поля таблицы' на вкладке 'Контракты' некорректно. Должно быть 12.").isEqualTo(13);
+        assertThat(page.getNumberElementsTableFieldsForSelection()).as("Количество элементов для выбора в блоке 'Поля таблицы' на вкладке 'Контракты' некорректно. Должно быть 12.").isEqualTo(13);
     }
 
     @Step("Проверка количества элементов для выбора в блоке 'Поля таблицы' на вкладке 'Контракты'")
     public void check_number_elements_table_fields_for_selection_on_tab_plans(){
-        assertThat(page.checkNumberElementsTableFieldsForSelection()).as("Количество элементов для выбора в блоке 'Поля таблицы' на вкладке 'Планы' некорректно. Должно быть 12.").isEqualTo(15);
+        assertThat(page.getNumberElementsTableFieldsForSelection()).as("Количество элементов для выбора в блоке 'Поля таблицы' на вкладке 'Планы' некорректно. Должно быть 12.").isEqualTo(15);
+    }
+
+    @Step("Проверка количества элементов для выбора в блоке 'Детализация'")
+    public void check_number_elements_detailing_fields_for_selection(){
+        assertThat(page.getNumberElementsDetailingFieldsForSelection()).as("Количество элементов для выбора в блоке 'Детализация'. Должно быть 1.").isEqualTo(1);
     }
 
     @Step("Проверка количества выбранных элементов в блоке Поля таблицы")
     public void check_number_elements_table_fields_selected_tender(){
-        assertThat(page.checkNumberElementsTableFieldsSelected()).as("Количество выбранных элементов в блоке 'Поля таблицы' для тендеров некорректно. Должно быть 12.").isEqualTo(12);
+        assertThat(page.getNumberElementsTableFieldsSelected()).as("Количество выбранных элементов в блоке 'Поля таблицы' для тендеров некорректно. Должно быть 12.").isEqualTo(12);
+    }
+
+    @Step("Проверка количества выбранных элементов в блоке Детализация")
+    public void check_number_elements_detailing_fields_selected(){
+        assertThat(page.getNumberElementsDetailingFieldsSelected()).as("Количество выбранных элементов в блоке 'Детализация' некорректно. Должно быть 4.").isEqualTo(4);
+    }
+
+    @Step("Проверка значения поля 'Выбрать поле для сортировки' по умолчанию")
+    public void check_value_default_sort_field(){
+        assertThat(page.getValueDefaultSortField()).as("По умолчанию для сортировки стоит НЕ поле 'Дата публикации'").isEqualTo("Дата публикации");
+    }
+
+    @Step("Проверка значения сортировки 'По убыванию' по умолчанию")
+    public void check_selected_radiobutton_descending_default(){
+        assertThat(page.checkSelectedRadiobuttonDescending()).as("По значение сортировки 'По убыванию' НЕ выбрано").isTrue();
+    }
+
+    @Step("Проверка значения чекбокса 'Раскрывать детализации' по умолчанию")
+    public void check_checkbox_disclose_detailing_default(){
+        assertThat(page.checkCheckboxDiscloseDetailing()).as("По умолчанию чекбокс 'По убыванию' НЕ выбран").isTrue();
     }
 
     @Step("Проверка списка пользовательских видов")

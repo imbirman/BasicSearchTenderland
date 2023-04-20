@@ -23,6 +23,8 @@ public class CustomView extends PageObject {
     protected By buttonAddNewCustomView = By.id("search-view-create-button"); // Кнопка добавления нового пользовательского вида
     protected By buttonTabContracts = By.xpath("(//div[@id='search-view-tabs-fields']/div/div)[2]"); // Вкладка "Контракты"
     protected By buttonTabPlans = By.xpath("(//div[@id='search-view-tabs-fields']/div/div)[3]"); // Вкладка "Планы"
+    protected By buttonAccordionDetailing = By.xpath("(//div[contains(@class,'dx-item dx-accordion-item')])[2]"); // Пункт "Детализация"
+    protected By buttonAccordionSettings = By.xpath("(//div[contains(@class,'dx-item dx-accordion-item')])[3]"); // Пункт "Настройки"
     protected By buttonSaveCustomView = By.id("search-view-save-button"); // Кнопка "Сохранить настройки"
     protected By buttonDeleteCustomView = By.id("search-view-delete-button"); // Кнопка "Удалить" пользовательский вид
     protected By buttonCloseWindowCustomView = By.xpath("//div[@role='toolbar']//i"); // Кнопка закрытия окна пользовательского вида
@@ -35,15 +37,19 @@ public class CustomView extends PageObject {
     protected By elementOfListColumns = By.xpath("//div[@id='search-view-manager-tab-panel']//div[@class='dx-scrollview-content']//div[@class='dx-item dx-list-item']"); // Элемент списка столбцов
     protected By elementOfListSelectedColomns = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-item dx-list-item']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка выбранных столбцов
     protected By elementUnitTableFieldsForSelection = By.xpath("//div[@id='search-view-multiview']//div[@class='dx-item dx-multiview-item dx-item-selected']//span"); // Элемент для выбора в блоке "Поля таблицы"
+    protected By elementUnitDetailingFieldsSelection = By.xpath("//div[@id='search-view-details']//span"); // Элемент для выбора в блоке "Детализация"
 
+    protected By fieldForSorting = By.xpath("//div[@id='search-view-sorting-field']//div[@class='dx-texteditor-input-container']//input"); // Выбрать поле для сортировки
     protected By fieldNameCustomView = By.xpath("//div[@id='search-view-name']//input"); // Поле для ввода названия пользовательского вида
     protected By fieldSearchColumnCustomView = By.xpath("//div[@id='search-view-field-selector-search-panel']//input"); // Поле поиска столбцов в пользовательском виде
     protected By fieldSelectedColumnsCustomViewForScroll = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-scrollable-container']"); // Область выбранных столбцов пользовательского вида для прокрутки
     protected By fieldSearchInFilter = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
 
-
+    protected By checkboxDiscloseDetailing = By.id("search-view-autoexpand-details"); // Чекбокс "Раскрывать детализации"
+    protected By radiobuttonDescending = By.xpath("(//div[@class='dx-widget dx-collection']/div[contains(@class,'dx-radiobutton')])[2]"); //
 
     private final By elementUnitTableFieldsSelected = By.xpath("//div[@id='search-view-result-fields-scroll']//span"); // Выбранный элемент в блоке "Поля таблицы"
+    private final By elementUnitDetailingFieldsSelected = By.xpath("//div[@id='search-view-result-details']//span"); // Выбранный элемент в блоке "Детализация"
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By errorMessageEmptyFieldNameCustomView = By.xpath("//div[@class='dx-overlay-content dx-invalid-message-content']"); // Сообщение об ошибке поля "Название" пользовательского вида
@@ -91,13 +97,33 @@ public class CustomView extends PageObject {
         find(fieldSearchColumnCustomView).sendKeys(search);
     } // Ввести значение поиска столбца для пользовательского вида
 
-    public Integer checkNumberElementsTableFieldsForSelection(){
+    public Integer getNumberElementsTableFieldsForSelection(){
         return findAll(elementUnitTableFieldsForSelection).size();
     } // Получение количества элементов для выбора в блоке "Поля таблицы"
 
-    public Integer checkNumberElementsTableFieldsSelected(){
+    public Integer getNumberElementsDetailingFieldsForSelection(){
+        return findAll(elementUnitDetailingFieldsSelection).size();
+    } // Получение количества элементов для выбора в блоке "Детализация"
+
+    public Integer getNumberElementsTableFieldsSelected(){
         return findAll(elementUnitTableFieldsSelected).size();
     } // Получение количества выбранных элементов в блоке "Поля таблицы"
+
+    public Integer getNumberElementsDetailingFieldsSelected(){
+        return findAll(elementUnitDetailingFieldsSelected).size();
+    } // Получение количества выбранных элементов в блоке "Детализация"
+
+    public String getValueDefaultSortField(){
+        return find(fieldForSorting).getValue();
+    } // Получение значения поля для сортировки
+
+    public boolean checkSelectedRadiobuttonDescending(){
+        return find(radiobuttonDescending).getAttribute("aria-checked").contains("true");
+    } // Проверка, что значение сортировки "По убыванию" выставлено по умолчанию
+
+    public boolean checkCheckboxDiscloseDetailing(){
+        return find(checkboxDiscloseDetailing).getAttribute("aria-checked").contains("false");
+    } // Проверка, что чекбокс "Раскрывать детализации" не выставлен по умолчанию
 
     public void checkAndCleanListNameCustomView(){
         if(!findAll(elementOfListCustomView).isEmpty()){

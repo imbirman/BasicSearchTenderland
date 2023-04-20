@@ -32,8 +32,8 @@ public class WhenCustomViewTest extends CustomView {
     }
 
     @Test
-    @Title("Проверка количества элементов в блоке 'Поля таблицы' на вкладке 'Тендеры'")
-    public void checkNumberElementsTableFieldsInTabTender(){
+    @Title("Проверка количества выбранных элементов и элементов для выбора в блоке 'Поля таблицы' на вкладке 'Тендеры' по умолчанию")
+    public void checkNumberElementsTableFieldsInTabTenderDefault(){
         steps.click_button(buttonOpenWindowCustomView);
         steps.click_button(buttonAddNewCustomView);
         steps.check_number_elements_table_fields_for_selection_on_tab_tender();
@@ -41,8 +41,8 @@ public class WhenCustomViewTest extends CustomView {
     }
 
     @Test
-    @Title("Проверка количества элементов в блоке 'Поля таблицы' на вкладке 'Контракты'")
-    public void checkNumberElementsTableFieldsInTabContracts(){
+    @Title("Проверка количества элементов для выбора в блоке 'Поля таблицы' на вкладке 'Контракты' по умолчанию")
+    public void checkNumberElementsTableFieldsForSelectionInTabContractsDefault(){
         steps.click_button(buttonOpenWindowCustomView);
         steps.click_button(buttonAddNewCustomView);
         steps.click_button(buttonTabContracts);
@@ -50,12 +50,49 @@ public class WhenCustomViewTest extends CustomView {
     }
 
     @Test
-    @Title("Проверка количества элементов в блоке 'Поля таблицы' на вкладке 'Планы'")
-    public void checkNumberElementsTableFieldsInTabPlans(){
+    @Title("Проверка количества элементов для выбора в блоке 'Поля таблицы' на вкладке 'Планы' по умолчанию")
+    public void checkNumberElementsTableFieldsForSelectionInTabPlansDefault(){
         steps.click_button(buttonOpenWindowCustomView);
         steps.click_button(buttonAddNewCustomView);
         steps.click_button(buttonTabPlans);
         steps.check_number_elements_table_fields_for_selection_on_tab_plans();
+    }
+
+    @Test
+    @Title("Проверка количества выбранных элементов и элементов для выбора в блоке 'Детализация' по умолчанию")
+    public void checkNumberElementsDetailingFieldsDefault(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAddNewCustomView);
+        steps.click_button(buttonAccordionDetailing);
+        steps.check_number_elements_detailing_fields_for_selection();
+        steps.check_number_elements_detailing_fields_selected();
+    }
+
+    @Test
+    @Title("Проверка значения поля 'Выбрать поле для сортировки' в блоке 'Настройки' по умолчанию")
+    public void checkValueDefaultSortField(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAddNewCustomView);
+        steps.click_button(buttonAccordionSettings);
+        steps.check_value_default_sort_field();
+    }
+
+    @Test
+    @Title("Проверка значения сортировки 'По убыванию' в блоке 'Настройки' по умолчанию")
+    public void checkSelectedRadiobuttonDescendingDefault(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAddNewCustomView);
+        steps.click_button(buttonAccordionSettings);
+        steps.check_selected_radiobutton_descending_default();
+    }
+
+    @Test
+    @Title("Проверка значения чекбокса 'Раскрывать детализации' в блоке 'Настройки' по умолчанию")
+    public void checkCheckboxDiscloseDetailingDefault(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAddNewCustomView);
+        steps.click_button(buttonAccordionSettings);
+        steps.check_checkbox_disclose_detailing_default();
     }
 
     @Test
