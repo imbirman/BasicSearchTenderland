@@ -13,6 +13,7 @@ import java.util.List;
 public class CustomView extends PageObject {
 
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
+    protected By tabCustomView = By.xpath("//div[@id='search-view-tabs']//div[@class='dx-tabs-wrapper']/div"); // Вкладка пользовательского вида
     protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
     protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
@@ -126,6 +127,10 @@ public class CustomView extends PageObject {
     public String getValueLabelSelectedDetailing(){
         return find(labelSelectedDetailing).getText();
     } // Получение значения пометки "Выбрано детализаций"
+
+    public Integer getNumberTabCustomView(){
+        return findAll(tabCustomView).size();
+    } // Получить количество вкладок пользовательских видов
 
     public boolean checkSelectedRadiobuttonDescending(){
         return find(radiobuttonDescending).getAttribute("aria-checked").contains("true");

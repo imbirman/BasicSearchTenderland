@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenCustomViewTest" skipped="0" tests="1" time="11.88" timestamp="2023-04-20 04:27:08"><testcase classname="testpackage.WhenCustomViewTest" name="Проверка количества вкладок пользовательских видов после нажатия на кнопку 'Добавить вид'"/></testsuite>

@@ -114,6 +114,11 @@ public class CustomViewSteps {
         assertThat(page.getValueLabelSelectedDetailing()).as("по умолчанию отображается некорректное количество выбранных детализаций").isEqualTo("Выбрано детализаций - 4");
     }
 
+    @Step("Проверка количества вкладок пользовательских видов после нажатия на кнопку 'Добавить вид'")
+    public void check_number_tab_custom_view_after_adding_new_view(){
+        assertThat(page.getNumberTabCustomView()).as("").isEqualTo(2);
+    }
+
     @Step("Проверка списка пользовательских видов")
     public void check_list_name_custom_view(){
         page.checkAndCleanListNameCustomView();

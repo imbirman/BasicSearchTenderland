@@ -105,10 +105,18 @@ public class WhenCustomViewTest extends CustomView {
 
     @Test
     @Title("Проверка отображения количества выбранных детализаций по умолчанию")
-    public void checkValueLabelSelectedDelailingDefault(){
+    public void checkValueLabelSelectedDetailingDefault(){
         steps.click_button(buttonOpenWindowCustomView);
         steps.click_button(buttonAddNewCustomView);
         steps.check_value_label_selected_detailing_default();
+    }
+
+    @Test
+    @Title("Проверка количества вкладок пользовательских видов после нажатия на кнопку 'Добавить вид'")
+    public void checkNumberTabCustomViewAfterAddingNewView(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAddNewCustomView);
+        steps.check_number_tab_custom_view_after_adding_new_view();
     }
 
 
