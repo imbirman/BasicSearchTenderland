@@ -119,6 +119,15 @@ public class WhenCustomViewTest extends CustomView {
         steps.check_number_tab_custom_view_after_adding_new_view();
     }
 
+    @Test
+    @Title("Проверка количества вкладок пользовательских видов после закрытия окна настроек и несохранении нового пользовательского вида")
+    public void checkNumberTabCustomViewWithoutSaveNewView(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAddNewCustomView);
+        steps.click_button(buttonCloseWindowCustomView);
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.check_number_tab_custom_view_without_save_new_view();
+    }
 
 
 

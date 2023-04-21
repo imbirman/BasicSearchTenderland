@@ -116,7 +116,12 @@ public class CustomViewSteps {
 
     @Step("Проверка количества вкладок пользовательских видов после нажатия на кнопку 'Добавить вид'")
     public void check_number_tab_custom_view_after_adding_new_view(){
-        assertThat(page.getNumberTabCustomView()).as("").isEqualTo(2);
+        assertThat(page.getNumberTabCustomView()).as("Новый вид не добавился").isEqualTo(2);
+    }
+
+    @Step("Проверка количества вкладок пользовательских видов после закрытия окна настроек и несохранении нового пользовательского вида'")
+    public void check_number_tab_custom_view_without_save_new_view(){
+        assertThat(page.getNumberTabCustomView()).as("добавление нового вида сохранилось после закрытия окна настроек").isEqualTo(1);
     }
 
     @Step("Проверка списка пользовательских видов")
