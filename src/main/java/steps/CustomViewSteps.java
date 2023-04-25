@@ -116,13 +116,26 @@ public class CustomViewSteps {
 
     @Step("Проверка количества вкладок пользовательских видов после нажатия на кнопку 'Добавить вид'")
     public void check_number_tab_custom_view_after_adding_new_view(){
-        assertThat(page.getNumberTabCustomView()).as("Новый вид не добавился").isEqualTo(2);
+        assertThat(page.getNumberTabCustomView()).as("Новый вид не добавился").isEqualTo(3);
     }
 
     @Step("Проверка количества вкладок пользовательских видов после закрытия окна настроек и несохранении нового пользовательского вида'")
     public void check_number_tab_custom_view_without_save_new_view(){
-        assertThat(page.getNumberTabCustomView()).as("добавление нового вида сохранилось после закрытия окна настроек").isEqualTo(1);
+        assertThat(page.getNumberTabCustomView()).as("добавление нового вида сохранилось после закрытия окна настроек").isEqualTo(2);
     }
+
+    @Step("Проверка кликабельности кнопки контекстного меню пользовательского вида \"Переименовать\"")
+    public void check_clickable_button_rename_context_menu_custom_view(){
+        assertThat(page.checkClickableButtonRenameContextMenuCustomView()).as("Кнопка 'Переименовать' контекстного меню пользовательского вида не кликабельна").isTrue();
+    }
+
+    @Step("Проверка кликабельности кнопки контекстного меню пользовательского вида \"Удалить\"")
+    public void check_clickable_button_delete_context_menu_custom_view(){
+        assertThat(page.checkClickableButtonDeleteContextMenuCustomView()).as("Кнопка 'Удалить' контекстного меню пользовательского вида не кликабельна").isTrue();
+    }
+
+
+
 
     @Step("Проверка списка пользовательских видов")
     public void check_list_name_custom_view(){

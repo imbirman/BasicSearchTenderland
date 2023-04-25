@@ -27,6 +27,12 @@ public class CustomView extends PageObject {
     protected By buttonAccordionDetailing = By.xpath("(//div[contains(@class,'dx-item dx-accordion-item')])[2]"); // Пункт "Детализация"
     protected By buttonAccordionSettings = By.xpath("(//div[contains(@class,'dx-item dx-accordion-item')])[3]"); // Пункт "Настройки"
     protected By buttonSaveCustomView = By.id("search-view-save-button"); // Кнопка "Сохранить настройки"
+    protected By buttonOpenContextMenuCustomView = By.xpath("//div[@id='search-view-tabs']//i"); // Кнопка открытия контекстного меню последнего в списке пользовательского вида
+    protected By buttonContextMenuRename = By.xpath("(//div[@class='common-context-menu-item'])[1]"); // Кнопка контекстного меню "Переименовать"
+    protected By buttonContextMenuDelete = By.xpath("(//div[@class='common-context-menu-item'])[2]"); // Кнопка контекстного меню "Удалить"
+
+
+
     protected By buttonDeleteCustomView = By.id("search-view-delete-button"); // Кнопка "Удалить" пользовательский вид
     protected By buttonCloseWindowCustomView = By.xpath("//div[@role='toolbar']//i"); // Кнопка закрытия окна пользовательского вида
     protected By buttonExpandListCustomView = By.xpath("//div[@id='search-panel-change-custom-view']//i[@class='dx-icon dx-icon-spindown']"); // Раскрыть список пользовательских видов
@@ -41,7 +47,8 @@ public class CustomView extends PageObject {
     protected By elementUnitDetailingFieldsSelection = By.xpath("//div[@id='search-view-details']//span"); // Элемент для выбора в блоке "Детализация"
 
     protected By fieldForSorting = By.xpath("//div[@id='search-view-sorting-field']//div[@class='dx-texteditor-input-container']//input"); // Выбрать поле для сортировки
-    protected By fieldNameCustomView = By.xpath("//div[@id='search-view-name']//input"); // Поле для ввода названия пользовательского вида
+    protected By fieldNameCustomView = By.xpath("//div[@id='search-view-tabs']//input"); // Поле для ввода названия пользовательского вида
+
     protected By fieldSearchColumnCustomView = By.xpath("//div[@id='search-view-field-selector-search-panel']//input"); // Поле поиска столбцов в пользовательском виде
     protected By fieldSelectedColumnsCustomViewForScroll = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-scrollable-container']"); // Область выбранных столбцов пользовательского вида для прокрутки
     protected By fieldSearchInFilter = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
@@ -100,6 +107,14 @@ public class CustomView extends PageObject {
         find(fieldSearchColumnCustomView).sendKeys(search);
     } // Ввести значение поиска столбца для пользовательского вида
 
+    public WebElementFacade getTabCustomViewByOriginalNumber(int number){
+        return findAll(tabCustomView).get(number);
+    } // Получить вкладку пользовательского вида по его порядковому номеру
+
+    public WebElementFacade getButtonContextMenuCustomViewByOriginalNumber(int number){
+        return findAll(buttonOpenContextMenuCustomView).get(number);
+    } // Получить кнопку контекстного меню пользовательского вида по его порядковому номеру
+
     public Integer getNumberElementsTableFieldsForSelection(){
         return findAll(elementUnitTableFieldsForSelection).size();
     } // Получение количества элементов для выбора в блоке "Поля таблицы"
@@ -131,6 +146,14 @@ public class CustomView extends PageObject {
     public Integer getNumberTabCustomView(){
         return findAll(tabCustomView).size();
     } // Получить количество вкладок пользовательских видов
+
+    public boolean checkClickableButtonRenameContextMenuCustomView(){
+        return find(buttonContextMenuRename).isClickable();
+    } // Проверка кликабельности кнопки контекстного меню пользовательского вида "Переименовать"
+
+    public boolean checkClickableButtonDeleteContextMenuCustomView(){
+        return find(buttonContextMenuDelete).isClickable();
+    } // Проверка кликабельности кнопки контекстного меню пользовательского вида "Удалить"
 
     public boolean checkSelectedRadiobuttonDescending(){
         return find(radiobuttonDescending).getAttribute("aria-checked").contains("true");

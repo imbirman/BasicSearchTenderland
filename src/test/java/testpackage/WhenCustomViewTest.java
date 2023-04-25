@@ -129,6 +129,15 @@ public class WhenCustomViewTest extends CustomView {
         steps.check_number_tab_custom_view_without_save_new_view();
     }
 
+    @Test
+    @Title("Проверка кликабельности кнопок контекстного меню пользовательского вида")
+    public void checkClickableButtonsContextMenuCustomView(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(getTabCustomViewByOriginalNumber(1));
+        steps.click_button(getButtonContextMenuCustomViewByOriginalNumber(1));
+        steps.check_clickable_button_rename_context_menu_custom_view();
+        steps.check_clickable_button_delete_context_menu_custom_view();
+    }
 
 
 
