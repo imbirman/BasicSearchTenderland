@@ -6,6 +6,7 @@ import net.thucydides.core.pages.PageObject;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 
 import java.util.List;
 
@@ -30,6 +31,7 @@ public class CustomView extends PageObject {
     protected By buttonOpenContextMenuCustomView = By.xpath("//div[@id='search-view-tabs']//i"); // Кнопка открытия контекстного меню последнего в списке пользовательского вида
     protected By buttonContextMenuRename = By.xpath("(//div[@class='common-context-menu-item'])[1]"); // Кнопка контекстного меню "Переименовать"
     protected By buttonContextMenuDelete = By.xpath("(//div[@class='common-context-menu-item'])[2]"); // Кнопка контекстного меню "Удалить"
+    protected By buttonDeleteAllSelectedFields = By.xpath("(//div[@class='search-view-result-header']//i)[2]"); // Кнопка удаления всех выбранных полей пользовательского вида
 
 
 
@@ -56,6 +58,7 @@ public class CustomView extends PageObject {
     protected By checkboxDiscloseDetailing = By.id("search-view-autoexpand-details"); // Чекбокс "Раскрывать детализации"
     protected By radiobuttonDescending = By.xpath("(//div[@class='dx-widget dx-collection']/div[contains(@class,'dx-radiobutton')])[2]"); //
 
+    private final By labelErrorSaveCustomViewWithoutSelectedFields = By.xpath("//div[@class='search-view-result-error-label']"); // Ошибка при сохранении пользовательского вида без выбранных полей
     private final By elementUnitTableFieldsSelected = By.xpath("//div[@id='search-view-result-fields-scroll']//span"); // Выбранный элемент в блоке "Поля таблицы"
     private final By elementUnitDetailingFieldsSelected = By.xpath("//div[@id='search-view-result-details']//span"); // Выбранный элемент в блоке "Детализация"
     private final By labelSelectedFields = By.id("search-view-fields-label"); // Пометка "Выбрано полей"
@@ -101,6 +104,7 @@ public class CustomView extends PageObject {
 
     public void typeNameCustomView(String name){
         find(fieldNameCustomView).sendKeys(name);
+        find(fieldNameCustomView).sendKeys(Keys.ENTER);
     } // Ввести название пользовательского вида
 
     public void typeSearchColumnCustomView(String search){
@@ -147,6 +151,10 @@ public class CustomView extends PageObject {
         return findAll(tabCustomView).size();
     } // Получить количество вкладок пользовательских видов
 
+    public String getTextErrorSaveCustomViewWithoutSelectedFields(){
+        return find(labelErrorSaveCustomViewWithoutSelectedFields).getText();
+    } // Получить текст ошибки при сохранении пользовательского вида без выбранных полей
+
     public boolean checkClickableButtonRenameContextMenuCustomView(){
         return find(buttonContextMenuRename).isClickable();
     } // Проверка кликабельности кнопки контекстного меню пользовательского вида "Переименовать"
@@ -154,6 +162,10 @@ public class CustomView extends PageObject {
     public boolean checkClickableButtonDeleteContextMenuCustomView(){
         return find(buttonContextMenuDelete).isClickable();
     } // Проверка кликабельности кнопки контекстного меню пользовательского вида "Удалить"
+
+    public boolean checkVisibleLabelErrorSaveCustomViewWithoutSelectedFields(){
+        return find(labelErrorSaveCustomViewWithoutSelectedFields).isVisible();
+    } // Проверка отображения сообщение об ошибке при сохранении пользовательского вида без выбранных полей
 
     public boolean checkSelectedRadiobuttonDescending(){
         return find(radiobuttonDescending).getAttribute("aria-checked").contains("true");

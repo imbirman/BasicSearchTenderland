@@ -134,6 +134,17 @@ public class CustomViewSteps {
         assertThat(page.checkClickableButtonDeleteContextMenuCustomView()).as("Кнопка 'Удалить' контекстного меню пользовательского вида не кликабельна").isTrue();
     }
 
+    @Step("Проверка отображения сообщение об ошибке при сохранении пользовательского вида без выбранных полей")
+    public void check_visible_label_error_save_custom_view_without_selected_fields(){
+        assertThat(page.checkVisibleLabelErrorSaveCustomViewWithoutSelectedFields()).as("Сообщение об ошибке сохранения пользовательского вида без выбранных полей не отображается").isTrue();
+    }
+
+    @Step("Проверка текста сообщения об ошибке при сохранении пользовательского вида без выбранных полей")
+    public void check_text_error_save_custom_view_without_selected_fields(){
+        assertThat(page.getTextErrorSaveCustomViewWithoutSelectedFields()).as("Сообщение об ошибке сохранения пользовательского вида без выбранных полей некорректно").isEqualTo("Необходимо выбрать хотя бы 1 поле");
+    }
+
+
 
 
 

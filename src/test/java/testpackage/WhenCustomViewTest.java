@@ -139,6 +139,21 @@ public class WhenCustomViewTest extends CustomView {
         steps.check_clickable_button_delete_context_menu_custom_view();
     }
 
+    @Test
+    @Title("Проверка сообщения об ошибке сохранения пользовательского вида без выбранных полей")
+    public void checkLabelErrorSaveCustomViewWithoutSelectedFields(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAddNewCustomView);
+        steps.type_name_custom_view("123");
+        steps.click_button(buttonDeleteAllSelectedFields);
+        steps.click_button(buttonSaveCustomView);
+        steps.check_visible_label_error_save_custom_view_without_selected_fields();
+        steps.check_text_error_save_custom_view_without_selected_fields();
+    }
+
+
+
+
 
 
     @Test
