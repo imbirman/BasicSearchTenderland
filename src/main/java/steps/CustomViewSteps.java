@@ -119,9 +119,14 @@ public class CustomViewSteps {
         assertThat(page.getNumberTabCustomView()).as("Новый вид не добавился").isEqualTo(3);
     }
 
-    @Step("Проверка количества вкладок пользовательских видов после закрытия окна настроек и несохранении нового пользовательского вида'")
+    @Step("Проверка количества вкладок пользовательских видов после закрытия окна настроек и несохранении нового пользовательского вида")
     public void check_number_tab_custom_view_without_save_new_view(){
-        assertThat(page.getNumberTabCustomView()).as("добавление нового вида сохранилось после закрытия окна настроек").isEqualTo(2);
+        assertThat(page.getNumberTabCustomView()).as("Добавление нового вида сохранилось после закрытия окна настроек").isEqualTo(2);
+    }
+
+    @Step("Проверка количества вкладок пользовательских видов после сохранения пользовательского вида без названия")
+    public void check_number_tab_custom_view_after_save_new_view_without_name(){
+        assertThat(page.getNumberTabCustomView()).as("Добавился новый пользовательский вид без названия").isEqualTo(2);
     }
 
     @Step("Проверка кликабельности кнопки контекстного меню пользовательского вида \"Переименовать\"")
@@ -143,6 +148,12 @@ public class CustomViewSteps {
     public void check_text_error_save_custom_view_without_selected_fields(){
         assertThat(page.getTextErrorSaveCustomViewWithoutSelectedFields()).as("Сообщение об ошибке сохранения пользовательского вида без выбранных полей некорректно").isEqualTo("Необходимо выбрать хотя бы 1 поле");
     }
+
+    @Step("Проверка отображения названия пользовательского вида")
+    public void check_displayed_name_tab_custom_view_by_number(int number){
+        assertThat(page.checkDisplayedNameTabCustomViewByNumber(number)).as("Название пользовательского вида не сохранилось").isTrue();
+    }
+
 
 
 

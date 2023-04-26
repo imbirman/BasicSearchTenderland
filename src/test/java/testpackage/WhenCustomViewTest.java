@@ -151,7 +151,27 @@ public class WhenCustomViewTest extends CustomView {
         steps.check_text_error_save_custom_view_without_selected_fields();
     }
 
+    @Test
+    @Title("Проверка сохранения нового пользовательского вида без названия")
+    public void checkNumberCustomViewAfterSaveNewViewWithoutName(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAddNewCustomView);
+        steps.click_button(buttonSaveCustomView);
+        steps.click_button(buttonCloseWindowCustomView);
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.check_number_tab_custom_view_after_save_new_view_without_name();
+    }
 
+    @Test
+    @Title("Проверка отображение названия пользовательского вида после отмены переименования")
+    public void check_displayed_name_custom_view_after_cancel_renaming(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(getTabCustomViewByOriginalNumber(1));
+        steps.click_button(getContextMenuCustomViewByNumber(1));
+        steps.click_button(buttonContextMenuRename);
+        steps.click_button(buttonAccordionDetailing);
+        steps.check_displayed_name_tab_custom_view_by_number(1);
+    }
 
 
 

@@ -58,11 +58,14 @@ public class CustomView extends PageObject {
     protected By checkboxDiscloseDetailing = By.id("search-view-autoexpand-details"); // Чекбокс "Раскрывать детализации"
     protected By radiobuttonDescending = By.xpath("(//div[@class='dx-widget dx-collection']/div[contains(@class,'dx-radiobutton')])[2]"); //
 
+
     private final By labelErrorSaveCustomViewWithoutSelectedFields = By.xpath("//div[@class='search-view-result-error-label']"); // Ошибка при сохранении пользовательского вида без выбранных полей
     private final By elementUnitTableFieldsSelected = By.xpath("//div[@id='search-view-result-fields-scroll']//span"); // Выбранный элемент в блоке "Поля таблицы"
     private final By elementUnitDetailingFieldsSelected = By.xpath("//div[@id='search-view-result-details']//span"); // Выбранный элемент в блоке "Детализация"
     private final By labelSelectedFields = By.id("search-view-fields-label"); // Пометка "Выбрано полей"
     private final By labelSelectedDetailing = By.id("search-view-details-label"); // Пометка "Выбрано детализаций"
+    private final By labelNameCustomView = By.xpath("//div[@id='search-view-tabs']//div[@class='dx-tabs-wrapper']//div[@class='common-small-tab-name']"); // Название пользовательского вида
+
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By errorMessageEmptyFieldNameCustomView = By.xpath("//div[@class='dx-overlay-content dx-invalid-message-content']"); // Сообщение об ошибке поля "Название" пользовательского вида
@@ -119,6 +122,10 @@ public class CustomView extends PageObject {
         return findAll(buttonOpenContextMenuCustomView).get(number);
     } // Получить кнопку контекстного меню пользовательского вида по его порядковому номеру
 
+    public WebElementFacade getContextMenuCustomViewByNumber(int number){
+        return findAll(buttonOpenContextMenuCustomView).get(number);
+    } // Получить кнопку контекстного меню пользовательского вида по порядковому номеру этого вида
+
     public Integer getNumberElementsTableFieldsForSelection(){
         return findAll(elementUnitTableFieldsForSelection).size();
     } // Получение количества элементов для выбора в блоке "Поля таблицы"
@@ -154,6 +161,10 @@ public class CustomView extends PageObject {
     public String getTextErrorSaveCustomViewWithoutSelectedFields(){
         return find(labelErrorSaveCustomViewWithoutSelectedFields).getText();
     } // Получить текст ошибки при сохранении пользовательского вида без выбранных полей
+
+    public boolean checkDisplayedNameTabCustomViewByNumber(int number){
+        return findAll(labelNameCustomView).get(number).isDisplayed();
+    } // Проверить отображение элемента, в котором хранится название пользовательского вида
 
     public boolean checkClickableButtonRenameContextMenuCustomView(){
         return find(buttonContextMenuRename).isClickable();
