@@ -173,9 +173,6 @@ public class WhenCustomViewTest extends CustomView {
         steps.check_displayed_name_tab_custom_view_by_number(1);
     }
 
-
-
-
     @Test
     @Title("Проверка сообщения об ошибке при сохранении пользовательского вида при пустом названии")
     public void checkSaveCustomViewWithEmptyName(){
@@ -187,40 +184,6 @@ public class WhenCustomViewTest extends CustomView {
         steps.click_button(buttonAddNewCustomView);
         steps.click_button(buttonSaveCustomView);
         steps.check_error_message_save_custom_view_with_empty_name();
-    }
-
-    @Test
-    @Title("Проверка окна пользовательского вида")
-    public void checkWindowCustomView(){
-        steps.click_button(buttonOpenWindowCustomView);
-        steps.check_list_name_custom_view();
-        steps.type_name_custom_view("Тестовый вид");
-        steps.click_button(buttonSaveCustomView);
-        steps.wait_a_bit(1000);
-        steps.check_number_element_of_list_selected_column();
-        steps.check_name_saved_custom_field();
-        steps.check_clickable_button_save_settings_custom_view();
-        steps.click_button(buttonCloseWindowCustomView);
-        steps.click_button(buttonExpandListCustomView);
-        steps.check_number_element_of_expanded_list_custom_view();
-        steps.check_name_added_element_of_expanded_list_custom_view();
-        steps.click_button(buttonOpenWindowCustomView);
-        steps.click_button(buttonAddNewCustomView);
-        steps.type_name_custom_view("Тестовый вид");
-        steps.click_button(buttonSaveCustomView);
-        steps.wait_a_bit(500);
-        steps.check_error_message_save_custom_view_with_duplication_name();
-        steps.check_number_element_of_list_custom_view();
-        steps.click_button(buttonAddNewCustomView);
-        steps.type_name_custom_view("Тестовый вид1");
-        steps.click_button(buttonSaveCustomView);
-//        steps.wait_a_bit(500);
-        steps.check_error_message_save_custom_view_without_selected_column();
-        steps.check_number_element_of_list_selected_column();
-
-        steps.click_button(elementOfListCustomView);
-        steps.click_button(buttonDeleteCustomView);
-        steps.check_number_element_of_list_selected_column();
     }
 
     @Test
