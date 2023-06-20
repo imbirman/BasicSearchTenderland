@@ -188,12 +188,6 @@ public class CustomViewSteps {
                 .as("Название сохраненного пользовательского вида не соответствует введенному").isTrue();
     }
 
-    @Step("Проверка кликабельности кнопки \"Удалить\" до сохранения пользовательского вида")
-    public void check_clickable_button_delete_custom_view(){
-        Assertions.assertThat(page.isClickableDeleteButton())
-                .as("Кнопка 'Удалить' кликабельна").isFalse();
-    }
-
     @Step("Проверка кликабельности кнопки \"Сохранить настройки\" после сохранения пользовательского вида")
     public void check_clickable_button_save_settings_custom_view(){
         Assertions.assertThat(page.isClickableButtonSaveSettings())

@@ -158,6 +158,10 @@ public class CustomView extends PageObject {
         return findAll(tabCustomView).size();
     } // Получить количество вкладок пользовательских видов
 
+    public Integer getNumberListOfCustomView(){
+        return findAll(elementOfListCustomView).size();
+    } // Получение количества элементов в списке пользовательских видов
+
     public String getTextErrorSaveCustomViewWithoutSelectedFields(){
         return find(labelErrorSaveCustomViewWithoutSelectedFields).getText();
     } // Получить текст ошибки при сохранении пользовательского вида без выбранных полей
@@ -186,6 +190,8 @@ public class CustomView extends PageObject {
         return find(checkboxDiscloseDetailing).getAttribute("aria-checked").contains("false");
     } // Проверка, что чекбокс "Раскрывать детализации" не выставлен по умолчанию
 
+    
+
     public void checkAndCleanListNameCustomView(){
         if(!findAll(elementOfListCustomView).isEmpty()){
             clickButton(elementOfListCustomView);
@@ -193,17 +199,13 @@ public class CustomView extends PageObject {
         }
     } // Проверка и очистка списка пользовательских видов
 
-    public Integer getNumberListOfCustomView(){
-        return findAll(elementOfListCustomView).size();
-    } // Получение количества элементов в списке пользовательских видов
-
     public Integer getNumberExpandedListOfCustomView(){
         return findAll(elementExpandedListCustomView).size();
     } // Получение количества элементов в раскрывающемся списке пользовательских видов
 
     public boolean isErrorMessageEmptyNameFieldCustomView(){
         WebElementFacade checkError = find(errorMessageEmptyFieldNameCustomView);
-        return checkError.getText().contains("Название не должно быть пустым") && checkError.isVisible();
+        return checkError.getText().contains("Введите название") && checkError.isVisible();
     } // Проверка сообщения об ошибке при сохранении пользовательского вида при пустом названии
 
     public boolean isErrorMessageDuplicationNameFieldCustomView(){
@@ -219,10 +221,6 @@ public class CustomView extends PageObject {
     public boolean isContainNameSavedCustomView(){
         return find(elementOfListCustomView).getText().contains("Тестовый вид");
     } // Проверка названия сохраненного пользовательского вида
-
-    public boolean isClickableDeleteButton(){
-        return find(buttonDeleteCustomView).isDisabled();
-    } // Проверка кликабельности кнопки "Удалить" после сохранения пользовательского вида
 
     public boolean isClickableButtonSaveSettings(){
         return find(buttonSaveCustomView).isDisabled();

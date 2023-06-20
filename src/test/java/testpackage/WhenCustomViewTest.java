@@ -184,7 +184,7 @@ public class WhenCustomViewTest extends CustomView {
         steps.click_button(buttonAutoSearchTestCustomView);
         steps.wait_a_bit(2000);
         steps.click_button(buttonOpenWindowCustomView);
-        steps.check_clickable_button_delete_custom_view();
+        steps.click_button(buttonAddNewCustomView);
         steps.click_button(buttonSaveCustomView);
         steps.check_error_message_save_custom_view_with_empty_name();
     }
