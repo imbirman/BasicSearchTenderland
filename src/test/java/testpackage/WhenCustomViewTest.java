@@ -199,7 +199,6 @@ public class WhenCustomViewTest extends CustomView {
     public void checkContainSelectedColumnCustomView(){
         steps.click_button(buttonOpenWindowCustomView);
         steps.click_button(elementOfListColumns);
-        steps.scroll_element_on_pixels("200", fieldSelectedColumnsCustomViewForScroll);
         steps.check_contain_selected_column();
     }
 }
