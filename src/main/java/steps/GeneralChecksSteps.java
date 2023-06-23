@@ -6,6 +6,8 @@ import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import pages.GeneralChecks;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class GeneralChecksSteps {
 
     GeneralChecks page;
@@ -76,41 +78,46 @@ public class GeneralChecksSteps {
 
     @Step("Проверка логина после входа")
     public void check_text_login(){
-        Assertions.assertThat(page.getTextLogin()).as("Логин некорректен, вход ошибочен").isEqualTo("AdminTestitTender");
+        assertThat(page.getTextLogin()).as("Логин некорректен, вход ошибочен").isEqualTo("AdminTestitTender");
     }
 
     @Step("Проверка соответствия подсказки фильтру 'И'")
     public void check_correct_hint_area_and(){
-        Assertions.assertThat(page.isCorrectHintAreaAnd()).as("Текст подсказки не соответствует фильтру И").isTrue();
+        assertThat(page.isCorrectHintAreaAnd()).as("Текст подсказки не соответствует фильтру И").isTrue();
     }
 
     @Step("Проверка соответствия подсказки фильтру 'ИЛИ'")
     public void check_correct_hint_area_or(){
-        Assertions.assertThat(page.isCorrectHintAreaOr()).as("Текст подсказки не соответствует фильтру ИЛИ").isTrue();
+        assertThat(page.isCorrectHintAreaOr()).as("Текст подсказки не соответствует фильтру ИЛИ").isTrue();
     }
 
     @Step("Проверка контекстного меню на второй странице после выбора всех элементов на первой странице")
     public void check_name_elements_context_menu(){
-        Assertions.assertThat(page.isNameElementsContextMenu()).as("контекстное меню элемента таблицы результата поиска не соответствует правильному").isTrue();
+        assertThat(page.isNameElementsContextMenu()).as("контекстное меню элемента таблицы результата поиска не соответствует правильному").isTrue();
     }
 
     @Step("Проверка не отображения в результатах поиска скрытого элемента")
     public void check_not_contain_hide_tender(){
-        Assertions.assertThat(page.isNotContainHideTender()).as("В результатах поиска есть скрытый тендер").isTrue();
+        assertThat(page.isNotContainHideTender()).as("В результатах поиска есть скрытый тендер").isTrue();
     }
 
     @Step("Проверка отображения в результатах поиска скрытого элемента")
     public void check_contain_hide_tender(){
-        Assertions.assertThat(page.isContainHideTender()).as("В результатах поиска нет скрытого тендера").isTrue();
+        assertThat(page.isContainHideTender()).as("В результатах поиска нет скрытого тендера").isTrue();
     }
 
     @Step("Проверка подписи кнопки переключения отображения скрытых тендеров")
     public void check_contain_number_hide_tender_description(){
-        Assertions.assertThat(page.isContainNumberHideTenderDescription()).as("Некорректно отображается количество скрытых тендеров в подписи").isTrue();
+        assertThat(page.isContainNumberHideTenderDescription()).as("Некорректно отображается количество скрытых тендеров в подписи").isTrue();
     }
 
     @Step("Проверка отображения в результатах поиска удаленного из скрытых элемента")
     public void check_contain_not_hide_tender(){
-        Assertions.assertThat(page.isContainNotHideTender()).as("В результатах поиска нет тендера, удаленного из скрытых").isTrue();
+        assertThat(page.isContainNotHideTender()).as("В результатах поиска нет тендера, удаленного из скрытых").isTrue();
+    }
+
+    @Step("Проверка чекбокса 'Выбрать всё' для результатов поиска после нажатия на кнопку 'Очистить поле' в области построения фильтров")
+    public void check_not_selected_checkbox_selected_all_for_result_search(){
+        assertThat(page.isNotSelectedCheckBoxSelectedAllForResultSearch()).as("Чекбокс 'Выбрать всё' выбран").isFalse();
     }
 }

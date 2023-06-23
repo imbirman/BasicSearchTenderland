@@ -27,10 +27,9 @@ public class GeneralChecks extends PageObject {
     protected By buttonDeleteHiddenTender = By.xpath("//a[@title='Удалить']"); // Кнопка "Удалить" в окне управления скрытыми данными
     protected By buttonAcceptDeleteHiddenTender = By.xpath("//span[text()='Да']"); // Кнопка подтверждения удаления тендера из скрытых
     protected By buttonCloseWindowHiddenDataControl = By.xpath("//i[@class='dx-icon dx-icon-close']"); // Кнопка закрытия окна управления скрытыми данными
+    protected By buttonClearBuildingFieldSearch = By.xpath("//span[text()='Очистить поле']"); // Кнопка очистки поля построения фильтров
 
     protected By filterAndOr = By.xpath("//div[@id='tl-filter-root']//span"); // фильтр логики И/ИЛИ
-
-    protected By checkboxSelectAllSearchResult = By.xpath("(//div[@id='search-result']//div[@class='dx-checkbox-container'])[1]"); // Чекбокс "Выбрать всё" в таблице результата поиска
 
     protected By secondPageSearch = By.xpath("//div[@class='dx-page']"); // Вторая страница таблицы результата поиска
     protected By contextMenuResultSearch = By.xpath("//table[@class='dx-datagrid-table dx-pointer-events-none dx-datagrid-table-fixed']//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Кнопка контекстного меню для строки результата поиска
@@ -38,6 +37,7 @@ public class GeneralChecks extends PageObject {
     protected By addInMineTendersContextMenu = By.xpath("//div[text()='Добавить в Мои тендеры']"); // пункт контекстного меню "Добавить в Мои тендеры"
     protected By markContextMenu = By.xpath("//div[text()='Метка тендера']"); // пункт контекстного меню "Метка тендера"
     protected By showTenderContextMenu = By.xpath("//div[text()='Показывать тендер']"); // Пункт контекстного меню "Показывать тендер"
+    protected By checkBoxSelectedAllForTableResultSearch = By.xpath("//div[@id='search-result-checkbox']/div"); // Чекбокс "Выбрать всё" для таблицы результата поиска
 
     private final By checkLogin = By.xpath("//ul[@class='navbar-nav']//a"); // объект для проверки логина после входа
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
@@ -156,5 +156,9 @@ public class GeneralChecks extends PageObject {
         }
         return check;
     } // Проверка отображения в результатах поиска удаленного из скрытых элемента
+
+    public boolean isNotSelectedCheckBoxSelectedAllForResultSearch(){
+        return find(checkBoxSelectedAllForTableResultSearch).isSelected();
+    }// Проверка чекбокса 'Выбрать всё' для результатов поиска после нажатия на кнопку 'Очистить поле'
 
 }

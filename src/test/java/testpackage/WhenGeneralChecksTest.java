@@ -57,7 +57,7 @@ public class WhenGeneralChecksTest extends GeneralChecks {
         steps.click_button(tabListAutoSearch);
         steps.click_button(buttonCheckTenderNameAndNameDeletion);
         steps.wait_a_bit(1000);
-        steps.click_button(checkboxSelectAllSearchResult);
+        steps.click_button(checkBoxSelectedAllForTableResultSearch);
         steps.click_button(secondPageSearch);
         steps.wait_a_bit(2000);
         steps.click_button(contextMenuResultSearch);
@@ -102,6 +102,18 @@ public class WhenGeneralChecksTest extends GeneralChecks {
         steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
         steps.check_contain_not_hide_tender();
+    }
+
+    @Test
+    @Title("Проверка чекбокса 'Выбрать всё' для результатов поиска")
+    public void checkNotSelectedCheckBoxSelectedAllForResultSearch(){
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckTenderNameAndNameDeletion);
+        steps.wait_a_bit(1000);
+        steps.click_button(checkBoxSelectedAllForTableResultSearch);
+        steps.scroll_window_on_pixels("-800");
+        steps.click_button(buttonClearBuildingFieldSearch);
+        steps.check_not_selected_checkbox_selected_all_for_result_search();
     }
 
 }
