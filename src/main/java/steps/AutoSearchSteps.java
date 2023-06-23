@@ -4,11 +4,11 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
-import pages.FilterSearch;
+import pages.AutoSearch;
 
-public class FilterSearchSteps {
+public class AutoSearchSteps {
 
-    FilterSearch page;
+    AutoSearch page;
 
     @Step("Ожидание")
     public void wait_a_bit(long number){

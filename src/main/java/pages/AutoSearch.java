@@ -10,7 +10,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import java.util.List;
 
 @DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
-public class FilterSearch extends PageObject{
+public class AutoSearch extends PageObject{
 
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
     protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
@@ -74,7 +74,7 @@ public class FilterSearch extends PageObject{
         withAction().dragAndDrop(find(filter), find(filterRoot)).build().perform();
     } // Перетащить фильтр в область построения дерева фильтров
 
-    public FilterSearch scrollWindowOnPixels(String number){
+    public AutoSearch scrollWindowOnPixels(String number){
         ((JavascriptExecutor)getDriver()).executeScript(
                 "window.scrollBy(0," + number + ")");
         return this;
