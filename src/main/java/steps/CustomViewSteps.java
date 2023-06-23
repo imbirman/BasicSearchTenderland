@@ -227,7 +227,7 @@ public class CustomViewSteps {
     @Step("Проверка поиска в окне пользовательского вида")
     public void check_contain_result_search_column_custom_view(){
         Assertions.assertThat(page.isContainResultSearchColumnCustomView())
-                .as("В результатах поиска присутствуют лишние элементы").isTrue();
+                .as("В результатах поиска присутствуют лишние элементы или отсутствуют нужные").isTrue();
     }
 
     @Step("Проверка добавления столбца пользовательского вида")

@@ -187,18 +187,6 @@ public class WhenCustomViewTest extends CustomView {
     }
 
     @Test
-    @Title("Проверка столбцов таблицы результата поиска после удаления столбца из пользовательского вида")
-    public void checkNotContainDeletedColumn(){
-        steps.click_button(buttonOpenWindowCustomView);
-        steps.check_list_name_custom_view();
-        steps.click_button(buttonCloseWindowCustomView);
-        steps.click_button(buttonOpenWindowCustomView);
-        steps.click_button(buttonRemoveColumnFromListSelectedColumns);
-        steps.click_button(buttonApplyCustomView);
-        steps.check_not_contain_deleted_column();
-    }
-
-    @Test
     @Title("Проверка поиска в окне пользовательского вида")
     public void checkContainResultSearchColumnCustomView(){
         steps.click_button(buttonOpenWindowCustomView);

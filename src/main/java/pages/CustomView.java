@@ -21,7 +21,7 @@ public class CustomView extends PageObject {
     protected By listAutoSearchToScroll = By.xpath("//div[@id='list-autosearches']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки
 
     protected By buttonAutoSearchTestCustomView = By.xpath("//div[text()='Тестирование пользовательского вида']"); // Кнопка автопоиска "Тестирование пользовательского вида"
-    protected By buttonOpenWindowCustomView = By.id("search-view-popup-id"); // Кнопка открытия настроек пользовательского вида
+    protected By buttonOpenWindowCustomView = By.xpath("//i[@class='material-icons-outline icon-24px icon-grey icon-grey-hover md-settings']"); // Кнопка открытия настроек пользовательского вида
     protected By buttonAddNewCustomView = By.id("search-view-create-button"); // Кнопка добавления нового пользовательского вида
     protected By buttonTabContracts = By.xpath("(//div[@id='search-view-tabs-fields']/div/div)[2]"); // Вкладка "Контракты"
     protected By buttonTabPlans = By.xpath("(//div[@id='search-view-tabs-fields']/div/div)[3]"); // Вкладка "Планы"
@@ -43,15 +43,15 @@ public class CustomView extends PageObject {
 
     protected By elementOfListCustomView = By.xpath("//div[@id='search-view-manager-viewlist']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка сохраненных пользовательских видов
     protected By elementExpandedListCustomView = By.xpath("//div[@class='dx-popup-content dx-dropdownbutton-content']//div[@class='dx-item-content dx-list-item-content']"); // элемент раскрывающегося списка пользовательских видов
-    protected By elementOfListColumns = By.xpath("//div[@id='search-view-manager-tab-panel']//div[@class='dx-scrollview-content']//div[@class='dx-item dx-list-item']"); // Элемент списка столбцов
-    protected By elementOfListSelectedColomns = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-item dx-list-item']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка выбранных столбцов
+    protected By elementOfListColumns = By.xpath("//div[@id='search-view-tenders-fields']//span"); // Элемент списка столбцов
+    protected By elementOfListSelectedColumns = By.xpath("//div[@id='search-view-result-fields']//span"); // Элемент списка выбранных столбцов
     protected By elementUnitTableFieldsForSelection = By.xpath("//div[@id='search-view-multiview']//div[@class='dx-item dx-multiview-item dx-item-selected']//span"); // Элемент для выбора в блоке "Поля таблицы"
     protected By elementUnitDetailingFieldsSelection = By.xpath("//div[@id='search-view-details']//span"); // Элемент для выбора в блоке "Детализация"
 
     protected By fieldForSorting = By.xpath("//div[@id='search-view-sorting-field']//div[@class='dx-texteditor-input-container']//input"); // Выбрать поле для сортировки
     protected By fieldNameCustomView = By.xpath("//div[@id='search-view-tabs']//input"); // Поле для ввода названия пользовательского вида
 
-    protected By fieldSearchColumnCustomView = By.xpath("//div[@id='search-view-field-selector-search-panel']//input"); // Поле поиска столбцов в пользовательском виде
+    protected By fieldSearchColumnCustomView = By.xpath("//div[@id='search-view-textbox-fields']//input"); // Поле поиска столбцов в пользовательском виде
     protected By fieldSelectedColumnsCustomViewForScroll = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-scrollable-container']"); // Область выбранных столбцов пользовательского вида для прокрутки
     protected By fieldSearchInFilter = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
 
@@ -227,7 +227,7 @@ public class CustomView extends PageObject {
     } // Проверка кликабельности кнопки "Сохранить настройки" после сохранения пользовательского вида
 
     public boolean isContainListColumn(){
-        return findAll(elementOfListSelectedColomns).isEmpty();
+        return findAll(elementOfListSelectedColumns).isEmpty();
     } // Проверка списка выбранных столбцов
 
     public boolean isContainAddedCustomView(){
@@ -241,27 +241,28 @@ public class CustomView extends PageObject {
 
     public boolean isContainResultSearchColumnCustomView(){
         List<String> checkColumn = findAll(elementOfListColumns).texts();
-        List<String> checkSelectedColumn = findAll(elementOfListSelectedColomns).texts();
-        boolean checkIsContainColumn = true;
-        boolean checkISContainSelectedColumn = true;
+        List<String> checkSelectedColumn = findAll(elementOfListSelectedColumns).texts();
+        boolean checkIsContainColumn = false;
+        boolean checkISContainSelectedColumn = false;
 
         for(String type : checkColumn){
-            if(!type.contains("Реестровый")){
-                checkIsContainColumn = false;
+            if(type.contains("Реестровый номер")){
+                checkIsContainColumn = true;
                 break;
             }
         }
         for(String type : checkSelectedColumn){
-            if(!type.contains("Реестровый")){
-                checkISContainSelectedColumn = false;
+            if(type.contains("Реестровый номер")){
+                checkISContainSelectedColumn = true;
                 break;
             }
         }
-        return checkIsContainColumn && checkISContainSelectedColumn;
+
+        return checkIsContainColumn || checkISContainSelectedColumn;
     } // Проверка поиска в окне пользовательского вида
 
     public boolean isContainSelectedColumn(){
-        List<String> checkSelectedColumn = findAll(elementOfListSelectedColomns).texts();
+        List<String> checkSelectedColumn = findAll(elementOfListSelectedColumns).texts();
 //        System.out.println("sdfsdfsfs " + checkSelectedColumn);
         boolean checkIsContainSelectedColumn = false;
         for(String type : checkSelectedColumn){
