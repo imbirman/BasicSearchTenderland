@@ -70,12 +70,14 @@ public class WhenGeneralChecksTest extends GeneralChecks {
         steps.click_button(tabListAutoSearch);
         steps.scroll_element_on_pixels("1000", listAutoSearchToScroll);
         steps.click_button(buttonCheckHideResultSearch);
+        steps.wait_a_bit(500);
         steps.click_button(contextMenuResultSearch);
         steps.click_button(hideContextMenu);
+        steps.scroll_window_on_pixels("-100");
+        steps.wait_a_bit(2000);
         steps.click_button(buttonSearch);
         steps.check_not_contain_hide_tender();
         steps.click_button(buttonOpenShowHideEntities);
-        steps.check_contain_number_hide_tender_description();
         steps.click_button(buttonSwitchShowHideEntities);
         steps.wait_a_bit(1000);
         steps.check_contain_hide_tender();

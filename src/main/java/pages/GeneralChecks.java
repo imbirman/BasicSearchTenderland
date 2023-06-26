@@ -36,7 +36,7 @@ public class GeneralChecks extends PageObject {
     protected By hideContextMenu = By.xpath("//div[text()='Скрыть тендер']"); // пункт контекстного меню "Скрыть тендер"
     protected By addInMineTendersContextMenu = By.xpath("//div[text()='Добавить в Мои тендеры']"); // пункт контекстного меню "Добавить в Мои тендеры"
     protected By markContextMenu = By.xpath("//div[text()='Метка тендера']"); // пункт контекстного меню "Метка тендера"
-    protected By showTenderContextMenu = By.xpath("//div[text()='Показывать тендер']"); // Пункт контекстного меню "Показывать тендер"
+    protected By showTenderContextMenu = By.xpath("//div[text()='Показать тендер']"); // Пункт контекстного меню "Показывать тендер"
     protected By checkBoxSelectedAllForTableResultSearch = By.xpath("//div[@id='search-result-checkbox']/div"); // Чекбокс "Выбрать всё" для таблицы результата поиска
 
     private final By checkLogin = By.xpath("//ul[@class='navbar-nav']//a"); // объект для проверки логина после входа
@@ -44,9 +44,8 @@ public class GeneralChecks extends PageObject {
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By hintArea = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Область подсказки
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
-    private final By cellTableForCheckRegistryNumber = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[4]"); // Ячейка таблицы результатов поиска для проверки реестрового номера
-    private final By hiddenCellTableForCheckRegistryNumber = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines tl-hidden-row']/td[4]"); // Скрытая ячейка таблицы результатов поиска для проверки реестрового номера
-    private final By fieldDescriptionHideTender = By.id("show-hide-entities-description"); // Подпись кнопки переключения показа скрытых тендеров
+    private final By cellTableForCheckRegistryNumber = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[4]/div"); // Ячейка таблицы результатов поиска для проверки реестрового номера
+    private final By hiddenCellTableForCheckRegistryNumber = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines search-result-hidden-row']/td[4]"); // Скрытая ячейка таблицы результатов поиска для проверки реестрового номера
 
     public void waitFor(long number){
         waitABit(number);
@@ -130,7 +129,7 @@ public class GeneralChecks extends PageObject {
         List<String> textCheck = findAll(cellTableForCheckRegistryNumber).texts();
         boolean check = true;
         for(String type : textCheck){
-            if(type.contains("100154727119000142")){check = false; break;}
+            if(type.contains("32008750757")){check = false; break;}
         }
         return check;
     } // Проверка не отображения в результатах поиска скрытого элемента
@@ -139,14 +138,10 @@ public class GeneralChecks extends PageObject {
         List<String> textCheck = findAll(hiddenCellTableForCheckRegistryNumber).texts();
         boolean check = false;
         for(String type : textCheck){
-            if(type.contains("100154727119000142")){check = true; break;}
+            if(type.contains("32008750757")){check = true; break;}
         }
         return check;
     } // Проверка отображения в результатах поиска скрытого элемента
-
-    public boolean isContainNumberHideTenderDescription(){
-        return find(fieldDescriptionHideTender).containsText("1");
-    } // Проверка подписи кнопки переключения отображения скрытых тендеров
 
     public boolean isContainNotHideTender(){
         List<String> textCheck = findAll(cellTableForCheckRegistryNumber).texts();

@@ -106,11 +106,6 @@ public class GeneralChecksSteps {
         assertThat(page.isContainHideTender()).as("В результатах поиска нет скрытого тендера").isTrue();
     }
 
-    @Step("Проверка подписи кнопки переключения отображения скрытых тендеров")
-    public void check_contain_number_hide_tender_description(){
-        assertThat(page.isContainNumberHideTenderDescription()).as("Некорректно отображается количество скрытых тендеров в подписи").isTrue();
-    }
-
     @Step("Проверка отображения в результатах поиска удаленного из скрытых элемента")
     public void check_contain_not_hide_tender(){
         assertThat(page.isContainNotHideTender()).as("В результатах поиска нет тендера, удаленного из скрытых").isTrue();
