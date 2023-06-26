@@ -90,6 +90,7 @@ public class WhenGeneralChecksTest extends GeneralChecks {
         steps.click_button(tabListAutoSearch);
         steps.scroll_element_on_pixels("1000", listAutoSearchToScroll);
         steps.click_button(buttonCheckHideResultSearch);
+        steps.wait_a_bit(500);
         steps.click_button(contextMenuResultSearch);
         steps.click_button(hideContextMenu);
         steps.click_button(buttonOpenShowHideEntities);

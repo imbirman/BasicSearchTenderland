@@ -21,7 +21,7 @@ public class GeneralChecks extends PageObject {
     protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//div[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка поиска по названию тендера и исключению из названия"
     protected By buttonCheckHideResultSearch = By.xpath("//div[text()='Проверка скрытия результатов поиска']"); // Кнопка автопоиска "Проверка скрытия результатов поиска"
     protected By buttonSearch = By.id("search-filters-search-button"); // Кнопка "Поиск"
-    protected By buttonOpenShowHideEntities = By.id("show-hide-entities-button"); // Кнопка открытия окна для отображения скрытых результатов поиска
+    protected By buttonOpenShowHideEntities = By.id("search-panel-hidden-entities"); // Кнопка открытия окна для отображения скрытых результатов поиска
     protected By buttonSwitchShowHideEntities = By.id("show-hide-entities-swith"); // Кнопка смены отображения скрытых результатов поиска
     protected By buttonOpenHiddenDataControl = By.xpath("//a[@class='tl-highlite-link']"); // Открыть "Управление скрытыми данными"
     protected By buttonDeleteHiddenTender = By.xpath("//a[@title='Удалить']"); // Кнопка "Удалить" в окне управления скрытыми данными
