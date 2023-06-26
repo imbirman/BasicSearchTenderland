@@ -115,4 +115,9 @@ public class GeneralChecksSteps {
     public void check_not_selected_checkbox_selected_all_for_result_search(){
         assertThat(page.isNotSelectedCheckBoxSelectedAllForResultSearch()).as("Чекбокс 'Выбрать всё' выбран").isFalse();
     }
+
+    @Step("Проверка отображения счетчика выбранных тендеров в поиске")
+    public void check_displayed_selection_counter(){
+        assertThat(page.isDisplayedSelectionCounter()).as("Счетчик выбранных тендеров в поиске не отображается").isTrue();
+    }
 }

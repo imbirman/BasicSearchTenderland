@@ -119,4 +119,15 @@ public class WhenGeneralChecksTest extends GeneralChecks {
         steps.check_not_selected_checkbox_selected_all_for_result_search();
     }
 
+    @Test
+    @Title("Проверка отображения счетчика выбранных тендеров в результате поиска")
+    public void check_displayed_selection_counter_in_result_search(){
+        steps.click_button(tabListAutoSearch);
+        steps.scroll_element_on_pixels("1000", listAutoSearchToScroll);
+        steps.click_button(buttonCheckHideResultSearch);
+        steps.wait_a_bit(500);
+        steps.click_button(checkBoxSelectedAllForTableResultSearch);
+        steps.check_displayed_selection_counter();
+    }
+
 }

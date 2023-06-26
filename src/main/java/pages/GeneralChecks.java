@@ -46,6 +46,8 @@ public class GeneralChecks extends PageObject {
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
     private final By cellTableForCheckRegistryNumber = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[4]/div"); // Ячейка таблицы результатов поиска для проверки реестрового номера
     private final By hiddenCellTableForCheckRegistryNumber = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines search-result-hidden-row']/td[4]"); // Скрытая ячейка таблицы результатов поиска для проверки реестрового номера
+    private final By selectionCounter = By.id("search-panel-selection-counter"); // Пометка количества выбранных тендеров
+
 
     public void waitFor(long number){
         waitABit(number);
@@ -155,5 +157,9 @@ public class GeneralChecks extends PageObject {
     public boolean isNotSelectedCheckBoxSelectedAllForResultSearch(){
         return find(checkBoxSelectedAllForTableResultSearch).isSelected();
     }// Проверка чекбокса 'Выбрать всё' для результатов поиска после нажатия на кнопку 'Очистить поле'
+
+    public boolean isDisplayedSelectionCounter(){
+        return find(selectionCounter).isDisplayed();
+    } // Проверка отображения счетчика выбранных тендеров в поиске
 
 }

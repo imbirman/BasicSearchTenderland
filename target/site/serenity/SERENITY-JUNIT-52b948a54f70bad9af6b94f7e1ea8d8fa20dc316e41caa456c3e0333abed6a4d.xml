@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenGeneralChecksTest" skipped="0" tests="1" time="52.52" timestamp="2023-06-26 03:00:40"><testcase classname="testpackage.WhenGeneralChecksTest" name="Проверка отображения счетчика выбранных тендеров в результате поиска"/></testsuite>
