@@ -38,7 +38,7 @@ public class MyTenders extends PageObject {
 
     protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
-    protected By buttonSearch = By.id("search-button"); // Кнопка поиска
+    protected By buttonSearch = By.id("search-filters-search-button"); // Кнопка поиска
     protected By buttonTabMenuMyTenders = By.xpath("//div[@id='main-menu-list']//div[text()='Мои тендеры']"); // Кнопка в боковом меню "Мои тендеры"
     protected By buttonInAutoSearchListCheckMyTenders = By.xpath("//div[text()='Проверка моих тендеров']"); // Автопоиск "Проверка моих тендеров"
     protected By buttonCloseCardTender = By.xpath("//i[@class='dx-icon dx-icon-close']"); // Кнопка закрытия карточки тендера

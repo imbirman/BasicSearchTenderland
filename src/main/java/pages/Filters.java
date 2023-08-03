@@ -16,7 +16,7 @@ import java.util.List;
 public class Filters extends PageObject {
 
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
-    protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
+    protected By openTabMenu = By.xpath("//i[@class='material-icons-round icon-28px icon-grey md-menu icon-grey-hover common-header-icon']"); // Кнопка открытия бокового меню
 
     protected By listFilters = By.xpath("//div[@id='list-tenders-filters-group']//div[@class='dx-scrollable-container']"); // Блок фильтров для прокрутки
 

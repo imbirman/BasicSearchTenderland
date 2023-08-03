@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="testpackage.TestAuditor" skipped="0" tests="1" time="51.15" timestamp="2023-08-02 11:14:29"><testcase classname="testpackage.TestAuditor" name="Проверка названия окна списка арбитражных дел"><failure message="Expected enabled element was not enabled" type="net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException">Expected enabled element was not enabled</failure><system-err>Expected enabled element was not enabled&#13;
-pages.Auditor.clickButton(Auditor.java:75)&#13;
-steps.AuditorSteps.click_button(AuditorSteps.java:25)&#13;
-testpackage.TestAuditor.beforeMethod(TestAuditor.java:33)&#13;
-</system-err></testcase></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.TestAuditor" skipped="0" tests="1" time="42.01" timestamp="2023-08-03 02:25:19"><testcase classname="testpackage.TestAuditor" name="Проверка названия окна списка арбитражных дел"/></testsuite>

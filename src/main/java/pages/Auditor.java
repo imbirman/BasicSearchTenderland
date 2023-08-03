@@ -16,13 +16,13 @@ import java.util.List;
 public class Auditor extends PageObject {
 
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"
-    protected By openTabMenu = By.id("tl-main-nav"); // Кнопка открытия бокового меню
+    protected By openTabMenu = By.xpath("//i[@class='material-icons-round icon-28px icon-grey md-menu icon-grey-hover common-header-icon']"); // Кнопка открытия бокового меню
 
     protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
     protected By buttonApply = By.id("filter-apply-button"); // Кнопка "Применить"
     protected By buttonReset = By.id("filter-cancel-button"); // Кнопка "Сбросить"
-    protected By buttonSearch = By.id("search-button"); // Кнопка "Поиск"
+    protected By buttonSearch = By.id("search-filters-search-button"); // Кнопка "Поиск"
     protected By buttonTabMenuAuditor = By.xpath("//div[text()='Ревизор']"); // Кнопка открытия ревизора
     protected By buttonAutoSearchDateRegistration = By.xpath("//span[text()='Проверка поиска по дате регистрации']"); // Кнопка автопоиска "Проверка поиска по дате регистрации"
     protected By buttonAutoSearchDateClosing = By.xpath("//span[text()='Проверка поиска по дате закрытия']"); // Кнопка автопоиска "Проверка поиска по дате закрытия"
@@ -31,8 +31,8 @@ public class Auditor extends PageObject {
     protected By buttonOpenListFASClaim  =By.id("entity-all-fas-organizations"); // Кнопка для открытия списка жалоб ФАС
     protected By buttonOpenListEnforcementProceedings = By.id("entity-all-enforcement-proceedings"); // Кнопка для открытия списка исполнительных производств
     protected By buttonOpenListContracts = By.id("entity-all-contracts-organizations"); // Кнопка для открытия списка контрактов
-    protected By buttonOpenListArbitrationCases = By.id("entity-all-cases"); // Кнопка для открытия списка арбитражных дел
-    protected By buttonOpenListArbitrationCasesOnAffiliates = By.id("entity-affilated-cases-affilation"); // Кнопка для открытия списка арбитражных дел по аффилированным лицам
+    protected By buttonOpenListArbitrationCases = By.id("entity-cases-organizations"); // Кнопка для открытия списка арбитражных дел
+    protected By buttonOpenListArbitrationCasesOnAffiliates = By.id("entity-affilated-cases-organizations"); // Кнопка для открытия списка арбитражных дел по аффилированным лицам
 
     protected By filterOrganizationDetails = By.xpath("//span[text()='Реквизиты организации']"); // Фильтр "Реквизиты организации" в блоке фильтров
     protected By filterSearchByFounders = By.xpath("//span[text()='Поиск по учредителям']"); // Фильтр "Поиск по учредителям" в блоке фильтров
@@ -54,7 +54,7 @@ public class Auditor extends PageObject {
     protected By fieldMainDataForScroll = By.xpath("//div[@class='tl-page']"); // Блок с основной информацией для прокрутки
     protected By headerBlockMainInfo = By.xpath("//div[@id='main-info-blocks']//div[@class='tl-entity-blocks-header']"); // Заголовок блока с основной информацией
     protected By headerBlockTendersInfo = By.xpath("//div[@id='tender-info-blocks']//div[@class='tl-entity-blocks-header']"); // Заголовок блока с тендерной информацией
-    protected By headerBlockArbitrationInfo = By.xpath("//div[@id='cases-info-blocks']//div[@class='tl-entity-blocks-header']"); // Заголовок блока с арбитражной информацией
+    protected By headerBlockArbitrationInfo = By.xpath("(//div[@id='entity-menu']//div[@class='dx-item dx-list-item'])[3]"); // Заголовок блока с арбитражной информацией
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля

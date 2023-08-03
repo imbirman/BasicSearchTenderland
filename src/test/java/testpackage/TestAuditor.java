@@ -279,7 +279,7 @@ public class TestAuditor extends Auditor {
         steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.wait_a_bit(500);
-        steps.click_button(headerBlockMainInfo);
+        steps.click_button(headerBlockArbitrationInfo);
         steps.click_button(buttonOpenListEnforcementProceedings);
         steps.check_name_window_enforcement_proceedings();
     }
@@ -314,8 +314,7 @@ public class TestAuditor extends Auditor {
         steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.wait_a_bit(500);
-        steps.click_button(headerBlockMainInfo);
-        steps.scroll_down_to(fieldMainDataForScroll);
+        steps.click_button(headerBlockArbitrationInfo);
         steps.click_button(buttonOpenListArbitrationCases);
         steps.check_name_window_arbitration_cases();
     }
@@ -332,8 +331,7 @@ public class TestAuditor extends Auditor {
         steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.wait_a_bit(500);
-        steps.click_button(headerBlockMainInfo);
-        steps.scroll_down_to(fieldMainDataForScroll);
+        steps.click_button(headerBlockArbitrationInfo);
         steps.click_button(buttonOpenListArbitrationCasesOnAffiliates);
         steps.check_name_window_arbitration_cases_on_affiliates();
     }
