@@ -289,15 +289,15 @@ public class TestAuditor extends Auditor {
     public void checkNameWindowContracts(){
         steps.drag_and_drop_filter(filterOrganizationDetails);
         steps.wait_a_bit(500);
-        steps.type_search_include("2801102311");
+        steps.type_search_include("7017311832");
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(500);
         steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.wait_a_bit(500);
-        steps.click_button(headerBlockMainInfo);
-        steps.scroll_down_to(fieldMainDataForScroll);
+        steps.click_button(headerBlockTendersInfo);
+        steps.scroll_window_on_pixels("500");
         steps.click_button(buttonOpenListContracts);
         steps.check_name_window_contracts();
     }

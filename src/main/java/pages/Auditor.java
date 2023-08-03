@@ -53,7 +53,7 @@ public class Auditor extends PageObject {
     protected By elementContextMenu = By.xpath("//div[@class='dx-submenu']//div[@class='dx-item dx-menu-item']//div[@class='favourite-kanban-context-menu-item']"); // Элемент контекстного меню
     protected By fieldMainDataForScroll = By.xpath("//div[@class='tl-page']"); // Блок с основной информацией для прокрутки
     protected By headerBlockMainInfo = By.xpath("//div[@id='main-info-blocks']//div[@class='tl-entity-blocks-header']"); // Заголовок блока с основной информацией
-    protected By headerBlockTendersInfo = By.xpath("//div[@id='tender-info-blocks']//div[@class='tl-entity-blocks-header']"); // Заголовок блока с тендерной информацией
+    protected By headerBlockTendersInfo = By.xpath("(//div[@id='entity-menu']//div[@class='dx-item dx-list-item'])[2]"); // Заголовок блока с тендерной информацией
     protected By headerBlockArbitrationInfo = By.xpath("(//div[@id='entity-menu']//div[@class='dx-item dx-list-item'])[3]"); // Заголовок блока с арбитражной информацией
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
@@ -113,6 +113,12 @@ public class Auditor extends PageObject {
         ((JavascriptExecutor)getDriver()).executeScript(
                 "arguments[0].scrollTop = -1 >>> 1", find(scroll));
     } // Прокрутить содержимое элемента вниз
+
+    public Auditor scrollWindowOnPixels(String number){
+        ((JavascriptExecutor)getDriver()).executeScript(
+                "window.scrollBy(0," + number + ")");
+        return this;
+    } // Прокрутить окно на заданное количество пикселей
 
     public String getNameWindowBlock(){
         return find(nameWindowBlock).getText();

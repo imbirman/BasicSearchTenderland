@@ -55,6 +55,11 @@ public class AuditorSteps {
         page.scrollDownTo(scroll);
     }
 
+    @Step("Прокрутить окно на заданное количество пикселей")
+    public void scroll_window_on_pixels(String number){
+        page.scrollWindowOnPixels(number);
+    }
+
     @Step("Ввод логина")
     public void type_login(String mail){
         page.typeLogin(mail);
