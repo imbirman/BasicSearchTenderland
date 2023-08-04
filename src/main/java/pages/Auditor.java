@@ -64,7 +64,7 @@ public class Auditor extends PageObject {
     private final By legalData = By.xpath("(//div[@class='tl-entity-param'])[3]//div[@class='tl-entity-parameter-value']"); // Юридические данные организации
     private final By parameterLocatedInRNP = By.xpath("//div[text()='В настоящий момент находится в реестре']/following::div[1]"); // В разделе РНП поле находится ли организация в настоящий момент в РНП
     private final By parameterTotalEntriesInRegistry = By.xpath("//div[text()='Всего записей в реестре']/following::div[1]"); // В разделе РНП поле "Всего записей в реестре"
-    private final By nameWindowBlock = By.xpath("//div[@class='dx-item dx-toolbar-item dx-toolbar-label']/div[@class='dx-item-content dx-toolbar-item-content']/div"); // Название окна блока с учредителями
+    private final By nameWindowBlock = By.xpath("//div[@class='entity-block']//div[@class='entity-block-header']"); // Название окна блока с учредителями
 
 
     public void waitFor(long number){
