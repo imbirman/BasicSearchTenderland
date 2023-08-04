@@ -255,14 +255,15 @@ public class TestAuditor extends Auditor {
     public void checkNameWindowFASClaim(){
         steps.drag_and_drop_filter(filterOrganizationDetails);
         steps.wait_a_bit(500);
-        steps.type_search_include("2801102311");
+        steps.type_search_include("7017311832");
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(500);
         steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.wait_a_bit(500);
-        steps.click_button(headerBlockMainInfo);
+        steps.click_button(headerBlockTendersInfo);
+        steps.scroll_window_on_pixels("600");
         steps.click_button(buttonOpenListFASClaim);
         steps.check_name_window_fas_claim();
     }
@@ -272,7 +273,7 @@ public class TestAuditor extends Auditor {
     public void checkNameWindowEnforcementProceeding(){
         steps.drag_and_drop_filter(filterOrganizationDetails);
         steps.wait_a_bit(500);
-        steps.type_search_include("2801102311");
+        steps.type_search_include("7017311832");
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(500);
@@ -307,7 +308,7 @@ public class TestAuditor extends Auditor {
     public void checkNameWindowArbitrationCases(){
         steps.drag_and_drop_filter(filterOrganizationDetails);
         steps.wait_a_bit(500);
-        steps.type_search_include("2801102311");
+        steps.type_search_include("7017311832");
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(500);
@@ -324,7 +325,7 @@ public class TestAuditor extends Auditor {
     public void checkNameWindowArbitrationCasesOnAffiliates(){
         steps.drag_and_drop_filter(filterOrganizationDetails);
         steps.wait_a_bit(500);
-        steps.type_search_include("2801102311");
+        steps.type_search_include("7017311832");
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(500);
