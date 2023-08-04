@@ -26,7 +26,7 @@ public class Auditor extends PageObject {
     protected By buttonTabMenuAuditor = By.xpath("//div[text()='Ревизор']"); // Кнопка открытия ревизора
     protected By buttonAutoSearchDateRegistration = By.xpath("//span[text()='Проверка поиска по дате регистрации']"); // Кнопка автопоиска "Проверка поиска по дате регистрации"
     protected By buttonAutoSearchDateClosing = By.xpath("//span[text()='Проверка поиска по дате закрытия']"); // Кнопка автопоиска "Проверка поиска по дате закрытия"
-    protected By buttonOpenListFounders = By.id("entity-all-persons-organizations"); // Кнопка для открытия списка учредителей
+    protected By buttonOpenListFounders = By.id("entity-persons-popover"); // Кнопка для открытия списка учредителей
     protected By buttonOpenListAllTenders = By.id("entity-all-tenders"); // Кнопка для открытия списка тендеров
     protected By buttonOpenListFASClaim  =By.id("entity-all-fas-organizations"); // Кнопка для открытия списка жалоб ФАС
     protected By buttonOpenListEnforcementProceedings = By.id("entity-all-enforcement-proceedings"); // Кнопка для открытия списка исполнительных производств
@@ -60,7 +60,7 @@ public class Auditor extends PageObject {
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
     private final By fieldSearchInclude = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска "Включаем в поиск"
-    private final By nameFounders = By.xpath("//div[@class='dx-popup-content']//div[@class='dx-datagrid-content']//tr/td[1]"); // ФИО учредителя
+    private final By nameFounders = By.xpath("//div[@class='entity-organization-person']//div[@class='main-bold-text'][1]"); // ФИО учредителя
     private final By legalData = By.xpath("(//div[@class='tl-entity-param'])[3]//div[@class='tl-entity-parameter-value']"); // Юридические данные организации
     private final By parameterLocatedInRNP = By.xpath("//div[text()='В настоящий момент находится в реестре']/following::div[1]"); // В разделе РНП поле находится ли организация в настоящий момент в РНП
     private final By parameterTotalEntriesInRegistry = By.xpath("//div[text()='Всего записей в реестре']/following::div[1]"); // В разделе РНП поле "Всего записей в реестре"
@@ -251,11 +251,10 @@ public class Auditor extends PageObject {
 
     public boolean isCorrectNameFounders(){
         List<String> listFounders = findAll(nameFounders).texts();
-        listFounders.remove(listFounders.size()-1);
+//        listFounders.remove(listFounders.size()-1);
         List<String> checkFounders = new ArrayList<>();
-        checkFounders.add("ПЕРЕВАЛОВ ВЛАДИМИР ВИКТОРОВИЧ");
         checkFounders.add("ДЕГОДЬЕВА ВЕРА ВАСИЛЬЕВНА");
-        checkFounders.add("КОВАЛЕНКО ЛЮДМИЛА ПАВЛОВНА");
+        checkFounders.add("ПЕРЕВАЛОВ ВЛАДИМИР ВИКТОРОВИЧ");
 
         return listFounders.equals(checkFounders);
     }

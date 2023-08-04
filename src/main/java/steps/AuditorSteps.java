@@ -177,7 +177,7 @@ public class AuditorSteps {
 
     @Step("Проверка списка учредителей")
     public  void check_correct_name_founders(){
-        Assertions.assertThat(page.isCorrectNameFounders()).as("Список ").isTrue();
+        Assertions.assertThat(page.isCorrectNameFounders()).as("Список учредителей некорректен").isTrue();
     }
 
 }
