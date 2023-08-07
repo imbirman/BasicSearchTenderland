@@ -175,7 +175,9 @@ public class Auditor extends PageObject {
 
     public boolean isNeverBeenInRNP(){
         int checkTotalEntriesInRegistry;
-        checkTotalEntriesInRegistry = Integer.parseInt(find(parameterTotalEntriesInRegistry).getText());
+        String parameterToCheck = find(parameterTotalEntriesInRegistry).getText();
+        if(parameterToCheck.equals("-")){ checkTotalEntriesInRegistry = 0;}else{
+        checkTotalEntriesInRegistry = Integer.parseInt(find(parameterTotalEntriesInRegistry).getText());}
         return checkTotalEntriesInRegistry == 0 && find(parameterLocatedInRNP).getText().equals("Не находится в реестре недобросовестных поставщиков");
     } // Проверка, что организация никогда не была в РНП
 
