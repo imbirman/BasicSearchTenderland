@@ -24,8 +24,8 @@ public class Auditor extends PageObject {
     protected By buttonReset = By.id("filter-cancel-button"); // Кнопка "Сбросить"
     protected By buttonSearch = By.id("search-filters-search-button"); // Кнопка "Поиск"
     protected By buttonTabMenuAuditor = By.xpath("//div[text()='Ревизор']"); // Кнопка открытия ревизора
-    protected By buttonAutoSearchDateRegistration = By.xpath("//span[text()='Проверка поиска по дате регистрации']"); // Кнопка автопоиска "Проверка поиска по дате регистрации"
-    protected By buttonAutoSearchDateClosing = By.xpath("//span[text()='Проверка поиска по дате закрытия']"); // Кнопка автопоиска "Проверка поиска по дате закрытия"
+    protected By buttonAutoSearchDateRegistration = By.xpath("//div[text()='Проверка поиска по дате регистрации']"); // Кнопка автопоиска "Проверка поиска по дате регистрации"
+    protected By buttonAutoSearchDateClosing = By.xpath("//div[text()='Проверка поиска по дате закрытия']"); // Кнопка автопоиска "Проверка поиска по дате закрытия"
     protected By buttonOpenListFounders = By.id("entity-persons-popover"); // Кнопка для открытия списка учредителей
     protected By buttonOpenListAllTenders = By.id("entity-all-tenders"); // Кнопка для открытия списка тендеров
     protected By buttonOpenListFASClaim  =By.id("entity-all-fas-organizations"); // Кнопка для открытия списка жалоб ФАС
