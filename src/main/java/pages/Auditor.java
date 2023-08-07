@@ -232,12 +232,12 @@ public class Auditor extends PageObject {
         boolean check = true;
         List<Boolean> listClickable = new ArrayList<>();
         listClickable.add(find(buttonOpenListFounders).isClickable());
-        clickButton(headerBlockMainInfo);
+        scrollWindowOnPixels("600");
         listClickable.add(find(buttonOpenListAllTenders).isClickable());
+        scrollWindowOnPixels("600");
+        listClickable.add(find(buttonOpenListContracts).isClickable());
         listClickable.add(find(buttonOpenListFASClaim).isClickable());
         listClickable.add(find(buttonOpenListEnforcementProceedings).isClickable());
-        scrollDownTo(fieldMainDataForScroll);
-        listClickable.add(find(buttonOpenListContracts).isClickable());
         listClickable.add(find(buttonOpenListArbitrationCases).isClickable());
         listClickable.add(find(buttonOpenListArbitrationCasesOnAffiliates).isClickable());
         System.out.println(listClickable);

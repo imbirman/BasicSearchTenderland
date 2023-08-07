@@ -188,11 +188,11 @@ public class TestAuditor extends Auditor {
     }
 
     @Test
-    @Title("Проверка кликабельности кнопок в блоках")
+    @Title("Проверка кликабельности основных кнопок")
     public void checkClickableButtonsInBlocks(){
         steps.drag_and_drop_filter(filterOrganizationDetails);
         steps.wait_a_bit(500);
-        steps.type_search_include("2801102311");
+        steps.type_search_include("7017311832");
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.wait_a_bit(500);
