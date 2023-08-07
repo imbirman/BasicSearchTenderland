@@ -58,6 +58,7 @@ public class TestAuditor extends Auditor {
 //        steps.wait_a_bit(500);
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
+        steps.wait_a_bit(500);
         steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.click_button(buttonOpenListFounders);
@@ -72,13 +73,12 @@ public class TestAuditor extends Auditor {
         steps.drag_and_drop_filter(filterSearchByLegalStatus);
         steps.wait_a_bit(500);
         steps.click_button(radioButtonCurrentLegalStatus);
-//        steps.wait_a_bit(500);
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
+        steps.wait_a_bit(1000);
         steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.check_search_by_current_legal_status();
-//        steps.wait_a_bit(5000);
     }
 
     @Test
