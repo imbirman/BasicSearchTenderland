@@ -49,8 +49,8 @@ public class Auditor extends PageObject {
     protected By radioButtonFormerlyInRNP = By.xpath("(//div[@class='dx-radiobutton-icon'])[2]"); // Ранее находился в РНП
     protected By radioButtonLocatedInRNP = By.xpath("(//div[@class='dx-radiobutton-icon'])[3]"); // Находится в РНП
 
-    protected By contextMenu = By.xpath("//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Контекстное меню в таблице результатов поиска
-    protected By elementContextMenu = By.xpath("//div[@class='dx-submenu']//div[@class='dx-item dx-menu-item']//div[@class='favourite-kanban-context-menu-item']"); // Элемент контекстного меню
+    protected By contextMenu = By.xpath("//td[@class='dx-command-edit dx-command-edit-with-icons']//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Контекстное меню в таблице результатов поиска
+    protected By elementContextMenu = By.xpath("//div[@class='dx-submenu']//div[@class='dx-item dx-menu-item']/div/div"); // Элемент контекстного меню
     protected By fieldMainDataForScroll = By.xpath("//div[@class='tl-page']"); // Блок с основной информацией для прокрутки
     protected By headerBlockMainInfo = By.xpath("//div[@id='main-info-blocks']//div[@class='tl-entity-blocks-header']"); // Заголовок блока с основной информацией
     protected By headerBlockTendersInfo = By.xpath("(//div[@id='entity-menu']//div[@class='dx-item dx-list-item'])[2]"); // Заголовок блока с тендерной информацией
@@ -200,9 +200,8 @@ public class Auditor extends PageObject {
 
         List <String> checkElementsContextMenu = new ArrayList<>();
         checkElementsContextMenu.add("Скрыть организацию");
-        checkElementsContextMenu.add("Метка организации");
-        checkElementsContextMenu.add("Отметить как просмотренные");
-        checkElementsContextMenu.add("Скачать документацию");
+        checkElementsContextMenu.add("Назначить метку");
+        checkElementsContextMenu.add("Отметить просмотренным");
 
         return listElementsContextMenu.equals(checkElementsContextMenu);
     } // Проверка списка элементов контекстного меню
