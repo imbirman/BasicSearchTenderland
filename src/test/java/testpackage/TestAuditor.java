@@ -143,9 +143,8 @@ public class TestAuditor extends Auditor {
         steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.wait_a_bit(500);
-        steps.scroll_down_to(fieldMainDataForScroll);
+        steps.scroll_window_on_pixels("400");
         steps.check_organization_formerly_been_in_rnp();
-//        steps.wait_a_bit(5000);
     }
 
     @Test

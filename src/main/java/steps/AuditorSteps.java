@@ -114,7 +114,7 @@ public class AuditorSteps {
     @Step("Проверка, что организация была раньше в РНП")
     public void check_organization_formerly_been_in_rnp(){
         Assertions.assertThat(page.isFormerlyBeenInRNP())
-                .as("организация либо была никогда не была в РНП, либо находится в текущее время").isTrue();
+                .as("организация либо никогда не была в РНП, либо находится в текущее время, либо некорректные записи в реестре").isTrue();
     }
 
     @Step("Проверка, что организация находится в РНП")
