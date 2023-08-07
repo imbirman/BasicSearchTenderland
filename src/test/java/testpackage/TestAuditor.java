@@ -154,11 +154,12 @@ public class TestAuditor extends Auditor {
         steps.drag_and_drop_filter(filterSearchByStatusOfBeingInRNP);
         steps.click_button(radioButtonLocatedInRNP);
         steps.click_button(openTabMenu);
+        steps.click_button(buttonSearch);
         steps.wait_a_bit(1000);
         steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.wait_a_bit(500);
-        steps.scroll_down_to(fieldMainDataForScroll);
+        steps.scroll_window_on_pixels("400");
         steps.check_organization_located_in_rnp();
 //        steps.wait_a_bit(5000);
     }

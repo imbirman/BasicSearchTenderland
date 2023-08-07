@@ -62,7 +62,7 @@ public class Auditor extends PageObject {
     private final By fieldSearchInclude = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска "Включаем в поиск"
     private final By nameFounders = By.xpath("//div[@class='entity-organization-person']//div[@class='main-bold-text'][1]"); // ФИО учредителя
     private final By legalData = By.xpath("(//div[@class='tl-entity-param'])[3]//div[@class='tl-entity-parameter-value']"); // Юридические данные организации
-    private final By parameterLocatedInRNP = By.xpath("//div[text()='В настоящий момент находится в реестре']/following::div[1]"); // В разделе РНП поле находится ли организация в настоящий момент в РНП
+    private final By parameterLocatedInRNP = By.xpath("//div[contains(text(), 'РНП')]//div[1]"); // Пометка находится ли организация в настоящий момент в РНП
     private final By parameterTotalEntriesInRegistry = By.xpath("//div[text()='Всего записей в реестре']/following::div[1]"); // В разделе РНП поле "Всего записей в реестре"
     private final By nameWindowBlock = By.xpath("//div[@class='entity-block']//div[@class='entity-block-header']"); // Название окна блока с учредителями
 
@@ -188,7 +188,7 @@ public class Auditor extends PageObject {
     public boolean isLocatedInRNP(){
         int checkTotalEntriesInRegistry;
         checkTotalEntriesInRegistry = Integer.parseInt(find(parameterTotalEntriesInRegistry).getText());
-        return checkTotalEntriesInRegistry != 0 && find(parameterLocatedInRNP).getText().equals("ДА");
+        return checkTotalEntriesInRegistry != 0 && find(parameterLocatedInRNP).getText().equals("Находится в реестре недобросовестных поставщиков");
     } // Проверка, что организация находится в РНП
 
     public boolean isCorrectNumberElementsContextMenu(){
