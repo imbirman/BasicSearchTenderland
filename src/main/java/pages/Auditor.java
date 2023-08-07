@@ -61,7 +61,7 @@ public class Auditor extends PageObject {
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
     private final By fieldSearchInclude = By.xpath("//textarea[@class='dx-texteditor-input dx-texteditor-input-auto-resize']"); // Поле поиска "Включаем в поиск"
     private final By nameFounders = By.xpath("//div[@class='entity-organization-person']//div[@class='main-bold-text'][1]"); // ФИО учредителя
-    private final By legalData = By.xpath("(//div[@class='tl-entity-param'])[3]//div[@class='tl-entity-parameter-value']"); // Юридические данные организации
+    private final By organizationStatus = By.xpath("(//span[@class='header-info-block-value'])[1]"); // Статус организации
     private final By parameterLocatedInRNP = By.xpath("//div[contains(text(), 'РНП')]//div[1]"); // Пометка находится ли организация в настоящий момент в РНП
     private final By parameterTotalEntriesInRegistry = By.xpath("//div[text()='Всего записей в реестре']/following::div[1]"); // В разделе РНП поле "Всего записей в реестре"
     private final By nameWindowBlock = By.xpath("//div[@class='entity-block']//div[@class='entity-block-header']"); // Название окна блока с учредителями
@@ -150,27 +150,11 @@ public class Auditor extends PageObject {
     } // Проверка, что наименование учредителя включает ключевое слово
 
     public boolean isContainCurrentLegalData(){
-        List<String> checkLegalData = findAll(legalData).texts();
-        boolean checkIsLegalData = false;
-        for(String type : checkLegalData){
-            if(type.contains("Действующая")){
-                checkIsLegalData = true;
-                break;
-            }
-        }
-        return checkIsLegalData;
+        return find(organizationStatus).getText().equals("Действующая");
     } // Проверка, что организация действующая
 
     public boolean isContainInactiveLegalData(){
-        List<String> checkLegalData = findAll(legalData).texts();
-        boolean checkIsLegalData = false;
-        for(String type : checkLegalData){
-            if(type.contains("Недействующая")){
-                checkIsLegalData = true;
-                break;
-            }
-        }
-        return checkIsLegalData;
+        return find(organizationStatus).getText().equals("Недействующая");
     } // Проверка, что организация недействующая
 
     public boolean isNeverBeenInRNP(){

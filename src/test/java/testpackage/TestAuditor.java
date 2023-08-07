@@ -87,13 +87,11 @@ public class TestAuditor extends Auditor {
         steps.drag_and_drop_filter(filterSearchByLegalStatus);
         steps.wait_a_bit(500);
         steps.click_button(radioButtonInactiveLegalStatus);
-//        steps.wait_a_bit(500);
         steps.click_button(openTabMenu);
         steps.click_button(buttonSearch);
         steps.click_button(cellTableInResultSearch);
         steps.switch_to_tab();
         steps.check_search_by_inactive_legal_status();
-//        steps.wait_a_bit(5000);
     }
 
     @Test
