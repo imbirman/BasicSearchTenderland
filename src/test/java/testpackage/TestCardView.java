@@ -31,6 +31,13 @@ public class TestCardView extends CardView {
         steps.click_button(buttonSignIn);
     }
 
-
+    @Test
+    @Title("Проверка отображения блока для раскрытия карточки")
+    public void checkDisplayedBlockOpenCards(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAccordionSettings);
+        steps.click_button(radiobuttonCardView);
+        steps.is_displayed_block_open_cards();
+    }
 
 }

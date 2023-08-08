@@ -1,10 +1,12 @@
 package pages;
 
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 
+@DefaultUrl("https://test.v2.tenderland.ru/Home/Landing")
 public class CardView  extends PageObject {
 
     protected By tabListAutoSearch = By.xpath("//div[@class='search-filters-tab list-autosearches']"); // Вкладка "Автопоиски"

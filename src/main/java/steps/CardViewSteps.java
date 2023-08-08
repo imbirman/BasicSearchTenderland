@@ -33,4 +33,9 @@ public class CardViewSteps {
     public void type_password(String password){
         page.typePassword(password);
     }
+
+    @Step("Проверка отображения блока для раскрытия карточки")
+    public void is_displayed_block_open_cards(){
+        assertThat(page.isDisplayedBlockOpenCards()).as("Блок для раскрытия карточки отсутствует").isTrue();
+    }
 }
