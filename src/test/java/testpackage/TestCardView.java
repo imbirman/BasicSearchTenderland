@@ -40,4 +40,12 @@ public class TestCardView extends CardView {
         steps.is_displayed_block_open_cards();
     }
 
+    @Test
+    @Title("Проверка выбранного табличного вида по умолчанию")
+    public void checkDefaultTableView(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAccordionSettings);
+        steps.is_default_table_view();
+    }
+
 }

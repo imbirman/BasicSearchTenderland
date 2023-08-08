@@ -53,5 +53,7 @@ public class CardView  extends PageObject {
         return find(blockOpenCards).isDisplayed();
     } // Проверка отображения при выборе карточного вида блока с чекбоксом "Раскрывать карточки"
 
-
+    public boolean isDefaultTableView(){
+        return find(radiobuttonTableView).getAttribute("class").contains("dx-radiobutton-icon-checked");
+    } // Проверка, что по умолчанию выбран табличный вид
 }
