@@ -1,4 +1,36 @@
 package testpackage;
 
-public class TestCardView {
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.annotations.Title;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+import pages.CardView;
+import steps.CardViewSteps;
+
+@RunWith(SerenityRunner.class)
+public class TestCardView extends CardView {
+
+    @Managed(driver = "chrome", uniqueSession=true)
+    WebDriver driver;
+
+
+    @Steps
+    CardViewSteps steps;
+
+    @Before
+    public void beforeMethod(){
+        driver.manage().window().maximize();
+        steps.open_login_main_page();
+        steps.click_button(buttonLogin);
+        steps.type_login("AdminTestitTender");
+        steps.type_password("Hyqpmaz0");
+        steps.click_button(buttonSignIn);
+    }
+
+
+
 }

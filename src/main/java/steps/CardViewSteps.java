@@ -1,4 +1,36 @@
 package steps;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.Step;
+import org.assertj.core.api.Assertions;
+import org.openqa.selenium.By;
+import pages.CardView;
+
 public class CardViewSteps {
+
+    CardView page;
+
+    @Step("Открытие страницы")
+    public void open_login_main_page() {page.open();}
+
+    @Step("Нажать кнопку")
+    public void click_button(By button){
+        page.clickButton(button);
+    }
+
+    @Step("Нажать кнопку")
+    public void click_button(WebElementFacade button){
+        page.clickButton(button);
+    }
+
+    @Step("Ввод логина")
+    public void type_login(String mail){
+        page.typeLogin(mail);
+    }
+
+    @Step("Ввод пароля")
+    public void type_password(String password){
+        page.typePassword(password);
+    }
 }
