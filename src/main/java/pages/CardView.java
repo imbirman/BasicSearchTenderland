@@ -56,4 +56,9 @@ public class CardView  extends PageObject {
     public boolean isDefaultTableView(){
         return find(radiobuttonTableView).getAttribute("class").contains("dx-radiobutton-icon-checked");
     } // Проверка, что по умолчанию выбран табличный вид
+
+    public boolean isSelectedCardView(){
+        return find(radiobuttonCardView).getAttribute("class").contains("dx-radiobutton-icon-checked");
+    } // Проверка, что карточный вид выбран
+
 }

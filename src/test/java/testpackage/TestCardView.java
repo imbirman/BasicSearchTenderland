@@ -48,4 +48,16 @@ public class TestCardView extends CardView {
         steps.is_default_table_view();
     }
 
+    @Test
+    @Title("Проверка, что выбор карточного вида сохранился после переоткрытия окна настроек пользовательского вида")
+    public void checkSelectedCardView(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAccordionSettings);
+        steps.click_button(radiobuttonCardView);
+        steps.click_button(buttonCloseWindowCustomView);
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAccordionSettings);
+        steps.is_selected_card_view();
+    }
+
 }

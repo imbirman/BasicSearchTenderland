@@ -44,4 +44,9 @@ public class CardViewSteps {
     public void is_default_table_view(){
         assertThat(page.isDefaultTableView()).as("по умолчанию НЕ выбран табличный вид").isTrue();
     }
+
+    @Step("Проверка, что карточный вид выбран")
+    public void is_selected_card_view(){
+        assertThat(page.isSelectedCardView()).as("Карточный вид НЕ выбран").isTrue();
+    }
 }
