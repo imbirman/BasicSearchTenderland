@@ -22,7 +22,7 @@ public class CardView  extends PageObject {
     protected By radiobuttonTableView = By.xpath("(//div[@id='search-view-type']//div[@class='dx-radio-value-container']/div)[1]"); // пункт "Табличный вид" в настройках пользовательского вида
     protected By radiobuttonCardView = By.xpath("(//div[@id='search-view-type']//div[@class='dx-radio-value-container']/div)[2]"); // пункт "Карточный вид" в настройках пользовательского вида
 
-
+    protected By checkboxOpenCards = By.id("search-view-autoexpand-cards"); // Чекбокс "Раскрывать карточки"
 
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
@@ -61,4 +61,7 @@ public class CardView  extends PageObject {
         return find(radiobuttonCardView).getAttribute("class").contains("dx-radiobutton-icon-checked");
     } // Проверка, что карточный вид выбран
 
+    public boolean isSelectedCheckboxOpenCards(){
+        return find(checkboxOpenCards).getAttribute("class").contains("dx-checkbox-checked");
+    }
 }

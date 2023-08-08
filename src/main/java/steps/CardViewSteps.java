@@ -49,4 +49,9 @@ public class CardViewSteps {
     public void is_selected_card_view(){
         assertThat(page.isSelectedCardView()).as("Карточный вид НЕ выбран").isTrue();
     }
+
+    @Step("Проверка, что чекбокс 'Раскрывать карточки' выбран")
+    public void is_selected_checkbox_open_cards(){
+        assertThat(page.isSelectedCheckboxOpenCards()).as("Чекбокс 'Раскрывать карточки' НЕ выбран").isTrue();
+    }
 }

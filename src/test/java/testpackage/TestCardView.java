@@ -60,4 +60,14 @@ public class TestCardView extends CardView {
         steps.is_selected_card_view();
     }
 
+    @Test
+    @Title("Проверка, что выбран чекбокс 'Раскрывать карточки'")
+    public void checkSelectedCheckboxOpenCards(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAccordionSettings);
+        steps.click_button(radiobuttonCardView);
+        steps.click_button(checkboxOpenCards);
+        steps.is_selected_checkbox_open_cards();
+    }
+
 }
