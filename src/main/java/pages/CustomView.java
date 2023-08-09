@@ -212,6 +212,27 @@ public class CustomView extends PageObject {
     } // Проверка добавления столбца пользовательского вида
 
     public boolean isDisabledElementContractDetailingToSelect(){
-        return find(elementUnitDetailingFieldsSelection).getAttribute("style").contains("opacity: 0.3;");
+        List<WebElementFacade> elements = findAll(elementUnitDetailingFieldsSelection);
+        boolean check = true;
+        for(WebElementFacade type:elements){
+            if(!type.getAttribute("style").contains("background-color: rgb(255, 230, 197); opacity: 0.3;")){
+                check = false;
+                break;
+            }
+        }
+        return check;
     } // Проверка, заблокирован ли для выбора элемент детализации контрактов, если не выбраны соответствующие поля таблицы
+
+    public boolean isDisabledElementTenderDetailingToSelect(){
+        List<WebElementFacade> elements = findAll(elementUnitDetailingFieldsSelection);
+        boolean check = true;
+        for(WebElementFacade type:elements){
+            if(type.getAttribute("style").contains("background-color: rgb(229, 245, 233); opacity: 1;")){
+                check = false;
+                System.out.println(type.getAttribute("style"));
+                break;
+            }
+        }
+        return check;
+    } // Проверка, заблокирован ли для выбора элемент детализации тендеров, если не выбраны соответствующие поля таблицы
 }

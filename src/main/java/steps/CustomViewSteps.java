@@ -176,4 +176,9 @@ public class CustomViewSteps {
     public void check_disabled_element_contract_detailing_to_select(){
         assertThat(page.isDisabledElementContractDetailingToSelect()).as("Элемент детализации для контрактов НЕ заблокирован для выбора").isTrue();
     }
+
+    @Step("Проверка заблокированности элемента детализации для тендеров")
+    public void check_disabled_element_tender_detailing_to_select(){
+        assertThat(page.isDisabledElementTenderDetailingToSelect()).as("Элемент детализации для тендеров НЕ заблокирован для выбора").isTrue();
+    }
 }
