@@ -70,4 +70,19 @@ public class TestCardView extends CardView {
         steps.is_selected_checkbox_open_cards();
     }
 
+    @Test
+    @Title("Проверка сохранения изменений в настройках пользовательского вида")
+    public void checkSaveChangesInCustomViewSettings(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAccordionSettings);
+        steps.click_button(radiobuttonCardView);
+        steps.click_button(buttonSaveCustomView);
+        steps.click_button(buttonCloseWindowCustomView);
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAccordionSettings);
+        steps.is_selected_card_view();
+        steps.click_button(radiobuttonTableView);
+        steps.click_button(buttonSaveCustomView);
+    }
+
 }
