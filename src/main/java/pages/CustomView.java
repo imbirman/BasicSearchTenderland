@@ -37,9 +37,6 @@ public class CustomView extends PageObject {
 
     protected By buttonDeleteCustomView = By.id("search-view-delete-button"); // Кнопка "Удалить" пользовательский вид
     protected By buttonCloseWindowCustomView = By.xpath("//div[@role='toolbar']//i"); // Кнопка закрытия окна пользовательского вида
-    protected By buttonExpandListCustomView = By.xpath("//div[@id='search-panel-change-custom-view']//i[@class='dx-icon dx-icon-spindown']"); // Раскрыть список пользовательских видов
-    protected By buttonApplyCustomView = By.id("search-view-apply-button"); // Кнопка "Применить" пользовательского вида
-    protected By buttonRemoveColumnFromListSelectedColumns = By.xpath("//div[@id='search-view-field-selector-values']//i[@class='dx-icon dx-icon-remove']"); // Кнопка удаления элемента из списка выбранных столбцов
 
     protected By elementOfListCustomView = By.xpath("//div[@id='search-view-manager-viewlist']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка сохраненных пользовательских видов
     protected By elementExpandedListCustomView = By.xpath("//div[@class='dx-popup-content dx-dropdownbutton-content']//div[@class='dx-item-content dx-list-item-content']"); // элемент раскрывающегося списка пользовательских видов
@@ -52,7 +49,6 @@ public class CustomView extends PageObject {
     protected By fieldNameCustomView = By.xpath("//div[@id='search-view-tabs']//input"); // Поле для ввода названия пользовательского вида
 
     protected By fieldSearchColumnCustomView = By.xpath("//div[@id='search-view-textbox-fields']//input"); // Поле поиска столбцов в пользовательском виде
-    protected By fieldSelectedColumnsCustomViewForScroll = By.xpath("//div[@id='search-view-field-selector-values']//div[@class='dx-scrollable-container']"); // Область выбранных столбцов пользовательского вида для прокрутки
     protected By fieldSearchInFilter = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
 
     protected By checkboxDiscloseDetailing = By.id("search-view-autoexpand-details"); // Чекбокс "Раскрывать детализации"
@@ -93,11 +89,6 @@ public class CustomView extends PageObject {
     public void typePassword(String password){
         find(passwordField).sendKeys(password);
     } // Ввести пароль для входа
-
-    public CustomView typeSearch(String search){
-        find(fieldSearchInFilter).sendKeys(search);
-        return this;
-    } // Ввести значение в поле поиска
 
     public CustomView scrollElementOnPixels(String number, By scroll){
         ((JavascriptExecutor)getDriver()).executeScript(
@@ -158,10 +149,6 @@ public class CustomView extends PageObject {
         return findAll(tabCustomView).size();
     } // Получить количество вкладок пользовательских видов
 
-    public Integer getNumberListOfCustomView(){
-        return findAll(elementOfListCustomView).size();
-    } // Получение количества элементов в списке пользовательских видов
-
     public String getTextErrorSaveCustomViewWithoutSelectedFields(){
         return find(labelErrorSaveCustomViewWithoutSelectedFields).getText();
     } // Получить текст ошибки при сохранении пользовательского вида без выбранных полей
@@ -190,54 +177,10 @@ public class CustomView extends PageObject {
         return find(checkboxDiscloseDetailing).getAttribute("aria-checked").contains("false");
     } // Проверка, что чекбокс "Раскрывать детализации" не выставлен по умолчанию
 
-    
-
-    public void checkAndCleanListNameCustomView(){
-        if(!findAll(elementOfListCustomView).isEmpty()){
-            clickButton(elementOfListCustomView);
-            clickButton(buttonDeleteCustomView);
-        }
-    } // Проверка и очистка списка пользовательских видов
-
-    public Integer getNumberExpandedListOfCustomView(){
-        return findAll(elementExpandedListCustomView).size();
-    } // Получение количества элементов в раскрывающемся списке пользовательских видов
-
     public boolean isErrorMessageEmptyNameFieldCustomView(){
         WebElementFacade checkError = find(errorMessageEmptyFieldNameCustomView);
         return checkError.getText().contains("Введите название") && checkError.isVisible();
     } // Проверка сообщения об ошибке при сохранении пользовательского вида при пустом названии
-
-    public boolean isErrorMessageDuplicationNameFieldCustomView(){
-        WebElementFacade checkError = find(errorMessageEmptyFieldNameCustomView);
-        return checkError.getText().contains("Название должно быть уникальным.") && checkError.isVisible();
-    } // Проверка сообщения об ошибке при сохранении пользовательского вида с дублированием названия
-
-    public boolean isErrorMessageWithoutSelectedColumn(){
-        WebElementFacade checkError = find(errorMessageWithoutSelectedColumnCustomView);
-        return checkError.getText().contains("Вы должны выбрать хотя бы одно поле в таблице с результатами поиска.") && checkError.isVisible();
-    } // Проверка сообщения об ошибке при сохранении пользовательского вида при пустом названии
-
-    public boolean isContainNameSavedCustomView(){
-        return find(elementOfListCustomView).getText().contains("Тестовый вид");
-    } // Проверка названия сохраненного пользовательского вида
-
-    public boolean isClickableButtonSaveSettings(){
-        return find(buttonSaveCustomView).isDisabled();
-    } // Проверка кликабельности кнопки "Сохранить настройки" после сохранения пользовательского вида
-
-    public boolean isContainListColumn(){
-        return findAll(elementOfListSelectedColumns).isEmpty();
-    } // Проверка списка выбранных столбцов
-
-    public boolean isContainAddedCustomView(){
-        return findAll(elementExpandedListCustomView).get(1).getText().contains("Тестовый вид");
-    } // Проверка добавленного пользовательского вида
-
-    public boolean isNotContainDeletedColumn(){
-        List<String> checkColumn = findAll(elementOfDatagridNameColumns).texts();
-        return !checkColumn.contains("Реестровый номер");
-    } // Проверка столбцов в таблице результата поиска после удаления столбца из пользовательского вида
 
     public boolean isContainResultSearchColumnCustomView(){
         List<String> checkColumn = findAll(elementOfListColumns).texts();
