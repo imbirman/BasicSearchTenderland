@@ -201,4 +201,12 @@ public class TestCustomView extends CustomView {
         steps.click_button(elementOfListColumns);
         steps.check_contain_selected_column();
     }
+
+    @Test
+    @Title("Проверка заблокирован ли элемент детализации для контрактов, если не выбраны соответствующие поля таблицы")
+    public void checkDisabledElementContractDetailingToSelect(){
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAccordionDetailing);
+        steps.check_disabled_element_contract_detailing_to_select();
+    }
 }

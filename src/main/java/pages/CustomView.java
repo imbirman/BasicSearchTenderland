@@ -34,22 +34,17 @@ public class CustomView extends PageObject {
     protected By buttonDeleteAllSelectedFields = By.xpath("(//div[@class='search-view-result-header']//i)[2]"); // Кнопка удаления всех выбранных полей пользовательского вида
 
 
-
-    protected By buttonDeleteCustomView = By.id("search-view-delete-button"); // Кнопка "Удалить" пользовательский вид
     protected By buttonCloseWindowCustomView = By.xpath("//div[@role='toolbar']//i"); // Кнопка закрытия окна пользовательского вида
 
-    protected By elementOfListCustomView = By.xpath("//div[@id='search-view-manager-viewlist']//div[@class='dx-item-content dx-list-item-content']"); // Элемент списка сохраненных пользовательских видов
-    protected By elementExpandedListCustomView = By.xpath("//div[@class='dx-popup-content dx-dropdownbutton-content']//div[@class='dx-item-content dx-list-item-content']"); // элемент раскрывающегося списка пользовательских видов
     protected By elementOfListColumns = By.xpath("//div[@id='search-view-tenders-fields']//span"); // Элемент списка столбцов
     protected By elementOfListSelectedColumns = By.xpath("//div[@id='search-view-result-fields']//span"); // Элемент списка выбранных столбцов
     protected By elementUnitTableFieldsForSelection = By.xpath("//div[@id='search-view-multiview']//div[@class='dx-item dx-multiview-item dx-item-selected']//span"); // Элемент для выбора в блоке "Поля таблицы"
-    protected By elementUnitDetailingFieldsSelection = By.xpath("//div[@id='search-view-details']//span"); // Элемент для выбора в блоке "Детализация"
+    protected By elementUnitDetailingFieldsSelection = By.xpath("//div[@id='search-view-details']//div"); // Элемент для выбора в блоке "Детализация"
 
     protected By fieldForSorting = By.xpath("//div[@id='search-view-sorting-field']//div[@class='dx-texteditor-input-container']//input"); // Выбрать поле для сортировки
     protected By fieldNameCustomView = By.xpath("//div[@id='search-view-tabs']//input"); // Поле для ввода названия пользовательского вида
 
     protected By fieldSearchColumnCustomView = By.xpath("//div[@id='search-view-textbox-fields']//input"); // Поле поиска столбцов в пользовательском виде
-    protected By fieldSearchInFilter = By.xpath("//div[(contains(@class,'dx-item dx-multiview-item dx-item-selected'))]//input[@class='dx-texteditor-input']"); // Поле поиска внутри фильтра
 
     protected By checkboxDiscloseDetailing = By.id("search-view-autoexpand-details"); // Чекбокс "Раскрывать детализации"
     protected By radiobuttonDescending = By.xpath("(//div[@class='dx-widget dx-collection']/div[contains(@class,'dx-radiobutton')])[2]"); //
@@ -65,8 +60,6 @@ public class CustomView extends PageObject {
     private final By loginField = By.xpath("//input[@type='text']"); // Поле для ввода логина
     private final By passwordField = By.xpath("//input[@type='password']"); // Поле для ввода пароля
     private final By errorMessageEmptyFieldNameCustomView = By.xpath("//div[@class='dx-overlay-content dx-invalid-message-content']"); // Сообщение об ошибке поля "Название" пользовательского вида
-    private final By errorMessageWithoutSelectedColumnCustomView = By.xpath("//div[@role='alert']"); // Алерт - ошибка при сохранении пользовательского вида без выбранных столбцов
-    private final By elementOfDatagridNameColumns = By.xpath("//div[@class='dx-datagrid-headers']//div[@class='dx-datagrid-text-content'or@class='dx-datagrid-text-content dx-text-content-alignment-left'or@class='dx-datagrid-text-content dx-text-content-alignment-left dx-sort-indicator']//td[2]"); // Название столбца таблицы результата поиска
 
     public void waitFor(long number){
         waitABit(number);
@@ -217,4 +210,8 @@ public class CustomView extends PageObject {
 
         return checkIsContainSelectedColumn;
     } // Проверка добавления столбца пользовательского вида
+
+    public boolean isDisabledElementContractDetailingToSelect(){
+        return find(elementUnitDetailingFieldsSelection).getAttribute("style").contains("opacity: 0.3;");
+    } // Проверка, заблокирован ли для выбора элемент детализации контрактов, если не выбраны соответствующие поля таблицы
 }

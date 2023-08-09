@@ -156,19 +156,24 @@ public class CustomViewSteps {
 
     @Step("Проверка сообщения об ошибке при сохранении пользовательского вида при пустом названии")
     public void check_error_message_save_custom_view_with_empty_name(){
-        Assertions.assertThat(page.isErrorMessageEmptyNameFieldCustomView())
+        assertThat(page.isErrorMessageEmptyNameFieldCustomView())
                 .as("Сообщение об ошибке при пустом названии пользовательского вида либо отсутствует, либо текст ошибки не соответствует заданному").isTrue();
     }
 
     @Step("Проверка поиска в окне пользовательского вида")
     public void check_contain_result_search_column_custom_view(){
-        Assertions.assertThat(page.isContainResultSearchColumnCustomView())
+        assertThat(page.isContainResultSearchColumnCustomView())
                 .as("В результатах поиска присутствуют лишние элементы или отсутствуют нужные").isTrue();
     }
 
     @Step("Проверка добавления столбца пользовательского вида")
     public void check_contain_selected_column(){
-        Assertions.assertThat(page.isContainSelectedColumn())
+        assertThat(page.isContainSelectedColumn())
                 .as("выбранный столбец не был добавлен").isTrue();
+    }
+
+    @Step("Проверка заблокированности элемента детализации для контрактов")
+    public void check_disabled_element_contract_detailing_to_select(){
+        assertThat(page.isDisabledElementContractDetailingToSelect()).as("Элемент детализации для контрактов НЕ заблокирован для выбора").isTrue();
     }
 }
