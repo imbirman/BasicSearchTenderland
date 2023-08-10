@@ -45,7 +45,7 @@ public class TestCardView extends CardView {
     public void checkDefaultTableView(){
         steps.click_button(buttonOpenWindowCustomView);
         steps.click_button(buttonAccordionSettings);
-        steps.is_default_table_view();
+        steps.is_default_selected_table_view();
     }
 
     @Test
@@ -83,6 +83,21 @@ public class TestCardView extends CardView {
         steps.is_selected_card_view();
         steps.click_button(radiobuttonTableView);
         steps.click_button(buttonSaveCustomView);
+    }
+
+    @Test
+    @Title("Проверка сохранения выбранного табличного/карточного вида в настройке примененного пользовательского вида после смены вида не в настройке пользовательского вида")
+    public void checkSaveSelectedTableViewAfterChangeViewResultSearch(){
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckTenderNameAndNameDeletion);
+        steps.wait_a_bit(500);
+        steps.click_button(buttonOpenListCustomView);
+        steps.click_button(buttonItemCustomViewTestView);
+        steps.wait_a_bit(1000);
+        steps.click_button(buttonCardView);
+        steps.click_button(buttonOpenWindowCustomView);
+        steps.click_button(buttonAccordionSettings);
+        steps.is_selected_table_view();
     }
 
 }

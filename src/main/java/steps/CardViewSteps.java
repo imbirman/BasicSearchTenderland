@@ -35,14 +35,24 @@ public class CardViewSteps {
         page.typePassword(password);
     }
 
+    @Step("Ожидание")
+    public void wait_a_bit(long number){
+        page.waitFor(number);
+    }
+
     @Step("Проверка отображения блока для раскрытия карточки")
     public void is_displayed_block_open_cards(){
         assertThat(page.isDisplayedBlockOpenCards()).as("Блок для раскрытия карточки отсутствует").isTrue();
     }
 
     @Step("Проверка, что по умолчанию выбран табличный вид")
-    public void is_default_table_view(){
-        assertThat(page.isDefaultTableView()).as("по умолчанию НЕ выбран табличный вид").isTrue();
+    public void is_default_selected_table_view(){
+        assertThat(page.isSelectedTableView()).as("по умолчанию НЕ выбран табличный вид").isTrue();
+    }
+
+    @Step("Проверка, что выбран табличный вид")
+    public void is_selected_table_view(){
+        assertThat(page.isSelectedTableView()).as("Табличный вид НЕ выбран").isTrue();
     }
 
     @Step("Проверка, что карточный вид выбран")

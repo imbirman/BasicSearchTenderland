@@ -14,6 +14,9 @@ public class CardView  extends PageObject {
     protected By openTabMenu = By.xpath("//i[@class='material-icons-round icon-28px icon-grey md-menu icon-grey-hover common-header-icon']"); // Кнопка открытия бокового меню
     protected By buttonLogin = By.xpath("//a[text()='Войти']"); // Кнопка входа в систему
     protected By buttonSignIn = By.xpath("//span[text()='Войти в систему']"); // Кнопка "Войти в систему"
+    protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//div[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка поиска по названию тендера и исключению из названия"
+    protected By buttonOpenListCustomView = By.xpath("//div[@id='search-panel-change-custom-view']"); // Кнопка раскрытия списка пользовательских видов
+    protected By buttonItemCustomViewTestView = By.xpath("//div[text()='Тестовый вид']"); // Пункт списка пользовательского вида "Тестовый вид"
 
     protected By buttonOpenWindowCustomView = By.xpath("//i[@class='material-icons-outline icon-24px icon-grey icon-grey-hover md-settings']"); // Кнопка открытия настроек пользовательского вида
     protected By buttonCloseWindowCustomView = By.xpath("//div[@role='toolbar']//i"); // Кнопка закрытия окна пользовательского вида
@@ -56,7 +59,7 @@ public class CardView  extends PageObject {
         return find(blockOpenCards).isDisplayed();
     } // Проверка отображения при выборе карточного вида блока с чекбоксом "Раскрывать карточки"
 
-    public boolean isDefaultTableView(){
+    public boolean isSelectedTableView(){
         return find(radiobuttonTableView).getAttribute("class").contains("dx-radiobutton-icon-checked");
     } // Проверка, что по умолчанию выбран табличный вид
 
