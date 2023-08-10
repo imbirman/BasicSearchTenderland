@@ -77,4 +77,8 @@ public class CardView  extends PageObject {
         return find(buttonUnloadProducts).isDisplayed();
     } // Проверка, что кнопка "Выгрузить продукты" отображается
 
+    public boolean isClickableButtonUnloadProducts(){
+        return find(buttonUnloadProducts).isDisplayed();
+    } // Проверка, что кнопка "Выгрузить продукты" кликабельна
+
 }

@@ -67,6 +67,11 @@ public class CardViewSteps {
 
     @Step("Проверка отображения кнопки для выгрузки продуктов из детализации")
     public void is_displayed_button_unload_products(){
-        assertThat(page.isDisplayedButtonUnloadProducts()).as("Кнопка для отображения кнопки для выгрузки продуктов из детализации НЕ отобразилась").isTrue();
+        assertThat(page.isDisplayedButtonUnloadProducts()).as("Кнопка для выгрузки продуктов из детализации НЕ отобразилась").isTrue();
+    }
+
+    @Step("Проверка кликабельности кнопки для выгрузки продуктов из детализации")
+    public void is_clickable_button_unload_products(){
+        assertThat(page.isClickableButtonUnloadProducts()).as("Кнопка для выгрузки продуктов из детализации НЕ кликабельна").isTrue();
     }
 }

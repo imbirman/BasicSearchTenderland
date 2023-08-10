@@ -111,4 +111,15 @@ public class TestCardView extends CardView {
         steps.is_displayed_button_unload_products();
     }
 
+    @Test
+    @Title("Проверка кликабельности кнопки выгрузки продуктов из детализации")
+    public void checkClickableButtonUnloadProducts(){
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckTenderNameAndNameDeletion);
+        steps.wait_a_bit(500);
+        steps.click_button(buttonCardView);
+        steps.click_button(buttonOpenDetailing);
+        steps.is_clickable_button_unload_products();
+    }
+
 }
