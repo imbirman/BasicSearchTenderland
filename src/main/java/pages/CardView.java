@@ -24,6 +24,8 @@ public class CardView  extends PageObject {
     protected By buttonTableView = By.id("search-panel-table-view"); // Кнопка "Табличный вид"
     protected By buttonCardView = By.id("search-panel-card-view"); // Кнопка "Карточный вид"
     protected By buttonSaveCustomView = By.id("search-view-save-button"); // Кнопка "Сохранить вид"
+    protected By buttonUnloadProducts = By.xpath("(//div[@id='search-result-wrapper']//div[@class='dx-item-content dx-multiview-item-content']/div)[2]"); // Кнопка "Выгрузить продукты" в детализации тендера
+    protected By buttonOpenDetailing = By.xpath("//i[@class='material-icons-outline icon-20px icon-grey md-expand_more']"); // Кнопка открытия детализации тендера
 
     protected By radiobuttonTableView = By.xpath("(//div[@id='search-view-type']//div[@class='dx-radio-value-container']/div)[1]"); // пункт "Табличный вид" в настройках пользовательского вида
     protected By radiobuttonCardView = By.xpath("(//div[@id='search-view-type']//div[@class='dx-radio-value-container']/div)[2]"); // пункт "Карточный вид" в настройках пользовательского вида
@@ -71,5 +73,8 @@ public class CardView  extends PageObject {
         return find(checkboxOpenCards).getAttribute("class").contains("dx-checkbox-checked");
     } // Проверка работы чекбокса "Раскрывать карточки"
 
+    public boolean isDisplayedButtonUnloadProducts(){
+        return find(buttonUnloadProducts).isDisplayed();
+    } // Проверка, что кнопка "Выгрузить продукты" отображается
 
 }

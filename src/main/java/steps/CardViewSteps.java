@@ -64,4 +64,9 @@ public class CardViewSteps {
     public void is_selected_checkbox_open_cards(){
         assertThat(page.isSelectedCheckboxOpenCards()).as("Чекбокс 'Раскрывать карточки' НЕ выбран").isTrue();
     }
+
+    @Step("Проверка отображения кнопки для выгрузки продуктов из детализации")
+    public void is_displayed_button_unload_products(){
+        assertThat(page.isDisplayedButtonUnloadProducts()).as("Кнопка для отображения кнопки для выгрузки продуктов из детализации НЕ отобразилась").isTrue();
+    }
 }
