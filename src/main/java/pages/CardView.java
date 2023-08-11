@@ -81,4 +81,20 @@ public class CardView  extends PageObject {
         return find(buttonUnloadProducts).isDisplayed();
     } // Проверка, что кнопка "Выгрузить продукты" кликабельна
 
+    public boolean isDisplayedButtonTableView(){
+        return find(buttonTableView).isDisplayed();
+    } // Проверка, что кнопка "Табличный вид" отображается
+
+    public boolean isDisplayedButtonCardView(){
+        return find(buttonCardView).isDisplayed();
+    } // Проверка, что кнопка "Карточный вид" отображается
+
+    public boolean isClickableButtonTableView(){
+        return find(buttonTableView).isClickable();
+    } // Проверка, что кнопка "Табличный вид" кликабельна
+
+    public boolean isClickableButtonCardView(){
+        return find(buttonCardView).isClickable();
+    } // Проверка, что кнопка "Карточный вид" кликабельна
+
 }

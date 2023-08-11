@@ -74,4 +74,24 @@ public class CardViewSteps {
     public void is_clickable_button_unload_products(){
         assertThat(page.isClickableButtonUnloadProducts()).as("Кнопка для выгрузки продуктов из детализации НЕ кликабельна").isTrue();
     }
+
+    @Step("Проверка отображения кнопки 'Табличный вид'")
+    public void is_displayed_button_table_view(){
+        assertThat(page.isDisplayedButtonTableView()).as("Кнопка 'Табличный вид' НЕ отображена").isTrue();
+    }
+
+    @Step("Проверка отображения кнопки 'Карточный вид'")
+    public void is_displayed_button_card_view(){
+        assertThat(page.isDisplayedButtonCardView()).as("Кнопка 'Карточный вид' НЕ отображена").isTrue();
+    }
+
+    @Step("Проверка кликабельности кнопки 'Табличный вид'")
+    public void is_clickable_button_table_view(){
+        assertThat(page.isClickableButtonTableView()).as("Кнопка 'Табличный вид' НЕ кликабельна").isTrue();
+    }
+
+    @Step("Проверка кликабельности кнопки 'Карточный вид'")
+    public void is_clickable_button_card_view(){
+        assertThat(page.isClickableButtonCardView()).as("Кнопка 'Карточный вид' НЕ кликабельна").isTrue();
+    }
 }

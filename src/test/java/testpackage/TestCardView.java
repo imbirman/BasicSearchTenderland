@@ -122,4 +122,29 @@ public class TestCardView extends CardView {
         steps.is_clickable_button_unload_products();
     }
 
+    @Test
+    @Title("Проверка отображения кнопки 'Табличный вид'")
+    public void checkDisplayedButtonTableView(){
+        steps.is_displayed_button_table_view();
+    }
+
+    @Test
+    @Title("Проверка отображения кнопки 'Карточный вид'")
+    public void checkDisplayedButtonCardView(){
+        steps.is_displayed_button_card_view();
+    }
+
+    @Test
+    @Title("Проверка кликабельности кнопки 'Табличный вид'")
+    public void checkClickableButtonTableView(){
+        steps.is_clickable_button_table_view();
+    }
+
+    @Test
+    @Title("Проверка кликабельности кнопки 'Карточный вид'")
+    public void checkClickableButtonCardView(){
+        steps.is_clickable_button_card_view();
+    }
+
+
 }
