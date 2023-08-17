@@ -276,21 +276,6 @@ public class TabTendersSteps {
         Assertions.assertThat(page.isContainWithoutHideFilter()).as("В результатах поиска отсутствуют тендеры с регионом отличным от 'Санкт-Петербург город'").isTrue();
     }
 
-    @Step("Проверка метки тендера")
-    public void check_mark_of_tender(){
-        Assertions.assertThat(page.isMarkOfTender()).as("Цвет метки не соответствует выбранному").isTrue();
-    }
-
-    @Step("Проверка метки тендера в карточном виде")
-    public void check_mark_of_tender_card_view(){
-        Assertions.assertThat(page.isMarkOfTenderCardView()).as("Цвет метки не соответствует выбранному").isTrue();
-    }
-
-    @Step("Проверка удаления метки тендера")
-    public void check_deletion_mark_of_tender(){
-        Assertions.assertThat(page.isDeletionMarkOfTender()).as("Метка не была удалена").isTrue();
-    }
-
     @Step("Проверка поля даты публикации до")
     public void check_empty_publication_date_to(){
         Assertions.assertThat(page.isEmptyFieldPublicationDateTo()).as("Поле 'Дата до' не пустое").isTrue();

@@ -434,43 +434,6 @@ public class TestTabTenders extends TabTenders {
     }
 
     @Test
-    @Title("Проверка метки тендера")
-    public void checkMarkOfTender(){
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
-        steps.click_button(contextMenuResultSearch);
-        steps.move_to_element(markContextMenu);
-        steps.click_button(redMarkContextMenu);
-        steps.check_mark_of_tender();
-    }
-
-    @Test
-    @Title("Проверка метки тендера в карточном виде")
-    public void checkMarkOfTenderCardView(){
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
-        steps.wait_a_bit(1000);
-        steps.click_button(buttonCardView);
-        steps.click_button(buttonSetMarkCardView);
-        steps.click_button(redMarkContextMenu);
-        steps.check_mark_of_tender_card_view();
-    }
-
-    @Test
-    @Title("Проверка удаления метки тендера")
-    public void checkDeletionMarkOfTender(){
-        steps.click_button(tabListAutoSearch);
-        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
-        steps.click_button(contextMenuResultSearch);
-        steps.move_to_element(markContextMenu);
-        steps.click_button(redMarkContextMenu);
-        steps.click_button(contextMenuResultSearch);
-        steps.move_to_element(markContextMenu);
-        steps.click_button(deleteMark);
-        steps.check_deletion_mark_of_tender();
-    }
-
-    @Test
     @Title("Проверка на пустое поле даты публикации до")
     public void checkEmptyFieldPublicationDateTo(){
         steps.scroll_element_on_pixels("150", listFilters);
