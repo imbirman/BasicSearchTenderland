@@ -63,8 +63,46 @@ public class TestMarkSetting extends MarkSetting{
         steps.click_button(redMarkContextMenu);
         steps.click_button(contextMenuResultSearch);
         steps.move_to_element(markContextMenu);
-        steps.click_button(deleteMark);
+        steps.click_button(buttonDeleteMark);
         steps.check_deletion_mark_of_tender();
+    }
+
+    @Test
+    @Title("Проверка установки метки для всех выбранных тендеров")
+    public void checkSetMarkAllSelectedTenders(){
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckTenderNameAndNameDeletion);
+        steps.wait_a_bit(1000);
+        steps.click_button(buttonSelectAllTenders);
+        steps.click_button(buttonContextMenuForSelectedTenders);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(redMarkContextMenu);
+        steps.wait_a_bit(1000);
+        steps.check_mark_all_selected_tender();
+        steps.click_button(buttonSelectAllTenders);
+        steps.click_button(buttonContextMenuForSelectedTenders);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(buttonDeleteMark);
+    }
+
+    @Test
+    @Title("Проверка установки метки для всех выбранных тендеров карточного вида")
+    public void checkSetMarkAllSelectedTendersCardView(){
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckTenderNameAndNameDeletion);
+        steps.wait_a_bit(1000);
+        steps.click_button(buttonCardView);
+        steps.wait_a_bit(500);
+        steps.click_button(buttonSelectAllTenders);
+        steps.click_button(buttonContextMenuForSelectedTenders);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(redMarkContextMenu);
+        steps.wait_a_bit(1000);
+        steps.check_mark_all_selected_tender_card_view();
+        steps.click_button(buttonSelectAllTenders);
+        steps.click_button(buttonContextMenuForSelectedTenders);
+        steps.move_to_element(markContextMenu);
+        steps.click_button(buttonDeleteMark);
     }
 
     @Test

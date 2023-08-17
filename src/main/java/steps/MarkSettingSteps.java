@@ -1,6 +1,7 @@
 package steps;
 
 import net.serenitybdd.core.pages.WebElementFacade;
+import static org.assertj.core.api.Assertions.assertThat;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
@@ -70,61 +71,71 @@ public class MarkSettingSteps {
 
     @Step("Проверка метки тендера")
     public void check_mark_of_tender(){
-        Assertions.assertThat(page.isMarkOfTender()).as("Цвет метки не соответствует выбранному").isTrue();
+        assertThat(page.isMarkOfTender()).as("Цвет метки не соответствует выбранному").isTrue();
     }
 
     @Step("Проверка метки тендера в карточном виде")
     public void check_mark_of_tender_card_view(){
-        Assertions.assertThat(page.isMarkOfTenderCardView()).as("Цвет метки не соответствует выбранному").isTrue();
+        assertThat(page.isMarkOfTenderCardView()).as("Цвет метки не соответствует выбранному").isTrue();
     }
 
     @Step("Проверка удаления метки тендера")
     public void check_deletion_mark_of_tender(){
-        Assertions.assertThat(page.isDeletionMarkOfTender()).as("Метка не была удалена").isTrue();
+        assertThat(page.isDeletionMarkOfTender()).as("Метка не была удалена").isTrue();
+    }
+
+    @Step("Проверка установки метки для всех тендеров на странице для табличного вида")
+    public void check_mark_all_selected_tender(){
+        assertThat(page.isMarkAllSelectedTender()).as("Метка установилась НЕ для всех тендеров табличного вида на странице").isTrue();
+    }
+
+    @Step("Проверка установки метки для всех тендеров на странице для карточного вида")
+    public void check_mark_all_selected_tender_card_view(){
+        assertThat(page.isMarkAllSelectedTenderCardView()).as("Метка установилась НЕ для всех тендеров карточного вида на странице").isTrue();
     }
 
     @Step("Проверка заблокированности кнопки удаления метки")
     public void check_disabled_button_delete_mark(){
-        Assertions.assertThat(page.isDisabledButtonDeleteMark()).as("Кнопка удаления метки не заблокирована").isTrue();
+        assertThat(page.isDisabledButtonDeleteMark()).as("Кнопка удаления метки не заблокирована").isTrue();
     }
 
     @Step("Проверка появления текста ошибки")
     public void check_visible_error_message(){
-        Assertions.assertThat(page.isVisibleErrorMessage()).as("Ошибка не отобразилась").isTrue();
+        assertThat(page.isVisibleErrorMessage()).as("Ошибка не отобразилась").isTrue();
     }
 
     @Step("Проверка текста ошибки при сохранении метки с пустым названием")
     public void check_correct_error_message_empty_name_mark(){
-        Assertions.assertThat(page.isCorrectErrorMessageEmptyNameMark()).as("Текст ошибки при сохранении метки с пустым названием некорректен").isTrue();
+        assertThat(page.isCorrectErrorMessageEmptyNameMark()).as("Текст ошибки при сохранении метки с пустым названием некорректен").isTrue();
     }
 
     @Step("Проверка текста ошибки при сохранении метки с дублированным названием")
     public void check_correct_error_message_duplicate_name_mark(){
-        Assertions.assertThat(page.isCorrectErrorMessageDuplicateNameMark()).as("Текст ошибки при сохранении метки с дублирующим названием некорректен").isTrue();
+        assertThat(page.isCorrectErrorMessageDuplicateNameMark()).as("Текст ошибки при сохранении метки с дублирующим названием некорректен").isTrue();
     }
 
     @Step("Проверка текста ошибки при сохранении метки с пустым названием")
     public void check_correct_base_list_mark(){
-        Assertions.assertThat(page.isCorrectBaseListMark()).as("Базовый список меток некорректен (либо состав, либо порядок)").isTrue();
+        assertThat(page.isCorrectBaseListMark()).as("Базовый список меток некорректен (либо состав, либо порядок)").isTrue();
     }
 
     @Step("Проверка списка меток после добавления новой метки")
     public void check_correct_list_mark_after_add_new_mark(){
-        Assertions.assertThat(page.isCorrectListMarkAfterAddNewMark()).as("Список меток некорректен").isTrue();
+        assertThat(page.isCorrectListMarkAfterAddNewMark()).as("Список меток некорректен").isTrue();
     }
 
     @Step("Проверка названия новой метки")
     public void check_correct_name_new_mark(){
-        Assertions.assertThat(page.isCorrectNameNewMark()).as("Название добавленной метки некорректно").isTrue();
+        assertThat(page.isCorrectNameNewMark()).as("Название добавленной метки некорректно").isTrue();
     }
 
     @Step("Проверка появления новой метки")
     public void check_visible_new_mark(){
-        Assertions.assertThat(page.isVisibleNewMark()).as("Метка не добавилась").isTrue();
+        assertThat(page.isVisibleNewMark()).as("Метка не добавилась").isTrue();
     }
 
     @Step("Проверка отсутствия новой метки после удаления")
     public void check_not_visible_new_mark(){
-        Assertions.assertThat(page.isNotVisibleNewMark()).as("Метка не удалилась").isTrue();
+        assertThat(page.isNotVisibleNewMark()).as("Метка не удалилась").isTrue();
     }
 }

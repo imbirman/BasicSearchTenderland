@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="testpackage.TestMarkSetting" skipped="0" tests="1" time="28.49" timestamp="2023-08-17 03:25:55"><testcase classname="testpackage.TestMarkSetting" name="Проверка установки метки для всех выбранных тендеров карточного вида"><failure message="[Метка установилась НЕ для всех тендеров карточного вида на странице] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;" type="org.junit.ComparisonFailure">[Метка установилась НЕ для всех тендеров карточного вида на странице] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</failure><system-err>[Метка установилась НЕ для всех тендеров карточного вида на странице] expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;&#13;
+steps.MarkSettingSteps.check_mark_all_selected_tender_card_view(MarkSettingSteps.java:94)&#13;
+testpackage.TestMarkSetting.checkSetMarkAllSelectedTendersCardView(TestMarkSetting.java:101)&#13;
+</system-err></testcase></testsuite>

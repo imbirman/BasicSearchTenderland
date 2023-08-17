@@ -19,21 +19,25 @@ public class MarkSetting extends PageObject {
     protected By listAutoSearchToScroll = By.xpath("//div[@id='tl-scroll-tabs']//div[@class='dx-scrollable-container']"); // Блок автопоисков для прокрутки list-autosearches
 
     protected By buttonAutoSearchRegistryNumberAndRegion = By.xpath("//div[text()='Проверка поиска по реестровому номеру и региону']"); // Кнопка автопоиска "Проверка поиска по реестровому номеру и региону"
+    protected By buttonCheckTenderNameAndNameDeletion = By.xpath("//div[text()='Проверка поиска по названию тендера и исключению из названия']"); // Кнопка автопоиска "Проверка по названию тендера и исключению из названия"
     protected By contextMenuResultSearch = By.xpath("//table[@class='dx-datagrid-table dx-pointer-events-none dx-datagrid-table-fixed']//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Кнопка контекстного меню для строки результата поиска
     protected By newElementListMark = By.xpath("//div[text()='Тестовая метка']"); // Новая метка
     protected By elementListMark = By.xpath("//div[@id='tl-user-tag-list']//div[@class='dx-item dx-list-item']//div[not(@*)]"); // Элемент списка меток
 
     protected By buttonSettingMark = By.xpath("//div[text()='Настройка']"); // Кнопка "Настройки" в контекстном меню
     protected By buttonSaveMark = By.id("tl-save-user-tag-button"); // Кнопка сохранения метки
-    protected By buttonDeleteMark = By.id("tl-delete-user-tag-button"); // Кнопка удаления метки
     protected By buttonAddMark = By.id("tl-add-new-user-tag-button"); // Кнопка добавления метки
     protected By buttonApproveDeleteMark = By.xpath("//div[@class='common-popup-confirm-footer']//span[text()='Удалить']"); // Кнопка подтверждения удаления метки
     protected By buttonCardView = By.id("search-panel-card-view"); // Кнопка "Карточный вид"
+    protected By buttonDeleteMark = By.xpath("//div[@class='dx-submenu']//div[text()='Удалить']"); // Кнопка "Удалить метку"
     protected By buttonSetMarkCardView = By.xpath("(//div[@class='search-result-card-header']//i)[3]"); // Кнопка "Выбрать цвет метки" для карточного вида
+    protected By buttonSelectAllTenders = By.xpath("//div[@id='search-result-checkbox']//span"); // Кнопка выбора всех тендеров на странице
+    protected By buttonContextMenuForSelectedTenders = By.id("search-panel-selection-entities"); // Кнопка раскрытия контекстного меню для выбранных тендеров
+
 
     protected By markContextMenu = By.xpath("//div[text()='Назначить метку']"); // пункт контекстного меню "Назначить метку"
     protected By redMarkContextMenu = By.xpath("//div[text()='Красный']"); // Метка "Красный" в контекстном меню
-    protected By deleteMark = By.xpath("//div[@class='dx-submenu']//div[text()='Удалить']"); // Кнопка "Удалить метку"
+
 
     private final By markTender = By.xpath("//div[@class='tl-tag-tender']"); // Метка тендера
     private final By markTenderCardView = By.xpath("//div[@class='search-result-card-tag-line']"); // Метка тендера в карточном виде
@@ -94,6 +98,30 @@ public class MarkSetting extends PageObject {
     public boolean isMarkOfTender(){
         return find(markTender).getAttribute("style").contains("background: rgb(235, 9, 16);");
     } // Проверка, что метка красная
+
+    public boolean isMarkAllSelectedTender(){
+        boolean check = true;
+       List <WebElementFacade> checkMark = findAll(markTender);
+        for(WebElementFacade type:checkMark){
+            if(!type.getAttribute("style").contains("background: rgb(235, 9, 16);")){
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка установки метки для всех тендеров на странице для табличного вида
+
+    public boolean isMarkAllSelectedTenderCardView(){
+        boolean check = true;
+        List <WebElementFacade> checkMark = findAll(markTenderCardView);
+        for(WebElementFacade type:checkMark){
+            if(!type.getAttribute("style").contains("background: rgb(235, 9, 16);")){
+                check = false;
+                break;
+            }
+        }
+        return check;
+    } // Проверка установки метки для всех тендеров на странице для карточного вида
 
     public boolean isMarkOfTenderCardView(){
         return find(markTenderCardView).getAttribute("style").contains("background-color: rgb(235, 9, 16);");
