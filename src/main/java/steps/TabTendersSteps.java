@@ -281,6 +281,11 @@ public class TabTendersSteps {
         Assertions.assertThat(page.isMarkOfTender()).as("Цвет метки не соответствует выбранному").isTrue();
     }
 
+    @Step("Проверка метки тендера в карточном виде")
+    public void check_mark_of_tender_card_view(){
+        Assertions.assertThat(page.isMarkOfTenderCardView()).as("Цвет метки не соответствует выбранному").isTrue();
+    }
+
     @Step("Проверка удаления метки тендера")
     public void check_deletion_mark_of_tender(){
         Assertions.assertThat(page.isDeletionMarkOfTender()).as("Метка не была удалена").isTrue();

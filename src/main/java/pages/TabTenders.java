@@ -43,6 +43,8 @@ public class TabTenders extends PageObject {
     protected By buttonCheckSearchByNotice = By.xpath("//div[text()='Проверка поиска по извещению']"); // Кнопка автопоиска "Проверка поиска по извещению"
     protected By buttonHideFilter = By.xpath("(//i[@class='material-icons-round icon-20px icon-grey icon-grey-hover md-filter_alt_off'])[2]"); // Кнопка скрытия фильтра
     protected By buttonOpenTreeList = By.xpath("(//div[@class='dx-treelist-icon-container'])[1]"); // Кнопка раскрытия подкатегории
+    protected By buttonCardView = By.id("search-panel-card-view"); // Кнопка "Карточный вид"
+    protected By buttonSetMarkCardView = By.xpath("(//div[@class='search-result-card-header']//i)[3]"); // Кнопка "Выбрать цвет метки" для карточного вида
 
 
     protected By filterRegionRoot = By.xpath("//div[text()='Санкт-Петербург Город']"); // Фильтр "Регион" в поле построения дерева фильтров для автопоиска "Проверка поиска по реестровому номеру и региону"
@@ -76,7 +78,7 @@ public class TabTenders extends PageObject {
     protected By cellTableForCheckRegion = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[5]"); // Ячейка таблицы результатов поиска для проверки региона
 
     protected By contextMenuResultSearch = By.xpath("//table[@class='dx-datagrid-table dx-pointer-events-none dx-datagrid-table-fixed']//a[@class='dx-link dx-icon-overflow dx-link-icon']"); // Кнопка контекстного меню для строки результата поиска
-    protected By markContextMenu = By.xpath("//div[text()='Метка тендера']"); // пункт контекстного меню "Метка тендера"
+    protected By markContextMenu = By.xpath("//div[text()='Назначить метку']"); // пункт контекстного меню "Назначить метку"
     protected By redMarkContextMenu = By.xpath("//div[text()='Красный']"); // Метка "Красный" в контекстном меню
     protected By deleteMark = By.xpath("//div[@class='dx-submenu']//div[text()='Удалить']"); // Кнопка "Удалить метку"
 
@@ -90,6 +92,7 @@ public class TabTenders extends PageObject {
     private final By fieldDocumentation = By.id("gethtml_file_content"); // Содержимое документации
     private final By searchWordIntoNoticeDocumentation = By.xpath("//em"); // Поисковое слово в извещении (выделенное)
     private final By markTender = By.xpath("//div[@class='tl-tag-tender']"); // Метка тендера
+    private final By markTenderCardView = By.xpath("//div[@class='search-result-card-tag-line']"); // Метка тендера в карточном виде
     private final By filterRoot = By.xpath("//div[@class='dx-sortable tl-filter-content tl-filter-drop-area']"); // Поле дерева фильтров
     private final By cellTableForCheckCustomer = By.xpath("//div[@class='dx-datagrid-content']/table[@role='presentation']//tr[@class='dx-row dx-data-row dx-row-lines']/td[8]"); // Ячейка таблицы результатов поиска для проверки заказчика
 
@@ -587,8 +590,12 @@ public class TabTenders extends PageObject {
     } // Проверка поиска со скрытым фильтром
 
     public boolean isMarkOfTender(){
-        return find(markTender).getAttribute("style").contains("background: rgb(235, 9, 16); height: 100%;");
+        return find(markTender).getAttribute("style").contains("background: rgb(235, 9, 16);");
     } // Проверка, что метка красная
+
+    public boolean isMarkOfTenderCardView(){
+        return find(markTenderCardView).getAttribute("style").contains("background-color: rgb(235, 9, 16);");
+    } // Проверка, что метка красная в карточном виде
 
     public boolean isDeletionMarkOfTender(){
         return find(markTender).getAttribute("style").contains("height: 0%;");

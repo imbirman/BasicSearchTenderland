@@ -445,6 +445,18 @@ public class TestTabTenders extends TabTenders {
     }
 
     @Test
+    @Title("Проверка метки тендера в карточном виде")
+    public void checkMarkOfTenderCardView(){
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonAutoSearchRegistryNumberAndRegion);
+        steps.wait_a_bit(1000);
+        steps.click_button(buttonCardView);
+        steps.click_button(buttonSetMarkCardView);
+        steps.click_button(redMarkContextMenu);
+        steps.check_mark_of_tender_card_view();
+    }
+
+    @Test
     @Title("Проверка удаления метки тендера")
     public void checkDeletionMarkOfTender(){
         steps.click_button(tabListAutoSearch);
