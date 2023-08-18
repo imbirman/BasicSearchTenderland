@@ -120,4 +120,9 @@ public class GeneralChecksSteps {
     public void check_displayed_selection_counter(){
         assertThat(page.isDisplayedSelectionCounter()).as("Счетчик выбранных тендеров в поиске не отображается").isTrue();
     }
+
+    @Step("Проверка значения счетчика выбранных тендеров в поиске")
+    public void check_correct_selection_counter(){
+        assertThat(page.isCorrectSelectionCounter()).as("Значение счетчика выбранных тендеров в поиске некорректно").isTrue();
+    }
 }

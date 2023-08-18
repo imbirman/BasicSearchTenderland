@@ -121,13 +121,23 @@ public class TestGeneralChecks extends GeneralChecks {
 
     @Test
     @Title("Проверка отображения счетчика выбранных тендеров в результате поиска")
-    public void check_displayed_selection_counter_in_result_search(){
+    public void checkDisplayedSelectionCounter(){
         steps.click_button(tabListAutoSearch);
         steps.scroll_element_on_pixels("1000", listAutoSearchToScroll);
         steps.click_button(buttonCheckHideResultSearch);
         steps.wait_a_bit(500);
         steps.click_button(checkBoxSelectedAllForTableResultSearch);
         steps.check_displayed_selection_counter();
+    }
+
+    @Test
+    @Title("Проверка значения счетчика выбранных тендеров в результате поиска")
+    public void checkCorrectSelectionCounter(){
+        steps.click_button(tabListAutoSearch);
+        steps.click_button(buttonCheckTenderNameAndNameDeletion);
+        steps.wait_a_bit(500);
+        steps.click_button(checkBoxSelectedAllForTableResultSearch);
+        steps.check_correct_selection_counter();
     }
 
 }

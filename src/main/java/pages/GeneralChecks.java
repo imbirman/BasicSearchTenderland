@@ -162,4 +162,8 @@ public class GeneralChecks extends PageObject {
         return find(selectionCounter).isDisplayed();
     } // Проверка отображения счетчика выбранных тендеров в поиске
 
+    public boolean isCorrectSelectionCounter(){
+        return find(selectionCounter).getText().equals("60");
+    } // Проверка значения счетчика выбранных тендеров в поиске
+
 }
